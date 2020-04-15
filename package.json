@@ -21,7 +21,7 @@
     "check-url": "node -r esm src/verifyUrl.js"
   },
   "dependencies": {
-    "@socialgouv/datafiller-data": "^1.4.0",
+    "@socialgouv/datafiller-data": "^1.5.0",
     "@socialgouv/legi-data": "^1.2.0",
     "esm": "^3.2.25",
     "jsdom": "^16.2.2",
