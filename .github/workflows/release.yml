@@ -22,13 +22,14 @@ jobs:
         with:
           node-version: 12
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn --frozen-lockfile  --production
       - name: Release
         env:
           DATAFILLER_URL: ${{ secrets.DATAFILLER_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "scrap pages"
           yarn start
           if [[ "$(git status data/ --porcelain)" != "" ]]; then
             # Check JSON files

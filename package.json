@@ -20,11 +20,11 @@
     "test": "jest",
     "check-url": "node -r esm src/verifyUrl.js"
   },
-  
   "dependencies": {
     "@socialgouv/datafiller-data": "^1.4.0",
     "@socialgouv/legi-data": "^1.2.0",
-    "jsdom": "^16.2.2", 
+    "esm": "^3.2.25",
+    "jsdom": "^16.2.2",
     "p-limit": "^2.3.0",
     "superagent": "^5.2.2",
     "talisman": "^1.1.1",
@@ -32,11 +32,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-env": "^7.9.5", 
     "@socialgouv/eslint-config-recommended": "^0.20.0",
     "babel-jest": "^25.3.0",
     "eslint": "^6.8.0",
-    "esm": "^3.2.25",
     "husky": "^4.2.5",
     "jest": "^25.3.0",
     "npm-run-all": "^4.1.5",
@@ -51,7 +50,7 @@
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.jsx?$",
     "moduleFileExtensions": [
-      "js", 
+      "js",
       "json"
     ]
   },

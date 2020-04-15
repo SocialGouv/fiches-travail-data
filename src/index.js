@@ -185,7 +185,7 @@ if (module === require.main) {
   const t0 = Date.now();
   fetchAndParse(urls)
     .then(() => {
-      console.error(`done in ${Math.round((Date.now() - t0) / 1000)} sec`);
+      console.log(`done in ${Math.round((Date.now() - t0) / 1000)} sec`);
     })
     .catch((error) => {
       console.error(error);
