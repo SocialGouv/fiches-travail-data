@@ -1,0 +1,69 @@
+{
+  "name": "@socialgouv/fiches-travail-data",
+  "version": "0.0.0",
+  "main": "index.js",
+  "files": [
+    "data"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SocialGouv/fiches-travail-data.git"
+  },
+  "author": "LionelB <lionel@lumographe.fr>",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "start": "node -r esm src/index.js",
+    "lint": "eslint src --ext .js",
+    "test": "jest",
+    "check-url": "node -r esm src/verifyUrl.js"
+  },
+  
+  "dependencies": {
+    "@socialgouv/datafiller-data": "^1.4.0",
+    "@socialgouv/legi-data": "^1.2.0",
+    "jsdom": "^16.2.2", 
+    "p-limit": "^2.3.0",
+    "superagent": "^5.2.2",
+    "talisman": "^1.1.1",
+    "unist-util-find": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@socialgouv/eslint-config-recommended": "^0.20.0",
+    "babel-jest": "^25.3.0",
+    "eslint": "^6.8.0",
+    "esm": "^3.2.25",
+    "husky": "^4.2.5",
+    "jest": "^25.3.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.4"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.jsx?$",
+    "moduleFileExtensions": [
+      "js", 
+      "json"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint src --ext .js",
+      "pre-push": "run-p lint test"
+    }
+  },
+  "release": {
+    "branches": [
+      "master"
+    ]
+  }
+}

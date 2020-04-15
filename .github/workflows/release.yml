@@ -1,0 +1,49 @@
+name: Release
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: "0 23 * * *"
+  repository_dispatch:
+    types: manual_release
+  push:
+    branches:
+      - master
+    tags-ignore:
+      - v*
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Release
+        env:
+          DATAFILLER_URL: ${{ secrets.DATAFILLER_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          yarn start
+          if [[ "$(git status data/ --porcelain)" != "" ]]; then
+            # Check JSON files
+            for filename in ./data/*\.json; do
+              node "$filename" > /dev/null || {
+                echo "Error: Invalid JSON in $filename"
+                exit 1
+              }
+            done
+            NOW=$(date +"%Y%m%d_%H%M")
+            git config user.name "Social Groovy Bot"
+            git config user.email "45039513+SocialGroovyBot@users.noreply.github.com" 
+            git commit -m"feat(data): $NOW update" . --no-verify
+            git push --no-verify 
+            npx semantic-release
+          else
+            echo "no changes detected"
+          fi
