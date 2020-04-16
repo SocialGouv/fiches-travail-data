@@ -21,17 +21,23 @@ const CODE_PREFIX = "B-COD";
 const CODE_TRA = CODE_PREFIX + "_TRA";
 // code sécurité sociale
 const CODE_SS = CODE_PREFIX + "_SS";
+// code any other
+const CODE_OTHER = CODE_PREFIX + "_O";
+
+const UNRECOGNIZED = "unrecognized";
 
 const CODE_TRAVAIL = {
   name: "code du travail",
   id: "LEGITEXT000006072050",
 };
 
+const CODE_SECU = {
+  name: "code de la sécurité sociale",
+  id: "LEGITEXT000006073189",
+};
+
 const codesFullNames = {
-  [CODE_SS]: {
-    name: "code de la sécurité sociale",
-    id: "LEGITEXT000006073189",
-  },
+  [CODE_SS]: CODE_SECU,
   [CODE_TRA]: CODE_TRAVAIL,
 };
 
@@ -177,7 +183,7 @@ function identifyCodes(tokens, predicitions) {
       } else if (joinedNextTokens.startsWith(codesFullNames[CODE_TRA].name)) {
         return CODE_TRA;
       } else {
-        return NEGATIVE;
+        return CODE_OTHER;
       }
     } else {
       return pred;
@@ -204,7 +210,7 @@ function extractReferences(text) {
       return { token, index, pred: predictions[index] };
     })
     .reduce((acc, { token, index, pred }) => {
-      // case article we start or merge
+      // case article : we start or merge
       if (pred == ARTICLE) {
         if (acc.length == 0) {
           acc.push({ token, index });
@@ -224,16 +230,30 @@ function extractReferences(text) {
         acc.forEach((match) => {
           // if no code yet and in range
           if (!match.code && match.index + range >= index) {
-            match.code = codesFullNames[pred];
+            if (pred in codesFullNames) {
+              match.code = codesFullNames[pred];
+            } else {
+              match.code = UNRECOGNIZED;
+            }
           }
         });
       }
 
       return acc;
     }, [])
+    .filter(({ code }) => {
+      // valid cases are no code or code different than UNRECOGNIZED (for other codes : rural, education...)
+      return !code || (code && code != UNRECOGNIZED);
+    })
     .map(({ token, code }) => {
-      return { article: token, code };
+      return { text: token, code };
     });
 }
 
-export { classifyTokens, extractReferences, codesFullNames, CODE_TRAVAIL };
+export {
+  classifyTokens,
+  extractReferences,
+  codesFullNames,
+  CODE_TRAVAIL,
+  CODE_SECU,
+};
