@@ -25,6 +25,16 @@ const formatAnchor = (node) => {
   if (/^javascript:/.test(href)) {
     node.parentNode.innerHTML = node.textContent;
   }
+  if (/email-protection/.test(href)) {
+    const [, data = ""] = href.split("#");
+    const [k, ...tokens] = Array.from(
+      { length: data.length / 2 },
+      (_, i) => i * 2
+    ).map((val) => parseInt(data.slice(val, val + 2), 16));
+    const rawValue = tokens.map((v) => String.fromCharCode(v ^ k)).join("");
+    node.setAttribute("href", `mailto:${decodeURIComponent(escape(rawValue))}`);
+    return;
+  }
   if (!href.match(/^https?:\/\//)) {
     if (href.slice(0, 1) !== "/") {
       href = "/" + href;
