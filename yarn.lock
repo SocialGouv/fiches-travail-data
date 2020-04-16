@@ -1014,12 +1014,11 @@
   dependencies:
     type-detect "4.0.8"
 
-"@socialgouv/datafiller-data@^1.6.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.6.0.tgz#02bce9a2fb3ee70b8e867d160cdd61fa3bf60901"
-  integrity sha512-AobhviOArF18wozeG31XnjBVycVrmMLHZfOyj0tdmkqblOwPE/aaFZ2B+y0pFWshVtzLefCe3LrA7a30EgecuA==
+"@socialgouv/datafiller-data@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.7.0.tgz#c712090bb2af1ba3f281f928ce43f29033b7c940"
+  integrity sha512-1cT++pCN009F3Y2z14L6ILKdBDDSV5LyljjDAyD+tLnJYFDaUPGcO1Vs6PelDe0lf590eiip7O/kLjvIewWEAQ==
   dependencies:
-    "@types/node-fetch" "^2.5.5"
     node-fetch "^2.6.0"
     p-pipe "^3.0.0"
     remark "^11.0.2"
@@ -1119,19 +1118,6 @@
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.4.tgz#38fd73ddfd9b55abb1e1b2ed578cb55bd7b7d339"
   integrity sha512-8+KAKzEvSUdeo+kmqnKrqgeE+LcA0tjYWFY7RPProVYwnqDjukzO+3b6dLD56rYX5TdWejnEOLJYOIeh4CXKuA==
-
-"@types/node-fetch@^2.5.5":
-  version "2.5.6"
-  resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.5.6.tgz#df8377a66e64ddf75b65b072e37b3c5c5425a96f"
-  integrity sha512-2w0NTwMWF1d3NJMK0Uiq2UNN8htVCyOWOD0jIPjPgC5Ph/YP4dVhs9YxxcMcuLuwAslz0dVEcZQUaqkLs3IzOQ==
-  dependencies:
-    "@types/node" "*"
-    form-data "^3.0.0"
-
-"@types/node@*":
-  version "13.11.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.11.1.tgz#49a2a83df9d26daacead30d0ccc8762b128d53c7"
-  integrity sha512-eWQGP3qtxwL8FGneRrC5DwrJLGN4/dH1clNTuLfN81HCrxVtxRjygDTUoZJ5ASlDEeo0ppYFQjQIlXhtXpOn6g==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
