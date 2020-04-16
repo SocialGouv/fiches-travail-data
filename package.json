@@ -17,9 +17,7 @@
   "scripts": {
     "start": "node -r esm src/index.js",
     "lint": "eslint src --ext .js",
-    "test": "jest",
-    "check-url": "node -r esm src/verifyUrl.js",
-    "check-refs": "node -r esm src/checkRefs.js"
+    "test": "jest"
   },
   "dependencies": {
     "@socialgouv/datafiller-data": "^1.6.0",
