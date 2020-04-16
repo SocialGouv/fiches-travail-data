@@ -1,7 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const { classifyTokens, extractReferences } = require("../referenceExtractor");
-const { resolveReferences } = require("../referenceResolver");
+import * as fs from "fs";
+import * as path from "path";
+import { classifyTokens, extractReferences } from "../referenceExtractor";
+import { resolveReferences } from "../referenceResolver";
 
 const annotatedTokens = fs
   .readFileSync(path.join(__dirname, "referenceExtractor.test.txt"))
