@@ -2,6 +2,10 @@
 Json formated data from from set of page of travail-emploi website
 You can include json data 
 
+[![Node.js CI](https://github.com/SocialGouv/fiches-travail-data/workflows/Node.js%20CI/badge.svg)](https://github.com/SocialGouv/fiches-travail-data/actions?query=workflow%3A%22Node.js+CI%22+branch%3Amaster)
+[![Release](https://github.com/SocialGouv/fiches-travail-data/workflows/Release/badge.svg)](https://github.com/SocialGouv/fiches-travail-data/actions?query=workflow%3ARelease+branch%3Amaster)
+[![codecov](https://codecov.io/gh/SocialGouv/fiches-travail-data/branch/master/graph/badge.svg)](https://codecov.io/gh/SocialGouv/fiches-travail-data)
+
 ## Usage
 
 ```js 
