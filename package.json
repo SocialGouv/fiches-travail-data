@@ -18,7 +18,8 @@
     "start": "node -r esm src/index.js",
     "lint": "eslint src --ext .js",
     "test": "jest",
-    "check-url": "node -r esm src/verifyUrl.js"
+    "check-url": "node -r esm src/verifyUrl.js",
+    "check-refs": "node -r esm src/checkRefs.js"
   },
   "dependencies": {
     "@socialgouv/datafiller-data": "^1.6.0",
@@ -28,11 +29,12 @@
     "p-limit": "^2.3.0",
     "superagent": "^5.2.2",
     "talisman": "^1.1.1",
-    "unist-util-find": "^1.0.1"
+    "unist-util-find": "^1.0.1",
+    "unist-util-visit": "^2.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5", 
+    "@babel/preset-env": "^7.9.5",
     "@socialgouv/eslint-config-recommended": "^0.20.0",
     "babel-jest": "^25.3.0",
     "eslint": "^6.8.0",
