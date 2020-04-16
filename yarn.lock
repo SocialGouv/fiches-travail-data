@@ -1014,10 +1014,10 @@
   dependencies:
     type-detect "4.0.8"
 
-"@socialgouv/datafiller-data@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.5.0.tgz#80bb9fb77e6d105c46f32c401e3707a84fc0b0e0"
-  integrity sha512-ubqN57qqR3RiI1fVxlgLVIcRsw1j7SMAvE18jmAxAPiAtjCvFSNUzKjlCvMu0m7Alp6FTu3/Wmda5neUPM/6Wg==
+"@socialgouv/datafiller-data@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.6.0.tgz#02bce9a2fb3ee70b8e867d160cdd61fa3bf60901"
+  integrity sha512-AobhviOArF18wozeG31XnjBVycVrmMLHZfOyj0tdmkqblOwPE/aaFZ2B+y0pFWshVtzLefCe3LrA7a30EgecuA==
   dependencies:
     "@types/node-fetch" "^2.5.5"
     node-fetch "^2.6.0"
