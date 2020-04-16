@@ -25,14 +25,21 @@ const formatAnchor = (node) => {
   if (/^javascript:/.test(href)) {
     node.parentNode.innerHTML = node.textContent;
   }
-  if (/email-protection/.test(href)) {
-    const [, data = ""] = href.split("#");
+  if (/email-protection/.test(href) || node.hasAttribute("data-cfemail")) {
+    let [, data = ""] = href.split("#");
+    if (!data) {
+      data = node.getAttribute("data-cfemail");
+    }
     const [k, ...tokens] = Array.from(
       { length: data.length / 2 },
       (_, i) => i * 2
     ).map((val) => parseInt(data.slice(val, val + 2), 16));
     const rawValue = tokens.map((v) => String.fromCharCode(v ^ k)).join("");
     node.setAttribute("href", `mailto:${decodeURIComponent(escape(rawValue))}`);
+    if (node.hasAttribute("data-cfemail")) {
+      node.removeAttribute("data-cfemail");
+      node.textContent = decodeURIComponent(escape(rawValue));
+    }
     return;
   }
   if (!href.match(/^https?:\/\//)) {
