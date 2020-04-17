@@ -50,6 +50,7 @@
     "typescript": "^3.8.3"
   },
   "jest": {
+    "collectCoverageFrom": ["src/**/*.{js,ts}"],
     "roots": [
       "<rootDir>/src"
     ],
