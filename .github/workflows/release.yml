@@ -30,8 +30,9 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "scrap pages"
+          yarn build
           yarn start
-          node -r esm src/checkRefs.js
+          yarn test:ref-check
           if [[ "$(git status data/ --porcelain)" != "" ]]; then
             # Check JSON files
             for filename in ./data/*\.json; do
@@ -42,9 +43,9 @@ jobs:
             done
             NOW=$(date +"%Y%m%d_%H%M")
             git config user.name "Social Groovy Bot"
-            git config user.email "45039513+SocialGroovyBot@users.noreply.github.com" 
+            git config user.email "45039513+SocialGroovyBot@users.noreply.github.com"
             git commit -m"feat(data): $NOW update" . --no-verify
-            git push --no-verify 
+            git push --no-verify
             npx semantic-release
           else
             echo "no changes detected"

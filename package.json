@@ -15,15 +15,16 @@
     "access": "public"
   },
   "scripts": {
+    "build": "babel src --out-dir lib --ignore **/__tests__ --extensions .js --extensions .ts",
     "lint": "eslint src --ext .js --ext .ts",
-    "start": "node -r esm src/index.js",
+    "start": "node lib/index.js",
     "test": "jest",
+    "test:ref-check": "node lib/scripts/checkRefs.js",
     "type-check": "tsc"
   },
   "dependencies": {
     "@socialgouv/datafiller-data": "^1.10.0",
     "@socialgouv/legi-data": "^1.2.0",
-    "esm": "^3.2.25",
     "jsdom": "^16.2.2",
     "p-limit": "^2.3.0",
     "superagent": "^5.2.2",
@@ -32,6 +33,7 @@
     "unist-util-visit": "^2.0.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-typescript": "^7.9.0",
@@ -50,7 +52,9 @@
     "typescript": "^3.8.3"
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.{js,ts}"],
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts}"
+    ],
     "roots": [
       "<rootDir>/src"
     ],

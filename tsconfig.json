@@ -1,20 +1,19 @@
 {
-	"compilerOptions": {
+  "compilerOptions": {
     "baseUrl": ".",
     "lib": ["dom"],
-		"target": "esnext",
-		"moduleResolution": "node",
-		"allowJs": true,
-		"noEmit": true,
-		"strict": true,
-		"isolatedModules": true,
+    "target": "esnext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "isolatedModules": true,
     "esModuleInterop": true,
     "types": ["jest", "jsdom", "node"],
     "paths": {
-      "talisman/*": ["./@types/talisman/*"],
+      "talisman/*": ["./@types/talisman/*"]
     }
-	},
-	"include": [
-		"src"
-	]
+  },
+  "include": ["src"]
 }

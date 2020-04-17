@@ -31,4 +31,5 @@ jobs:
       - run: yarn test --coverage
         env:
           CI: true
+      - run: yarn build
       - uses: codecov/codecov-action@v1
