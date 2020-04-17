@@ -45,7 +45,7 @@ const codesFullNames = {
 const range = 20;
 
 const articleRegEx = new RegExp("^(\\d{1,4}(-\\d+){0,3})\\b"); //          nums        123 123-45 123-45-6 123-45-6-7
-function articleMatcher(token: string) {
+function articleMatcher(token: string):string[] | null {
   return token.match(articleRegEx);
 }
 
