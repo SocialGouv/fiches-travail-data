@@ -2,7 +2,7 @@
 Extracting references is done in several steps :
 1) classifyTokens : we identify valid article references (start with l/r/d then token of shape like 1234-12) => split text into sequence of tokens and give a label to each token
 2) identifyCode : we search for the associated code after the ref tokens (valid options are : code du travail / code de la scurite sociale)
-3) we group those to constitute structured reference of shape : 
+3) we group those to constitute structured reference of shape :
   {
     "article": "L. 2313-8",
     "code": Object {
@@ -45,7 +45,7 @@ const codesFullNames = {
 const range = 20;
 
 const articleRegEx = new RegExp("^(\\d{1,4}(-\\d+){0,3})\\b"); //          nums        123 123-45 123-45-6 123-45-6-7
-function articleMatcher(token) {
+function articleMatcher(token: string) {
   return token.match(articleRegEx);
 }
 
@@ -55,7 +55,7 @@ const validPrefix = ["l", "r", "d"];
 // 0 if not matching
 // 1 if matching prefix only (L.)
 // 2 if matching prefix and valid ref (L123.12)
-function prefixMatcher(token) {
+function prefixMatcher(token: string) {
   const lowToken = token.toLowerCase();
 
   // if starts with possible prefix
@@ -88,13 +88,13 @@ function prefixMatcher(token) {
   return 0;
 }
 
-function infixMatcher(token) {
+function infixMatcher(token: string) {
   // this is quite subtle...
   return ["à", "à"].includes(token);
 }
 
 // classify sequence of tokens to identify references to articles
-function classifyTokens(tokens) {
+function classifyTokens(tokens: string[]) {
   // step 1 : check for prefix matches or articles
   const step1 = tokens.map((token) => {
     const prefix = prefixMatcher(token);
@@ -116,7 +116,8 @@ function classifyTokens(tokens) {
   // hack : we keep a buffer as last element of the accumulator
   const predictions = step1.reduce(
     (acc, e) => {
-      const buffer = acc[acc.length - 1];
+      // FIXME(douglasduteil): forced any type
+      const buffer: number[] = acc[acc.length - 1] as any;
       const inSequence = buffer.length > 0;
       const lastElement = buffer[buffer.length - 1];
 
@@ -151,10 +152,11 @@ function classifyTokens(tokens) {
 
       return acc;
     },
-    [[]]
+    [[]] as Array<number[] | boolean>
   );
   // conclude
-  const residual = predictions.pop();
+  // FIXME(douglasduteil): forced any type
+  const residual: number[] = predictions.pop() as any;
   // if ends with bigger than 1, then add residual as true
   if (residual.length > 0 && residual[residual.length - 1] > 1) {
     predictions.push(...residual.map(() => true));
@@ -165,7 +167,10 @@ function classifyTokens(tokens) {
   return predictions.map((p) => (p ? ARTICLE : NEGATIVE));
 }
 
-function identifyCodes(tokens, predicitions) {
+function identifyCodes(
+  tokens: string[],
+  predicitions: Array<typeof ARTICLE | typeof NEGATIVE>
+) {
   // we look for "code" tokens (starting a code reference)
   const matchCode = tokens.map((token, i) => {
     return token.toLowerCase() == "code" ? CODE_PREFIX : predicitions[i];
@@ -194,20 +199,20 @@ function identifyCodes(tokens, predicitions) {
 }
 
 // extract references from free text : tokenize and classify
-function extractReferences(text) {
+function extractReferences(text: string) {
   const tokens = treebank(text);
-  let predictions = classifyTokens(tokens);
-  predictions = identifyCodes(tokens, predictions);
+  const predictions = classifyTokens(tokens);
+  const pred = identifyCodes(tokens, predictions);
 
   // console.log(tokens);
-  // console.log(predictions);
+  // console.log(pred);
 
   // group continuous positives tokens and set code
   // while continuous match, merge
   // if code, then associate it to articles within range
   return tokens
     .map((token, index) => {
-      return { token, index, pred: predictions[index] };
+      return { token, index, pred: pred[index] };
     })
     .reduce((acc, { token, index, pred }) => {
       // case article : we start or merge
@@ -230,17 +235,13 @@ function extractReferences(text) {
         acc.forEach((match) => {
           // if no code yet and in range
           if (!match.code && match.index + range >= index) {
-            if (pred in codesFullNames) {
-              match.code = codesFullNames[pred];
-            } else {
-              match.code = UNRECOGNIZED;
-            }
+            match.code = codesFullNames[pred] || UNRECOGNIZED;
           }
         });
       }
 
       return acc;
-    }, [])
+    }, [] as { token: string; index: number; code?: typeof UNRECOGNIZED | typeof CODE_TRAVAIL }[])
     .filter(({ code }) => {
       // valid cases are no code or code different than UNRECOGNIZED (for other codes : rural, education...)
       return !code || (code && code != UNRECOGNIZED);

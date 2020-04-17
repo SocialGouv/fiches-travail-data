@@ -8,8 +8,8 @@ const annotatedTokens = fs
   .toString()
   .split("\n");
 
-const tokens = [];
-const labels = [];
+const tokens: string[] = [];
+const labels: string[] = [];
 
 annotatedTokens.map((line) => {
   const [t, l] = line.split("\t");
