@@ -3,8 +3,8 @@ module.exports = {
     [
       "@babel/preset-typescript",
       {
-        onlyRemoveTypeImports: true
-      }
+        onlyRemoveTypeImports: true,
+      },
     ],
     [
       "@babel/preset-env",
