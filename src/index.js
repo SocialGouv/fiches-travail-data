@@ -5,9 +5,7 @@ import pLimit from "p-limit";
 import path from "path";
 import { extractReferences } from "./referenceExtractor";
 import { resolveReferences } from "./referenceResolver";
-
-const $$ = (node, selector) => Array.from(node.querySelectorAll(selector));
-const $ = (node, selector) => node.querySelector(selector);
+import { $$, $ } from "./utils";
 
 function unwrapEmail(data = "") {
   const [k, ...tokens] = Array.from(
