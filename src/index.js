@@ -41,7 +41,8 @@ const formatAnchor = (node) => {
     node.parentNode.innerHTML = node.textContent;
   }
   if (/email-protection/.test(href)) {
-    const value = unwrapEmail(node.getAttribute("data-cfemail"));
+    const [, data = ""] = href.split("#");
+    const value = unwrapEmail(data);
     node.setAttribute("href", `mailto:${decodeURIComponent(escape(value))}`);
     return;
   }
@@ -106,6 +107,7 @@ function parseDom(dom) {
     dom.window.document,
     "meta[name=description]"
   ).getAttribute("content");
+  const pubIdMeta = $(dom.window.document, "meta[name='SPIP.identifier']");
   const sections = [];
   const sectionTag = getSectionTag(article);
 
@@ -168,6 +170,7 @@ function parseDom(dom) {
     intro,
     sections,
     title,
+    pubId: pubIdMeta && pubIdMeta.getAttribute("content"),
   };
 }
 
