@@ -9,6 +9,21 @@ import { resolveReferences } from "./referenceResolver";
 const $$ = (node, selector) => Array.from(node.querySelectorAll(selector));
 const $ = (node, selector) => node.querySelector(selector);
 
+function unwrapEmail(data = "") {
+  const [k, ...tokens] = Array.from(
+    { length: data.length / 2 },
+    (_, i) => i * 2
+  ).map((val) => parseInt(data.slice(val, val + 2), 16));
+  const rawValue = tokens.map((v) => String.fromCharCode(v ^ k)).join("");
+  return decodeURIComponent(escape(rawValue));
+}
+const formatEmail = (node) => {
+  const value = unwrapEmail(node.getAttribute("data-cfemail"));
+  node.className = "";
+  node.removeAttribute("data-cfemail");
+  node.textContent = value;
+};
+
 const formatAnchor = (node) => {
   if (node.textContent === "") {
     node.remove();
@@ -25,21 +40,10 @@ const formatAnchor = (node) => {
   if (/^javascript:/.test(href)) {
     node.parentNode.innerHTML = node.textContent;
   }
-  if (/email-protection/.test(href) || node.hasAttribute("data-cfemail")) {
-    let [, data = ""] = href.split("#");
-    if (!data) {
-      data = node.getAttribute("data-cfemail");
-    }
-    const [k, ...tokens] = Array.from(
-      { length: data.length / 2 },
-      (_, i) => i * 2
-    ).map((val) => parseInt(data.slice(val, val + 2), 16));
-    const rawValue = tokens.map((v) => String.fromCharCode(v ^ k)).join("");
-    node.setAttribute("href", `mailto:${decodeURIComponent(escape(rawValue))}`);
-    if (node.hasAttribute("data-cfemail")) {
-      node.removeAttribute("data-cfemail");
-      node.textContent = decodeURIComponent(escape(rawValue));
-    }
+  if (/email-protection/.test(href)) {
+    const [, data = ""] = href.split("#");
+    const value = unwrapEmail(data);
+    node.setAttribute("href", `mailto:${decodeURIComponent(escape(value))}`);
     return;
   }
   if (!href.match(/^https?:\/\//)) {
@@ -74,6 +78,7 @@ const getReferences = (text) => {
 function parseDom(dom) {
   const article = $(dom.window.document, "main");
   $$(article, "a").forEach(formatAnchor);
+  $$(article, "[data-cfemail]").forEach(formatEmail);
   $$(article, ".cs_blocs").forEach(flattenCsBlocs);
   $$(article, "img")
     .filter((node) => node.getAttribute("src").indexOf("data:image") === -1)
@@ -102,6 +107,7 @@ function parseDom(dom) {
     dom.window.document,
     "meta[name=description]"
   ).getAttribute("content");
+  const pubIdMeta = $(dom.window.document, "meta[name='SPIP.identifier']");
   const sections = [];
   const sectionTag = getSectionTag(article);
 
@@ -164,6 +170,7 @@ function parseDom(dom) {
     intro,
     sections,
     title,
+    pubId: pubIdMeta && pubIdMeta.getAttribute("content"),
   };
 }
 
