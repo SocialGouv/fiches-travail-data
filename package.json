@@ -15,9 +15,10 @@
     "access": "public"
   },
   "scripts": {
+    "lint": "eslint src --ext .js --ext .ts",
     "start": "node -r esm src/index.js",
-    "lint": "eslint src --ext .js",
-    "test": "jest"
+    "test": "jest",
+    "type-check": "tsc"
   },
   "dependencies": {
     "@socialgouv/datafiller-data": "^1.10.0",
@@ -33,31 +34,40 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
     "@socialgouv/eslint-config-recommended": "^0.20.0",
+    "@types/jest": "^25.2.1",
+    "@types/jsdom": "^16.2.1",
+    "@types/node": "^13.11.1",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
     "babel-jest": "^25.4.0",
     "eslint": "^6.8.0",
     "husky": "^4.2.5",
     "jest": "^25.4.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.0.4"
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3"
   },
   "jest": {
     "roots": [
       "<rootDir>/src"
     ],
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.jsx?$",
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/data/",
+      "/node_modules/"
+    ],
     "moduleFileExtensions": [
+      "ts",
       "js",
       "json"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint src --ext .js",
-      "pre-push": "run-p lint test"
+      "pre-commit": "run-p -l type-check lint",
+      "pre-push": "run-p -l type-check lint test"
     }
   },
   "release": {

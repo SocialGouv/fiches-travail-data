@@ -1,2 +1,12 @@
 extends:
   - "@socialgouv/eslint-config-recommended"
+  - "plugin:import/typescript"
+overrides:
+  - files:
+    - "*.ts"
+    parser: "@typescript-eslint/parser"
+    extends:
+      - "plugin:@typescript-eslint/recommended"
+    plugins:
+      - "@typescript-eslint"
+root: true
