@@ -17,7 +17,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version:
+          - 12.x
 
     steps:
       - name: Set up Node.js ${{ matrix.node-version }}
@@ -48,9 +49,9 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-${{ env.NODE_VERSION }}-yarn-
+            ${{ runner.os }}-${{ matrix.node-version }}-yarn-
 
       - name: Installing
         run: yarn --frozen-lockfile --link-duplicates
