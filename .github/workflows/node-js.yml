@@ -15,9 +15,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    env:
-      NODE_VERSION: 10.19.0 # renovate: github-tags/nodejs/node&versioning=node
-
     strategy:
       matrix:
         node-version: [12.x]
