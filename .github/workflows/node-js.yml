@@ -16,8 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      # renovate: datasource=github-tags depName=nodejs/node versioning=node
-      NODE_VERSION: 10.20.1
+      NODE_VERSION: 10.19.0 # renovate: github-tags/nodejs/node&versioning=node
 
     strategy:
       matrix:
