@@ -30,9 +30,11 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "scrap pages"
+
           yarn build
           yarn start
-          yarn test:ref-check
+          yarn e2e
+
           if [[ "$(git status data/ --porcelain)" != "" ]]; then
             # Check JSON files
             for filename in ./data/*\.json; do

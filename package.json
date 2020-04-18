@@ -71,13 +71,13 @@
   "repository": "SocialGouv/fiches-travail-data.git",
   "scripts": {
     "build": "babel src --out-dir lib --ignore **/__tests__ --extensions .js --extensions .ts",
-    "e2e": "run-s -c e2e:*",
+    "e2e": "run-s -c  \"e2e:* {@}\"",
     "e2e:ref-check": "node lib/scripts/checkRefs.js",
-    "lint": "run-s -c lint:*",
+    "lint": "run-s -c \"lint:* {@}\"",
     "lint:format": "eslint src --ext .js --ext .ts",
     "lint:type": "tsc",
     "start": "node lib/index.js",
-    "test": "run-s -c test:*",
+    "test": "run-s -c \"test:* {@}\" --",
     "test:unit": "jest"
   }
 }
