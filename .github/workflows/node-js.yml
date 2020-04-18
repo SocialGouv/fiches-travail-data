@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      # renovate: datasource=nvm depName=node versioning=10
+      # renovate: datasource=nvm depName=node versioning=10.x
       NODE_VERSION: 10.x
 
     strategy:
