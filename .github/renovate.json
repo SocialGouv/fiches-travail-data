@@ -2,7 +2,7 @@
   "extends": ["github>SocialGouv/renovate-config", ":automergeAll"],
   "regexManagers": [
     {
-      "fileMatch": ["^.github/workflows/*.yml$"],
+      "fileMatch": ["^\.github/workflows/*.yml$"],
       "matchStrings": [
         "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?_VERSION:\\s(?<currentValue>.*)\\s"
       ],
