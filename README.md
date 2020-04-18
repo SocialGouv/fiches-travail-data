@@ -45,3 +45,13 @@ curl -H "Accept: application/vnd.github.everest-preview+json" \
     --data '{"event_type": "manual_release"}' \
     https://api.github.com/repos/SocialGouv/fiches-travail-data/dispatches
 ```
+
+## Other
+
+### `package.json` format
+
+We trust [`syncpack`](https://github.com/JamieMason/syncpack).
+
+```sh
+$ npx syncpack format
+```
