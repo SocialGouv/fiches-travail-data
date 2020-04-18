@@ -4,9 +4,9 @@
     {
       "fileMatch": ["^\\.github/workflows/.*\\.yml$"],
       "matchStrings": [
-        "datasource=(?<datasource>.*?) depName=(?<depName>.*?) versioning=(?<versioning>.*?)\\s.*?_VERSION:\\s(?<currentValue>.*)\\s"
+        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s.*?_VERSION:\\s(?<currentValue>.*)\\s"
       ],
-      "versioningTemplate": "{{versioning}}"
+      "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     }
   ]
 }
