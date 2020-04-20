@@ -4,7 +4,9 @@ import { classifyTokens, extractReferences } from "../referenceExtractor";
 import { resolveReferences } from "../referenceResolver";
 
 const annotatedTokens = fs
-  .readFileSync(path.join(__dirname, "referenceExtractor.test.txt"))
+  .readFileSync(
+    path.join(__dirname, "__fixtures__/referenceExtractor.test.txt")
+  )
   .toString()
   .split("\n");
 
