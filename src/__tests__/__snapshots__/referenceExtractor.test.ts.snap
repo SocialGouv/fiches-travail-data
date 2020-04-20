@@ -350,6 +350,15 @@ Array [
 ]
 `;
 
+exports[`should resolve range "D. 5132-9 à D. 5132-10-4" 1`] = `
+Array [
+  Object {
+    "code": undefined,
+    "text": "D. 5132-9 à D. 5132-10-4",
+  },
+]
+`;
+
 exports[`should resolve range "L. 351-1 à L. 351-5 du code de la sécurité sociale" 1`] = `
 Array [
   Object {
