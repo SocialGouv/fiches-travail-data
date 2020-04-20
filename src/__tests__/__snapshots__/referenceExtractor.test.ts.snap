@@ -1,120 +1,159 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should extract article tokens in examples 1`] = `
+exports[`should extract article tokens from "Article D.  212-4" 1`] = `
 Array [
-  Array [
-    Object {
-      "code": Object {
-        "id": "LEGITEXT000006072050",
-        "name": "code du travail",
-      },
-      "text": "L. 2313‑8",
+  Object {
+    "code": undefined,
+    "text": "D. 212-4",
+  },
+]
+`;
+
+exports[`should extract article tokens from "Article D. 212-4" 1`] = `
+Array [
+  Object {
+    "code": undefined,
+    "text": "D. 212-4",
+  },
+]
+`;
+
+exports[`should extract article tokens from "Article D.212" 1`] = `
+Array [
+  Object {
+    "code": undefined,
+    "text": "D.212",
+  },
+]
+`;
+
+exports[`should extract article tokens from "Article D.212-5" 1`] = `
+Array [
+  Object {
+    "code": undefined,
+    "text": "D.212-5",
+  },
+]
+`;
+
+exports[`should extract article tokens from "Article D.212-5-6" 1`] = `
+Array [
+  Object {
+    "code": undefined,
+    "text": "D.212-5-6",
+  },
+]
+`;
+
+exports[`should extract article tokens from "Article D.212-5-6-7" 1`] = `
+Array [
+  Object {
+    "code": undefined,
+    "text": "D.212-5-6-7",
+  },
+]
+`;
+
+exports[`should extract article tokens from "Article D-212" 1`] = `
+Array [
+  Object {
+    "code": undefined,
+    "text": "D-212",
+  },
+]
+`;
+
+exports[`should extract article tokens from "Article D-212-4" 1`] = `
+Array [
+  Object {
+    "code": undefined,
+    "text": "D-212-4",
+  },
+]
+`;
+
+exports[`should extract article tokens from "Article D212 du code penal et article R413" 1`] = `
+Array [
+  Object {
+    "code": undefined,
+    "text": "R413",
+  },
+]
+`;
+
+exports[`should extract article tokens from "Article D212" 1`] = `
+Array [
+  Object {
+    "code": undefined,
+    "text": "D212",
+  },
+]
+`;
+
+exports[`should extract article tokens from "Article D212-3" 1`] = `
+Array [
+  Object {
+    "code": undefined,
+    "text": "D212-3",
+  },
+]
+`;
+
+exports[`should extract article tokens from "Article X*212-4" 1`] = `Array []`;
+
+exports[`should extract article tokens from "Article XD212" 1`] = `Array []`;
+
+exports[`should extract article tokens from "L. 1251-23xx du code du travail" 1`] = `
+Array [
+  Object {
+    "code": Object {
+      "id": "LEGITEXT000006072050",
+      "name": "code du travail",
     },
-    Object {
-      "code": Object {
-        "id": "LEGITEXT000006072050",
-        "name": "code du travail",
-      },
-      "text": "R. 2313-3 à R. 2313-6",
+    "text": "L. 1251-23xx",
+  },
+]
+`;
+
+exports[`should extract article tokens from "les modalités fixées par les articles L. 2313‑8 et R. 2313-3 à R. 2313-6 du code du travail ainsi que le L. 1251-18" 1`] = `
+Array [
+  Object {
+    "code": Object {
+      "id": "LEGITEXT000006072050",
+      "name": "code du travail",
     },
-    Object {
-      "code": undefined,
-      "text": "L. 1251-18",
+    "text": "L. 2313‑8",
+  },
+  Object {
+    "code": Object {
+      "id": "LEGITEXT000006072050",
+      "name": "code du travail",
     },
-  ],
-  Array [
-    Object {
-      "code": Object {
-        "id": "LEGITEXT000006072050",
-        "name": "code du travail",
-      },
-      "text": "L. 1251-23xx",
+    "text": "R. 2313-3 à R. 2313-6",
+  },
+  Object {
+    "code": undefined,
+    "text": "L. 1251-18",
+  },
+]
+`;
+
+exports[`should extract article tokens from "l’allocation de remplacement pour maternité ou paternité, prévues aux articles L. 613-19 à L.613-19-2 et L. 722-8 à 25 du code de la sécurité sociale, aux articles L. 732-10 à L. 732-12-1 du code rural et à l’article 17 de la loi n° 97-1051 du 18 novembre 1997 d’orientation sur la pêche maritime et les cultures marines" 1`] = `
+Array [
+  Object {
+    "code": Object {
+      "id": "LEGITEXT000006073189",
+      "name": "code de la sécurité sociale",
     },
-  ],
-  Array [
-    Object {
-      "code": Object {
-        "id": "LEGITEXT000006073189",
-        "name": "code de la sécurité sociale",
-      },
-      "text": "L. 613-19 à L.613-19-2",
+    "text": "L. 613-19 à L.613-19-2",
+  },
+  Object {
+    "code": Object {
+      "id": "LEGITEXT000006073189",
+      "name": "code de la sécurité sociale",
     },
-    Object {
-      "code": Object {
-        "id": "LEGITEXT000006073189",
-        "name": "code de la sécurité sociale",
-      },
-      "text": "L. 722-8 à 25",
-    },
-  ],
-  Array [
-    Object {
-      "code": undefined,
-      "text": "R413",
-    },
-  ],
-  Array [
-    Object {
-      "code": undefined,
-      "text": "D212",
-    },
-  ],
-  Array [
-    Object {
-      "code": undefined,
-      "text": "D-212",
-    },
-  ],
-  Array [
-    Object {
-      "code": undefined,
-      "text": "D.212",
-    },
-  ],
-  Array [
-    Object {
-      "code": undefined,
-      "text": "D212-3",
-    },
-  ],
-  Array [
-    Object {
-      "code": undefined,
-      "text": "D-212-4",
-    },
-  ],
-  Array [],
-  Array [
-    Object {
-      "code": undefined,
-      "text": "D. 212-4",
-    },
-  ],
-  Array [
-    Object {
-      "code": undefined,
-      "text": "D. 212-4",
-    },
-  ],
-  Array [
-    Object {
-      "code": undefined,
-      "text": "D.212-5",
-    },
-  ],
-  Array [
-    Object {
-      "code": undefined,
-      "text": "D.212-5-6",
-    },
-  ],
-  Array [
-    Object {
-      "code": undefined,
-      "text": "D.212-5-6-7",
-    },
-  ],
-  Array [],
+    "text": "L. 722-8 à 25",
+  },
 ]
 `;
 
