@@ -3,7 +3,14 @@ import { JSDOM } from "jsdom";
 import path from "path";
 import { parseDom } from "../index";
 
-const sample = fs.readFileSync(path.join(__dirname, "article.html")).toString();
+const sample = fs
+  .readFileSync(
+    path.join(
+      __dirname,
+      "__fixtures__/articles/les-conges-pour-evenements-familiaux.html"
+    )
+  )
+  .toString();
 
 test("should parse HTML section", () => {
   const dom = new JSDOM(sample);
