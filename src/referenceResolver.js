@@ -1,7 +1,7 @@
 /*
-Here we resolve the references : 
+Here we resolve the references :
 Given an article (or a range) and its code (code du travail ou securite sociale), we search for its
-actual id in the legi data corpus. 
+actual id in the legi data corpus.
 */
 
 import find from "unist-util-find";
