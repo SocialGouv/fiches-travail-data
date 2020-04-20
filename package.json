@@ -73,7 +73,7 @@
     "build": "babel src --out-dir lib --ignore **/__tests__ --extensions .js --extensions .ts",
     "e2e": "run-s -c  \"e2e:* {@}\" --",
     "e2e:data": "jest -c ./e2e/jest.config.js",
-    "lint": "run-s -c \"lint:* {@}\"",
+    "lint": "run-s -c \"lint:* {@}\" --",
     "lint:format": "eslint src --ext .js --ext .ts",
     "lint:type": "tsc",
     "start": "node lib/index.js",
