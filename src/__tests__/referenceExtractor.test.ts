@@ -69,7 +69,7 @@ test("should resolve example codes", () => {
   expect(resolveReferences(refs1)).toMatchSnapshot();
 });
 
-const rangeCases = [
+test.each([
   "L. 1251-21 à L. 1251-23xx du code du travail",
   "L. 1233‑34 à L. 1233-35-1 du code du travail",
   "L. 2312-72 à 2312-77 du code du travail",
@@ -78,14 +78,9 @@ const rangeCases = [
   "D. 5132-9 à D. 5132-10-4",
   "L. 2315-38 à 40 du code du travail",
   "L. 351-1 à L. 351-5 du code de la sécurité sociale",
-];
+])('should resolve range "%s"', (range) => {
+  const extractedRefs = extractReferences(range);
+  const resolvedRefs = resolveReferences(extractedRefs);
 
-test("should resolve ranges", () => {
-  const refs = rangeCases.map((c) => {
-    const extractedRefs = extractReferences(c);
-    const resolvedRefs = resolveReferences(extractedRefs);
-    return resolvedRefs;
-  });
-
-  expect(refs).toMatchSnapshot();
+  expect(resolvedRefs).toMatchSnapshot();
 });
