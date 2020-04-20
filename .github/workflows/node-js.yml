@@ -70,5 +70,5 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: End to end test
+      - name: Functional tests
         run: yarn e2e

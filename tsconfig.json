@@ -12,7 +12,7 @@
     "esModuleInterop": true,
     "types": ["jest", "jsdom", "node"],
     "paths": {
-      "talisman/*": ["./@types/talisman/*"]
+      "talisman/*": ["./packages/@types/talisman/*"]
     }
   },
   "include": ["src"]
