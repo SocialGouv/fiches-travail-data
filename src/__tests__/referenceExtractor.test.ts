@@ -1,7 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
 import { classifyTokens, extractReferences } from "../referenceExtractor";
-import { resolveReferences } from "../referenceResolver";
 
 const annotatedTokens = fs
   .readFileSync(
@@ -19,7 +18,7 @@ annotatedTokens.map((line) => {
   labels.push(l);
 });
 
-const testCases = [
+test.each([
   "les modalités fixées par les articles L. 2313‑8 et R. 2313-3 à R. 2313-6 du code du travail ainsi que le L. 1251-18",
   "L. 1251-23xx du code du travail",
   "l’allocation de remplacement pour maternité ou paternité, prévues aux articles L. 613-19 à L.613-19-2 et L. 722-8 à 25 du code de la sécurité sociale, aux articles L. 732-10 à L. 732-12-1 du code rural et à l’article 17 de la loi n° 97-1051 du 18 novembre 1997 d’orientation sur la pêche maritime et les cultures marines",
@@ -36,9 +35,7 @@ const testCases = [
   "Article D.212-5-6",
   "Article D.212-5-6-7",
   "Article XD212",
-];
-
-test.each(testCases)('should extract article tokens from "%s"', (input) => {
+])('should extract article tokens from "%s"', (input) => {
   expect(extractReferences(input)).toMatchSnapshot();
 });
 
@@ -63,14 +60,6 @@ test("should success with actual real life set", () => {
 test("should find with code for actual real life set", () =>
   expect(extractReferences(tokens.join(" "))).toMatchSnapshot());
 
-test("should resolve example codes", () => {
-  const refs0 = extractReferences(testCases[0]);
-  expect(resolveReferences(refs0)).toMatchSnapshot();
-
-  const refs1 = extractReferences(testCases[1]);
-  expect(resolveReferences(refs1)).toMatchSnapshot();
-});
-
 test.each([
   "L. 1251-21 à L. 1251-23xx du code du travail",
   "L. 1233‑34 à L. 1233-35-1 du code du travail",
@@ -82,7 +71,5 @@ test.each([
   "L. 351-1 à L. 351-5 du code de la sécurité sociale",
 ])('should resolve range "%s"', (range) => {
   const extractedRefs = extractReferences(range);
-  const resolvedRefs = resolveReferences(extractedRefs);
-
-  expect(resolvedRefs).toMatchSnapshot();
+  expect(extractedRefs).toMatchSnapshot();
 });
