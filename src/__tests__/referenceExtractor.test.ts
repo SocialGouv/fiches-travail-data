@@ -18,38 +18,26 @@ annotatedTokens.map((line) => {
 });
 
 const testCases = [
-  {
-    input:
-      "les modalités fixées par les articles L. 2313‑8 et R. 2313-3 à R. 2313-6 du code du travail ainsi que le L. 1251-18",
-  },
-  {
-    input: "L. 1251-23xx du code du travail",
-  },
-  {
-    input:
-      "l’allocation de remplacement pour maternité ou paternité, prévues aux articles L. 613-19 à L.613-19-2 et L. 722-8 à 25 du code de la sécurité sociale, aux articles L. 732-10 à L. 732-12-1 du code rural et à l’article 17 de la loi n° 97-1051 du 18 novembre 1997 d’orientation sur la pêche maritime et les cultures marines",
-  },
-  {
-    input: `Article D212 du code penal et article R413`,
-  },
-  { input: `Article D212` },
-  { input: `Article D-212` },
-  { input: `Article D.212` },
-  { input: `Article D212-3` },
-  { input: `Article D-212-4` },
-  { input: `Article X*212-4` },
-  { input: `Article D. 212-4` },
-  { input: `Article D.  212-4` },
-  { input: `Article D.212-5` },
-  { input: `Article D.212-5-6` },
-  { input: `Article D.212-5-6-7` },
-  { input: `Article XD212` },
+  "les modalités fixées par les articles L. 2313‑8 et R. 2313-3 à R. 2313-6 du code du travail ainsi que le L. 1251-18",
+  "L. 1251-23xx du code du travail",
+  "l’allocation de remplacement pour maternité ou paternité, prévues aux articles L. 613-19 à L.613-19-2 et L. 722-8 à 25 du code de la sécurité sociale, aux articles L. 732-10 à L. 732-12-1 du code rural et à l’article 17 de la loi n° 97-1051 du 18 novembre 1997 d’orientation sur la pêche maritime et les cultures marines",
+  "Article D212 du code penal et article R413",
+  "Article D212",
+  "Article D-212",
+  "Article D.212",
+  "Article D212-3",
+  "Article D-212-4",
+  "Article X*212-4",
+  "Article D. 212-4",
+  "Article D.  212-4",
+  "Article D.212-5",
+  "Article D.212-5-6",
+  "Article D.212-5-6-7",
+  "Article XD212",
 ];
 
-test("should extract article tokens in examples", () => {
-  expect(
-    testCases.map(({ input }) => extractReferences(input))
-  ).toMatchSnapshot();
+test.each(testCases)('should extract article tokens from "%s"', (input) => {
+  expect(extractReferences(input)).toMatchSnapshot();
 });
 
 test("should success with actual real life set", () => {
@@ -70,14 +58,14 @@ test("should success with actual real life set", () => {
   expect(predictions).toEqual(labels);
 });
 
-it("should find with code for actual real life set", () =>
+test("should find with code for actual real life set", () =>
   expect(extractReferences(tokens.join(" "))).toMatchSnapshot());
 
-it("should resolve example codes", () => {
-  const refs0 = extractReferences(testCases[0].input);
+test("should resolve example codes", () => {
+  const refs0 = extractReferences(testCases[0]);
   expect(resolveReferences(refs0)).toMatchSnapshot();
 
-  const refs1 = extractReferences(testCases[1].input);
+  const refs1 = extractReferences(testCases[1]);
   expect(resolveReferences(refs1)).toMatchSnapshot();
 });
 
@@ -92,7 +80,7 @@ const rangeCases = [
   "L. 351-1 à L. 351-5 du code de la sécurité sociale",
 ];
 
-it("should resolve ranges", () => {
+test("should resolve ranges", () => {
   const refs = rangeCases.map((c) => {
     const extractedRefs = extractReferences(c);
     const resolvedRefs = resolveReferences(extractedRefs);
