@@ -72,3 +72,4 @@ jobs:
 
       - name: Functional tests
         run: yarn e2e
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
