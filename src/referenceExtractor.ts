@@ -14,6 +14,7 @@ Extracting references is done in several steps :
 
 import treebank from "talisman/tokenizers/words/treebank";
 import { Reference } from "./types";
+import { rangeMarkers } from "./utils";
 
 const NEGATIVE = "O";
 const ARTICLE = "B-ART";
@@ -56,7 +57,7 @@ const validPrefix = ["l", "r", "d"];
 // 0 if not matching
 // 1 if matching prefix only (L.)
 // 2 if matching prefix and valid ref (L123.12)
-function prefixMatcher(token: string) {
+function prefixMatcher(token: string): number {
   const lowToken = token.toLowerCase();
 
   // if starts with possible prefix
@@ -89,13 +90,12 @@ function prefixMatcher(token: string) {
   return 0;
 }
 
-function infixMatcher(token: string) {
-  // this is quite subtle...
-  return ["à", "à"].includes(token);
+function infixMatcher(token: string): boolean {
+  return rangeMarkers.includes(token);
 }
 
 // classify sequence of tokens to identify references to articles
-function classifyTokens(tokens: string[]) {
+function classifyTokens(tokens: string[]): string[] {
   // step 1 : check for prefix matches or articles
   const step1 = tokens.map((token) => {
     const prefix = prefixMatcher(token);
@@ -118,7 +118,7 @@ function classifyTokens(tokens: string[]) {
   const predictions = step1.reduce(
     (acc, e) => {
       // FIXME(douglasduteil): forced any type
-      const buffer: number[] = acc[acc.length - 1] as any;
+      const buffer = acc[acc.length - 1] as number[];
       const inSequence = buffer.length > 0;
       const lastElement = buffer[buffer.length - 1];
 
@@ -157,7 +157,7 @@ function classifyTokens(tokens: string[]) {
   );
   // conclude
   // FIXME(douglasduteil): forced any type
-  const residual: number[] = predictions.pop() as any;
+  const residual = predictions.pop() as number[];
   // if ends with bigger than 1, then add residual as true
   if (residual.length > 0 && residual[residual.length - 1] > 1) {
     predictions.push(...residual.map(() => true));
@@ -168,10 +168,7 @@ function classifyTokens(tokens: string[]) {
   return predictions.map((p) => (p ? ARTICLE : NEGATIVE));
 }
 
-function identifyCodes(
-  tokens: string[],
-  predicitions: Array<typeof ARTICLE | typeof NEGATIVE>
-) {
+function identifyCodes(tokens: string[], predicitions: string[]): string[] {
   // we look for "code" tokens (starting a code reference)
   const matchCode = tokens.map((token, i) => {
     return token.toLowerCase() == "code" ? CODE_PREFIX : predicitions[i];

@@ -3,7 +3,8 @@ export const $$ = (node: ParentNode, selector: string): ParentNode[] =>
 export const $ = (node: ParentNode, selector: string): Element | null =>
   node.querySelector(selector);
 
-//
+// char used to split reference ranges, please note encoding difference
+export const rangeMarkers = ["à", "à"];
 
 // dumb convert article.data.num as integer for comparison
 // each part up to MAX_DEPTH is padded with PAD_LENGTH
@@ -11,7 +12,7 @@ export const PAD_LENGTH = 5; // left pad numbers to X chars
 export const MAX_DEPTH = 5; // max number of L432-1-1-1
 
 // padding numbers : 2 -> "0002"
-export const leftPad = (num: number | string) => {
+export const leftPad = (num: number | string): string => {
   let padded = "" + num;
   while (padded.length < PAD_LENGTH) {
     padded = "0" + padded;
