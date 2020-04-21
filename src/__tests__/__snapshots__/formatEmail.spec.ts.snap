@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formatEmail should alter the node 1`] = `
+<body>
+  
+    
+  <a>
+    foo
+  </a>
+  
+    
+  <a
+    data-cfemail=""
+  >
+    bar
+  </a>
+  
+    
+  <a
+    class=""
+  >
+    Scol@miante
+  </a>
+  
+  
+
+</body>
+`;

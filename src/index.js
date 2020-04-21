@@ -6,21 +6,8 @@ import path from "path";
 import { extractReferences } from "./referenceExtractor";
 import { resolveReferences } from "./referenceResolver";
 import { $$, $ } from "./utils";
-
-function unwrapEmail(data = "") {
-  const [k, ...tokens] = Array.from(
-    { length: data.length / 2 },
-    (_, i) => i * 2
-  ).map((val) => parseInt(data.slice(val, val + 2), 16));
-  const rawValue = tokens.map((v) => String.fromCharCode(v ^ k)).join("");
-  return decodeURIComponent(escape(rawValue));
-}
-const formatEmail = (node) => {
-  const value = unwrapEmail(node.getAttribute("data-cfemail"));
-  node.className = "";
-  node.removeAttribute("data-cfemail");
-  node.textContent = value;
-};
+import { unwrapEmail } from "./unwrapEmail";
+import { formatEmail } from "./formatEmail";
 
 const formatAnchor = (node) => {
   if (node.textContent === "") {
