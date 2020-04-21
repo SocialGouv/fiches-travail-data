@@ -17,7 +17,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version:
+          - 10.x # renovate: github-releases/nodejs/node&versioning=node
 
     steps:
       - uses: actions/checkout@v2
