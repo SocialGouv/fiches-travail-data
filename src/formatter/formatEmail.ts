@@ -1,4 +1,4 @@
-import { unwrapEmail } from "./unwrapEmail";
+import { unwrapEmail } from "../unwrapEmail";
 
 export const formatEmail = (node: Element): Element => {
   const cfemail = node.getAttribute("data-cfemail");

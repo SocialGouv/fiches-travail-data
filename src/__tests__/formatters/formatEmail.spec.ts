@@ -1,5 +1,5 @@
 import { JSDOM } from "jsdom";
-import { formatEmail } from "../formatEmail";
+import { formatEmail } from "../../formatter/formatEmail";
 
 const actual = `
   <body>

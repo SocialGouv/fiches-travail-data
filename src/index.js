@@ -6,40 +6,7 @@ import path from "path";
 import { extractReferences } from "./referenceExtractor";
 import { resolveReferences } from "./referenceResolver";
 import { $$, $ } from "./utils";
-import { unwrapEmail } from "./unwrapEmail";
-import { formatEmail } from "./formatEmail";
-
-const formatAnchor = (node) => {
-  if (node.textContent === "") {
-    node.remove();
-    return;
-  }
-  if (node.getElementsByTagName("img").length) {
-    node.classList.add("no-after");
-  }
-  let href = node.getAttribute("href");
-  // remove ATTAg(...) on pdf link
-  node.removeAttribute("onclick");
-  if (!href) return;
-  // unwrap link with href="javascript:"
-  if (/^javascript:/.test(href)) {
-    node.parentNode.innerHTML = node.textContent;
-  }
-  if (/email-protection/.test(href)) {
-    const [, data = ""] = href.split("#");
-    const value = unwrapEmail(data);
-    node.setAttribute("href", `mailto:${decodeURIComponent(escape(value))}`);
-    return;
-  }
-  if (!href.match(/^https?:\/\//)) {
-    if (href.slice(0, 1) !== "/") {
-      href = "/" + href;
-    }
-    node.setAttribute("href", `https://travail-emploi.gouv.fr${href}`);
-    node.setAttribute("target", "_blank");
-    node.setAttribute("rel", "nofollow, noopener");
-  }
-};
+import { formatAnchor, formatEmail } from "./formatter";
 
 const flattenCsBlocs = (node) => {
   node.insertAdjacentHTML("afterend", node.innerHTML);
