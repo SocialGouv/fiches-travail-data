@@ -7,8 +7,9 @@ actual id in the legi data corpus.
 import find from "unist-util-find";
 import visit from "unist-util-visit";
 import { codesFullNames, CODE_TRAVAIL } from "./referenceExtractor";
-import { asInt } from "./utils";
+import { asInt, rangeMarkers } from "./utils";
 import type { Reference, ResolvedReferences } from "./types";
+// FIXME(rmelisson) : not sure to understand why import Node is causing issue
 // eslint-disable-next-line import/no-unresolved
 import type { Node } from "unist";
 
@@ -20,30 +21,38 @@ const codes = Object.values(codesFullNames).reduce<{ [id: string]: Node }>(
   {}
 );
 
-// duplicated in reference Extractor
-const rangeMarkers = ["à", "à"];
+type CodeArticle = {
+  data: {
+    num: string;
+    id: string;
+  };
+};
 
 const CODE_UNKNOWN = { id: "UNDEFINED", name: "code undefined" };
 // shall we use "code du travail" by default ?
 const DEFAULT_CODE = CODE_TRAVAIL;
 
-function getLegiDataRange(code: Node, start: string, end: string): Node[] {
+function getLegiDataRange(
+  code: Node,
+  start: string,
+  end: string
+): CodeArticle[] {
   // check if num is numerically after start. also check LRD prefix
-  const isAfterStart = (node: Node): boolean =>
-    node.data != undefined &&
-    asInt(node.data.num as string) >= asInt(start) &&
-    (node.data.num as string).charAt(0) === start.charAt(0);
+  const isAfterStart = (article: CodeArticle): boolean =>
+    asInt(article.data.num) >= asInt(start) &&
+    article.data.num.charAt(0) === start.charAt(0);
 
   // check if num is numerically before end. also check LRD prefix
-  const isBeforeEnd = (node: Node): boolean =>
-    node.data != undefined &&
-    asInt(node.data.num as string) <= asInt(end) &&
-    (node.data.num as string).charAt(0) === end.charAt(0);
+  const isBeforeEnd = (article: CodeArticle): boolean =>
+    asInt(article.data.num) <= asInt(end) &&
+    article.data.num.charAt(0) === end.charAt(0);
 
-  const articles: Node[] = [];
+  const articles: CodeArticle[] = [];
   visit(code, "article", (node) => {
-    if (isAfterStart(node) && isBeforeEnd(node)) {
-      articles.push(node);
+    // using untyped tree representation, only option is to cast here
+    const article = (node as unknown) as CodeArticle;
+    if (isAfterStart(article) && isBeforeEnd(article)) {
+      articles.push(article);
     }
   });
   return articles;
@@ -102,7 +111,7 @@ function unravelRange(range: Reference): UnravelledReference[] {
 
     const unraveled = getLegiDataRange(codes[code.id], startFMT, endFMT).map(
       (a) => {
-        const fmt = a.data !== undefined ? (a.data.num as string) : undefined;
+        const fmt = a.data !== undefined ? a.data.num : undefined;
         // keep original text for beginning and end
         let text;
         if (startFMT == fmt) {
@@ -151,12 +160,13 @@ function resolveReference(ref: Reference): Reference[] {
     if (!a.fmt) a.fmt = formatArticle(a.text);
 
     if (code && code != CODE_UNKNOWN) {
-      const article = find(
+      // again we have to cast as nodes are generic
+      const article = (find(
         codes[code.id],
         (node: Node) => node.type === "article" && node.data?.num === a.fmt
-      );
+      ) as unknown) as CodeArticle;
       if (article) {
-        a.id = article.data ? (article.data.id as string) : "";
+        a.id = article.data ? article.data.id : "";
         a.code = code;
       } else {
         // not found in code
@@ -181,7 +191,7 @@ function resolveReferences(refs: Reference[]): ResolvedReferences {
       acc.push(art);
     }
     return acc;
-  }, [] as Reference[]);
+  }, new Array<Reference>());
 
   // group by code
   const grouped = deduplicated.reduce((acc, art) => {
