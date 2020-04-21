@@ -1,5 +1,6 @@
 import { resolveReferences } from "../referenceResolver";
 import { extractReferences } from "../referenceExtractor";
+import { Reference } from "../types";
 
 test("should resolve les articles L. 2313‑8 et R. 2313-3 à R. 2313-6 du code du travail ainsi que le L. 1251-18", () => {
   expect(
@@ -22,7 +23,7 @@ test("should resolve les articles L. 2313‑8 et R. 2313-3 à R. 2313-6 du code
         code: undefined,
         text: "L. 1251-18",
       },
-    ])
+    ] as Reference[])
   ).toMatchSnapshot();
 });
 
@@ -36,7 +37,7 @@ test("should resolve L. 1251-23xx du code du travail", () => {
         },
         text: "L. 1251-21 à L. 1251-23xx",
       },
-    ])
+    ] as Reference[])
   ).toMatchSnapshot();
 });
 
