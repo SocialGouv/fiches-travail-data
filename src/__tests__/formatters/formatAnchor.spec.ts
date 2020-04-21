@@ -3,10 +3,10 @@ import { formatAnchor } from "../../formatter/formatAnchor";
 
 const actual = `
   <body>
-    <span></span>
-    <img/>
-    <button>foo</button>
-    <button onclick="console.log('foo')">bar</button>
+    <a></a>
+    <a><img src="foo.gif"/></a>
+    <a>foo</a>
+    <a onclick="console.log('foo')">bar</a>
     <a href="">foo</a>
     <a href="relative">relative</a>
     <a href="/absolute">absolute</a>
@@ -31,5 +31,5 @@ test("formatEmail should alter the node", () => {
 
   Array.from(body.querySelectorAll("a")).forEach(formatAnchor);
 
-  expect(body).toMatchSnapshot();
+  expect(body.innerHTML).toMatchSnapshot();
 });
