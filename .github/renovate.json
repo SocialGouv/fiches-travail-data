@@ -1,12 +1,3 @@
 {
   "extends": ["github>SocialGouv/renovate-config", ":automergeAll"],
-  "regexManagers": [
-    {
-      "fileMatch": ["^\\.github/workflows/.*\\.yml$"],
-      "matchStrings": [
-        "- (?<currentValue>.*) # renovate: (?<datasource>.*?)/(?<depName>.*?)(\\&versioning=(?<versioning>.*?))?\\s"
-      ],
-      "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
-    }
-  ]
 }
