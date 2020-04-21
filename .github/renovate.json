@@ -8,5 +8,13 @@
       ],
       "versioningTemplate": "{{#if versioning}}{{versioning}}{{else}}semver{{/if}}"
     }
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": ["^@socialgouv\/.*-data$"],
+      "groupName": "@socialgouv data packages",
+      "automerge": true
+    }
   ]
+  
 }
