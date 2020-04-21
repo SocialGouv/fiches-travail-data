@@ -30,7 +30,10 @@ export const formatAnchor = (node: Element): void => {
   }
 
   if (!href.match(/^\w+?:\/\//)) {
-    node.setAttribute("href", `https://travail-emploi.gouv.fr/${href.replace(/^\//, '')}`);
+    node.setAttribute(
+      "href",
+      `https://travail-emploi.gouv.fr/${href.replace(/^\//, "")}`
+    );
     node.setAttribute("target", "_blank");
     node.setAttribute("rel", "nofollow, noopener");
   }
