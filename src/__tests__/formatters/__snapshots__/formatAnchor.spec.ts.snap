@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formatEmail should alter the node 1`] = `
+<body>
+  
+    
+  <span />
+  
+    
+  <img />
+  
+    
+  <button>
+    foo
+  </button>
+  
+    
+  <button
+    onclick="console.log('foo')"
+  >
+    bar
+  </button>
+  
+    
+  <a
+    href=""
+  >
+    foo
+  </a>
+  
+    
+  <a
+    href="https://travail-emploi.gouv.fr/relative"
+    rel="nofollow, noopener"
+    target="_blank"
+  >
+    relative
+  </a>
+  
+    
+  <a
+    href="https://travail-emploi.gouv.fr/absolute"
+    rel="nofollow, noopener"
+    target="_blank"
+  >
+    absolute
+  </a>
+  
+    
+  <a
+    href="mailto:"
+  >
+    bar
+  </a>
+  
+    
+  <a
+    href="mailto:"
+  >
+    bar
+  </a>
+  
+    
+  <a
+    href="mailto:"
+  >
+    qux
+  </a>
+  
+    
+  <a
+    href="mailto:contact-ap@asp-public.fr"
+  >
+    bar
+  </a>
+  
+    
+  <a
+    href="https://travail-emploi.gouv.fr/javascript"
+    rel="nofollow, noopener"
+    target="_blank"
+  >
+    javascript
+  </a>
+  
+    
+  <a>
+    javascript:
+  </a>
+  
+    
+  <a>
+    javascript:alert('Hello');
+  </a>
+  
+  
+
+</body>
+`;
