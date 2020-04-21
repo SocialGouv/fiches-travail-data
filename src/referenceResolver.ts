@@ -8,7 +8,13 @@ import find from "unist-util-find";
 import visit from "unist-util-visit";
 import { codesFullNames, CODE_TRAVAIL } from "./referenceExtractor";
 import { asInt, rangeMarkers } from "./utils";
-import type { Reference, ResolvedReferences } from "./types";
+import type {
+  Reference,
+  ResolvedReferences,
+  UnravelledReference,
+  CodeArticle,
+  ExtractedReference,
+} from "./types";
 // FIXME(rmelisson) : not sure to understand why import Node is causing issue
 // eslint-disable-next-line import/no-unresolved
 import type { Node } from "unist";
@@ -20,13 +26,6 @@ const codes = Object.values(codesFullNames).reduce<{ [id: string]: Node }>(
   },
   {}
 );
-
-type CodeArticle = {
-  data: {
-    num: string;
-    id: string;
-  };
-};
 
 const CODE_UNKNOWN = { id: "UNDEFINED", name: "code undefined" };
 // shall we use "code du travail" by default ?
@@ -48,9 +47,7 @@ function getLegiDataRange(
     article.data.num.charAt(0) === end.charAt(0);
 
   const articles: CodeArticle[] = [];
-  visit(code, "article", (node) => {
-    // using untyped tree representation, only option is to cast here
-    const article = (node as unknown) as CodeArticle;
+  visit<CodeArticle>(code, "article", (article) => {
     if (isAfterStart(article) && isBeforeEnd(article)) {
       articles.push(article);
     }
@@ -85,15 +82,6 @@ function formatStartEnd(startRaw: string, endRaw: string): [string, string] {
 
   return [letter + startNums.join("-"), letter + endNums.join("-")];
 }
-
-type UnravelledReference = {
-  text: string;
-  fmt: string | undefined;
-  code: {
-    name: string;
-    id: string;
-  };
-};
 
 // in case of a range (like "L. 4733-9 à 4733-11"), we try to identify
 // the articles implicitly included within the range
@@ -161,10 +149,10 @@ function resolveReference(ref: Reference): Reference[] {
 
     if (code && code != CODE_UNKNOWN) {
       // again we have to cast as nodes are generic
-      const article = (find(
+      const article = find<CodeArticle>(
         codes[code.id],
         (node: Node) => node.type === "article" && node.data?.num === a.fmt
-      ) as unknown) as CodeArticle;
+      );
       if (article) {
         a.id = article.data ? article.data.id : "";
         a.code = code;
@@ -177,8 +165,9 @@ function resolveReference(ref: Reference): Reference[] {
   });
 }
 
-function resolveReferences(refs: Reference[]): ResolvedReferences {
-  const resolvedRefs = refs.map(resolveReference).flat();
+function resolveReferences(refs: ExtractedReference[]): ResolvedReferences {
+  // for now, we cast to Reference, would require some refactoring to avoid this
+  const resolvedRefs = refs.flatMap((r) => resolveReference(r as Reference));
 
   const deduplicated = resolvedRefs.reduce((acc, art) => {
     // drop duplicated references
@@ -191,7 +180,7 @@ function resolveReferences(refs: Reference[]): ResolvedReferences {
       acc.push(art);
     }
     return acc;
-  }, new Array<Reference>());
+  }, [] as Reference[]);
 
   // group by code
   const grouped = deduplicated.reduce((acc, art) => {
@@ -205,6 +194,7 @@ function resolveReferences(refs: Reference[]): ResolvedReferences {
 
     return acc;
   }, new Map<string, { name: string; articles: { text: string; fmt: string; id: string }[] }>());
+
   return Object.fromEntries(grouped);
 }
 
