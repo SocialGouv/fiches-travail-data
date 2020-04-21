@@ -154,7 +154,7 @@ function parseDom(dom) {
         };
         while (nextEl && nextEl.tagName.toLowerCase() !== sectionTag) {
           section.text += nextEl.textContent.trim();
-          section.html += nextEl.outerHTML;
+          section.html += nextEl.outerHTML.replace(/\s\s+/g, " ");
           nextEl = nextEl.nextElementSibling;
         }
         // section.html = addTags(section.html);
