@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["dom"],
+    "lib": ["dom", "es2019"],
     "target": "esnext",
     "module": "ESNext",
     "moduleResolution": "node",
@@ -12,7 +12,8 @@
     "esModuleInterop": true,
     "types": ["jest", "jsdom", "node"],
     "paths": {
-      "talisman/*": ["./packages/@types/talisman/*"]
+      "talisman/*": ["./packages/@types/talisman/*"],
+      "unist-util-find": ["./packages/@types/unist-util-find"]
     }
   },
   "include": ["src"]
