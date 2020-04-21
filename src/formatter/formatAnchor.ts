@@ -1,19 +1,19 @@
 import { unwrapEmail } from "../unwrapEmail";
 
 export const formatAnchor = (node: Element): void => {
-  if (node.textContent === "") {
+  if (node.textContent === "" && !node.children.length) {
     node.remove();
     return;
   }
+
   if (node.getElementsByTagName("img").length) {
     node.classList.add("no-after");
   }
 
-  const href = node.getAttribute("href");
-
   // remove ATTAg(...) on pdf link
   node.removeAttribute("onclick");
 
+  const href = node.getAttribute("href");
   if (!href) return;
 
   // unwrap link with href="javascript:"

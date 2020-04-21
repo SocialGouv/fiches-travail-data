@@ -1,6 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`formatEmail should alter the node 1`] = `
+<a class="no-after">
+  <img src="foo.gif">
+</a>
 <a>
   foo
 </a>
