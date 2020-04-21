@@ -13,7 +13,7 @@ export type Reference = {
 };
 
 export type ResolvedReferences = {
-  [x: string]: {
+  [codeId: string]: {
     name: string;
     articles: { text: string; fmt: string; id: string }[];
   };

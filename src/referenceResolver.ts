@@ -9,6 +9,7 @@ import visit from "unist-util-visit";
 import { codesFullNames, CODE_TRAVAIL } from "./referenceExtractor";
 import { asInt } from "./utils";
 import type { Reference, ResolvedReferences } from "./types";
+// eslint-disable-next-line import/no-unresolved
 import type { Node } from "unist";
 
 const codes = Object.values(codesFullNames).reduce<{ [id: string]: Node }>(
