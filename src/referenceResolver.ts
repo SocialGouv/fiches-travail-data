@@ -7,6 +7,7 @@ actual id in the legi data corpus.
 import find from "unist-util-find";
 import visit from "unist-util-visit";
 import { codesFullNames, CODE_TRAVAIL } from "./referenceExtractor";
+import { asInt } from "./utils";
 import type { Reference } from "./types";
 import type { Node } from "unist";
 
@@ -25,43 +26,19 @@ const CODE_UNKNOWN = { id: "UNDEFINED" };
 // shall we use "code du travail" by default ?
 const DEFAULT_CODE = CODE_TRAVAIL;
 
-// dumb convert article.data.num as integer for comparison
-// each part up to MAX_DEPTH is padded with PAD_LENGTH
-const PAD_LENGTH = 5; // left pad numbers to X chars
-const MAX_DEPTH = 5; // max number of L432-1-1-1
-// padding numbers : 2 -> "0002"
-const leftPad = (num) => {
-  let padded = "" + num;
-  while (padded.length < PAD_LENGTH) {
-    padded = "0" + padded;
-  }
-  return padded;
-};
-// transform articles into comparable integers
-const asInt = (num) => {
-  const parts = num
-    .replace(/[^\d-]/g, "")
-    .split("-")
-    .map(leftPad);
-  while (parts.length < MAX_DEPTH) {
-    parts.push(leftPad(0));
-  }
-  const int = parseInt(parts.join(""));
-  return int;
-};
 
-function getLegiDataRange(code: Node, start: string, end: string) {
+function getLegiDataRange(code: Node, start: string, end: string): Node[] {
   // check if num is numerically after start. also check LRD prefix
   const isAfterStart = (node: Node) => node.data &&
     asInt(node.data.num) >= asInt(start) &&
     node.data.num.charAt(0) === start.charAt(0);
 
   // check if num is numerically before end. also check LRD prefix
-  const isBeforeEnd = (node) =>
+  const isBeforeEnd = (node: Node) =>
     asInt(node.data.num) <= asInt(end) &&
     node.data.num.charAt(0) === end.charAt(0);
 
-  const articles = [];
+  const articles: Node[] = [];
   visit(code, "article", (node) => {
     if (isAfterStart(node) && isBeforeEnd(node)) {
       articles.push(node);
