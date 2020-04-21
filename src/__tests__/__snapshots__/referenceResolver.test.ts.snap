@@ -12,10 +12,12 @@ Object {
       Object {
         "fmt": "L1251-22",
         "id": "LEGIARTI000006901275",
+        "text": "L. 1251-21 à L. 1251-23xx => L1251-22",
       },
       Object {
         "fmt": "L1251-23",
         "id": "LEGIARTI000006901276",
+        "text": "L. 1251-21 à L. 1251-23xx => L1251-23",
       },
     ],
     "name": "code du travail",
@@ -40,10 +42,12 @@ Object {
       Object {
         "fmt": "R2313-4",
         "id": "LEGIARTI000036414723",
+        "text": "R. 2313-3 à R. 2313-6 => R2313-4",
       },
       Object {
         "fmt": "R2313-5",
         "id": "LEGIARTI000039347715",
+        "text": "R. 2313-3 à R. 2313-6 => R2313-5",
       },
       Object {
         "fmt": "R2313-6",
@@ -68,14 +72,17 @@ Object {
       Object {
         "fmt": "D5132-10-1",
         "id": "LEGIARTI000029775717",
+        "text": "D. 5132-9 à D. 5132-10-4 => D5132-10-1",
       },
       Object {
         "fmt": "D5132-10-2",
         "id": "LEGIARTI000029775713",
+        "text": "D. 5132-9 à D. 5132-10-4 => D5132-10-2",
       },
       Object {
         "fmt": "D5132-10-3",
         "id": "LEGIARTI000029775708",
+        "text": "D. 5132-9 à D. 5132-10-4 => D5132-10-3",
       },
       Object {
         "fmt": "D5132-10-4",
@@ -95,14 +102,17 @@ Object {
       Object {
         "fmt": "D5132-10-1",
         "id": "LEGIARTI000029775717",
+        "text": "D. 5132-9 à D. 5132-10-4 => D5132-10-1",
       },
       Object {
         "fmt": "D5132-10-2",
         "id": "LEGIARTI000029775713",
+        "text": "D. 5132-9 à D. 5132-10-4 => D5132-10-2",
       },
       Object {
         "fmt": "D5132-10-3",
         "id": "LEGIARTI000029775708",
+        "text": "D. 5132-9 à D. 5132-10-4 => D5132-10-3",
       },
       Object {
         "fmt": "D5132-10-4",
@@ -127,42 +137,52 @@ Object {
       Object {
         "fmt": "L351-1-1",
         "id": "LEGIARTI000028498678",
+        "text": "L. 351-1 à L. 351-5 => L351-1-1",
       },
       Object {
         "fmt": "L351-1-2",
         "id": "LEGIARTI000025014540",
+        "text": "L. 351-1 à L. 351-5 => L351-1-2",
       },
       Object {
         "fmt": "L351-1-3",
         "id": "LEGIARTI000028498841",
+        "text": "L. 351-1 à L. 351-5 => L351-1-3",
       },
       Object {
         "fmt": "L351-1-4",
         "id": "LEGIARTI000035640851",
+        "text": "L. 351-1 à L. 351-5 => L351-1-4",
       },
       Object {
         "fmt": "L351-2",
         "id": "LEGIARTI000031686263",
+        "text": "L. 351-1 à L. 351-5 => L351-2",
       },
       Object {
         "fmt": "L351-3",
         "id": "LEGIARTI000028498769",
+        "text": "L. 351-1 à L. 351-5 => L351-3",
       },
       Object {
         "fmt": "L351-3-1",
         "id": "LEGIARTI000031667793",
+        "text": "L. 351-1 à L. 351-5 => L351-3-1",
       },
       Object {
         "fmt": "L351-4",
         "id": "LEGIARTI000037063369",
+        "text": "L. 351-1 à L. 351-5 => L351-4",
       },
       Object {
         "fmt": "L351-4-1",
         "id": "LEGIARTI000017845585",
+        "text": "L. 351-1 à L. 351-5 => L351-4-1",
       },
       Object {
         "fmt": "L351-4-2",
         "id": "LEGIARTI000028497884",
+        "text": "L. 351-1 à L. 351-5 => L351-4-2",
       },
       Object {
         "fmt": "L351-5",
@@ -187,6 +207,7 @@ Object {
       Object {
         "fmt": "L1233-35",
         "id": "LEGIARTI000036261799",
+        "text": "L. 1233‑34 à L. 1233-35-1 => L1233-35",
       },
       Object {
         "fmt": "L1233-35-1",
@@ -211,10 +232,12 @@ Object {
       Object {
         "fmt": "L1251-22",
         "id": "LEGIARTI000006901275",
+        "text": "L. 1251-21 à L. 1251-23xx => L1251-22",
       },
       Object {
         "fmt": "L1251-23",
         "id": "LEGIARTI000006901276",
+        "text": "L. 1251-21 à L. 1251-23xx => L1251-23",
       },
     ],
     "name": "code du travail",
@@ -236,18 +259,22 @@ Object {
       Object {
         "fmt": "L2312-73",
         "id": "LEGIARTI000035611297",
+        "text": "L. 2312-72 à 2312-77 => L2312-73",
       },
       Object {
         "fmt": "L2312-74",
         "id": "LEGIARTI000035611299",
+        "text": "L. 2312-72 à 2312-77 => L2312-74",
       },
       Object {
         "fmt": "L2312-75",
         "id": "LEGIARTI000035611301",
+        "text": "L. 2312-72 à 2312-77 => L2312-75",
       },
       Object {
         "fmt": "L2312-76",
         "id": "LEGIARTI000035611303",
+        "text": "L. 2312-72 à 2312-77 => L2312-76",
       },
       Object {
         "fmt": "L2312-77",
@@ -272,6 +299,7 @@ Object {
       Object {
         "fmt": "L2315-39",
         "id": "LEGIARTI000036262434",
+        "text": "L. 2315-38 à 40 => L2315-39",
       },
       Object {
         "fmt": "L2315-40",

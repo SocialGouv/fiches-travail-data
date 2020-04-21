@@ -8,7 +8,7 @@ import find from "unist-util-find";
 import visit from "unist-util-visit";
 import { codesFullNames, CODE_TRAVAIL } from "./referenceExtractor";
 import { asInt } from "./utils";
-import type { Reference } from "./types";
+import type { Reference, ResolvedReferences } from "./types";
 import type { Node } from "unist";
 
 const codes = Object.values(codesFullNames).reduce<{ [id: string]: Node }>(
@@ -22,21 +22,22 @@ const codes = Object.values(codesFullNames).reduce<{ [id: string]: Node }>(
 // duplicated in reference Extractor
 const rangeMarkers = ["à", "à"];
 
-const CODE_UNKNOWN = { id: "UNDEFINED" };
+const CODE_UNKNOWN = { id: "UNDEFINED", name: "code undefined" };
 // shall we use "code du travail" by default ?
 const DEFAULT_CODE = CODE_TRAVAIL;
 
-
 function getLegiDataRange(code: Node, start: string, end: string): Node[] {
   // check if num is numerically after start. also check LRD prefix
-  const isAfterStart = (node: Node) => node.data &&
-    asInt(node.data.num) >= asInt(start) &&
-    node.data.num.charAt(0) === start.charAt(0);
+  const isAfterStart = (node: Node): boolean =>
+    node.data != undefined &&
+    asInt(node.data.num as string) >= asInt(start) &&
+    (node.data.num as string).charAt(0) === start.charAt(0);
 
   // check if num is numerically before end. also check LRD prefix
-  const isBeforeEnd = (node: Node) =>
-    asInt(node.data.num) <= asInt(end) &&
-    node.data.num.charAt(0) === end.charAt(0);
+  const isBeforeEnd = (node: Node): boolean =>
+    node.data != undefined &&
+    asInt(node.data.num as string) <= asInt(end) &&
+    (node.data.num as string).charAt(0) === end.charAt(0);
 
   const articles: Node[] = [];
   visit(code, "article", (node) => {
@@ -75,9 +76,18 @@ function formatStartEnd(startRaw: string, endRaw: string): [string, string] {
   return [letter + startNums.join("-"), letter + endNums.join("-")];
 }
 
+type UnravelledReference = {
+  text: string;
+  fmt: string | undefined;
+  code: {
+    name: string;
+    id: string;
+  };
+};
+
 // in case of a range (like "L. 4733-9 à 4733-11"), we try to identify
 // the articles implicitly included within the range
-function unravelRange(range: Reference): Reference[] {
+function unravelRange(range: Reference): UnravelledReference[] {
   const mark = rangeMarkers.filter((a) => range.text.includes(a))[0];
   const rawParts = range.text.split(mark).map((p) => p.trim());
 
@@ -91,15 +101,17 @@ function unravelRange(range: Reference): Reference[] {
 
     const unraveled = getLegiDataRange(codes[code.id], startFMT, endFMT).map(
       (a) => {
-        const fmt = a.data.num;
+        const fmt = a.data !== undefined ? (a.data.num as string) : undefined;
         // keep original text for beginning and end
         let text;
         if (startFMT == fmt) {
           text = startRaw;
         } else if (endFMT == fmt) {
           text = endRaw;
+        } else {
+          text = range.text + " => " + fmt;
         }
-        return { ...(text && { text }), fmt, code };
+        return { text, fmt, code };
       }
     );
 
@@ -111,11 +123,11 @@ function unravelRange(range: Reference): Reference[] {
   // default in case of error, note that we explicitly set code to unknown
   // in order to identify range errors
   return range.text.split(mark).map((a) => {
-    return { text: a.trim(), code: CODE_UNKNOWN };
+    return { text: a.trim(), fmt: undefined, code: CODE_UNKNOWN };
   });
 }
 
-function formatArticle(article: string) {
+function formatArticle(article: string): string {
   // remove dot and spaces + remove non digit trailing chars + replace unicode dash ‑ to standard -
   return article
     .replace(".", "")
@@ -124,10 +136,10 @@ function formatArticle(article: string) {
     .replace(/\u2011/g, "-");
 }
 
-function resolveReference(ref: Reference) {
-  let toResolve = [ref];
+function resolveReference(ref: Reference): Reference[] {
+  let toResolve: Reference[] = [ref];
   if (rangeMarkers.filter((a) => ref.text.includes(a)).length != 0) {
-    toResolve = unravelRange(ref);
+    toResolve = unravelRange(ref).map((ref) => ref as Reference);
   }
 
   return toResolve.map((a) => {
@@ -143,7 +155,7 @@ function resolveReference(ref: Reference) {
         (node: Node) => node.type === "article" && node.data?.num === a.fmt
       );
       if (article) {
-        a.id = article.data.id;
+        a.id = article.data ? (article.data.id as string) : "";
         a.code = code;
       } else {
         // not found in code
@@ -154,13 +166,13 @@ function resolveReference(ref: Reference) {
   });
 }
 
-function resolveReferences(refs: Reference[]) {
+function resolveReferences(refs: Reference[]): ResolvedReferences {
   const resolvedRefs = refs.map(resolveReference).flat();
 
   const deduplicated = resolvedRefs.reduce((acc, art) => {
     // drop duplicated references
     const existing = acc
-      .map((a) => [a.text, a.fmt])
+      .map((a: Reference) => [a.text, a.fmt])
       .flat()
       .filter((v) => v);
 
@@ -168,22 +180,21 @@ function resolveReferences(refs: Reference[]) {
       acc.push(art);
     }
     return acc;
-  }, []);
+  }, [] as Reference[]);
 
   // group by code
   const grouped = deduplicated.reduce((acc, art) => {
     const { code, ...rawArticle } = art;
     const parsedCode = code ? code : CODE_UNKNOWN;
 
-    if (!Object.keys(acc).includes(parsedCode.id)) {
-      acc[parsedCode.id] = { name: parsedCode.name, articles: [] };
+    if (!acc.has(parsedCode.id)) {
+      acc.set(parsedCode.id, { name: parsedCode.name, articles: [] });
     }
-
-    acc[parsedCode.id].articles.push(rawArticle);
+    acc.get(parsedCode.id)?.articles.push(rawArticle);
 
     return acc;
-  }, {});
-  return grouped;
+  }, new Map<string, { name: string; articles: { text: string; fmt: string; id: string }[] }>());
+  return Object.fromEntries(grouped);
 }
 
 export { resolveReferences };

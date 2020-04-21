@@ -13,6 +13,7 @@ Extracting references is done in several steps :
 */
 
 import treebank from "talisman/tokenizers/words/treebank";
+import { Reference } from "./types";
 
 const NEGATIVE = "O";
 const ARTICLE = "B-ART";
@@ -199,7 +200,7 @@ function identifyCodes(
 }
 
 // extract references from free text : tokenize and classify
-function extractReferences(text: string) {
+function extractReferences(text: string): Reference[] {
   const tokens = treebank(text);
   const predictions = classifyTokens(tokens);
   const pred = identifyCodes(tokens, predictions);
@@ -248,7 +249,7 @@ function extractReferences(text: string) {
     })
     .map(({ token, code }) => {
       return { text: token, code };
-    });
+    }) as Reference[];
 }
 
 export {
