@@ -154,10 +154,11 @@ function parseDom(dom) {
         };
         while (nextEl && nextEl.tagName.toLowerCase() !== sectionTag) {
           section.text += nextEl.textContent.trim();
-          section.html += nextEl.outerHTML.replace(/\s+/g, " ");
+          section.html += nextEl.outerHTML;
           nextEl = nextEl.nextElementSibling;
         }
-        // section.html = addTags(section.html);
+
+        section.html.replace(/>\s+</g, "><").replace(/\s+/g, " ");
 
         section.references = getReferences(section.text);
         sections.push(section);
