@@ -145,22 +145,25 @@ function parseDom(dom) {
     .forEach(function (el) {
       if (el.tagName.toLowerCase() === sectionTag) {
         let nextEl = el.nextElementSibling;
-        const section = {
-          anchor: el.id,
-          description: nextEl.textContent.trim().slice(0, 200),
-          html: "",
-          text: "",
-          title: el.textContent.trim(),
-        };
+        let html = "";
+
         while (nextEl && nextEl.tagName.toLowerCase() !== sectionTag) {
-          section.text += nextEl.textContent.trim();
-          section.html += nextEl.outerHTML.replace(/\s\s+/g, " ");
+          html += nextEl.outerHTML;
           nextEl = nextEl.nextElementSibling;
         }
-        // section.html = addTags(section.html);
 
-        section.references = getReferences(section.text);
-        sections.push(section);
+        const section = dom.window.document.createElement("div");
+        section.innerHTML = html;
+        const sectionText = section.textContent.replace(/\s+/g, " ").trim();
+
+        sections.push({
+          anchor: el.id,
+          title: el.textContent.trim(),
+          description: sectionText.slice(0, 200).trim(),
+          text: sectionText,
+          html: html.replace(/>\s+</g, "><").replace(/\s+/g, " "),
+          references: getReferences(sectionText),
+        });
       }
     });
 
