@@ -2,7 +2,7 @@
   "extends": ["github>SocialGouv/renovate-config", ":automergeAll"],
   "packageRules": [
     {
-      "packagePatterns": ["^@socialgouv\/.*-data$"],
+      "packagePatterns": ["^@socialgouv\/.*\-data$"],
       "groupName": "@socialgouv data packages",
       "automerge": true
     }
