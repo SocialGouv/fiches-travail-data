@@ -26,6 +26,8 @@ jobs:
       - name: Release
         env:
           DATAFILLER_URL: ${{ secrets.DATAFILLER_URL }}
+          GIT_AUTHOR_EMAIL: 45039513+SocialGroovyBot@users.noreply.github.com
+          GIT_AUTHOR_NAME: Social Groovy Bot
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
@@ -41,8 +43,6 @@ jobs:
               }
             done
             NOW=$(date +"%Y%m%d_%H%M")
-            git config user.name "Social Groovy Bot"
-            git config user.email "45039513+SocialGroovyBot@users.noreply.github.com" 
             git commit -m"feat(data): $NOW update" . --no-verify
             git push --no-verify 
             npx semantic-release
