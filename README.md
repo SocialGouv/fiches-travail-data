@@ -11,7 +11,7 @@ You can include json data
 
 ```js 
 
-const fiches = require("@socialgouv/fiches-travail-data/data/fiches-travail.json");
+const {data, decodeEmail} = require("@socialgouv/fiches-travail-data");
 ```
 
 ## Development
@@ -49,4 +49,4 @@ curl -H "Accept: application/vnd.github.everest-preview+json" \
 ### email
 
 There are some email adresses in the data. To prevent email sniffing
-we transform the `@` into `_@_`.  
+we transform the `@` into `_@`.  
