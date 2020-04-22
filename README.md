@@ -45,3 +45,8 @@ curl -H "Accept: application/vnd.github.everest-preview+json" \
     --data '{"event_type": "manual_release"}' \
     https://api.github.com/repos/SocialGouv/fiches-travail-data/dispatches
 ```
+
+### email
+
+There are some email adresses in the data. To prevent email sniffing
+we transform the `@` into `_@_`.  

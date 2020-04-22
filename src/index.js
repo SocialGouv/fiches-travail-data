@@ -15,11 +15,10 @@ function unwrapEmail(data = "") {
     (_, i) => i * 2
   ).map((val) => parseInt(data.slice(val, val + 2), 16));
   const rawValue = tokens.map((v) => String.fromCharCode(v ^ k)).join("");
-  return decodeURIComponent(escape(rawValue));
+  return decodeURIComponent(escape(rawValue)).replace("@", "_@_");
 }
 const formatEmail = (node) => {
   const value = unwrapEmail(node.getAttribute("data-cfemail"));
-  node.className = "";
   node.removeAttribute("data-cfemail");
   node.textContent = value;
 };
