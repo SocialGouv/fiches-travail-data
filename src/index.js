@@ -3,6 +3,7 @@ import fs from "fs";
 import { JSDOM } from "jsdom";
 import pLimit from "p-limit";
 import path from "path";
+import { encode } from "./email";
 import { extractReferences } from "./referenceExtractor";
 import { resolveReferences } from "./referenceResolver";
 
@@ -15,11 +16,10 @@ function unwrapEmail(data = "") {
     (_, i) => i * 2
   ).map((val) => parseInt(data.slice(val, val + 2), 16));
   const rawValue = tokens.map((v) => String.fromCharCode(v ^ k)).join("");
-  return decodeURIComponent(escape(rawValue));
+  return encode(decodeURIComponent(escape(rawValue)));
 }
 const formatEmail = (node) => {
   const value = unwrapEmail(node.getAttribute("data-cfemail"));
-  node.className = "";
   node.removeAttribute("data-cfemail");
   node.textContent = value;
 };
@@ -43,7 +43,7 @@ const formatAnchor = (node) => {
   if (/email-protection/.test(href)) {
     const [, data = ""] = href.split("#");
     const value = unwrapEmail(data);
-    node.setAttribute("href", `mailto:${decodeURIComponent(escape(value))}`);
+    node.setAttribute("href", `mailto:${value}`);
     return;
   }
   if (!href.match(/^https?:\/\//)) {
