@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "main": "index.js",
   "files": [
-    "data"
+    "data",
+    "src/email.js"
   ],
   "repository": {
     "type": "git",
