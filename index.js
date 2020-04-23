@@ -1,4 +1,7 @@
-module.export = {
-  data: require("./data/fiches-travail.json"),
-  decode: require("./src/email").decode,
+const data = require("./data/fiches-travail.json");
+const { decode } = require("./src/email");
+
+module.exports = {
+  data,
+  decode,
 };
