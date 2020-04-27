@@ -163,6 +163,7 @@ function resolveReference(ref) {
         (node) => node.type === "article" && node.data.num === a.fmt
       );
       if (article) {
+        a.cid = article.data.cid;
         a.id = article.data.id;
         a.code = code;
       } else {

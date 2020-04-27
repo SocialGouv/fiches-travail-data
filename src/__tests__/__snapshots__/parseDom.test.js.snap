@@ -71,11 +71,13 @@ Object {
         "LEGITEXT000006072050": Object {
           "articles": Array [
             Object {
+              "cid": "LEGIARTI000018490331",
               "fmt": "R4412-3",
               "id": "LEGIARTI000030680417",
               "text": "R.4412-3",
             },
             Object {
+              "cid": "LEGIARTI000018490483",
               "fmt": "R4412-60",
               "id": "LEGIARTI000030680423",
               "text": "R.4412-60",
