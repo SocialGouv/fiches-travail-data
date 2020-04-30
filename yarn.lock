@@ -1026,10 +1026,10 @@
   dependencies:
     type-detect "4.0.8"
 
-"@socialgouv/datafiller-data@^1.13.0":
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.13.0.tgz#7270d77635bf35b5f9793dfaf5cfd889ed43fe84"
-  integrity sha512-JtzN+pHtspJcKrDiW96l842Yjz5K20LQ15ahJ+e07N+KebBgpGu+lVb2Gv2HtCQY9VnPy5Qvz8L3wmAv0Cty4Q==
+"@socialgouv/datafiller-data@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.14.0.tgz#64f65e95fafb46d0b33cfa7e647fa14f532ff91c"
+  integrity sha512-1EMVQC1syHb0AprntUBXh+puCgBzkVWm87KKH2Gv8OIxDQG/7e6CvDAUjq5hoc9Du6Phj93JqUo2B/hbIoGuuw==
   dependencies:
     node-fetch "^2.6.0"
     p-pipe "^3.0.0"
