@@ -1,5 +1,4 @@
 {
-  "enable":true,
   "extends": ["github>SocialGouv/renovate-config", ":automergeAll"],
   "packageRules": [
     {
