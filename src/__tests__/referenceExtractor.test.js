@@ -20,7 +20,7 @@ annotatedTokens.map((line) => {
 const testCases = [
   {
     input:
-      "les modalités fixées par les articles L. 2313‑8 et R. 2313-3 à R. 2313-6 du code du travail ainsi que le L. 1251-18",
+      "les modalités fixées par les articles l. 2313‑8 et R. 2313-3 à R. 2313-6 du code du travail ainsi que le L. 1251-18",
   },
   {
     input: "L. 1251-23xx du code du travail",

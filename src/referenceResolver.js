@@ -138,6 +138,7 @@ function unravelRange(range) {
 function formatArticle(article) {
   // remove dot and spaces + remove non digit trailing chars + replace unicode dash ‑ to standard -
   return article
+    .toUpperCase()
     .replace(".", "")
     .replace(" ", "")
     .replace(/\D*$/, "")
