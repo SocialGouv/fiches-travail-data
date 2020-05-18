@@ -1031,13 +1031,13 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@socialgouv/datafiller-data@^1.20.0":
-  version "1.20.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.20.0.tgz#96058b2e81cd0877d19a17b26d9bfbfb7688b348"
-  integrity sha512-fSPGfdeccmN2VL2T03jh/veQ24BbI+OgFukDIJjPOqYzshbl5uEU1uj+SI6EgHXjTXcCHKBQfl6TeToh0UYjfw==
+"@socialgouv/datafiller-data@^1.21.0":
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.21.0.tgz#0c28e1d09532f3c7db60db1e37bcff0a2ec217d3"
+  integrity sha512-N9XElzZm7s7icNyRhOVW/Jhg/NMM260GZg+2yEkFR4NgfCh0dCPzhB2zLA349VpKdjcs2r8KUQ1hxFIZFMKITw==
   dependencies:
     node-fetch "^2.6.0"
-    p-pipe "^3.0.0"
+    p-pipe "^3.1.0"
     remark "^12.0.0"
     remark-html "^11.0.2"
 
@@ -4201,10 +4201,10 @@ p-map@^4.0.0:
   dependencies:
     aggregate-error "^3.0.0"
 
-p-pipe@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/p-pipe/-/p-pipe-3.0.0.tgz#ab1fb87c0b8dd79b3bb03a8a23680fc9d054e132"
-  integrity sha512-gwwdRFmaxsT3IU+Tl3vYKVRdjfhg8Bbdjw7B+E0y6F7Yz6l+eaQLn0BRmGMXIhcPDONPtOkMoNwx1etZh4zPJA==
+p-pipe@^3.0.0, p-pipe@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/p-pipe/-/p-pipe-3.1.0.tgz#48b57c922aa2e1af6a6404cb7c6bf0eb9cc8e60e"
+  integrity sha512-08pj8ATpzMR0Y80x50yJHn37NF6vjrqHutASaX5LiH5npS9XPvrUmscd9MF5R4fuYRHOxQR1FfMIlF7AzwoPqw==
 
 p-queue@^6.4.0:
   version "6.4.0"
