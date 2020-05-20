@@ -21,7 +21,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@socialgouv/datafiller-data": "^1.21.0",
+    "@socialgouv/datafiller-data": "^1.22.0",
     "@socialgouv/legi-data": "^1.6.0",
     "esm": "^3.2.25",
     "jsdom": "^16.2.2",
