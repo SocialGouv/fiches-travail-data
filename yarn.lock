@@ -4212,10 +4212,17 @@ p-limit@^1.1.0:
   dependencies:
     p-try "^1.0.0"
 
-p-limit@^2.2.0, p-limit@^2.3.0:
+p-limit@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1"
   integrity sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==
+  dependencies:
+    p-try "^2.0.0"
+
+p-limit@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-3.0.0.tgz#8a9da09ee359017af6a3aa6b8ede13f5894224ec"
+  integrity sha512-2FnzNu8nBx8Se231yrvScYw34Is5J5MtvKOQt7Lii+DGpM89xnCT7kIH/HJwniNkQpjB7zy/O3LckEfMVqYvFg==
   dependencies:
     p-try "^2.0.0"
 
