@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@socialgouv/datafiller-data": "^1.25.0",
-    "@socialgouv/legi-data": "^1.10.0",
+    "@socialgouv/legi-data": "^1.11.0",
     "esm": "^3.2.25",
     "jsdom": "^16.2.2",
     "p-limit": "^3.0.1",
