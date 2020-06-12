@@ -1101,10 +1101,10 @@
     eslint-plugin-jest "~23.13.2"
     eslint-plugin-prettier "~3.1.3"
 
-"@socialgouv/legi-data@^1.13.0":
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/legi-data/-/legi-data-1.13.0.tgz#fab2434f9b0c6bde961ceedaa42f5d9f0ef2c7f9"
-  integrity sha512-2pgECdlqkvND5E2hMp784rij5GvpJ7nhHDEXbP2QEF8c9TOr3QtYyFjCDRt0Tx66MfsHEJZxCDbioySJokxx3w==
+"@socialgouv/legi-data@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/legi-data/-/legi-data-1.14.0.tgz#9d4418f07154412b098b0963438faec3f7cbfc0a"
+  integrity sha512-eCfJQ29/ZnVNF6xHZ26QmY4RRpRr5tWgZPc2NNlQEbU2VrqPMLLqYpjMIux5vNVlWUoCJOGZr98PbmhscDTuIQ==
   dependencies:
     "@socialgouv/dila-api-client" "^1.1.1"
     debug "^4.1.1"
