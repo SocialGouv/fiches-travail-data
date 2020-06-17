@@ -30,6 +30,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "scrap pages"
+          yarn build
           yarn start
           node -r esm src/checkRefs.js
           if [[ "$(git status data/ --porcelain)" != "" ]]; then

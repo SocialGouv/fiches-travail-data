@@ -1,10 +1,11 @@
 {
   "name": "@socialgouv/fiches-travail-data",
-  "version": "0.0.0",
-  "main": "index.js",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "files": [
-    "data",
-    "src/email.js"
+    "dist",
+    "README.md"
   ],
   "repository": {
     "type": "git",
@@ -16,7 +17,8 @@
     "access": "public"
   },
   "scripts": {
-    "start": "node -r esm src/index.js",
+    "build": "mkdir -p dist && cp src/index.js dist/index.esm.js && babel src --out-dir dist --ignore '**/__tests__/**'",
+    "start": "node dist/fetch-data",
     "lint": "eslint src --ext .js",
     "test": "jest"
   },
@@ -32,7 +34,9 @@
     "unist-util-visit": "^2.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
     "@socialgouv/eslint-config-recommended": "^0.30.0",
     "babel-jest": "^26.0.1",
