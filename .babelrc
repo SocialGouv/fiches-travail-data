@@ -5,12 +5,5 @@
           "ie": "11"
       }
     }]
-  ],
-  "plugins": [
-    ["@babel/plugin-transform-runtime",
-      {
-        "regenerator": true
-      }
-    ]
-  ],
+  ]
 }
