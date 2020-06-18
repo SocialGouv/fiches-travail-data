@@ -1,7 +1,8 @@
-const data = require("./data/fiches-travail.json");
 const { decode } = require("./src/email");
 
+const getData = () => require("./data/fiches-travail.json");
+
 module.exports = {
-  data,
+  getData,
   decode,
 };
