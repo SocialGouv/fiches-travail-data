@@ -13,8 +13,8 @@ You can include json data
 ## Usage
 
 ```js 
-
-const {getData, decodeEmail} = require("@socialgouv/fiches-travail-data");
+const { decodeEmail} = require("@socialgouv/fiches-travail-data");
+const fichesMT = require("@socialgouv/fiches-travail-data/dist/data/fiches-travail.json");
 ```
 
 
