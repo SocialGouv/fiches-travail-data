@@ -14,7 +14,7 @@ You can include json data
 
 ```js 
 
-const {data, decodeEmail} = require("@socialgouv/fiches-travail-data");
+const {getData, decodeEmail} = require("@socialgouv/fiches-travail-data");
 ```
 
 ## Development
