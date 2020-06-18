@@ -1071,10 +1071,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@socialgouv/datafiller-data@^1.29.0":
-  version "1.29.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.29.0.tgz#992b0fc21a97330a3ffcf1a3f736401ad336719b"
-  integrity sha512-FZiVRXng3ZNbPYSyg5dOBeKLJJfY5q2zd6Ixiz84G1VY5kovXcu6DFaYwbMojLkdv6ZXvshMYh56G7O+hsAtTg==
+"@socialgouv/datafiller-data@^1.30.0":
+  version "1.30.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.30.0.tgz#0de54f89da6219e37682ada9240e8400fb8132d3"
+  integrity sha512-olvRORhwRNUUwPJZ4DzDWTv5SpYynGM4HldFTqpgHn0kmL0hTSHdSh+tyETC+Q58Q9ByHbv7x2Q0+7DXhFfzug==
   dependencies:
     node-fetch "^2.6.0"
     p-pipe "^3.1.0"
@@ -1101,10 +1101,10 @@
     eslint-plugin-jest "~23.13.2"
     eslint-plugin-prettier "~3.1.4"
 
-"@socialgouv/legi-data@^1.16.0":
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/legi-data/-/legi-data-1.16.0.tgz#11c40dbd7f9329bb09890cb7e49313c18fd7489f"
-  integrity sha512-5xQ1B26fEFgkNgVgzNlzBug3VJTFyCxvupA1UiPtR9GYWafMlHgAWE1Wl4VZ2QaVd1iH7eCbuqdIjJkYeucIOw==
+"@socialgouv/legi-data@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/legi-data/-/legi-data-1.17.0.tgz#c35494ea4646f23ec49045cc2e8ebc954a612180"
+  integrity sha512-Scz7hW3F6av1OP5ARZCyj85axhOS2HVvK2QjBMin5+FeMc+F8N9Bw85dADj1AYaIBNrB7qM4u99IAGUVCH1caA==
   dependencies:
     "@socialgouv/dila-api-client" "^1.1.1"
     debug "^4.1.1"
