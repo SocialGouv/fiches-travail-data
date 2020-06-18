@@ -1,5 +1,5 @@
-// eslint-disable-next-line
-import data from "./data/fiches-travail.json";
 import { decode } from "./email";
 
-export { data, decode };
+const getData = () => require("./data/fiches-travail.json");
+
+export { getData, decode };
