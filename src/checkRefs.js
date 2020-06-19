@@ -1,4 +1,4 @@
-const fiches = require("../data/fiches-travail.json");
+const fiches = require("./data/fiches-travail.json");
 
 const UNDEFINED_KEY = "UNDEFINED";
 

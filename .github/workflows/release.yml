@@ -32,7 +32,7 @@ jobs:
           echo "scrap pages"
           yarn build
           yarn start
-          node -r esm src/checkRefs.js
+          yarn checkRefs
           if [[ "$(git status data/ --porcelain)" != "" ]]; then
             # Check JSON files
             for filename in ./data/*\.json; do

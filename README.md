@@ -26,6 +26,12 @@ Build dist folder once
 $ yarn build
 ```
 
+Make sure references are good
+
+```sh
+$ yarn checkRefs
+```
+
 Fetch fiches from https://travail-emploi.gouv.fr
 
 ```sh

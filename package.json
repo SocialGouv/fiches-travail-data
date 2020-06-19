@@ -19,13 +19,14 @@
   "scripts": {
     "build": "mkdir -p dist && cp src/index.js dist/index.esm.js && babel src --out-dir dist --ignore '**/__tests__/**'",
     "start": "node dist/fetch-data",
+    "checkRefs": "node dist/checkRefs",
     "lint": "eslint src --ext .js",
     "test": "jest"
   },
   "dependencies": {
     "@socialgouv/datafiller-data": "^1.30.0",
-    "@socialgouv/legi-data": "^1.18.0",
     "esm": "^3.2.25",
+    "@socialgouv/legi-data": "^1.18.0",
     "jsdom": "^16.2.2",
     "p-limit": "^3.0.1",
     "superagent": "^5.2.2",
