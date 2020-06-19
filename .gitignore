@@ -1,5 +1,6 @@
-#built folders
-dist
+#built files
+index.js
+index.esm.js
 
 # Logs
 logs

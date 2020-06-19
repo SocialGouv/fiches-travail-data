@@ -1,11 +1,12 @@
 {
   "name": "@socialgouv/fiches-travail-data",
   "version": "0.1.0",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "main": "index.js",
+  "module": "index.esm.js",
   "files": [
-    "dist",
     "data",
+    "index.js",
+    "index.esm.js",
     "README.md"
   ],
   "repository": {
@@ -18,35 +19,33 @@
     "access": "public"
   },
   "scripts": {
-    "build": "mkdir -p dist && cp src/index.js dist/index.esm.js && babel src --out-dir dist --ignore '**/__tests__/**'",
-    "start": "node dist/fetch-data",
-    "checkRefs": "node dist/checkRefs",
+    "build": "rollup -c",
+    "start": "node -r esm src/fetch-data",
+    "checkRefs": "node -r esm src/checkRefs",
     "lint": "eslint src --ext .js",
     "test": "jest"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
     "@socialgouv/datafiller-data": "^1.30.0",
-    "esm": "^3.2.25",
+    "@socialgouv/eslint-config-recommended": "^0.30.0",
     "@socialgouv/legi-data": "^1.18.0",
+    "babel-jest": "^26.0.1",
+    "eslint": "^7.2.0",
+    "esm": "^3.2.25",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
     "jsdom": "^16.2.2",
+    "npm-run-all": "^4.1.5",
     "p-limit": "^3.0.1",
+    "prettier": "^2.0.5",
+    "rollup": "^2.17.1",
     "superagent": "^5.2.2",
     "talisman": "^1.1.2",
     "unist-util-find": "^1.0.1",
     "unist-util-visit": "^2.0.2"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.10.1",
-    "@babel/core": "^7.10.1",
-    "@babel/plugin-transform-runtime": "^7.10.1",
-    "@babel/preset-env": "^7.10.2",
-    "@socialgouv/eslint-config-recommended": "^0.30.0",
-    "babel-jest": "^26.0.1",
-    "eslint": "^7.2.0",
-    "husky": "^4.2.5",
-    "jest": "^26.0.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.0.5"
   },
   "jest": {
     "roots": [
