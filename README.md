@@ -13,11 +13,24 @@ You can include json data
 ## Usage
 
 ```js 
-
-const {data, decodeEmail} = require("@socialgouv/fiches-travail-data");
+const { decodeEmail} = require("@socialgouv/fiches-travail-data");
+const fichesMT = require("@socialgouv/fiches-travail-data/data/fiches-travail.json");
 ```
 
+
 ## Development
+
+Build dist folder once
+
+```sh
+$ yarn build
+```
+
+Make sure references are good
+
+```sh
+$ yarn checkRefs
+```
 
 Fetch fiches from https://travail-emploi.gouv.fr
 

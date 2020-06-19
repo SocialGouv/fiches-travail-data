@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 12
       - name: Install dependencies
-        run: yarn --frozen-lockfile  --production
+        run: yarn --frozen-lockfile
       - name: Release
         env:
           DATAFILLER_URL: ${{ secrets.DATAFILLER_URL }}
@@ -30,8 +30,9 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "scrap pages"
+          yarn build
           yarn start
-          node -r esm src/checkRefs.js
+          yarn checkRefs
           if [[ "$(git status data/ --porcelain)" != "" ]]; then
             # Check JSON files
             for filename in ./data/*\.json; do

@@ -8,4 +8,4 @@ function decode(str) {
   return str.replace(new RegExp(`${char}@`, "g"), "@");
 }
 
-module.exports = { encode, decode };
+export { encode, decode };
