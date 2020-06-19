@@ -207,6 +207,7 @@ async function fetchAndParse(urls) {
   const dataFilePath = path.join(
     __dirname,
     "..",
+    "..",
     "data",
     "fiches-travail.json"
   );

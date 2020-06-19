@@ -5,6 +5,7 @@
   "module": "dist/index.esm.js",
   "files": [
     "dist",
+    "data",
     "README.md"
   ],
   "repository": {

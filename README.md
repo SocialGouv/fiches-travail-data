@@ -14,7 +14,7 @@ You can include json data
 
 ```js 
 const { decodeEmail} = require("@socialgouv/fiches-travail-data");
-const fichesMT = require("@socialgouv/fiches-travail-data/dist/data/fiches-travail.json");
+const fichesMT = require("@socialgouv/fiches-travail-data/data/fiches-travail.json");
 ```
 
 
