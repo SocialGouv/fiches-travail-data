@@ -24,6 +24,34 @@ const formatEmail = (node) => {
   node.textContent = value;
 };
 
+const formatPicture = (node) => {
+  const comment = node.parentElement.childNodes[0];
+  if (comment.nodeName !== "#comment") {
+    //upper sibbling node is not a comment so it's not a case we handle
+    return;
+  }
+  const [, src = ""] = comment.data.match(/src=["']([^'"]*)["']/);
+  if (src.lenght === 0) {
+    return;
+  }
+  let [srcClean] = src.split("?");
+  if (!srcClean.match(/^https?:\/\//)) {
+    if (srcClean.slice(0, 1) !== "/") {
+      srcClean = "/" + srcClean;
+    }
+    srcClean = `https://travail-emploi.gouv.fr${srcClean}`;
+  }
+
+  // we remove the ie comment that have timestamp in the url
+  comment.remove();
+  // we add e
+  const sourceNode = node.ownerDocument.createElement("source");
+  sourceNode.setAttribute("srcset", srcClean);
+  sourceNode.setAttribute("media", "(min-width: 300px)");
+  node.appendChild(sourceNode);
+  return node;
+};
+
 const formatAnchor = (node) => {
   if (node.textContent === "") {
     node.remove();
@@ -78,13 +106,17 @@ const getReferences = (text) => {
 function parseDom(dom) {
   const article = $(dom.window.document, "main");
   $$(article, "a").forEach(formatAnchor);
+  $$(article, "picture").forEach(formatPicture);
   $$(article, "[data-cfemail]").forEach(formatEmail);
   $$(article, ".cs_blocs").forEach(flattenCsBlocs);
-  $$(article, "img")
+  const imgs = $$(article, "img");
+  imgs.forEach((node) => {
+    // remove adaptImgFix(this) on hero img
+    node.removeAttribute("onmousedown");
+  });
+  imgs
     .filter((node) => node.getAttribute("src").indexOf("data:image") === -1)
     .forEach((node) => {
-      // remove adaptImgFix(this) on hero img
-      node.removeAttribute("onmousedown");
       let src = node.getAttribute("src");
       if (!src.match(/^https?:\/\//)) {
         if (src.slice(0, 1) !== "/") {
@@ -102,7 +134,7 @@ function parseDom(dom) {
     $(dom.window.document, "meta[property$=published_time]");
   const [year, month, day] = dateRaw.getAttribute("content").split("-");
   let intro = $(article, ".main-article__chapo") || "";
-  intro = intro && intro.innerHTML.trim();
+  intro = intro && intro.innerHTML.replace(/\s+/g, " ").trim();
   const description = $(
     dom.window.document,
     "meta[name=description]"
@@ -188,7 +220,7 @@ async function parseFiche(url) {
     };
   } catch (error) {
     if (error.statusCode) {
-      console.error(error.options.uri);
+      console.error(error.statusCode, error.options.uri);
     } else {
       console.error("parse error", url, error);
     }
