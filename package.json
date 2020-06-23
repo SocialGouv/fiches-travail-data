@@ -30,7 +30,7 @@
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "@socialgouv/datafiller-data": "^1.30.0",
-    "@socialgouv/eslint-config-recommended": "^0.33.0",
+    "@socialgouv/eslint-config-recommended": "^0.34.0",
     "@socialgouv/legi-data": "^1.18.0",
     "babel-jest": "^26.0.1",
     "eslint": "^7.3.1",
