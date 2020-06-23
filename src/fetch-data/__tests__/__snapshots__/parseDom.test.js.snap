@@ -4,8 +4,7 @@ exports[`should parse HTML section 1`] = `
 Object {
   "date": "28/11/2018",
   "description": "Naissance, mariage, PACS, décès d'un proche… : lorsque ces événements surviennent, le salarié peut s'absenter pendant une durée minimale de 1 à 5 jours.",
-  "intro": "<p>Naissance, mariage, conclusion d’un PACS, décès d’un proche…&nbsp;: lorsque ces événements surviennent, le salarié peut s’absenter pendant une durée minimale de 1 à 5 jours, selon les circonstances. A la demande d’absence adressée à l’employeur, doit être jointe une justification (certificat de naissance, de décès,…) de l’événement.<br class=\\"autobr\\">
-Rémunérées, ces absences sont assimilées à du travail effectif pour la détermination des congés payés.</p>",
+  "intro": "<p>Naissance, mariage, conclusion d’un PACS, décès d’un proche…&nbsp;: lorsque ces événements surviennent, le salarié peut s’absenter pendant une durée minimale de 1 à 5 jours, selon les circonstances. A la demande d’absence adressée à l’employeur, doit être jointe une justification (certificat de naissance, de décès,…) de l’événement.<br class=\\"autobr\\"> Rémunérées, ces absences sont assimilées à du travail effectif pour la détermination des congés payés.</p>",
   "pubId": "article375531",
   "sections": Array [
     Object {
