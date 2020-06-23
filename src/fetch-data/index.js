@@ -53,7 +53,7 @@ const formatPicture = (node) => {
 };
 
 const formatAnchor = (node) => {
-  if (node.textContent === "") {
+  if (node.innerHTML.trim() === "") {
     node.remove();
     return;
   }
