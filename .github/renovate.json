@@ -1,11 +1,6 @@
 {
   "enabled": true,
-  "extends": ["github>SocialGouv/renovate-config", ":automergeAll"],
-  "packageRules": [
-    {
-      "packagePatterns": ["^@socialgouv/.*-(data|vdd)$"],
-      "groupName": "@socialgouv data packages",
-      "automerge": true
-    }
-  ] 
+  "extends": [
+    "github>SocialGouv/renovate-config:socialgouv-data"
+  ]
 }
