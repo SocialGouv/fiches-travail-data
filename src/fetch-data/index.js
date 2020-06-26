@@ -134,7 +134,8 @@ function parseDom(dom) {
     $(dom.window.document, "meta[property$=published_time]");
   const [year, month, day] = dateRaw.getAttribute("content").split("-");
   let intro = $(article, ".main-article__chapo") || "";
-  intro = intro && intro.innerHTML.replace(/\s+/g, " ").trim();
+  intro =
+    intro && intro.innerHTML.replace(/\n/g, "").replace(/\s+/g, " ").trim();
   const description = $(
     dom.window.document,
     "meta[name=description]"
@@ -193,7 +194,7 @@ function parseDom(dom) {
           title: el.textContent.trim(),
           description: sectionText.slice(0, 200).trim(),
           text: sectionText,
-          html: html.replace(/>\s+</g, "><").replace(/\s+/g, " "),
+          html: html.replace(/\n/g, "").replace(/\s+/g, " "),
           references: getReferences(sectionText),
         });
       }
