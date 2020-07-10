@@ -9,6 +9,7 @@
     "index.esm.js",
     "README.md"
   ],
+  "types": "src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/SocialGouv/fiches-travail-data.git"
