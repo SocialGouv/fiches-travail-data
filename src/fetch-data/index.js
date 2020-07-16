@@ -159,10 +159,15 @@ function parseDom(dom) {
   ) {
     if (nextArticleElement.textContent) {
       if (!untitledSection.description) {
-        untitledSection.description = nextArticleElement.textContent.trim();
+        untitledSection.description = nextArticleElement.textContent
+          .replace(/\s+/g, " ")
+          .trim();
       }
-      untitledSection.html += nextArticleElement.outerHTML;
-      untitledSection.text += " " + nextArticleElement.textContent.trim();
+      untitledSection.html += nextArticleElement.outerHTML
+        .replace(/\n+/g, "")
+        .replace(/\s+/g, " ");
+      untitledSection.text +=
+        " " + nextArticleElement.textContent.replace(/\s+/g, " ").trim();
     }
     nextArticleElement = nextArticleElement.nextElementSibling;
   }
@@ -194,7 +199,7 @@ function parseDom(dom) {
           title: el.textContent.trim(),
           description: sectionText.slice(0, 200).trim(),
           text: sectionText,
-          html: html.replace(/\n/g, "").replace(/\s+/g, " "),
+          html: html.replace(/\n+/g, "").replace(/\s+/g, " "),
           references: getReferences(sectionText),
         });
       }

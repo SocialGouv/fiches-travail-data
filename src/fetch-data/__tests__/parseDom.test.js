@@ -15,8 +15,12 @@ test("should parse HTML section", () => {
   expect(parsed).toMatchSnapshot();
 });
 
-test("should remove whitespa HTML section", () => {
+test("should remove whitespace in HTML section", () => {
   const dom = new JSDOM(acd);
   const parsed = parseDom(dom);
   expect(parsed).toMatchSnapshot();
+  parsed.sections.forEach((section) => {
+    expect(/\n/g.test(section.html)).toBe(false);
+    expect(/\n/g.test(section.description)).toBe(false);
+  });
 });
