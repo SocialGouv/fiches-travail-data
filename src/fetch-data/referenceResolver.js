@@ -8,6 +8,7 @@ import find from "unist-util-find";
 import visit from "unist-util-visit";
 import { codesFullNames, CODE_TRAVAIL } from "./referenceExtractor";
 
+/**@type {{[key:string]: import("@socialgouv/legi-data").Code}} */
 const codes = {};
 Object.values(codesFullNames).forEach(({ id }) => {
   const code = require(`@socialgouv/legi-data/data/${id}.json`);
@@ -25,7 +26,11 @@ const DEFAULT_CODE = CODE_TRAVAIL;
 // each part up to MAX_DEPTH is padded with PAD_LENGTH
 const PAD_LENGTH = 5; // left pad numbers to X chars
 const MAX_DEPTH = 5; // max number of L432-1-1-1
-// padding numbers : 2 -> "0002"
+
+/**
+ * padding numbers : 2 -> "0002"
+ * @param {number} num
+ */
 const leftPad = (num) => {
   let padded = "" + num;
   while (padded.length < PAD_LENGTH) {
@@ -33,12 +38,16 @@ const leftPad = (num) => {
   }
   return padded;
 };
-// transform articles into comparable integers
+
+/**
+ * transform articles into comparable integers
+ * @param {string} num
+ */
 const asInt = (num) => {
   const parts = num
     .replace(/[^\d-]/g, "")
     .split("-")
-    .map(leftPad);
+    .map((i) => leftPad(parseInt(i)));
   while (parts.length < MAX_DEPTH) {
     parts.push(leftPad(0));
   }
@@ -46,17 +55,34 @@ const asInt = (num) => {
   return int;
 };
 
+/**
+ *
+ * @param {import("@socialgouv/legi-data").CodeArticle extends import("unist").Node} code
+ * @param {string} start
+ * @param {string} end
+ */
 function getLegiDataRange(code, start, end) {
-  // check if num is numerically after start. also check LRD prefix
+  /**
+   * check if num is numerically after start. also check LRD prefix
+   * @param {*} node
+   */
   const isAfterStart = (node) =>
     asInt(node.data.num) >= asInt(start) &&
     node.data.num.charAt(0) === start.charAt(0);
 
   // check if num is numerically before end. also check LRD prefix
+  /**
+   * check if num is numerically after start. also check LRD prefix
+   * @param {*} node
+   */
   const isBeforeEnd = (node) =>
     asInt(node.data.num) <= asInt(end) &&
     node.data.num.charAt(0) === end.charAt(0);
 
+  /**
+   * check if num is numerically after start. also check LRD prefix
+   * @type {*} node
+   */
   const articles = [];
   visit(code, "article", (node) => {
     if (isAfterStart(node) && isBeforeEnd(node)) {
@@ -65,7 +91,11 @@ function getLegiDataRange(code, start, end) {
   });
   return articles;
 }
-
+/**
+ *
+ * @param {string} startRaw
+ * @param {string} endRaw
+ */
 function formatStartEnd(startRaw, endRaw) {
   // we need to identify special case where end ref is relative to start ref (e.g. L. 4733-9 à 11)
   // if there's nothing in common between end and start, we consider being in this special case
@@ -73,7 +103,6 @@ function formatStartEnd(startRaw, endRaw) {
   const [startParts, endParts] = [startRaw, endRaw].map((a) =>
     a
       .replace(/\u2011/g, "-")
-      .replace()
       .split("-")
       .map((p) => p.trim())
   );
@@ -95,8 +124,12 @@ function formatStartEnd(startRaw, endRaw) {
   return [letter + startNums.join("-"), letter + endNums.join("-")];
 }
 
-// in case of a range (like "L. 4733-9 à 4733-11"), we try to identify
-// the articles implicitly included within the range
+//
+/**
+ * in case of a range (like "L. 4733-9 à 4733-11"), we try to identify
+ * the articles implicitly included within the range
+ * @param {} range
+ */
 function unravelRange(range) {
   const mark = rangeMarkers.filter((a) => range.text.includes(a))[0];
   const rawParts = range.text.split(mark).map((p) => p.trim());
@@ -135,6 +168,10 @@ function unravelRange(range) {
   });
 }
 
+/**
+ *
+ * @param {string} article
+ */
 function formatArticle(article) {
   // remove dot and spaces + remove non digit trailing chars + replace unicode dash ‑ to standard -
   return article
@@ -145,6 +182,10 @@ function formatArticle(article) {
     .replace(/\u2011/g, "-");
 }
 
+/**
+ *
+ * @param {ref} ref
+ */
 function resolveReference(ref) {
   let toResolve = [ref];
   if (rangeMarkers.filter((a) => ref.text.includes(a)).length != 0) {

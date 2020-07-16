@@ -7,7 +7,17 @@ import { encode } from "../email";
 import { extractReferences } from "./referenceExtractor";
 import { resolveReferences } from "./referenceResolver";
 
+/**
+ *
+ * @param {Element|Document} node
+ * @param {string} selector
+ */
 const $$ = (node, selector) => Array.from(node.querySelectorAll(selector));
+/**
+ *
+ * @param {Element|Document} node
+ * @param {string} selector
+ */
 const $ = (node, selector) => node.querySelector(selector);
 
 function unwrapEmail(data = "") {
@@ -18,22 +28,39 @@ function unwrapEmail(data = "") {
   const rawValue = tokens.map((v) => String.fromCharCode(v ^ k)).join("");
   return encode(decodeURIComponent(escape(rawValue)));
 }
+
+/**
+ *
+ * @param {Element} node
+ */
+
 const formatEmail = (node) => {
-  const value = unwrapEmail(node.getAttribute("data-cfemail"));
+  const value = unwrapEmail(node.getAttribute("data-cfemail") || "");
   node.removeAttribute("data-cfemail");
   node.textContent = value;
 };
 
+/**
+ *
+ * @param {Element} node
+ */
+
 const formatPicture = (node) => {
+  if (!node.parentElement) {
+    return;
+  }
   const comment = node.parentElement.childNodes[0];
   if (comment.nodeName !== "#comment") {
     //upper sibbling node is not a comment so it's not a case we handle
     return;
   }
-  const [, src = ""] = comment.data.match(/src=["']([^'"]*)["']/);
-  if (src.lenght === 0) {
+  const [, src = ""] =
+    /** @type {Comment} */ (comment).data.match(/src=["']([^'"]*)["']/) || [];
+
+  if (src.length === 0) {
     return;
   }
+
   let [srcClean] = src.split("?");
   if (!srcClean.match(/^https?:\/\//)) {
     if (srcClean.slice(0, 1) !== "/") {
@@ -52,6 +79,10 @@ const formatPicture = (node) => {
   return node;
 };
 
+/**
+ *
+ * @param {Element} node
+ */
 const formatAnchor = (node) => {
   if (node.innerHTML.trim() === "") {
     node.remove();
@@ -66,7 +97,9 @@ const formatAnchor = (node) => {
   if (!href) return;
   // unwrap link with href="javascript:"
   if (/^javascript:/.test(href)) {
-    node.parentNode.innerHTML = node.textContent;
+    if (node.parentElement) {
+      node.parentElement.innerHTML = node.textContent || "";
+    }
   }
   if (/email-protection/.test(href)) {
     const [, data = ""] = href.split("#");
@@ -84,11 +117,21 @@ const formatAnchor = (node) => {
   }
 };
 
+/**
+ *
+ * @param {Element} node
+ */
 const flattenCsBlocs = (node) => {
   node.insertAdjacentHTML("afterend", node.innerHTML);
-  node.parentNode.removeChild(node);
+  if (node.parentNode) {
+    node.parentNode.removeChild(node);
+  }
 };
 
+/**
+ *
+ * @param {Element} article
+ */
 const getSectionTag = (article) => {
   const h3 = $$(article, ".main-article__texte > h3").length && "h3";
   const h4 = $$(article, ".main-article__texte > h4").length && "h4";
@@ -96,28 +139,40 @@ const getSectionTag = (article) => {
   return h3 || h4 || h5;
 };
 
+/**
+ *
+ * @param {string} text
+ */
 const getReferences = (text) => {
   // first we extract the tokens referencing articles
   const references = extractReferences(text);
   // then we try to resolve the actual articles ids using legi-data
   return resolveReferences(references);
 };
-
+/**
+ *
+ * @param {JSDOM} dom
+ */
 function parseDom(dom) {
   const article = $(dom.window.document, "main");
+  if (!article) {
+    throw new Error("page has no <main>");
+  }
   $$(article, "a").forEach(formatAnchor);
   $$(article, "picture").forEach(formatPicture);
   $$(article, "[data-cfemail]").forEach(formatEmail);
   $$(article, ".cs_blocs").forEach(flattenCsBlocs);
-  const imgs = $$(article, "img");
+  const imgs = $$(article, "img") || [];
   imgs.forEach((node) => {
     // remove adaptImgFix(this) on hero img
     node.removeAttribute("onmousedown");
   });
   imgs
-    .filter((node) => node.getAttribute("src").indexOf("data:image") === -1)
+    .filter(
+      (node) => (node.getAttribute("src") || "").indexOf("data:image") === -1
+    )
     .forEach((node) => {
-      let src = node.getAttribute("src");
+      let src = node.getAttribute("src") || "";
       if (!src.match(/^https?:\/\//)) {
         if (src.slice(0, 1) !== "/") {
           src = "/" + src;
@@ -127,18 +182,29 @@ function parseDom(dom) {
       }
     });
 
-  const title = $(article, "h1").textContent.trim();
+  const h1 = $(article, "h1");
+  if (!h1) {
+    throw new Error("page has no <h1>");
+  }
+  const title = (h1.textContent || "").trim();
 
   const dateRaw =
     $(dom.window.document, "meta[property*=modified_time]") ||
     $(dom.window.document, "meta[property$=published_time]");
-  const [year, month, day] = dateRaw.getAttribute("content").split("-");
-  let intro = $(article, ".main-article__chapo") || "";
-  intro = intro && intro.innerHTML.replace(/\s+/g, " ").trim();
-  const description = $(
-    dom.window.document,
-    "meta[name=description]"
-  ).getAttribute("content");
+  if (!dateRaw) {
+    throw new Error("page has no  <meta modified_time|publish time>");
+  }
+  const [year, month, day] = (dateRaw.getAttribute("content") || "").split("-");
+  let intro = "";
+  const introNode = $(article, ".main-article__chapo");
+  if (introNode) {
+    intro = introNode.innerHTML.replace(/\s+/g, " ").trim();
+  }
+  const descNode = $(dom.window.document, "meta[name=description]");
+  if (!descNode) {
+    throw new Error("page has no  <meta description>");
+  }
+  const description = descNode.getAttribute("content");
   const pubIdMeta = $(dom.window.document, "meta[name='SPIP.identifier']");
   const sections = [];
   const sectionTag = getSectionTag(article);
@@ -151,6 +217,8 @@ function parseDom(dom) {
     anchor: "",
     html: "",
     text: "",
+    description: "",
+    references: [],
   };
   while (
     nextArticleElement &&
@@ -186,11 +254,13 @@ function parseDom(dom) {
 
         const section = dom.window.document.createElement("div");
         section.innerHTML = html;
-        const sectionText = section.textContent.replace(/\s+/g, " ").trim();
+        const sectionText = (section.textContent || "")
+          .replace(/\s+/g, " ")
+          .trim();
 
         sections.push({
           anchor: el.id,
-          title: el.textContent.trim(),
+          title: (el.textContent || "").trim(),
           description: sectionText.slice(0, 200).trim(),
           text: sectionText,
           html: html.replace(/>\s+</g, "><").replace(/\s+/g, " "),
@@ -211,6 +281,10 @@ function parseDom(dom) {
 
 const limit = pLimit(15);
 
+/**
+ *
+ * @param {string} url
+ */
 async function parseFiche(url) {
   try {
     const dom = await JSDOM.fromURL(url);
@@ -227,7 +301,10 @@ async function parseFiche(url) {
     return error;
   }
 }
-
+/**
+ *
+ * @param {string[]} urls
+ */
 async function fetchAndParse(urls) {
   const inputs = urls.map((url) => limit(() => parseFiche(url)));
   const results = await Promise.all(inputs);
@@ -250,7 +327,8 @@ async function fetchAndParse(urls) {
 if (module === require.main) {
   const { urls } = externalUrls.find(
     ({ title }) => title === "ministere-travail"
-  );
+  ) || { urls: [] };
+
   const t0 = Date.now();
   fetchAndParse(urls)
     .then(() => {

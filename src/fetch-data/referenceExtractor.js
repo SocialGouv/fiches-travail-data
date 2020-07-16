@@ -45,6 +45,10 @@ const codesFullNames = {
 const range = 20;
 
 const articleRegEx = new RegExp("^(\\d{1,4}(-\\d+){0,3})\\b"); //          nums        123 123-45 123-45-6 123-45-6-7
+/**
+ *
+ * @param {string} token
+ */
 function articleMatcher(token) {
   return token.match(articleRegEx);
 }
@@ -55,6 +59,10 @@ const validPrefix = ["l", "r", "d"];
 // 0 if not matching
 // 1 if matching prefix only (L.)
 // 2 if matching prefix and valid ref (L123.12)
+/**
+ *
+ * @param {string} token
+ */
 function prefixMatcher(token) {
   const lowToken = token.toLowerCase();
 
@@ -87,13 +95,19 @@ function prefixMatcher(token) {
   // no match
   return 0;
 }
-
+/**
+ *
+ * @param {string} token
+ */
 function infixMatcher(token) {
   // this is quite subtle...
   return ["à", "à"].includes(token);
 }
 
-// classify sequence of tokens to identify references to articles
+/**
+ * classify sequence of tokens to identify references to articles
+ * @param {string[]} tokens
+ */
 function classifyTokens(tokens) {
   // step 1 : check for prefix matches or articles
   const step1 = tokens.map((token) => {
@@ -165,6 +179,11 @@ function classifyTokens(tokens) {
   return predictions.map((p) => (p ? ARTICLE : NEGATIVE));
 }
 
+/**
+ *
+ * @param {string[]} tokens
+ * @param {*} predicitions
+ */
 function identifyCodes(tokens, predicitions) {
   // we look for "code" tokens (starting a code reference)
   const matchCode = tokens.map((token, i) => {
@@ -193,7 +212,10 @@ function identifyCodes(tokens, predicitions) {
   return resolvedCodePreds;
 }
 
-// extract references from free text : tokenize and classify
+/**
+ * extract references from free text : tokenize and classify
+ * @param {string} text
+ */
 function extractReferences(text) {
   const tokens = treebank(text);
   let predictions = classifyTokens(tokens);
