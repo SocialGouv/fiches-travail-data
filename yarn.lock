@@ -1019,14 +1019,14 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@socialgouv/datafiller-data@^1.37.0":
-  version "1.37.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.37.0.tgz#97c9105753180c5f9588077fcc07a8c11d1cb1f0"
-  integrity sha512-ExM/1XA/nkJd9foQ0lKpFvTcSn+lSdj/XZ3mSp2XsXRxo6ncWWX5OVlsitAvr+kf2rB9ZWE+YTZSqYFHI+bxJQ==
+"@socialgouv/datafiller-data@^1.38.0":
+  version "1.38.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.38.0.tgz#ccead73dadb777e649a1c3f737de352e692596e9"
+  integrity sha512-zR+QD1+MFNnKpmcB89Al5BG1gj74YtiRmWbZ7b16wqxx7iFTCFSDxaDGOrwEdfdaUUNxSBhDiff+wRtXBbOrPA==
   dependencies:
     node-fetch "^2.6.0"
     p-pipe "^3.1.0"
-    remark "^12.0.0"
+    remark "^12.0.1"
     remark-html "^11.0.2"
 
 "@socialgouv/eslint-config-recommended@^0.35.0":
@@ -4640,10 +4640,10 @@ remark-stringify@^8.0.0:
     unherit "^1.0.4"
     xtend "^4.0.1"
 
-remark@^12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/remark/-/remark-12.0.0.tgz#d1c145c07341c9232f93b2f8539d56da15a2548c"
-  integrity sha512-oX4lMIS0csgk8AEbzY0h2jdR0ngiCHOpwwpxjmRa5TqAkeknY+tkhjRJGZqnCmvyuWh55/0SW5WY3R3nn3PH9A==
+remark@^12.0.1:
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/remark/-/remark-12.0.1.tgz#f1ddf68db7be71ca2bad0a33cd3678b86b9c709f"
+  integrity sha512-gS7HDonkdIaHmmP/+shCPejCEEW+liMp/t/QwmF0Xt47Rpuhl32lLtDV1uKWvGoq+kxr5jSgg5oAIpGuyULjUw==
   dependencies:
     remark-parse "^8.0.0"
     remark-stringify "^8.0.0"
