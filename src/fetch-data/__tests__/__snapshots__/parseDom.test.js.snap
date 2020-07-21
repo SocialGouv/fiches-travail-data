@@ -9,13 +9,10 @@ Object {
   "sections": Array [
     Object {
       "anchor": "",
-      "description": "A SAVOIR 
-Les dispositions présentées ici tiennent compte de la loi du 8 août 2016 citée en référence, en vigueur depuis le 10 août 2016. Selon cette loi, sont désormais distingués les domaines d’ordre public où le législateur fixe des règles auxquelles il n’est pas possible de déroger, les domaines qui sont les domaines où les règles pourront être fixées par accord collectif,  et enfin les règles fixées dites « supplétives » c’est à dire applicables à défaut d’accord collectif.",
-      "html": "<div class=\\"texteencadre-spip spip\\"><strong>A SAVOIR</strong> <br class=\\"autobr\\">
-Les dispositions présentées ici tiennent compte de la loi du 8 août 2016 citée en référence, en vigueur depuis le 10 août 2016. Selon cette loi, sont désormais distingués les domaines d’ordre public où le législateur fixe des règles auxquelles il n’est pas possible de déroger, les domaines qui sont les domaines où les règles pourront être fixées par accord collectif,  et enfin les règles fixées dites «&nbsp;supplétives&nbsp;» c’est à dire applicables à défaut d’accord collectif.</div>",
+      "description": "A SAVOIR Les dispositions présentées ici tiennent compte de la loi du 8 août 2016 citée en référence, en vigueur depuis le 10 août 2016. Selon cette loi, sont désormais distingués les domaines d’ordre public où le législateur fixe des règles auxquelles il n’est pas possible de déroger, les domaines qui sont les domaines où les règles pourront être fixées par accord collectif, et enfin les règles fixées dites « supplétives » c’est à dire applicables à défaut d’accord collectif.",
+      "html": "<div class=\\"texteencadre-spip spip\\"><strong>A SAVOIR</strong> <br class=\\"autobr\\">Les dispositions présentées ici tiennent compte de la loi du 8 août 2016 citée en référence, en vigueur depuis le 10 août 2016. Selon cette loi, sont désormais distingués les domaines d’ordre public où le législateur fixe des règles auxquelles il n’est pas possible de déroger, les domaines qui sont les domaines où les règles pourront être fixées par accord collectif, et enfin les règles fixées dites «&nbsp;supplétives&nbsp;» c’est à dire applicables à défaut d’accord collectif.</div>",
       "references": Object {},
-      "text": " A SAVOIR 
-Les dispositions présentées ici tiennent compte de la loi du 8 août 2016 citée en référence, en vigueur depuis le 10 août 2016. Selon cette loi, sont désormais distingués les domaines d’ordre public où le législateur fixe des règles auxquelles il n’est pas possible de déroger, les domaines qui sont les domaines où les règles pourront être fixées par accord collectif,  et enfin les règles fixées dites « supplétives » c’est à dire applicables à défaut d’accord collectif.",
+      "text": " A SAVOIR Les dispositions présentées ici tiennent compte de la loi du 8 août 2016 citée en référence, en vigueur depuis le 10 août 2016. Selon cette loi, sont désormais distingués les domaines d’ordre public où le législateur fixe des règles auxquelles il n’est pas possible de déroger, les domaines qui sont les domaines où les règles pourront être fixées par accord collectif, et enfin les règles fixées dites « supplétives » c’est à dire applicables à défaut d’accord collectif.",
       "title": "Les congés pour événements familiaux",
     },
     Object {
@@ -47,7 +44,7 @@ Les dispositions présentées ici tiennent compte de la loi du 8 août 2016 cit�
 }
 `;
 
-exports[`should remove whitespa HTML section 1`] = `
+exports[`should remove whitespace in HTML section 1`] = `
 Object {
   "date": "31/08/2018",
   "description": "Pour les règles générales de décompte des effectifs voir la fiche sur les seuils Description Sont visés ici certaines substances ou produits, en (...)",
