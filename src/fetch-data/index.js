@@ -161,10 +161,12 @@ function parseDom(dom) {
       if (!untitledSection.description) {
         untitledSection.description = nextArticleElement.textContent
           .replace(/\s+/g, " ")
+          .slice(0, 200)
           .trim();
       }
       untitledSection.html += nextArticleElement.outerHTML
         .replace(/\n+/g, "")
+        .replace(/>\s+</g, "><")
         .replace(/\s+/g, " ");
       untitledSection.text +=
         " " + nextArticleElement.textContent.replace(/\s+/g, " ").trim();
@@ -199,7 +201,10 @@ function parseDom(dom) {
           title: el.textContent.trim(),
           description: sectionText.slice(0, 200).trim(),
           text: sectionText,
-          html: html.replace(/\n+/g, "").replace(/\s+/g, " "),
+          html: html
+            .replace(/\n+/g, "")
+            .replace(/>\s+</g, "><")
+            .replace(/\s+/g, " "),
           references: getReferences(sectionText),
         });
       }
