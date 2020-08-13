@@ -1064,10 +1064,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@socialgouv/datafiller-data@^1.53.0":
-  version "1.53.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.53.0.tgz#345e26e5d2edc5ff8656fd0704c4969c1be8599a"
-  integrity sha512-GM7liZky4q/2hkbxPt+fHTXSSud4eK0+3NVdFXRiuRcHdGaOfa4ishy2zrHRr8oZwUEwUSloQkUSSLrW7ILUJQ==
+"@socialgouv/datafiller-data@^1.54.0":
+  version "1.54.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.54.0.tgz#afdff3fb02333600065b9b59b1642d70fb92ad6d"
+  integrity sha512-rnuk8va97/i//q7+vUOd2HcOacHRYnKweDuo+MzN7a36zKf4oLfsRHiKP+qBL0OWcLKj2nFE8Y9JKqCT4CJVYQ==
   dependencies:
     node-fetch "^2.6.0"
     p-pipe "^3.1.0"
@@ -2647,14 +2647,7 @@ get-stream@^4.0.0:
   dependencies:
     pump "^3.0.0"
 
-get-stream@^5.0.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-5.1.0.tgz#01203cdc92597f9b909067c3e656cc1f4d3c4dc9"
-  integrity sha512-EXr1FOzrzTfGeL0gQdeFEvOMm2mzMOglyiOXSTpPC+iAjAKftbr3jpCMWynogwYnM+eSj9sHGc6wjIcDvYiygw==
-  dependencies:
-    pump "^3.0.0"
-
-get-stream@^5.1.0:
+get-stream@^5.0.0, get-stream@^5.1.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-5.2.0.tgz#4966a1795ee5ace65e706c4b7beb71257d6e22d3"
   integrity sha512-nBF+F1rAZVCu/p7rjzgA+Yb4lfYXrpl7a6VmJrU8wF9I1CKvP/QwPNZHnOlwbTkY6dvtFIzFMSyQXbLoTQPRpA==
