@@ -6,6 +6,7 @@ import path from "path";
 import { encode } from "../email";
 import { extractReferences } from "./referenceExtractor";
 import { resolveReferences } from "./referenceResolver";
+import got from "got";
 
 const $$ = (node, selector) => Array.from(node.querySelectorAll(selector));
 const $ = (node, selector) => node.querySelector(selector);
@@ -105,6 +106,9 @@ const getReferences = (text) => {
 
 function parseDom(dom) {
   const article = $(dom.window.document, "main");
+  if (!article) {
+    throw new Error("no main");
+  }
   $$(article, "a").forEach(formatAnchor);
   $$(article, "picture").forEach(formatPicture);
   $$(article, "[data-cfemail]").forEach(formatEmail);
@@ -220,18 +224,23 @@ function parseDom(dom) {
   };
 }
 
-const limit = pLimit(15);
+const limit = pLimit(10);
 
 async function parseFiche(url) {
   try {
-    const dom = await JSDOM.fromURL(url);
+    const response = await got(url, {
+      retry: 10,
+      followRedirect: true,
+      http2: true,
+    });
+    const dom = new JSDOM(response.body, { url });
     return {
       ...parseDom(dom),
       url,
     };
   } catch (error) {
-    if (error.statusCode) {
-      console.error(error.statusCode, error.options.uri);
+    if (error.response) {
+      console.error(error.response.statusCode, url, error);
     } else {
       console.error("parse error", url, error);
     }
@@ -239,7 +248,7 @@ async function parseFiche(url) {
   }
 }
 
-async function fetchAndParse(urls) {
+async function scrap(urls) {
   const inputs = urls.map((url) => limit(() => parseFiche(url)));
   const results = await Promise.all(inputs);
 
@@ -263,7 +272,8 @@ if (module === require.main) {
     ({ title }) => title === "ministere-travail"
   );
   const t0 = Date.now();
-  fetchAndParse(urls)
+
+  scrap(urls)
     .then(() => {
       console.log(`done in ${Math.round((Date.now() - t0) / 1000)} sec`);
     })
