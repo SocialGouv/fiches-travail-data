@@ -1084,10 +1084,10 @@
     eslint-plugin-jest "~23.17.1"
     eslint-plugin-prettier "~3.1.4"
 
-"@socialgouv/legi-data@^1.27.0":
-  version "1.27.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/legi-data/-/legi-data-1.27.0.tgz#2e8709aac1883e997deeac169a9a0ea97219a0b3"
-  integrity sha512-J9ZAih7D3KixXBoF047PSEGUM1dQPwD0b9YmYHeNP0Ui4qKnWAeG535YPwqYN8Ze90vVULMkeMq05cUPvX+aLw==
+"@socialgouv/legi-data@^1.28.0":
+  version "1.28.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/legi-data/-/legi-data-1.28.0.tgz#253497b4e51ca6dc24f0e4ad4574443bcde21fe8"
+  integrity sha512-AIIl445ZhPdIdW8buUx7SeOOR85XkmbpomokftGW+PltsjVdBBEW/fmJJjpgvIFYKPaowSgk/nCLBSvEKMV9mg==
   dependencies:
     unist-util-find "1.0.1"
     unist-util-parents "1.0.3"
