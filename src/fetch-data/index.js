@@ -228,23 +228,29 @@ const limit = pLimit(10);
 
 async function parseFiche(url) {
   try {
-    const response = await got(url, {
-      retry: 10,
+    let response = await got(url, {
+      retry: 3,
       followRedirect: true,
       http2: true,
     });
+    if (/HTTP 30\d/.test(response.body)) {
+      const [, redirectUrl] = response.body.match(/href="(.*)"/);
+      response = await got(redirectUrl, {
+        retry: 3,
+        followRedirect: true,
+        http2: true,
+      });
+    }
     const dom = new JSDOM(response.body, { url });
     return {
       ...parseDom(dom),
       url,
     };
   } catch (error) {
-    if (error.response) {
-      console.error(error.response.statusCode, url, error);
-    } else {
-      console.error("parse error", url, error);
+    if (error.response && error.response.code === 404) {
+      console.error(error.response.code, url, error);
     }
-    return error;
+    throw error;
   }
 }
 

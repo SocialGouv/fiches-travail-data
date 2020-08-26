@@ -22,7 +22,7 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "start": "NODE_TLS_REJECT_UNAUTHORIZED=0 node -r esm src/fetch-data",
+    "start": "node -r esm src/fetch-data",
     "checkRefs": "node -r esm src/checkRefs",
     "lint": "eslint src --ext .js",
     "test": "jest"
