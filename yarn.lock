@@ -1064,10 +1064,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@socialgouv/datafiller-data@^1.66.0":
-  version "1.66.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.66.0.tgz#3c24aaa7997980cd01163e1f226dde211639315f"
-  integrity sha512-SjZ8QQYdML46wKIQkBNWtNMnpxhv684jaTSmHFKJWcm7s9/27gfy5Y86QVfgkJqoSTof6uKFhzxVri8wQb2kDA==
+"@socialgouv/datafiller-data@^1.67.0":
+  version "1.67.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-1.67.0.tgz#27333759e40d2a89f89473e9cb98a5856eb01a28"
+  integrity sha512-x+6GKFQ0MlAY+8ae7rl8QeHx/jSNdEqHuvoI4Dh7dTSeqkEsnHhqwadfr1WOAQM3d6wBH7RqAs6DGvTbAGPeOw==
   dependencies:
     node-fetch "^2.6.1"
     p-pipe "^3.1.0"
