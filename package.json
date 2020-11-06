@@ -68,10 +68,5 @@
       "pre-commit": "yarn lint",
       "pre-push": "run-p lint test"
     }
-  },
-  "release": {
-    "branches": [
-      "master"
-    ]
   }
 }
