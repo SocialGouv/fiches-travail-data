@@ -65,7 +65,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint src --ext .js",
+      "pre-commit": "yarn lint",
       "pre-push": "run-p lint test"
     }
   },
