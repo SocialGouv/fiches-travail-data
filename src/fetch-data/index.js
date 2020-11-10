@@ -236,11 +236,16 @@ async function parseFiche(url) {
     });
     if (/HTTP 30\d/.test(response.body)) {
       const [, redirectUrl] = response.body.match(/href="(.*)"/);
-      response = await got(redirectUrl, {
-        followRedirect: true,
-        http2: true,
-        retry: 3,
-      });
+      try {
+        response = await got(redirectUrl, {
+          followRedirect: true,
+          http2: true,
+          retry: 3,
+        });
+      } catch (error) {
+        console.error(`Wrong redirectUrl: ${url} => ${redirectUrl}`);
+        throw error;
+      }
     }
     const dom = new JSDOM(response.body, { url });
     return {
