@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
+
 import { classifyTokens, extractReferences } from "../referenceExtractor";
 import { resolveReferences } from "../referenceResolver";
 

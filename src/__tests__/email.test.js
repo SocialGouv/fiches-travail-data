@@ -1,4 +1,4 @@
-import { encode, decode } from "../email";
+import { decode, encode } from "../email";
 
 test("encode one email", () => {
   expect(encode("michel@socialgouv.fr")).toBe("michel_@socialgouv.fr");

@@ -27,13 +27,13 @@ const CODE_OTHER = CODE_PREFIX + "_O";
 const UNRECOGNIZED = "unrecognized";
 
 const CODE_TRAVAIL = {
-  name: "code du travail",
   id: "LEGITEXT000006072050",
+  name: "code du travail",
 };
 
 const CODE_SECU = {
-  name: "code de la sécurité sociale",
   id: "LEGITEXT000006073189",
+  name: "code de la sécurité sociale",
 };
 
 const codesFullNames = {
@@ -207,13 +207,13 @@ function extractReferences(text) {
   // if code, then associate it to articles within range
   return tokens
     .map((token, index) => {
-      return { token, index, pred: predictions[index] };
+      return { index, pred: predictions[index], token };
     })
     .reduce((acc, { token, index, pred }) => {
       // case article : we start or merge
       if (pred == ARTICLE) {
         if (acc.length == 0) {
-          acc.push({ token, index });
+          acc.push({ index, token });
         } else {
           const last = acc[acc.length - 1];
           // case continuous : we merge
@@ -221,7 +221,7 @@ function extractReferences(text) {
             last.token = `${last.token} ${token}`;
             last.index = index;
           } else {
-            acc.push({ token, index });
+            acc.push({ index, token });
           }
         }
       }
@@ -246,7 +246,7 @@ function extractReferences(text) {
       return !code || (code && code != UNRECOGNIZED);
     })
     .map(({ token, code }) => {
-      return { text: token, code };
+      return { code, text: token };
     });
 }
 

@@ -6,7 +6,8 @@ actual id in the legi data corpus.
 
 import find from "unist-util-find";
 import visit from "unist-util-visit";
-import { codesFullNames, CODE_TRAVAIL } from "./referenceExtractor";
+
+import { CODE_TRAVAIL, codesFullNames } from "./referenceExtractor";
 
 const codes = {};
 Object.values(codesFullNames).forEach(({ id }) => {
@@ -119,7 +120,7 @@ function unravelRange(range) {
         } else if (endFMT == fmt) {
           text = endRaw;
         }
-        return { ...(text && { text }), fmt, code };
+        return { ...(text && { text }), code, fmt };
       }
     );
 
@@ -131,7 +132,7 @@ function unravelRange(range) {
   // default in case of error, note that we explicitly set code to unknown
   // in order to identify range errors
   return range.text.split(mark).map((a) => {
-    return { text: a.trim(), code: CODE_UNKNOWN };
+    return { code: CODE_UNKNOWN, text: a.trim() };
   });
 }
 
@@ -198,7 +199,7 @@ function resolveReferences(refs) {
     const parsedCode = code ? code : CODE_UNKNOWN;
 
     if (!Object.keys(acc).includes(parsedCode.id)) {
-      acc[parsedCode.id] = { name: parsedCode.name, articles: [] };
+      acc[parsedCode.id] = { articles: [], name: parsedCode.name };
     }
 
     acc[parsedCode.id].articles.push(rawArticle);
