@@ -248,21 +248,37 @@ async function parseFiche(url) {
       url,
     };
   } catch (error) {
-    if (error.response && error.response.code === 404) {
-      console.error(error.response.code, url, error);
+    if (error instanceof got.HTTPError) {
+      throw {
+        statusCode: error.response.statusCode,
+        url: error.options.url.href,
+      };
     }
-    throw error;
+    throw { statusCode: 500, url };
   }
 }
 
 async function scrap(urls) {
   const inputs = urls.map((url) => limit(() => parseFiche(url)));
-  const results = await Promise.all(inputs);
+  const results = await Promise.allSettled(inputs);
 
-  const fiches = results.filter(
-    (fiche) => fiche.sections && fiche.sections.length > 0
+  const failedPromise = results.filter(
+    ({ status, reason }) => status === "rejected" && reason.statusCode === 404
   );
 
+  if (failedPromise.length > 0) {
+    console.error(failedPromise.map(({ reason }) => reason));
+    console.error("Error - fetching pages fail. Some pages are missing");
+    process.exit(-1);
+  }
+
+  const resolvedPromise = results.flatMap(({ status, value }) =>
+    status === "fulfilled" ? [value] : []
+  );
+
+  const fiches = resolvedPromise.filter(
+    (fiche) => fiche.sections && fiche.sections.length > 0
+  );
   const dataFilePath = path.join(
     __dirname,
     "..",

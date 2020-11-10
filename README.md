@@ -55,14 +55,14 @@ If you need to trigger the release job manually, you can do it using curl
 You will need to provide a valid token.
 
 ```sh
-curl -H "Accept: application/vnd.github.everest-preview+json" \
+curl -X POST \
+    -H "Accept: application/vnd.github.v3+json" \
     -H "Authorization: token <your-token-here>" \
-    --request POST \
-    --data '{"event_type": "manual_release"}' \
-    https://api.github.com/repos/SocialGouv/fiches-travail-data/dispatches
+    https://api.github.com/repos/SocialGouv/fiches-travail-data/dispatches \
+    -d '{"event_type": "manual_release"}'
 ```
 
 ### email
 
 There are some email adresses in the data. To prevent email sniffing
-we transform the `@` into `_@`.  
+we transform the `@` into `_@`.
