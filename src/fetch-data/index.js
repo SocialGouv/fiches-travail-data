@@ -1,12 +1,13 @@
 import externalUrls from "@socialgouv/datafiller-data/data/externals.json";
 import fs from "fs";
+import got from "got";
 import { JSDOM } from "jsdom";
 import pLimit from "p-limit";
 import path from "path";
+
 import { encode } from "../email";
 import { extractReferences } from "./referenceExtractor";
 import { resolveReferences } from "./referenceResolver";
-import got from "got";
 
 const $$ = (node, selector) => Array.from(node.querySelectorAll(selector));
 const $ = (node, selector) => node.querySelector(selector);
@@ -152,10 +153,10 @@ function parseDom(dom) {
   // This section has neither anchor nor title
   let nextArticleElement = $(article, ".main-article__texte > *");
   const untitledSection = {
-    title: title,
     anchor: "",
     html: "",
     text: "",
+    title: title,
   };
   while (
     nextArticleElement &&
@@ -202,14 +203,14 @@ function parseDom(dom) {
 
         sections.push({
           anchor: el.id,
-          title: el.textContent.trim(),
           description: sectionText.slice(0, 200).trim(),
-          text: sectionText,
           html: html
             .replace(/\n+/g, "")
             .replace(/>\s+</g, "><")
             .replace(/\s+/g, " "),
           references: getReferences(sectionText),
+          text: sectionText,
+          title: el.textContent.trim(),
         });
       }
     });
@@ -218,9 +219,9 @@ function parseDom(dom) {
     date: `${day}/${month}/${year}`,
     description,
     intro,
+    pubId: pubIdMeta && pubIdMeta.getAttribute("content"),
     sections,
     title,
-    pubId: pubIdMeta && pubIdMeta.getAttribute("content"),
   };
 }
 
@@ -229,16 +230,16 @@ const limit = pLimit(10);
 async function parseFiche(url) {
   try {
     let response = await got(url, {
-      retry: 3,
       followRedirect: true,
       http2: true,
+      retry: 3,
     });
     if (/HTTP 30\d/.test(response.body)) {
       const [, redirectUrl] = response.body.match(/href="(.*)"/);
       response = await got(redirectUrl, {
-        retry: 3,
         followRedirect: true,
         http2: true,
+        retry: 3,
       });
     }
     const dom = new JSDOM(response.body, { url });
