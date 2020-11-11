@@ -82,6 +82,11 @@ jobs:
           message: "feat(data): $NOW update"
           add: "data"
 
+      - name: Set Registry token
+        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.SOCIALGROOVYBOT_NPM_TOKEN }}
+
       - name: Semantic Release
         if:  ${{ steps.data.outputs.status }}
         uses: cycjimmy/semantic-release-action@v2
