@@ -1,3 +1,22 @@
+# [4.1.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.0.0...v4.1.0) (2020-11-11)
+
+
+### Bug Fixes
+
+* **github:** add now as data step output ([bb8a41b](https://github.com/SocialGouv/fiches-travail-data/commit/bb8a41b9c2a89e5999f10a8303dd809bbdd2c376))
+* **github:** print status ([1897173](https://github.com/SocialGouv/fiches-travail-data/commit/1897173612f1542366a83dd35462a8b32ca74462))
+* **github:** set the registry before publish ([776bbe5](https://github.com/SocialGouv/fiches-travail-data/commit/776bbe53b9f7ecd7cc5d8a0e22431d1ae8320838))
+
+
+### Features
+
+* **data:** 20201111_1743 update ([4936d21](https://github.com/SocialGouv/fiches-travail-data/commit/4936d21a50d678ec92d9de9c985b010e345f4b12))
+
+
+### Reverts
+
+* Revert "feat(data): $NOW update" ([e4fbcc8](https://github.com/SocialGouv/fiches-travail-data/commit/e4fbcc8be8929b06a8755804894b2046c1d77981))
+
 # [4.0.0](https://github.com/SocialGouv/fiches-travail-data/compare/v3.222.0...v4.0.0) (2020-11-11)
 
 
