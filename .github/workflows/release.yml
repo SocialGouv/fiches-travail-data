@@ -13,40 +13,87 @@ on:
 jobs:
   release:
     name: Release
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
+      - name: Set up Node.js 14.x
+        uses: actions/setup-node@v2-beta
         with:
-          node-version: 12
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
-      - name: Release
+          node-version: 14.x
+
+      - name: Get yarn cache directory path
+        id: init
+        shell: bash
+        run: |
+          echo "::set-output name=yarn_cache::$(yarn cache dir)"
+          #
+          echo "Node $(node --version)"
+          echo "Yarn $(yarn --version)"
+
+      - uses: actions/checkout@v2
+
+      - name: Cache Yarn packages
+        id: yarn_cache_packages
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.init.outputs.yarn_cache }}
+          key: ${{ runner.os }}-yarn_cache-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn_cache-
+
+      - name: Installing
+        run: yarn --frozen-lockfile --link-duplicates --perfer-offline
+
+      - name: Build
+        run: yarn build
+
+      - name: Start
         env:
           DATAFILLER_URL: ${{ secrets.DATAFILLER_URL }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn start
+
+      - name: Check Refs
+        run: yarn checkRefs
+
+      - name: Data status
+        id: data
+        shell: bash
         run: |
-          echo "scrap pages"
-          yarn build
-          yarn start
-          yarn checkRefs
-          if [[ "$(git status data/ --porcelain)" != "" ]]; then
-            # Check JSON files
-            for filename in ./data/*\.json; do
-              node "$filename" > /dev/null || {
-                echo "Error: Invalid JSON in $filename"
-                exit 1
-              }
-            done
-            NOW=$(date +"%Y%m%d_%H%M")
-            git config user.name "Social Groovy Bot"
-            git config user.email "45039513+SocialGroovyBot@users.noreply.github.com" 
-            git commit -m"feat(data): $NOW update" . --no-verify
-            git push --no-verify 
-            npx semantic-release
-          else
-            echo "no changes detected"
-          fi
+          echo "::set-output name=status::$(git status -s ./data)"
+
+      - name: Check JSON
+        if:  ${{ steps.data.outputs.status }}
+        run: |
+          for filename in ./data/*\.json; do
+            node "$filename" > /dev/null || {
+              echo "Error: Invalid JSON in $filename"
+              exit 1
+            }
+          done
+
+      - uses: EndBug/add-and-commit@v5
+        if:  ${{ steps.data.outputs.status }}
+        env:
+          NOW: $(date +"%Y%m%d_%H%M")
+          HUSKY_SKIP_HOOKS: "true"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          author_name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
+          author_email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
+          message: "feat(data): $NOW update"
+          add: "data"
+
+      - name: Semantic Release
+        if:  ${{ steps.data.outputs.status }}
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/exec
+            @semantic-release/git
+        env:
+          GIT_AUTHOR_EMAIL: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
+          GIT_AUTHOR_NAME: ${{ secrets.SOCIALGROOVYBOT_NAME }}
+          GIT_COMMITTER_EMAIL: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
+          GIT_COMMITTER_NAME: ${{ secrets.SOCIALGROOVYBOT_NAME }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.SOCIALGROOVYBOT_NPM_TOKEN }}
