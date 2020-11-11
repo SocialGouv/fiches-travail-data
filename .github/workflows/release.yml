@@ -54,12 +54,17 @@ jobs:
       - name: Check Refs
         run: yarn checkRefs
 
-      - name: Data status
+      - name: Get data status
         id: data
         shell: bash
         run: |
           echo "::set-output name=status::$(git status -s ./data)"
           echo "::set-output name=now::$(date +"%Y%m%d_%H%M")"
+
+      - name: Status
+        run: |
+          echo "Data status ${{ steps.data.outputs.now }}"
+          echo "${{ steps.data.outputs.status }}"
 
       - name: Check JSON
         if:  ${{ steps.data.outputs.status }}
