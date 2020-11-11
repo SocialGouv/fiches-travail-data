@@ -1,3 +1,18 @@
+# [4.0.0](https://github.com/SocialGouv/fiches-travail-data/compare/v3.222.0...v4.0.0) (2020-11-11)
+
+
+### Features
+
+* **data:** $NOW update ([65a4bca](https://github.com/SocialGouv/fiches-travail-data/commit/65a4bca1f25bd508fd4051ec0675a491fc7635ce))
+
+
+* ci(github)!: publish a @socialgouv/fiches-travail-data-types package ([5d98fc8](https://github.com/SocialGouv/fiches-travail-data/commit/5d98fc8793aa9ebd119d5cd0d1e99459857bd911))
+
+
+### BREAKING CHANGES
+
+* we will have a `@socialgouv/fiches-travail-data-types` package with only typings
+
 # [3.222.0](https://github.com/SocialGouv/fiches-travail-data/compare/v3.221.0...v3.222.0) (2020-11-10)
 
 
