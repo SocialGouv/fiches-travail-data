@@ -59,6 +59,7 @@ jobs:
         shell: bash
         run: |
           echo "::set-output name=status::$(git status -s ./data)"
+          echo "::set-output name=now::$(date +"%Y%m%d_%H%M")"
 
       - name: Check JSON
         if:  ${{ steps.data.outputs.status }}
@@ -73,13 +74,12 @@ jobs:
       - uses: EndBug/add-and-commit@v5
         if:  ${{ steps.data.outputs.status }}
         env:
-          NOW: $(date +"%Y%m%d_%H%M")
           HUSKY_SKIP_HOOKS: "true"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           author_name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
           author_email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
-          message: "feat(data): $NOW update"
+          message: "feat(data): ${{ steps.data.outputs.now }} update"
           add: "data"
 
       - name: Set Registry token
