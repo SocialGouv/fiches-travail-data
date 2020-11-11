@@ -88,6 +88,7 @@ jobs:
           add: "data"
 
       - name: Set Registry token
+        if:  ${{ steps.data.outputs.status }}
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.SOCIALGROOVYBOT_NPM_TOKEN }}
