@@ -10,6 +10,8 @@ on:
       - master
     tags-ignore:
       - v*
+  workflow_dispatch:
+
 jobs:
   release:
     name: Release
@@ -67,7 +69,7 @@ jobs:
           echo "${{ steps.data.outputs.status }}"
 
       - name: Check JSON
-        if:  ${{ steps.data.outputs.status }}
+        if:  ${{ steps.data.outputs.status || github.event_name == 'workflow_dispatch' }}
         run: |
           for filename in ./data/*\.json; do
             node "$filename" > /dev/null || {
@@ -77,7 +79,7 @@ jobs:
           done
 
       - uses: EndBug/add-and-commit@v5
-        if:  ${{ steps.data.outputs.status }}
+        if:  ${{ steps.data.outputs.status || github.event_name == 'workflow_dispatch' }}
         env:
           HUSKY_SKIP_HOOKS: "true"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -88,13 +90,13 @@ jobs:
           add: "data"
 
       - name: Set Registry token
-        if:  ${{ steps.data.outputs.status }}
+        if:  ${{ steps.data.outputs.status || github.event_name == 'workflow_dispatch' }}
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.SOCIALGROOVYBOT_NPM_TOKEN }}
 
       - name: Semantic Release
-        if:  ${{ steps.data.outputs.status }}
+        if:  ${{ steps.data.outputs.status || github.event_name == 'workflow_dispatch' }}
         uses: cycjimmy/semantic-release-action@v2
         with:
           extra_plugins: |
