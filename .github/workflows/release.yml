@@ -3,14 +3,11 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron: "30 23 * * *"
-  repository_dispatch:
-    types: manual_release
   push:
     branches:
       - master
     tags-ignore:
       - v*
-  workflow_dispatch:
 
 jobs:
   release:
@@ -56,20 +53,19 @@ jobs:
       - name: Check Refs
         run: yarn checkRefs
 
-      - name: Get data status
-        id: data
+      - name: Get metadata
+        id: metadata
         shell: bash
         run: |
-          echo "::set-output name=status::$(git status -s ./data)"
+          echo "::set-output name=data_status::$(git status -s ./data)"
           echo "::set-output name=now::$(date +"%Y%m%d_%H%M")"
 
-      - name: Status
+      - name: Print metadata
         run: |
-          echo "Data status ${{ steps.data.outputs.now }}"
-          echo "${{ steps.data.outputs.status }}"
+          echo "Data status ${{ steps.metadata.outputs.now }}"
+          echo "${{ steps.metadata.outputs.data_status }}"
 
       - name: Check JSON
-        if:  ${{ steps.data.outputs.status || github.event_name == 'workflow_dispatch' }}
         run: |
           for filename in ./data/*\.json; do
             node "$filename" > /dev/null || {
@@ -79,7 +75,7 @@ jobs:
           done
 
       - uses: EndBug/add-and-commit@v5
-        if:  ${{ steps.data.outputs.status || github.event_name == 'workflow_dispatch' }}
+        if:  ${{ steps.metadata.outputs.data_status }}
         env:
           HUSKY_SKIP_HOOKS: "true"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -90,13 +86,11 @@ jobs:
           add: "data"
 
       - name: Set Registry token
-        if:  ${{ steps.data.outputs.status || github.event_name == 'workflow_dispatch' }}
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
         env:
           NPM_TOKEN: ${{ secrets.SOCIALGROOVYBOT_NPM_TOKEN }}
 
       - name: Semantic Release
-        if:  ${{ steps.data.outputs.status || github.event_name == 'workflow_dispatch' }}
         uses: cycjimmy/semantic-release-action@v2
         with:
           extra_plugins: |
