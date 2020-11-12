@@ -44,25 +44,14 @@ $ yarn start
 $ yarn test
 ```
 
-## Release policy
-
-The release job is schedule every day at 23.00PM ans also trigger after each commit in the master branch.
-If data had changed, a new release will be made.
-
-### Manual release
-
-If you need to trigger the release job manually, you can do it using curl
-You will need to provide a valid token.
-
-```sh
-curl -X POST \
-    -H "Accept: application/vnd.github.v3+json" \
-    -H "Authorization: token <your-token-here>" \
-    https://api.github.com/repos/SocialGouv/fiches-travail-data/dispatches \
-    -d '{"event_type": "manual_release"}'
-```
+## Notes
 
 ### email
 
 There are some email adresses in the data. To prevent email sniffing
 we transform the `@` into `_@`.
+
+## Release policy
+
+The release job is schedule every day at 23.00PM ans also trigger after each commit in the master branch.
+If data had changed, a new release will be made.
