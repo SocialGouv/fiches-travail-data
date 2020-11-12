@@ -55,3 +55,8 @@ we transform the `@` into `_@`.
 
 The release job is schedule every day at 23.00PM ans also trigger after each commit in the master branch.
 If data had changed, a new release will be made.
+
+Releases are automaticly made through our [GitHub Actions](https://github.com/SocialGouv/fiches-travail-data/actions) strictly following the [Semantic Versioning](http://semver.org/) specification thanks to [semantic-release](https://github.com/semantic-release/semantic-release).
+
+We release an additional `@socialgouv/fiches-travail-data-types` package by sed-ing the package.json (see [`.releaserc.yml`](./.releaserc.yml))
+
