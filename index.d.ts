@@ -1,4 +1,4 @@
-type FicheTravailEmploi = {
+export type FicheTravailEmploi = {
   date: string
   description: string
   intro: string
@@ -8,7 +8,7 @@ type FicheTravailEmploi = {
   url: string
 }
 
-type Section = {
+export type Section = {
   anchor: string
   description: string
   html: string
@@ -17,14 +17,14 @@ type Section = {
   titre: string
 }
 
-type ReferencesMap = {
+export type ReferencesMap = {
   [key: string]: {
     name: string
     articles: ReferenceFTE[]
   }
 }
 
-type ReferenceFTE = {
+export type ReferenceFTE = {
   id: string
   cid: string
   fmt: string
