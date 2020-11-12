@@ -1,3 +1,15 @@
+# [4.3.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.2.0...v4.3.0) (2020-11-12)
+
+
+### Bug Fixes
+
+* **types:** export types ([#212](https://github.com/SocialGouv/fiches-travail-data/issues/212)) ([cfafd5d](https://github.com/SocialGouv/fiches-travail-data/commit/cfafd5d6cb78e26f179fb25a481a1513f3203998))
+
+
+### Features
+
+* **data:** 20201112_1310 update ([0643fa2](https://github.com/SocialGouv/fiches-travail-data/commit/0643fa2e49347b16b8e38c590632ce7efac22024))
+
 # [4.2.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1.0...v4.2.0) (2020-11-12)
 
 
