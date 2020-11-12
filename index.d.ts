@@ -14,7 +14,7 @@ export type Section = {
   html: string
   references: ReferencesMap
   text: string
-  titre: string
+  title: string
 }
 
 export type ReferencesMap = {
