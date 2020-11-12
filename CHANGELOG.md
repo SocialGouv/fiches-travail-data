@@ -1,3 +1,15 @@
+# [4.4.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.3.0...v4.4.0) (2020-11-12)
+
+
+### Bug Fixes
+
+* fix section's title typo ([#214](https://github.com/SocialGouv/fiches-travail-data/issues/214)) ([fa5b843](https://github.com/SocialGouv/fiches-travail-data/commit/fa5b8430ffa8545f97959a1f92e5d556edc33b2e))
+
+
+### Features
+
+* **data:** 20201112_1502 update ([575ef90](https://github.com/SocialGouv/fiches-travail-data/commit/575ef903c7e729705f39115e12cfdc36de436c6d))
+
 # [4.3.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.2.0...v4.3.0) (2020-11-12)
 
 
