@@ -1116,12 +1116,12 @@
     eslint-plugin-simple-import-sort "~5.0.3"
     eslint-plugin-sort-keys-fix "~1.1.1"
 
-"@socialgouv/legi-data@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/legi-data/-/legi-data-2.4.0.tgz#30abf75ae5a2ddc6b31c56508b2c1d565247f730"
-  integrity sha512-ZR9GuJgXFm3i0ATJkBg03ggclkFHh/Ocd7j+f0P7z1MMs6hVmCtN2uyrWMGMUTF3VgmVnb/FbI1I6bwooMt8Gw==
+"@socialgouv/legi-data@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/legi-data/-/legi-data-2.5.0.tgz#7ffab74e4eda113287a1e954a70de44f49cda16b"
+  integrity sha512-G7qa3oX16azbptGzYVj7aVhs+VSeYP5YqNMPP5EbHH2SVgtwDLc8cTCEsbKGv4hWLWNmYBK1FtzU+32l52ekBw==
   dependencies:
-    unist-util-find "^1.0.1"
+    unist-util-find "^1.0.2"
     unist-util-parents "^1.0.3"
 
 "@szmarczak/http-timer@^4.0.5":
@@ -5809,7 +5809,7 @@ unist-builder@^2.0.0:
   resolved "https://registry.yarnpkg.com/unist-builder/-/unist-builder-2.0.3.tgz#77648711b5d86af0942f334397a33c5e91516436"
   integrity sha512-f98yt5pnlMWlzP539tPc4grGMsFaQQlP/vM396b00jngsiINumNmsY8rkXjfoi1c6QaM8nQ3vaGDuoKWbe/1Uw==
 
-unist-util-find@^1.0.1, unist-util-find@^1.0.2:
+unist-util-find@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/unist-util-find/-/unist-util-find-1.0.2.tgz#4d5b01a69fca2a382ad4f55f9865e402129ecf56"
   integrity sha512-ft06UDYzqi9o9RmGP0sZWI/zvLLQiBW2/MD+rW6mDqbOWDcmknGX9orQPspfuGRYWr8eSJAmfsBcvOpfGRJseA==
