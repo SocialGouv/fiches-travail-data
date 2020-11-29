@@ -29,7 +29,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.12.7",
+    "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
     "@socialgouv/datafiller-data": "^2.7.0",
     "@socialgouv/eslint-config-recommended": "^1.46.0",
