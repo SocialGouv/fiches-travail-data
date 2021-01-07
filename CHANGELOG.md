@@ -1,3 +1,10 @@
+## [4.41.1](https://github.com/SocialGouv/fiches-travail-data/compare/v4.41.0...v4.41.1) (2021-01-07)
+
+
+### Bug Fixes
+
+* yolo patch for missing id ([#247](https://github.com/SocialGouv/fiches-travail-data/issues/247)) ([5533f86](https://github.com/SocialGouv/fiches-travail-data/commit/5533f8600c7210e5a42eebd2f2e6b833fb40e789))
+
 # [4.41.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.40.0...v4.41.0) (2021-01-07)
 
 
