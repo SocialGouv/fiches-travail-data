@@ -82,7 +82,7 @@ jobs:
         with:
           author_name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
           author_email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
-          message: "feat(data): ${{ steps.data.outputs.now }} update"
+          message: "feat(data): ${{ steps.metadata.outputs.now }} update"
           add: "data"
 
       - name: Set Registry token
