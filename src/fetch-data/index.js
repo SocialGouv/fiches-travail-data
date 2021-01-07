@@ -9,6 +9,13 @@ import { encode } from "../email";
 import { extractReferences } from "./referenceExtractor";
 import { resolveReferences } from "./referenceResolver";
 
+class ParseError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "ParseError";
+  }
+}
+
 const $$ = (node, selector) => Array.from(node.querySelectorAll(selector));
 const $ = (node, selector) => node.querySelector(selector);
 
@@ -105,10 +112,51 @@ const getReferences = (text) => {
   return resolveReferences(references);
 };
 
+function getType(node) {
+  if (/page_article/.test(node.className)) {
+    return "article";
+  }
+  if (/page_rubrique/.test(node.className)) {
+    return "rubrique";
+  }
+  return "";
+}
+
+function getRubriqueId(node) {
+  if (!/id_rubrique=(\d+)/.test(node.href)) {
+    throw new ParseError("No id element");
+  }
+  const [, id] = node.href.match(/id_rubrique=(\d+)/);
+  return `rubrique${id}`;
+}
+
+function getArticleId(node) {
+  if (!/article-titre-(\d+)/.test(node.className)) {
+    throw new ParseError("No id element");
+  }
+  const [, id] = node.className.match(/article-titre-(\d+)/);
+  return `article${id}`;
+}
+
+function getId(dom) {
+  const pageType = getType(dom.window.document.documentElement);
+  switch (pageType) {
+    case "rubrique": {
+      const syndicationNode = $(dom.window.document, "link[href^='spip.php']");
+      return getRubriqueId(syndicationNode);
+    }
+    case "article": {
+      const title = $(dom.window.document, "main h1");
+      return getArticleId(title);
+    }
+  }
+  return null;
+}
+
 function parseDom(dom) {
   const article = $(dom.window.document, "main");
   if (!article) {
-    throw new Error("no main");
+    throw new ParseError("no <main>");
   }
   $$(article, "a").forEach(formatAnchor);
   $$(article, "picture").forEach(formatPicture);
@@ -132,7 +180,13 @@ function parseDom(dom) {
       }
     });
 
-  const title = $(article, "h1").textContent.trim();
+  const titleElement = $(article, "h1");
+  if (!titleElement) {
+    throw new ParseError("No <h1> element");
+  }
+  const title = titleElement.textContent.trim();
+
+  const pubId = getId(dom);
 
   const dateRaw =
     $(dom.window.document, "meta[property*=modified_time]") ||
@@ -145,7 +199,7 @@ function parseDom(dom) {
     dom.window.document,
     "meta[name=description]"
   ).getAttribute("content");
-  const pubIdMeta = $(dom.window.document, "meta[name='SPIP.identifier']");
+
   const sections = [];
   const sectionTag = getSectionTag(article);
 
@@ -219,7 +273,7 @@ function parseDom(dom) {
     date: `${day}/${month}/${year}`,
     description,
     intro,
-    pubId: pubIdMeta && pubIdMeta.getAttribute("content"),
+    pubId,
     sections,
     title,
   };
@@ -253,13 +307,23 @@ async function parseFiche(url) {
       url,
     };
   } catch (error) {
+    if (error instanceof ParseError) {
+      throw {
+        message: error.message,
+        name: error.name,
+        url,
+      };
+    }
     if (error instanceof got.HTTPError) {
       throw {
+        message: error.message,
+        name: error.name,
         statusCode: error.response.statusCode,
         url: error.options.url.href,
       };
     }
-    throw { statusCode: 500, url };
+    error.url = url;
+    throw error;
   }
 }
 
@@ -268,7 +332,9 @@ async function scrap(urls) {
   const results = await Promise.allSettled(inputs);
 
   const failedPromise = results.filter(
-    ({ status, reason }) => status === "rejected" && reason.statusCode === 404
+    ({ status, reason }) =>
+      status === "rejected" &&
+      (reason.name === "HTTPError" || reason.name === "ParseError")
   );
 
   if (failedPromise.length > 0) {
