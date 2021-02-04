@@ -74,7 +74,7 @@ jobs:
             }
           done
 
-      - uses: EndBug/add-and-commit@v5
+      - uses: EndBug/add-and-commit@v7
         if:  ${{ steps.metadata.outputs.data_status }}
         env:
           HUSKY_SKIP_HOOKS: "true"
