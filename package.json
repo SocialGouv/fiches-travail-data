@@ -29,8 +29,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
     "@socialgouv/datafiller-data": "^2.9.0",
     "@socialgouv/eslint-config-recommended": "^1.46.0",
     "@socialgouv/legi-data": "^2.18.0",
