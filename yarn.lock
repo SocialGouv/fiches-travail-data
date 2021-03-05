@@ -1074,10 +1074,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@socialgouv/datafiller-data@^2.9.0":
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-2.9.0.tgz#9cf6af214a8574f5c39de464a0861d5cbb9a065d"
-  integrity sha512-5SJg6A2gKZD8cijE708AYwMRM90cqb4+0flDz27OGg+mQRfWeRKc7IYgSNdBqr1jrckBU4+Sy/6+wzal37oGDA==
+"@socialgouv/datafiller-data@^2.15.0":
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/datafiller-data/-/datafiller-data-2.15.0.tgz#5a6bbc9df877bc1a393c9e440f55c335062825f8"
+  integrity sha512-OWnxsiYTawcewAiFPn0liOSv1CGJCmdBdKwEOXvQDd0v7KDdaiyCQ+6JMBAkUysl1X2KriQOsZON7lAlhvayUg==
   dependencies:
     node-fetch "^2.6.1"
     p-pipe "^3.1.0"
@@ -1096,10 +1096,10 @@
     eslint-plugin-simple-import-sort "~5.0.3"
     eslint-plugin-sort-keys-fix "~1.1.1"
 
-"@socialgouv/legi-data@^2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/legi-data/-/legi-data-2.18.0.tgz#ad4ea604bb774508a2505b1eb86c6c08940fd7fb"
-  integrity sha512-la4GfY9eePRcSJ1FDmpoltFBCu/3VbjKZc3leydaqWSvbiCLWNBznXiILAeqiPPoM5PUT1OSHdNQg5fAcrX38Q==
+"@socialgouv/legi-data@^2.33.0":
+  version "2.33.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/legi-data/-/legi-data-2.33.0.tgz#96004766089a6ba6a0e20c5516a459e16e75863d"
+  integrity sha512-2AvNbLMRxPasJfPRbg5TfxavQovI8MFnU4Km4X9sDiyZB1UePcIJ9zyKgzdGfx9eSfrQqQEshzBxUClMvqO7Ag==
   dependencies:
     unist-util-find "^1.0.2"
     unist-util-parents "^1.0.3"
