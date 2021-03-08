@@ -340,13 +340,29 @@ async function scrap(urls) {
   if (failedPromise.length > 0) {
     console.error(failedPromise.map(({ reason }) => reason));
     console.error("Error - fetching pages fail. Some pages are missing");
-    process.exit(-1);
+    process.exit(1);
   }
 
   const resolvedPromise = results.flatMap(({ status, value }) =>
     status === "fulfilled" ? [value] : []
   );
-
+  // ensure we not have duplicate url
+  let duplicate = false;
+  for (const { pubId, url } of resolvedPromise) {
+    const count = resolvedPromise.filter((fiche) => fiche.pubId === pubId)
+      .lenght;
+    if (count > 1) {
+      duplicate = true;
+      console.error(
+        `[error] la fiche ${url} est présente ${count} fois. Veuillez supprimer le doublon du datafiller`
+      );
+    }
+  }
+  if (duplicate) {
+    throw new Error(
+      `[error] fiches en doublons. Veuillez supprimer le doublon du datafiller`
+    );
+  }
   const fiches = resolvedPromise.filter(
     (fiche) => fiche.sections && fiche.sections.length > 0
   );
@@ -374,7 +390,7 @@ if (module === require.main) {
     .catch((error) => {
       console.error(error);
       console.error(`fail in ${Math.round((Date.now() - t0) / 1000)} sec`);
-      process.exit(-1);
+      process.exit(1);
     });
 }
 
