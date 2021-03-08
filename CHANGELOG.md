@@ -1,3 +1,15 @@
+# [4.89.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.88.0...v4.89.0) (2021-03-08)
+
+
+### Bug Fixes
+
+* fail if duplicate documents found ([#259](https://github.com/SocialGouv/fiches-travail-data/issues/259)) ([3c26cf5](https://github.com/SocialGouv/fiches-travail-data/commit/3c26cf598dc07c5174788932fbaf6860fcd99856))
+
+
+### Features
+
+* **data:** 20210308_2019 update ([a341fff](https://github.com/SocialGouv/fiches-travail-data/commit/a341fff1278f98ff668ec692959a3d39d1daf3d1))
+
 # [4.88.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.87.0...v4.88.0) (2021-03-07)
 
 
