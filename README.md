@@ -63,8 +63,10 @@ We release an additional `@socialgouv/fiches-travail-data-types` package by sed-
 
 If you need to trigger the release job manually, you can do it using the [GitHub UI](https://github.com/SocialGouv/fiches-travail-data/actions/workflows/release.yml) or curl. You will need to provide a valid token.
 
+``` 
 curl -H "Accept: application/vnd.github.everest-preview+json" \
  -H "Authorization: token <your-token-here>" \
  --request POST \
  --data '{"event_type": "manual_release"}' \
  https://api.github.com/repos/SocialGouv/fiches-travail-data/dispatches
+``` 
