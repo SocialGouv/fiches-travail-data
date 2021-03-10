@@ -1,7 +1,7 @@
 # fiches-travail-data
 
 > Json formated data from from set of page of travail-emploi website
-You can include json data 
+> You can include json data
 
 [![Node.js CI](https://github.com/SocialGouv/fiches-travail-data/workflows/Node.js%20CI/badge.svg)](https://github.com/SocialGouv/fiches-travail-data/actions?query=workflow%3A%22Node.js+CI%22+branch%3Amaster)
 [![Release](https://github.com/SocialGouv/fiches-travail-data/workflows/Release/badge.svg)](https://github.com/SocialGouv/fiches-travail-data/actions?query=workflow%3ARelease+branch%3Amaster)
@@ -12,11 +12,10 @@ You can include json data
 
 ## Usage
 
-```js 
-const { decodeEmail} = require("@socialgouv/fiches-travail-data");
+```js
+const { decodeEmail } = require("@socialgouv/fiches-travail-data");
 const fichesMT = require("@socialgouv/fiches-travail-data/data/fiches-travail.json");
 ```
-
 
 ## Development
 
@@ -60,3 +59,12 @@ Releases are automaticly made through our [GitHub Actions](https://github.com/So
 
 We release an additional `@socialgouv/fiches-travail-data-types` package by sed-ing the package.json (see [`.releaserc.yml`](./.releaserc.yml))
 
+### Manual release
+
+If you need to trigger the release job manually, you can do it using curl You will need to provide a valid token.
+
+curl -H "Accept: application/vnd.github.everest-preview+json" \
+ -H "Authorization: token <your-token-here>" \
+ --request POST \
+ --data '{"event_type": "manual_release"}' \
+ https://api.github.com/repos/SocialGouv/fiches-travail-data/dispatches

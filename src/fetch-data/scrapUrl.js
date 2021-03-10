@@ -30,7 +30,7 @@ export async function scrapUrl(url) {
       err = new Error(`Parsing Error: ${error.message}`);
     } else if (error instanceof got.HTTPError) {
       err = new Error(
-        `HTTP Error: ${error.response.statusCode} - ${error.options.url?.href} - ${error.message}`
+        `HTTP Error: ${error.response.statusCode} - ${error.options.url.href} - ${error.message}`
       );
     } else {
       err = new Error(error.message);

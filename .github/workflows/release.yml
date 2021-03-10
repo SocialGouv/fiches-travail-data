@@ -3,11 +3,8 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron: "00 22 * * *"
-  push:
-    branches:
-      - master
-    tags-ignore:
-      - v*
+  repository_dispatch:
+    types: manual_release
 
 jobs:
   release:
@@ -75,7 +72,7 @@ jobs:
           done
 
       - uses: EndBug/add-and-commit@v7
-        if:  ${{ steps.metadata.outputs.data_status }}
+        if: ${{ steps.metadata.outputs.data_status }}
         env:
           HUSKY_SKIP_HOOKS: "true"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
