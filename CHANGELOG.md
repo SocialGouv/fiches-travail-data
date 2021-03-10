@@ -1,3 +1,16 @@
+# [4.94.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.93.0...v4.94.0) (2021-03-10)
+
+
+### Bug Fixes
+
+* handle no id title ([#263](https://github.com/SocialGouv/fiches-travail-data/issues/263)) ([3154b15](https://github.com/SocialGouv/fiches-travail-data/commit/3154b1515f9e714c959c6ec8121892608a66fc3b))
+* release ([#264](https://github.com/SocialGouv/fiches-travail-data/issues/264)) ([51ed145](https://github.com/SocialGouv/fiches-travail-data/commit/51ed14514279ce23f31d470157a59918ce249ebf))
+
+
+### Features
+
+* **data:** 20210310_1702 update ([2a1f605](https://github.com/SocialGouv/fiches-travail-data/commit/2a1f60592ca127ea752102f0c33bf31590deb77b))
+
 # [4.93.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.92.0...v4.93.0) (2021-03-10)
 
 
