@@ -1,3 +1,15 @@
+# [4.95.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.94.0...v4.95.0) (2021-03-10)
+
+
+### Bug Fixes
+
+* add manual release trigger ([ea02518](https://github.com/SocialGouv/fiches-travail-data/commit/ea02518e93fcdda697cf28dd5d00b8a2402ba63c))
+
+
+### Features
+
+* **data:** 20210310_2205 update ([4539345](https://github.com/SocialGouv/fiches-travail-data/commit/4539345fc4ca1f73bdcc2669f1cfc78ee6561bb6))
+
 # [4.94.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.93.0...v4.94.0) (2021-03-10)
 
 
