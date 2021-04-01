@@ -1,24 +1,14 @@
+import externalUrls from "@socialgouv/datafiller-data/data/externals.json";
 import fs from "fs";
-import got from "got";
 import pLimit from "p-limit";
 import path from "path";
 
 import { scrapUrl } from "./scrapUrl";
 
-const FEED_URL = "https://travail-emploi.gouv.fr/?page=oseo_json";
-
 const limit = pLimit(10);
-export async function fetchFeed(url) {
-  const response = await got.post(url, {
-    headers: { "Content-Type": "application/json" },
-    http2: true,
-    retry: 3,
-  });
-  const { fiches: feed } = JSON.parse(response.body);
-  return feed;
-}
+
 export async function scrap(urls) {
-  const inputs = urls.map(({ id, url }) => limit(() => scrapUrl(id, url)));
+  const inputs = urls.map((url) => limit(() => scrapUrl(url)));
   const results = await Promise.allSettled(inputs);
 
   const failedPromise = results.filter(({ status }) => status === "rejected");
@@ -57,10 +47,18 @@ export async function scrap(urls) {
 }
 
 if (module === require.main) {
+  const { urls } = externalUrls.find(
+    ({ title }) => title === "ministere-travail"
+  );
   const t0 = Date.now();
-  fetchFeed(FEED_URL)
-    .then(scrap)
+
+  scrap(urls)
     .then((fiches) => {
+      if (fiches.length !== urls.length) {
+        throw new Error(
+          `[error] scrap fail - Missing documents ${fiches.length}/${urls.length}`
+        );
+      }
       console.log(`done in ${Math.round((Date.now() - t0) / 1000)} sec`);
       const dataFilePath = path.join(
         __dirname,

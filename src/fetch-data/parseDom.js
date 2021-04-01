@@ -101,7 +101,48 @@ const getReferences = (text) => {
   return resolveReferences(references);
 };
 
-export function parseDom(dom, id, url) {
+function getType(node) {
+  if (/page_article/.test(node.className)) {
+    return "article";
+  }
+  if (/page_rubrique/.test(node.className)) {
+    return "rubrique";
+  }
+  return "";
+}
+
+function getRubriqueId(node) {
+  if (!/id_rubrique=(\d+)/.test(node.href)) {
+    return null;
+  }
+  const [, id] = node.href.match(/id_rubrique=(\d+)/);
+  return `rubrique${id}`;
+}
+
+function getArticleId(node) {
+  if (!/article-titre-(\d+)/.test(node.className)) {
+    return null;
+  }
+  const [, id] = node.className.match(/article-titre-(\d+)/);
+  return `article${id}`;
+}
+
+function getId(dom) {
+  const pageType = getType(dom.window.document.documentElement);
+  switch (pageType) {
+    case "rubrique": {
+      const syndicationNode = $(dom.window.document, "link[href^='spip.php']");
+      return getRubriqueId(syndicationNode);
+    }
+    case "article": {
+      const title = $(dom.window.document, "main h1");
+      return getArticleId(title);
+    }
+  }
+  return null;
+}
+
+export function parseDom(dom, url) {
   const article = $(dom.window.document, "main");
   if (!article) {
     throw new ParseError("no <main>");
@@ -134,8 +175,9 @@ export function parseDom(dom, id, url) {
   }
   const title = titleElement.textContent.trim();
 
-  if (!id) {
-    throw new ParseError(`No id`);
+  const pubId = getId(dom);
+  if (!pubId) {
+    throw new ParseError(`No pubId`);
   }
   const dateRaw =
     $(dom.window.document, "meta[property*=modified_time]") ||
@@ -221,7 +263,7 @@ export function parseDom(dom, id, url) {
     date: `${day}/${month}/${year}`,
     description,
     intro,
-    pubId: id,
+    pubId,
     sections,
     title,
     url,
