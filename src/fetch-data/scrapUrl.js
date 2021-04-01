@@ -3,7 +3,7 @@ import { JSDOM } from "jsdom";
 
 import { parseDom } from "./parseDom";
 
-export async function scrapUrl(url) {
+export async function scrapUrl(id, url) {
   try {
     let response = await got(url, {
       followRedirect: true,
@@ -23,7 +23,7 @@ export async function scrapUrl(url) {
       }
     }
     const dom = new JSDOM(response.body, { url });
-    return parseDom(dom, url);
+    return parseDom(dom, id, url);
   } catch (error) {
     let err;
     if (error instanceof got.ParseError) {

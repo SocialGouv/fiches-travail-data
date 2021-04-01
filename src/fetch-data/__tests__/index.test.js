@@ -7,7 +7,7 @@ beforeEach(() => {
   jest.spyOn(console, "error").mockImplementation(() => {});
 });
 
-scrapUrl.mockImplementation((url) => {
+scrapUrl.mockImplementation((id, url) => {
   if (url === "url.sections")
     return Promise.resolve({ pubId: "url.a", sections: [{ id: "section" }] });
   if (url === "url.no.section")
@@ -20,13 +20,19 @@ scrapUrl.mockImplementation((url) => {
 });
 
 test("scrap should throw if some scrapped pages failed", async () => {
-  await expect(scrap(["url.sections", "url.fail"])).rejects.toThrowError(
-    /fetching pages fail/
-  );
+  await expect(
+    scrap([
+      { id: "url.a", url: "url.sections" },
+      { id: "noid", url: "url.fail" },
+    ])
+  ).rejects.toThrowError(/fetching pages fail/);
 });
 
 test("scrap should throw if some scrapped pages have same id", async () => {
-  await expect(scrap(["url.sections", "url.sections"])).rejects.toThrowError(
-    /fiches en doublons/
-  );
+  await expect(
+    scrap([
+      { id: "url.a", url: "url.sections" },
+      { id: "url.a", url: "url.sections" },
+    ])
+  ).rejects.toThrowError(/fiches en doublons/);
 });
