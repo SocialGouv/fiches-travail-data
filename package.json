@@ -63,11 +63,5 @@
       "js",
       "json"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint",
-      "pre-push": "run-p lint test"
-    }
   }
 }
