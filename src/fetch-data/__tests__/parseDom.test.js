@@ -24,13 +24,13 @@ const acd = fs
 
 test("should parse HTML section", () => {
   const dom = new JSDOM(sample);
-  const parsed = parseDom(dom, "url-sample");
+  const parsed = parseDom(dom, "article375531", "url-sample");
   expect(parsed).toMatchSnapshot();
 });
 
 test("should parse HTML with no section", () => {
   const dom = new JSDOM(sampleNoSection);
-  const parsed = parseDom(dom, "url-no-section");
+  const parsed = parseDom(dom, "article377849", "url-no-section");
   expect(parsed).toMatchSnapshot();
   expect(parsed.sections.length).toBe(1);
   expect(parsed.sections[0].anchor).toBe("");
@@ -38,7 +38,7 @@ test("should parse HTML with no section", () => {
 
 test("should parse HTML with 4 sections with id", () => {
   const dom = new JSDOM(sampleSectionsWithId);
-  const parsed = parseDom(dom, "url-with-sections");
+  const parsed = parseDom(dom, "article376806", "url-with-sections");
   expect(parsed).toMatchSnapshot();
   expect(parsed.sections.length).toBe(4);
   parsed.sections.forEach((section) => {
@@ -48,14 +48,14 @@ test("should parse HTML with 4 sections with id", () => {
 
 test("should parse HTML with intro section and 6 sections without id", () => {
   const dom = new JSDOM(sampleSectionsNoId);
-  const parsed = parseDom(dom, "url-with-sections-no-id");
+  const parsed = parseDom(dom, "article112763", "url-with-sections-no-id");
   expect(parsed).toMatchSnapshot();
   expect(parsed.sections.length).toBe(7);
 });
 
 test("should remove whitespace in HTML section", () => {
   const dom = new JSDOM(acd);
-  const parsed = parseDom(dom, "url-acd");
+  const parsed = parseDom(dom, "article200993", "url-acd");
   expect(parsed).toMatchSnapshot();
   parsed.sections.forEach((section) => {
     expect(/\n/g.test(section.html)).toBe(false);
@@ -73,25 +73,16 @@ test("should throw if there is no main element", () => {
 test("should throw if there is no h1 element", () => {
   const dom = new JSDOM("<html><body><main>test</main></body></html>");
   expect(() => {
-    parseDom(dom, "http://nomain");
+    parseDom(dom, "noid", "http://nomain");
   }).toThrowError();
 });
 
-test("should throw if there is no pubId element on article page", () => {
+test("should throw if there is no id pass", () => {
   const dom = new JSDOM(
     `<html class="page_article"><body><main><h1>test</h1></main></body></html>`
   );
   expect(() => {
-    parseDom(dom, "http://nomain");
-  }).toThrowError();
-});
-
-test("should throw if there is no pubId element on rubrique page", () => {
-  const dom = new JSDOM(
-    `<html class="page_rubrique"><head><link rel="alternate" type="application/rss+xml" title="Syndiquer cette rubrique" href="spip.php?page=backend&amp;" /></head><body><main><h1>test</h1></main></body></html>`
-  );
-  expect(() => {
-    parseDom(dom, "http://nomain");
+    parseDom(dom, null, "http://nomain");
   }).toThrowError();
 });
 
