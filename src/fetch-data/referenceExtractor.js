@@ -252,8 +252,8 @@ function extractReferences(text) {
 
 export {
   classifyTokens,
-  extractReferences,
-  codesFullNames,
-  CODE_TRAVAIL,
   CODE_SECU,
+  CODE_TRAVAIL,
+  codesFullNames,
+  extractReferences,
 };
