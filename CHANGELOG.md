@@ -1,3 +1,11 @@
+# [4.111.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.110.0...v4.111.0) (2021-04-02)
+
+
+### Features
+
+* **data:** 20210402_2203 update ([06f35f6](https://github.com/SocialGouv/fiches-travail-data/commit/06f35f67e6e87962a07173b9cb2bc8696d4b491c))
+* use travail-emploi feed ([#273](https://github.com/SocialGouv/fiches-travail-data/issues/273)) ([e5f6432](https://github.com/SocialGouv/fiches-travail-data/commit/e5f64326673f9e3a8374450e86eeccc7444ed0df))
+
 # [4.110.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.109.0...v4.110.0) (2021-03-30)
 
 
