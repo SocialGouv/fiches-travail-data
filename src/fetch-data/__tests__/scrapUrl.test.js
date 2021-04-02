@@ -42,20 +42,22 @@ got.mockImplementation((url) => {
 parseDom.mockImplementation(() => ({ title: "Yo" }));
 
 test("scrapUrl should return formated data", async () => {
-  const result = await scrapUrl("http://url.ok");
+  const result = await scrapUrl("id", "http://url.ok");
   expect(result).toEqual({ title: "Yo" });
 });
 
 test("scrapUrl should throw if redirected url failed", async () => {
-  await expect(scrapUrl("url.wrong-redirect")).rejects.toThrow(
+  await expect(scrapUrl("id", "url.wrong-redirect")).rejects.toThrow(
     /Wrong redirectUrl/
   );
 });
 
 test("scrapUrl should throw if url failed", async () => {
-  await expect(scrapUrl("url.http.fail")).rejects.toThrow(/HTTP Error/);
+  await expect(scrapUrl("id", "url.http.fail")).rejects.toThrow(/HTTP Error/);
 });
 
 test("scrap should throw if parse fail", async () => {
-  await expect(scrapUrl("url.parse.fail")).rejects.toThrow(/Parsing Error/);
+  await expect(scrapUrl("id", "url.parse.fail")).rejects.toThrow(
+    /Parsing Error/
+  );
 });
