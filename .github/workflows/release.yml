@@ -38,7 +38,7 @@ jobs:
             ${{ runner.os }}-yarn_cache-
 
       - name: Installing
-        run: yarn --frozen-lockfile --link-duplicates --perfer-offline
+        run: yarn --frozen-lockfile --link-duplicates --prefer-offline
 
       - name: Build
         run: yarn build
