@@ -4,10 +4,9 @@ Given an article (or a range) and its code (code du travail ou securite sociale)
 actual id in the legi data corpus. 
 */
 
+import { CODE_TRAVAIL, codesFullNames } from "@socialgouv/reference-article";
 import find from "unist-util-find";
 import visit from "unist-util-visit";
-
-import { CODE_TRAVAIL, codesFullNames } from "./referenceExtractor";
 
 const codes = {};
 Object.values(codesFullNames).forEach(({ id }) => {
