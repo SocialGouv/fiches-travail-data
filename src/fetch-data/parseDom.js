@@ -1,8 +1,8 @@
 import slugify from "@socialgouv/cdtn-slugify";
+import { extractReferences } from "@socialgouv/reference-article";
 import { ParseError } from "got";
 
 import { encode } from "../email";
-import { extractReferences } from "./referenceExtractor";
 import { resolveReferences } from "./referenceResolver";
 
 const $$ = (node, selector) => Array.from(node.querySelectorAll(selector));

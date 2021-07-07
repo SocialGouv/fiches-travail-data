@@ -1171,6 +1171,11 @@
     unist-util-find "^1.0.2"
     unist-util-parents "^1.0.3"
 
+"@socialgouv/reference-article@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@socialgouv/reference-article/-/reference-article-1.0.1.tgz#9fd791dd1e8c119bb013f5c78ab0f85975ed7d05"
+  integrity sha512-WJtKEuJHZX7ImpKg1+AzCgSRA2+G3vImT+H4HWZ+v/23Qe8lNqZ61rJJdRiOJ04IrLfRt34vREuX2+GYBPpgaQ==
+
 "@szmarczak/http-timer@^4.0.5":
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/@szmarczak/http-timer/-/http-timer-4.0.5.tgz#bfbd50211e9dfa51ba07da58a14cdfd333205152"
