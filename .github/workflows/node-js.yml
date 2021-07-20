@@ -15,20 +15,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version:
-          - 14.x
-
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: lts/*
+          cache: yarn
       - run: yarn --frozen-lockfile
       - run: yarn lint
       - run: yarn test --coverage
         env:
           CI: true
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2
