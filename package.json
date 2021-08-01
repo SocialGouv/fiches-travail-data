@@ -30,7 +30,7 @@
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.14.8",
-    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-env": "^7.14.9",
     "@socialgouv/cdtn-slugify": "^4.45.0",
     "@socialgouv/eslint-config-recommended": "^1.75.0",
     "@socialgouv/legi-data": "^2.64.0",
