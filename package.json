@@ -33,7 +33,7 @@
     "@babel/preset-env": "^7.15.0",
     "@socialgouv/cdtn-slugify": "^4.52.1",
     "@socialgouv/eslint-config-recommended": "^1.85.4",
-    "@socialgouv/legi-data": "^2.70.0",
+    "@socialgouv/legi-data": "^2.71.0",
     "babel-jest": "^27.0.6",
     "eslint": "^7.32.0",
     "esm": "^3.2.25",
