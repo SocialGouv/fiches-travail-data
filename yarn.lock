@@ -1174,10 +1174,10 @@
     eslint-plugin-simple-import-sort "~7.0.0"
     eslint-plugin-sort-keys-fix "~1.1.2"
 
-"@socialgouv/legi-data@^2.81.0":
-  version "2.81.0"
-  resolved "https://registry.yarnpkg.com/@socialgouv/legi-data/-/legi-data-2.81.0.tgz#87c1f7c63bec5e0a4cd254ac4e90d8156f943cc5"
-  integrity sha512-1sAdHzoKCjA3Nb3O/DXE2J29HRfhmziMvJ0RZeHtLnas8gBx6IUG52W1EM7APEGUATaTlh4QswXnoZNuYEYdbQ==
+"@socialgouv/legi-data@^2.82.0":
+  version "2.82.0"
+  resolved "https://registry.yarnpkg.com/@socialgouv/legi-data/-/legi-data-2.82.0.tgz#c2fe10a2fb4ccc376c7a5ea5165f530551ce99e9"
+  integrity sha512-VNhW/uP9pJO2/xABkrAl3NqPAZHuM1Mw4QaI8lxyFuQG/NwsW3z4iLjXj07iF65ZRiBCph1Hk9Me0fYN91LxOg==
   dependencies:
     unist-util-find "^1.0.2"
     unist-util-parents "^1.0.3"
