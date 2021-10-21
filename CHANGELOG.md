@@ -1,3 +1,10 @@
+# [4.220.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.219.0...v4.220.0) (2021-10-21)
+
+
+### Features
+
+* **data:** 20211021_2208 update ([582f690](https://github.com/SocialGouv/fiches-travail-data/commit/582f690f9e46d822f179a2f780dd6466d2715573))
+
 # [4.219.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.218.0...v4.219.0) (2021-10-19)
 
 
