@@ -1,6 +1,6 @@
 {
   "name": "@socialgouv/fiches-travail-data",
-  "version": "4.235.0",
+  "version": "4.236.0",
   "main": "index.js",
   "module": "index.esm.js",
   "files": [
