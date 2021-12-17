@@ -35,7 +35,7 @@
     "@socialgouv/eslint-config-recommended": "^1.100.0",
     "@socialgouv/legi-data": "^2.100.0",
     "babel-jest": "^27.4.4",
-    "eslint": "^7.32.0",
+    "eslint": "^8.0.0",
     "esm": "^3.2.25",
     "got": "^11.8.3",
     "husky": "^7.0.4",
