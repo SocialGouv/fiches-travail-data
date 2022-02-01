@@ -6,7 +6,7 @@ on:
   repository_dispatch:
     types: manual_release
   workflow_dispatch:
-  
+
 jobs:
   release:
     name: Release
@@ -45,6 +45,7 @@ jobs:
 
       - name: Start
         env:
+          TOKEN_MT: ${{ secrets.TOKEN_MT }}
           DATAFILLER_URL: ${{ secrets.DATAFILLER_URL }}
         run: yarn start
 

@@ -1,12 +1,15 @@
 import got from "got";
 import { JSDOM } from "jsdom";
 
+import { generateHeaders } from "./generateHeaders";
 import { parseDom } from "./parseDom";
 
 export async function scrapUrl(id, url) {
+  const headers = generateHeaders();
   try {
     let response = await got(url, {
       followRedirect: true,
+      headers,
       http2: true,
       retry: 3,
     });
@@ -15,6 +18,7 @@ export async function scrapUrl(id, url) {
       try {
         response = await got(redirectUrl, {
           followRedirect: true,
+          headers,
           http2: true,
           retry: 3,
         });
