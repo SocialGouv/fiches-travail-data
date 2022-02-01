@@ -1,3 +1,17 @@
+# [4.264.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.263.0...v4.264.0) (2022-02-01)
+
+
+### Bug Fixes
+
+* add a token to bypass the bot protection ([#368](https://github.com/SocialGouv/fiches-travail-data/issues/368)) ([0ebf8bf](https://github.com/SocialGouv/fiches-travail-data/commit/0ebf8bfe7c46990efd5d932db9b415076fc68829))
+* add cookie to fix API route (one shot) ([#364](https://github.com/SocialGouv/fiches-travail-data/issues/364)) ([2328859](https://github.com/SocialGouv/fiches-travail-data/commit/2328859becd28785255aa1fa8cb7114a0c1339e6))
+* add local data until FEED_URL has been fixed ([#365](https://github.com/SocialGouv/fiches-travail-data/issues/365)) ([76a7924](https://github.com/SocialGouv/fiches-travail-data/commit/76a79248a49f194a4cd272e17d73acb393a877c2))
+
+
+### Features
+
+* **data:** 20220201_1809 update ([4826a58](https://github.com/SocialGouv/fiches-travail-data/commit/4826a58fd8b793728650bdbd84db2ecdddc48c36))
+
 # [4.263.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.262.0...v4.263.0) (2022-01-18)
 
 
