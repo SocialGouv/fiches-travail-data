@@ -3,7 +3,7 @@ import got from "got";
 import pLimit from "p-limit";
 import path from "path";
 
-import data from "./api.data.json";
+import { generateHeaders } from "./generateHeaders";
 import { scrapUrl } from "./scrapUrl";
 
 const FEED_URL = "https://travail-emploi.gouv.fr/?page=oseo_json";
@@ -12,21 +12,15 @@ const limit = pLimit(10);
 
 export async function fetchFeed(url) {
   const response = await got.post(url, {
-    headers: {
+    headers: generateHeaders({
       "Content-Type": "application/json",
-    },
+    }),
     http2: true,
     retry: 3,
   });
   const { fiches: feed } = JSON.parse(response.body);
   return feed;
 }
-
-export async function loadFeed() {
-  const { fiches: feed } = data;
-  return Promise.resolve(feed);
-}
-
 export async function scrap(urls) {
   const inputs = urls.map(({ id, url }) => limit(() => scrapUrl(id, url)));
   const results = await Promise.allSettled(inputs);
@@ -68,9 +62,7 @@ export async function scrap(urls) {
 
 if (module === require.main) {
   const t0 = Date.now();
-  // cf issue https://github.com/SocialGouv/cdtn-admin/issues/707
-  // fetchFeed(FEED_URL)
-  loadFeed()
+  fetchFeed(FEED_URL)
     .then(scrap)
     .then((fiches) => {
       console.log(`done in ${Math.round((Date.now() - t0) / 1000)} sec`);
