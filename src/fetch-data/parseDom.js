@@ -128,9 +128,12 @@ export function parseDom(dom, id, url) {
       }
     });
 
-  const titleElement = $(article, "h1");
+  let titleElement = $(article, "h1");
   if (!titleElement) {
-    throw new ParseError("No <h1> element");
+    titleElement = $(article, "h2");
+    if (!titleElement) {
+      throw new ParseError("No <h1> or <h2> element");
+    }
   }
   const title = titleElement.textContent.trim();
 
