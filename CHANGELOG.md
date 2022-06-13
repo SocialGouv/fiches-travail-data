@@ -1,3 +1,16 @@
+# [4.307.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.306.0...v4.307.0) (2022-06-13)
+
+
+### Bug Fixes
+
+* **scrap:** title are sometimes in h2 tag ([#376](https://github.com/SocialGouv/fiches-travail-data/issues/376)) ([d3f77dd](https://github.com/SocialGouv/fiches-travail-data/commit/d3f77dd86c8e13dcaf55820f786aea66302383ed))
+
+
+### Features
+
+* **alert:** notify on mattermost when action failed ([#377](https://github.com/SocialGouv/fiches-travail-data/issues/377)) ([65ba2b7](https://github.com/SocialGouv/fiches-travail-data/commit/65ba2b7c2175259fa203faa186886d6e1979243a))
+* **data:** 20220613_1610 update ([ec2114b](https://github.com/SocialGouv/fiches-travail-data/commit/ec2114b0c472e1a1595e6d73cf1acc2abab83c3e))
+
 # [4.306.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.305.0...v4.306.0) (2022-05-04)
 
 
