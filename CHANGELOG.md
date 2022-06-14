@@ -1,3 +1,15 @@
+# [4.308.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.307.0...v4.308.0) (2022-06-14)
+
+
+### Bug Fixes
+
+* **alert:** add missing message ([757c24e](https://github.com/SocialGouv/fiches-travail-data/commit/757c24eaa402791cc956387278412c080ff650f8))
+
+
+### Features
+
+* **data:** 20220614_2208 update ([539e33d](https://github.com/SocialGouv/fiches-travail-data/commit/539e33df3142700a3ed005ed55a2cf8b9f10dd2b))
+
 # [4.307.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.306.0...v4.307.0) (2022-06-13)
 
 
