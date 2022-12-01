@@ -29,7 +29,7 @@ const formatPicture = (node) => {
     return;
   }
   const [, src = ""] = comment.data.match(/src=["']([^'"]*)["']/);
-  if (src.lenght === 0) {
+  if (src.length === 0) {
     return;
   }
   let [srcClean] = src.split("?");
