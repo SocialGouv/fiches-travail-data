@@ -28,3 +28,4 @@ jobs:
         env:
           CI: true
       - uses: codecov/codecov-action@v2
+      - run: yarn build

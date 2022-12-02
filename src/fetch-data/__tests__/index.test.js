@@ -4,7 +4,7 @@ import { scrapUrl } from "../scrapUrl";
 jest.mock("../scrapUrl");
 
 beforeEach(() => {
-  jest.spyOn(console, "error").mockImplementation(() => {});
+  jest.spyOn(console, "error").mockImplementation(jest.fn);
 });
 
 scrapUrl.mockImplementation((id, url) => {

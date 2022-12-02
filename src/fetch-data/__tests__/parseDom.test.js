@@ -22,6 +22,11 @@ const acd = fs
   .readFileSync(path.join(__dirname, "agents-chimiques-dangereux-acd.html"))
   .toString();
 
+const pictureHtml = fs
+  .readFileSync(path.join(__dirname, "picture.html"))
+  .toString();
+
+
 test("should parse HTML section", () => {
   const dom = new JSDOM(sample);
   const parsed = parseDom(dom, "article375531", "url-sample");
@@ -93,4 +98,12 @@ test("should throw if there is no section detected", () => {
   expect(() => {
     parseDom(dom, "http://nomain");
   }).toThrowError();
+});
+
+test("should work with picture", () => {
+  const dom = new JSDOM(pictureHtml);
+  const parsed = parseDom(dom, "article377828", "picture-html");
+  expect(parsed.sections.length).toBe(4);
+  expect(JSON.stringify(parsed)).toContain("https://travail-emploi.gouv.fr/local/adapt-img/1024/10x/IMG/png/tableau-taux1.png?1667570454");
+  expect(parsed).toMatchSnapshot();
 });

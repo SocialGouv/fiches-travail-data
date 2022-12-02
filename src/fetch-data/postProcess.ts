@@ -1,6 +1,6 @@
 import * as cheerio from "cheerio";
 
-export const htmlParser = (html: string): string => {
+export const htmlPostParser = (html: string): string => {
   const $ = cheerio.load(html, null, false);
   const arrImgSrc: string[] = [];
   let currentIndex = 0;

@@ -7,7 +7,7 @@ jest.mock("got");
 jest.mock("../parseDom");
 
 beforeEach(() => {
-  jest.spyOn(console, "error").mockImplementation(() => {});
+  jest.spyOn(console, "error").mockImplementation(jest.fn);
 });
 
 got.mockImplementation((url) => {

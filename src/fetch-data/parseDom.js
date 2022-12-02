@@ -2,6 +2,7 @@ import slugify from "@socialgouv/cdtn-slugify";
 import { ParseError } from "got";
 
 import { encode } from "../email";
+import { htmlPostParser } from "./postProcess";
 import { extractReferences } from "./referenceExtractor";
 import { resolveReferences } from "./referenceResolver";
 
@@ -205,10 +206,9 @@ export function parseDom(dom, id, url) {
       sections.push({
         anchor: el.getAttribute("id") || slugify(el.textContent),
         description: sectionText.slice(0, 200).trim(),
-        html: html
-          .replace(/\n+/g, "")
-          .replace(/>\s+</g, "><")
-          .replace(/\s+/g, " "),
+        html: htmlPostParser(
+          html.replace(/\n+/g, "").replace(/>\s+</g, "><").replace(/\s+/g, " ")
+        ),
         references: getReferences(sectionText),
         text: sectionText,
         title: el.textContent.trim(),
