@@ -1,3 +1,5 @@
+import typescript from "@rollup/plugin-typescript";
+
 export default {
   input: "src/index.js",
   output: [
@@ -10,4 +12,5 @@ export default {
       format: "es",
     },
   ],
+  plugins: [typescript()],
 };
