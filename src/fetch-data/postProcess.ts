@@ -5,6 +5,12 @@ export const htmlPostParser = (html: string): string => {
   const arrImgSrc: string[] = [];
   let currentIndex = 0;
 
+  $("style").remove();
+
+  // https://travail-emploi.gouv.fr/le-ministere-en-action/coronavirus-covid-19/questions-reponses-par-theme/article/mesures-de-prevention-dans-l-entreprise-contre-la-covid-19
+  $("button").remove();
+  $(".oembed-source").remove();
+
   // https://travail-emploi.gouv.fr/emploi-et-insertion/accompagnement-des-mutations-economiques/activite-partielle-chomage-partiel/article/activite-partielle-chomage-partiel
   $("*")
     .contents()
