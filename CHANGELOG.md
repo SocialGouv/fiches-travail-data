@@ -1,3 +1,16 @@
+# [4.376.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.375.0...v4.376.0) (2022-12-06)
+
+
+### Bug Fixes
+
+* **build:** ajout de la gestion build full typescript ✨ ([#386](https://github.com/SocialGouv/fiches-travail-data/issues/386)) ([46e5ade](https://github.com/SocialGouv/fiches-travail-data/commit/46e5ade139b31b3e4ffd220dff1136248cd3aeaa))
+* **picture:** ajout du scénario pour la balise picture + typescript / eslint ([#385](https://github.com/SocialGouv/fiches-travail-data/issues/385)) ([5dce100](https://github.com/SocialGouv/fiches-travail-data/commit/5dce100607fbfc938a96468ac6774e3924df559b))
+
+
+### Features
+
+* **data:** 20221206_1018 update ([8ee594e](https://github.com/SocialGouv/fiches-travail-data/commit/8ee594e4e29b30300a501030f37dbeeac83980a8))
+
 # [4.375.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.374.0...v4.375.0) (2022-12-01)
 
 
