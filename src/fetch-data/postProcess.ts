@@ -24,7 +24,7 @@ export const htmlPostParser = (html: string): string => {
         }
       }
     });
-  $("picture").replaceWith(function () {
+  $("picture").replaceWith(() => {
     const src = arrImgSrc[currentIndex];
 
     if (src) {
@@ -32,8 +32,8 @@ export const htmlPostParser = (html: string): string => {
       return `<img src="https://travail-emploi.gouv.fr/${src}" style="width:100%;height:auto;"/>`;
     }
 
-    return $(this).html();
-  } as any);
+    return $(this).html()?.toString() ?? "";
+  });
 
   return $.html();
 };
