@@ -1,13 +1,12 @@
 {
   "name": "@socialgouv/fiches-travail-data",
   "version": "4.375.0",
-  "main": "index.js",
-  "module": "index.js",
+  "main": "build/index.js",
+  "module": "build/index.js",
   "files": [
-    "dist",
-    "README.md"
+    "build"
   ],
-  "types": "index.d.ts",
+  "types": "build/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/SocialGouv/fiches-travail-data.git"
@@ -19,8 +18,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node dist/fetch-data",
-    "checkRefs": "node dist/checkRefs",
+    "start": "node build/fetch-data",
+    "checkRefs": "node build/checkRefs",
     "lint": "eslint \"./src/**/*.{js,ts}\"",
     "test": "jest"
   },
