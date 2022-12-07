@@ -1,3 +1,15 @@
+# [4.378.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.377.0...v4.378.0) (2022-12-07)
+
+
+### Bug Fixes
+
+* **npm:** add data folder ([#387](https://github.com/SocialGouv/fiches-travail-data/issues/387)) ([6939a81](https://github.com/SocialGouv/fiches-travail-data/commit/6939a81918497657c15fb4c813eaa1f4978fd229))
+
+
+### Features
+
+* **data:** 20221207_1337 update ([a376126](https://github.com/SocialGouv/fiches-travail-data/commit/a37612697f3714c3029e21d3c69a783759552742))
+
 # [4.377.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.376.0...v4.377.0) (2022-12-06)
 
 
