@@ -4,7 +4,8 @@
   "main": "build/index.js",
   "module": "build/index.js",
   "files": [
-    "build"
+    "build",
+    "data"
   ],
   "types": "build/index.d.ts",
   "repository": {
