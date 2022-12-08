@@ -23,7 +23,11 @@ const acd = fs
   .toString();
 
 const pictureHtml = fs
-  .readFileSync(path.join(__dirname, "picture.html"))
+  .readFileSync(path.join(__dirname, "article-picture.html"))
+  .toString();
+
+const pictureHtmlSimple = fs
+  .readFileSync(path.join(__dirname, "article-picture-simple.html"))
   .toString();
 
 
@@ -101,9 +105,17 @@ test("should throw if there is no section detected", () => {
 });
 
 test("should work with picture", () => {
-  const dom = new JSDOM(pictureHtml);
-  const parsed = parseDom(dom, "article377828", "picture-html");
+  const dom = new JSDOM(pictureHtmlSimple);
+  const parsed = parseDom(dom, "article377828", "simple-picture-html");
   expect(parsed.sections.length).toBe(4);
   expect(JSON.stringify(parsed)).toContain("https://travail-emploi.gouv.fr/local/adapt-img/1024/10x/IMG/png/tableau-taux1.png?1667570454");
+  expect(parsed).toMatchSnapshot();
+});
+
+test("should work with picture more complex", () => {
+  const dom = new JSDOM(pictureHtml);
+  const parsed = parseDom(dom, "article375435", "picture-html");
+  expect(parsed.sections.length).toBe(4);
+  expect(JSON.stringify(parsed)).toContain("https://travail-emploi.gouv.fr/local/adapt-img/1024/10x/IMG/jpg/creche_vip.jpg?1669818837");
   expect(parsed).toMatchSnapshot();
 });

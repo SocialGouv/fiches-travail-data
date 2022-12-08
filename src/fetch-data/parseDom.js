@@ -172,10 +172,10 @@ export function parseDom(dom, id, url) {
       if (!untitledSection.description) {
         untitledSection.description = "temp description";
       }
-      untitledSection.html += nextArticleElement.outerHTML
+      untitledSection.html += htmlPostParser(nextArticleElement.outerHTML
         .replace(/\n+/g, "")
         .replace(/>\s+</g, "><")
-        .replace(/\s+/g, " ");
+        .replace(/\s+/g, " "));
       untitledSection.text +=
         " " + nextArticleElement.textContent.replace(/\s+/g, " ").trim();
     }
