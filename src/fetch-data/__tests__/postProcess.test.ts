@@ -1,5 +1,7 @@
 import { htmlPostParser } from "../postProcess";
 
+/* eslint-disable no-useless-escape */
+
 describe("postProcess", () => {
   describe("htmlPostParser", () => {
     it.each`
