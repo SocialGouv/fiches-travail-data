@@ -1,3 +1,16 @@
+# [4.389.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.388.0...v4.389.0) (2023-01-09)
+
+
+### Bug Fixes
+
+* **release:** semantic release version upgrade ([#392](https://github.com/SocialGouv/fiches-travail-data/issues/392)) ([09653e3](https://github.com/SocialGouv/fiches-travail-data/commit/09653e3d0ff9a5d8c7471292369c0f8704403b9d))
+
+
+### Features
+
+* **data:** 20230106_2209 update ([52978c3](https://github.com/SocialGouv/fiches-travail-data/commit/52978c3a8f33e43e6d647122ad074f34e5a10e40))
+* **data:** 20230109_1115 update ([b70bc64](https://github.com/SocialGouv/fiches-travail-data/commit/b70bc64432da1344936a8c9b8490f8ae5a332678))
+
 # [4.388.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.387.0...v4.388.0) (2023-01-05)
 
 
