@@ -148,10 +148,9 @@ export function parseDom(dom, id, url) {
   let intro = $(article, ".main-article__chapo") || "";
   intro =
     intro && intro.innerHTML.replace(/\n/g, "").replace(/\s+/g, " ").trim();
-  const description = $(
-    dom.window.document,
-    "meta[name=description]"
-  ).getAttribute("content");
+  const description =
+    $(dom.window.document, "meta[name=description]")?.getAttribute("content") ??
+    "";
 
   const sections = [];
   const sectionTag = getSectionTag(article);
@@ -172,10 +171,12 @@ export function parseDom(dom, id, url) {
       if (!untitledSection.description) {
         untitledSection.description = "temp description";
       }
-      untitledSection.html += htmlPostParser(nextArticleElement.outerHTML
-        .replace(/\n+/g, "")
-        .replace(/>\s+</g, "><")
-        .replace(/\s+/g, " "));
+      untitledSection.html += htmlPostParser(
+        nextArticleElement.outerHTML
+          .replace(/\n+/g, "")
+          .replace(/>\s+</g, "><")
+          .replace(/\s+/g, " ")
+      );
       untitledSection.text +=
         " " + nextArticleElement.textContent.replace(/\s+/g, " ").trim();
     }
