@@ -29,7 +29,7 @@ export async function scrapUrl(id, url) {
         }
       }
       try {
-        const dom = new JSDOM(response.body.toString());
+        const dom = new JSDOM(response.body, { url });
         try {
           const res = parseDom(dom, id, url);
           return res;
