@@ -203,13 +203,13 @@ export function parseDom(dom, id, url) {
       const section = dom.window.document.createElement("div");
       section.innerHTML = html;
       const sectionText = section.textContent.replace(/\s+/g, " ").trim();
-
+      const htmlParse = htmlPostParser(
+        html.replace(/\n+/g, "").replace(/>\s+</g, "><").replace(/\s+/g, " ")
+      );
       sections.push({
         anchor: el.getAttribute("id") || slugify(el.textContent),
         description: sectionText.slice(0, 200).trim(),
-        html: htmlPostParser(
-          html.replace(/\n+/g, "").replace(/>\s+</g, "><").replace(/\s+/g, " ")
-        ),
+        html: htmlParse,
         references: getReferences(sectionText),
         text: sectionText,
         title: el.textContent.trim(),
