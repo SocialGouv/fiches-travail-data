@@ -1,3 +1,15 @@
+# [4.429.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.428.0...v4.429.0) (2023-04-11)
+
+
+### Bug Fixes
+
+* **error:** when picture with no sources ([#397](https://github.com/SocialGouv/fiches-travail-data/issues/397)) ([ca530fa](https://github.com/SocialGouv/fiches-travail-data/commit/ca530fa4c67018ec051bc590d148c9390e38b841))
+
+
+### Features
+
+* **data:** 20230411_1311 update ([95ec0ad](https://github.com/SocialGouv/fiches-travail-data/commit/95ec0ad55edd31b58048881f5ae90b103581c807))
+
 # [4.428.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.427.0...v4.428.0) (2023-04-03)
 
 
