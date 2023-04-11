@@ -128,7 +128,10 @@ test("should work with picture more complex", () => {
 });
 
 test("should work with error", () => {
-  const dom = new JSDOM(articleError);
-  const parsed = parseDom(dom, "article112747", "article-error");
+  const id = "article112747";
+  const url =
+    "https://travail-emploi.gouv.fr/emploi-et-insertion/emploi-et-handicap/article/emploi-et-handicap-les-entreprises-adaptees-ea";
+  const dom = new JSDOM(articleError, { url });
+  const parsed = parseDom(dom, id, url);
   expect(parsed).toMatchSnapshot();
 });
