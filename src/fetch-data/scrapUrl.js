@@ -27,7 +27,8 @@ export async function scrapUrl(id, url) {
       }
     }
     const dom = new JSDOM(response.body, { url });
-    return parseDom(dom, id, url);
+    const res = parseDom(dom, id, url);
+    return res;
   } catch (error) {
     let err;
     if (error instanceof got.ParseError) {

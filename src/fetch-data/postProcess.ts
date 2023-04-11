@@ -32,7 +32,7 @@ export const htmlPostParser = (html: string): string => {
       return `<img src="https://travail-emploi.gouv.fr/${src}" style="width:100%;height:auto;"/>`;
     }
 
-    return $(this).html()?.toString() ?? "";
+    return $.html()?.toString() ?? "";
   });
 
   return $.html();
