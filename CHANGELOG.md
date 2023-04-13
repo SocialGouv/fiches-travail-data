@@ -1,3 +1,11 @@
+# [4.432.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.431.0...v4.432.0) (2023-04-13)
+
+
+### Features
+
+* **data:** 20230413_1344 update ([ac2d5fa](https://github.com/SocialGouv/fiches-travail-data/commit/ac2d5fa4cac1c770d4501879be4c0f8ea9d94a17))
+* **fetch:** ajout de données issues d'un fichier local en `.json` ([#399](https://github.com/SocialGouv/fiches-travail-data/issues/399)) ([e37c9cc](https://github.com/SocialGouv/fiches-travail-data/commit/e37c9ccf9ead6c005714b12d53774d2b53002e02))
+
 # [4.431.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.430.0...v4.431.0) (2023-04-12)
 
 
