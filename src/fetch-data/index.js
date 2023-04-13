@@ -19,7 +19,12 @@ export async function fetchFeed(url) {
     retry: 3,
   });
   const { fiches: feed } = JSON.parse(response.body);
-  return feed;
+  const localJson = fs.readFileSync(
+    path.join(__dirname, "../../local.data.json"),
+    "utf8"
+  );
+  const { fiches: localFeed } = JSON.parse(localJson);
+  return [...feed, ...localFeed];
 }
 export async function scrap(urls) {
   const inputs = urls.map(({ id, url }) => limit(() => scrapUrl(id, url)));
