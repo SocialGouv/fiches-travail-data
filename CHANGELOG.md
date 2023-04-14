@@ -1,3 +1,15 @@
+# [4.434.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.433.0...v4.434.0) (2023-04-14)
+
+
+### Bug Fixes
+
+* **picture:** post process remove unused tag ([eb6eb95](https://github.com/SocialGouv/fiches-travail-data/commit/eb6eb954b7215f31bd02a2786aa77ac8c11e55af))
+
+
+### Features
+
+* **data:** 20230414_2206 update ([7e68892](https://github.com/SocialGouv/fiches-travail-data/commit/7e68892ebe79310f22d1ec915a82855d05c4a2bc))
+
 # [4.433.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.432.0...v4.433.0) (2023-04-13)
 
 
