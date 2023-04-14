@@ -35,5 +35,7 @@ export const htmlPostParser = (html: string): string => {
     return $.html()?.toString() ?? "";
   });
 
+  $("picture.adapt-img-wrapper").remove();
+
   return $.html();
 };
