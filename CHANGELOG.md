@@ -1,3 +1,15 @@
+# [4.440.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.439.0...v4.440.0) (2023-04-19)
+
+
+### Bug Fixes
+
+* **domParse:** fix case when img with right url but within picture to clean ([#401](https://github.com/SocialGouv/fiches-travail-data/issues/401)) ([6bf9cb3](https://github.com/SocialGouv/fiches-travail-data/commit/6bf9cb331af8d8b4d4990bb41576f29f9509b78a))
+
+
+### Features
+
+* **data:** 20230419_1324 update ([df07882](https://github.com/SocialGouv/fiches-travail-data/commit/df07882c0f6767a78bfe867522371892be837845))
+
 # [4.439.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.438.0...v4.439.0) (2023-04-19)
 
 
