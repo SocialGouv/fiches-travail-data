@@ -30,7 +30,7 @@ jobs:
 
       - name: Cache Yarn packages
         id: yarn_cache_packages
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ steps.init.outputs.yarn_cache }}
           key: ${{ runner.os }}-yarn_cache-${{ hashFiles('**/yarn.lock') }}
