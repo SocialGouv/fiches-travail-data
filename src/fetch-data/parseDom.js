@@ -1,38 +1,28 @@
 import slugify from "@socialgouv/cdtn-slugify";
-import { ParseError } from "got";
+import {ParseError} from "got";
 
-import { encode } from "../email";
-import { htmlPostParser } from "./postProcess";
-import { extractReferences } from "./referenceExtractor";
-import { resolveReferences } from "./referenceResolver";
+import {encode} from "../email";
+import {extractReferences} from "./referenceExtractor";
+import {resolveReferences} from "./referenceResolver";
 
 const $$ = (node, selector) => Array.from(node.querySelectorAll(selector));
 const $ = (node, selector) => node.querySelector(selector);
 
 function unwrapEmail(data = "") {
-  const [k, ...tokens] = Array.from(
-    { length: data.length / 2 },
-    (_, i) => i * 2
-  ).map((val) => parseInt(data.slice(val, val + 2), 16));
+  const [k, ...tokens] = Array.from({length: data.length / 2}, (_, i) => i * 2).map((val) => parseInt(data.slice(val, val + 2), 16));
   const rawValue = tokens.map((v) => String.fromCharCode(v ^ k)).join("");
   return encode(decodeURIComponent(escape(rawValue)));
 }
+
 const formatEmail = (node) => {
   const value = unwrapEmail(node.getAttribute("data-cfemail"));
   node.removeAttribute("data-cfemail");
   node.textContent = value;
 };
+const SRC_REGEX = /src=["']([^'"]*)["']/;
 
-const formatPicture = (node) => {
-  const comment = node.parentElement.childNodes[0];
-  if (comment.nodeName !== "#comment") {
-    //upper sibbling node is not a comment so it's not a case we handle
-    return;
-  }
-  const [, src = ""] = comment.data.match(/src=["']([^'"]*)["']/);
-  if (src.length === 0) {
-    return;
-  }
+
+function getCleanSrc(src) {
   let [srcClean] = src.split("?");
   if (!srcClean.match(/^https?:\/\//)) {
     if (srcClean.slice(0, 1) !== "/") {
@@ -40,15 +30,44 @@ const formatPicture = (node) => {
     }
     srcClean = `https://travail-emploi.gouv.fr${srcClean}`;
   }
+  return srcClean;
+}
 
-  // we remove the ie comment that have timestamp in the url
-  comment.remove();
-  // we add e
-  const sourceNode = node.ownerDocument.createElement("source");
-  sourceNode.setAttribute("srcset", srcClean);
-  sourceNode.setAttribute("media", "(min-width: 300px)");
-  node.appendChild(sourceNode);
-  return node;
+const formatPicture = (node) => {
+  let comment;
+  node.parentElement
+    .childNodes
+    .forEach(function (childNode) {
+      if (childNode.nodeName === "#comment" || childNode.nodeType === 8) {
+        if (childNode.data.match(SRC_REGEX)) {
+          comment = childNode;
+        }
+      }
+    });
+
+  if (!comment) {
+    //upper sibbling node is not a comment so it's not a case we handle
+    return;
+  }
+  const [, src = ""] = comment.data.match(SRC_REGEX);
+  if (src.length === 0) {
+    return;
+  }
+  const srcClean = getCleanSrc(src);
+  node.parentNode.innerHTML = `<img src="${srcClean}" style="width:100%;height:auto;" />`;
+};
+const formatImage = (node) => {
+  node.removeAttribute("onmousedown");
+  if (node.getAttribute("src").indexOf("data:image") === -1) {
+    let src = node.getAttribute("src");
+
+    if (!src.match(/^https?:\/\//)) {
+      const srcClean = getCleanSrc(src);
+      node.setAttribute("src", srcClean);
+      node.removeAttribute("srcset");
+      node.removeAttribute("sizes");
+    }
+  }
 };
 
 const formatAnchor = (node) => {
@@ -82,7 +101,9 @@ const formatAnchor = (node) => {
     node.setAttribute("rel", "nofollow, noopener");
   }
 };
-
+const removeNode = (node) => {
+  node.remove();
+};
 const flattenCsBlocs = (node) => {
   node.insertAdjacentHTML("afterend", node.innerHTML);
   node.parentNode.removeChild(node);
@@ -107,27 +128,18 @@ export function parseDom(dom, id, url) {
   if (!article) {
     throw new ParseError("no <main>");
   }
+  if (!id) {
+    throw new ParseError(`No id`);
+  }
   $$(article, "a").forEach(formatAnchor);
   $$(article, "picture").forEach(formatPicture);
   $$(article, "[data-cfemail]").forEach(formatEmail);
   $$(article, ".cs_blocs").forEach(flattenCsBlocs);
-  const imgs = $$(article, "img");
-  imgs.forEach((node) => {
-    // remove adaptImgFix(this) on hero img
-    node.removeAttribute("onmousedown");
-  });
-  imgs
-    .filter((node) => node.getAttribute("src").indexOf("data:image") === -1)
-    .forEach((node) => {
-      let src = node.getAttribute("src");
-      if (!src.match(/^https?:\/\//)) {
-        if (src.slice(0, 1) !== "/") {
-          src = "/" + src;
-        }
-        src = `https://travail-emploi.gouv.fr${src}`;
-        node.setAttribute("src", src);
-      }
-    });
+  $$(article, "img").forEach(formatImage);
+
+  $$(article, "style").forEach(removeNode);
+  $$(article, "button").forEach(removeNode);
+  $$(article, ".oembed-source").forEach(removeNode);
 
   let titleElement = $(article, "h1");
   if (!titleElement) {
@@ -138,19 +150,11 @@ export function parseDom(dom, id, url) {
   }
   const title = titleElement.textContent.trim();
 
-  if (!id) {
-    throw new ParseError(`No id`);
-  }
-  const dateRaw =
-    $(dom.window.document, "meta[property*=modified_time]") ||
-    $(dom.window.document, "meta[property$=published_time]");
+  const dateRaw = $(dom.window.document, "meta[property*=modified_time]") || $(dom.window.document, "meta[property$=published_time]");
   const [year, month, day] = dateRaw.getAttribute("content").split("-");
   let intro = $(article, ".main-article__chapo") || "";
-  intro =
-    intro && intro.innerHTML.replace(/\n/g, "").replace(/\s+/g, " ").trim();
-  const description =
-    $(dom.window.document, "meta[name=description]")?.getAttribute("content") ??
-    "";
+  intro = intro && intro.innerHTML.replace(/\n/g, "").replace(/\s+/g, " ").trim();
+  const description = $(dom.window.document, "meta[name=description]")?.getAttribute("content") ?? "";
 
   const sections = [];
   const sectionTag = getSectionTag(article);
@@ -158,27 +162,19 @@ export function parseDom(dom, id, url) {
   // This section has neither anchor nor title
   let nextArticleElement = $(article, ".main-article__texte > *");
   const untitledSection = {
-    anchor: "",
-    html: "",
-    text: "",
-    title: title,
+    anchor: "", html: "", text: "", title: title,
   };
-  while (
-    nextArticleElement &&
-    nextArticleElement.tagName.toLowerCase() !== sectionTag
-  ) {
+  while (nextArticleElement && nextArticleElement.tagName.toLowerCase() !== sectionTag) {
     if (nextArticleElement.textContent) {
       if (!untitledSection.description) {
         untitledSection.description = "temp description";
       }
-      untitledSection.html += htmlPostParser(
-        nextArticleElement.outerHTML
-          .replace(/\n+/g, "")
-          .replace(/>\s+</g, "><")
-          .replace(/\s+/g, " ")
-      );
-      untitledSection.text +=
-        " " + nextArticleElement.textContent.replace(/\s+/g, " ").trim();
+      untitledSection.html += nextArticleElement.outerHTML
+        .replace(/\n+/g, "")
+        .replace(/>\s+</g, "><")
+        .replace(/\s+/g, " ")
+
+      untitledSection.text += " " + nextArticleElement.textContent.replace(/\s+/g, " ").trim();
     }
     nextArticleElement = nextArticleElement.nextElementSibling;
   }
@@ -207,9 +203,7 @@ export function parseDom(dom, id, url) {
       sections.push({
         anchor: el.getAttribute("id") || slugify(el.textContent),
         description: sectionText.slice(0, 200).trim(),
-        html: htmlPostParser(
-          html.replace(/\n+/g, "").replace(/>\s+</g, "><").replace(/\s+/g, " ")
-        ),
+        html: html.replace(/\n+/g, "").replace(/>\s+</g, "><").replace(/\s+/g, " "),
         references: getReferences(sectionText),
         text: sectionText,
         title: el.textContent.trim(),
@@ -222,12 +216,6 @@ export function parseDom(dom, id, url) {
   }
 
   return {
-    date: `${day}/${month}/${year}`,
-    description,
-    intro,
-    pubId: id,
-    sections,
-    title,
-    url,
+    date: `${day}/${month}/${year}`, description, intro, pubId: id, sections, title, url,
   };
 }
