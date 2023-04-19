@@ -1,3 +1,15 @@
+# [4.439.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.438.0...v4.439.0) (2023-04-19)
+
+
+### Bug Fixes
+
+* **domParse:** refactor pictures clean-up ([#400](https://github.com/SocialGouv/fiches-travail-data/issues/400)) ([a93d49d](https://github.com/SocialGouv/fiches-travail-data/commit/a93d49d1be8d9d61de42f20e9542110ee3343c6f))
+
+
+### Features
+
+* **data:** 20230419_0838 update ([bc6d9bd](https://github.com/SocialGouv/fiches-travail-data/commit/bc6d9bd0568a274c2ee73f390dd45515aab06d23))
+
 # [4.438.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.437.0...v4.438.0) (2023-04-18)
 
 
