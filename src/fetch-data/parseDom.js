@@ -45,27 +45,36 @@ const formatPicture = (node) => {
       }
     });
 
-  if (!comment) {
-    //upper sibbling node is not a comment so it's not a case we handle
-    return;
+  if (comment) {
+    const [, src = ""] = comment.data.match(SRC_REGEX);
+    if (src.length) {
+      const srcClean = getCleanSrc(src);
+      node.parentNode.innerHTML = `<img src="${srcClean}" style="width:100%;height:auto;" />`;
+      return;
+    }
   }
-  const [, src = ""] = comment.data.match(SRC_REGEX);
-  if (src.length === 0) {
-    return;
+  let image
+  node
+    .childNodes
+    .forEach(function (childNode) {
+      if (childNode.nodeName === "IMG") {
+        image = childNode;
+      }
+    });
+  if (image) {
+    node.replaceWith(image);
   }
-  const srcClean = getCleanSrc(src);
-  node.parentNode.innerHTML = `<img src="${srcClean}" style="width:100%;height:auto;" />`;
 };
 const formatImage = (node) => {
   node.removeAttribute("onmousedown");
   if (node.getAttribute("src").indexOf("data:image") === -1) {
-    let src = node.getAttribute("src");
+    node.removeAttribute("srcset");
+    node.removeAttribute("sizes");
 
+    let src = node.getAttribute("src");
     if (!src.match(/^https?:\/\//)) {
       const srcClean = getCleanSrc(src);
       node.setAttribute("src", srcClean);
-      node.removeAttribute("srcset");
-      node.removeAttribute("sizes");
     }
   }
 };
