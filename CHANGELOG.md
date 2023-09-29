@@ -1,3 +1,15 @@
+# [4.533.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.532.0...v4.533.0) (2023-09-29)
+
+
+### Bug Fixes
+
+* **intro:** remove script tag from introduction field ([#413](https://github.com/SocialGouv/fiches-travail-data/issues/413)) ([0f73b65](https://github.com/SocialGouv/fiches-travail-data/commit/0f73b659ca6133e5926bf0c9782d370b37d9666c))
+
+
+### Features
+
+* **data:** 20230929_1035 update ([1b0a672](https://github.com/SocialGouv/fiches-travail-data/commit/1b0a672bca49e75ba5486f4a8700d5203b62a615))
+
 # [4.532.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.531.0...v4.532.0) (2023-09-27)
 
 
