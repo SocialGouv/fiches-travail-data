@@ -1,15 +1,18 @@
 import slugify from "@socialgouv/cdtn-slugify";
-import {ParseError} from "got";
+import { ParseError } from "got";
 
-import {encode} from "../email";
-import {extractReferences} from "./referenceExtractor";
-import {resolveReferences} from "./referenceResolver";
+import { encode } from "../email";
+import { extractReferences } from "./referenceExtractor";
+import { resolveReferences } from "./referenceResolver";
 
 const $$ = (node, selector) => Array.from(node.querySelectorAll(selector));
 const $ = (node, selector) => node.querySelector(selector);
 
 function unwrapEmail(data = "") {
-  const [k, ...tokens] = Array.from({length: data.length / 2}, (_, i) => i * 2).map((val) => parseInt(data.slice(val, val + 2), 16));
+  const [k, ...tokens] = Array.from(
+    { length: data.length / 2 },
+    (_, i) => i * 2
+  ).map((val) => parseInt(data.slice(val, val + 2), 16));
   const rawValue = tokens.map((v) => String.fromCharCode(v ^ k)).join("");
   return encode(decodeURIComponent(escape(rawValue)));
 }
@@ -20,7 +23,6 @@ const formatEmail = (node) => {
   node.textContent = value;
 };
 const SRC_REGEX = /src=["']([^'"]*)["']/;
-
 
 function getCleanSrc(src) {
   let [srcClean] = src.split("?");
@@ -35,15 +37,13 @@ function getCleanSrc(src) {
 
 const formatPicture = (node) => {
   let comment;
-  node.parentElement
-    .childNodes
-    .forEach(function (childNode) {
-      if (childNode.nodeName === "#comment" || childNode.nodeType === 8) {
-        if (childNode.data.match(SRC_REGEX)) {
-          comment = childNode;
-        }
+  node.parentElement.childNodes.forEach(function (childNode) {
+    if (childNode.nodeName === "#comment" || childNode.nodeType === 8) {
+      if (childNode.data.match(SRC_REGEX)) {
+        comment = childNode;
       }
-    });
+    }
+  });
 
   if (comment) {
     const [, src = ""] = comment.data.match(SRC_REGEX);
@@ -53,14 +53,12 @@ const formatPicture = (node) => {
       return;
     }
   }
-  let image
-  node
-    .childNodes
-    .forEach(function (childNode) {
-      if (childNode.nodeName === "IMG") {
-        image = childNode;
-      }
-    });
+  let image;
+  node.childNodes.forEach(function (childNode) {
+    if (childNode.nodeName === "IMG") {
+      image = childNode;
+    }
+  });
   if (image) {
     node.replaceWith(image);
   }
@@ -159,11 +157,18 @@ export function parseDom(dom, id, url) {
   }
   const title = titleElement.textContent.trim();
 
-  const dateRaw = $(dom.window.document, "meta[property*=modified_time]") || $(dom.window.document, "meta[property$=published_time]");
+  const dateRaw =
+    $(dom.window.document, "meta[property*=modified_time]") ||
+    $(dom.window.document, "meta[property$=published_time]");
   const [year, month, day] = dateRaw.getAttribute("content").split("-");
   let intro = $(article, ".main-article__chapo") || "";
-  intro = intro && intro.innerHTML.replace(/\n/g, "").replace(/\s+/g, " ").trim();
-  const description = $(dom.window.document, "meta[name=description]")?.getAttribute("content") ?? "";
+  intro =
+    intro && intro.innerHTML.replace(/\n/g, "").replace(/\s+/g, " ").trim();
+  // clean script tags and everything inside it
+  intro = intro.replace(/<script[^>]*>([\s\S]*?)<\/script>/g, "");
+  const description =
+    $(dom.window.document, "meta[name=description]")?.getAttribute("content") ??
+    "";
 
   const sections = [];
   const sectionTag = getSectionTag(article);
@@ -171,9 +176,15 @@ export function parseDom(dom, id, url) {
   // This section has neither anchor nor title
   let nextArticleElement = $(article, ".main-article__texte > *");
   const untitledSection = {
-    anchor: "", html: "", text: "", title: title,
+    anchor: "",
+    html: "",
+    text: "",
+    title: title,
   };
-  while (nextArticleElement && nextArticleElement.tagName.toLowerCase() !== sectionTag) {
+  while (
+    nextArticleElement &&
+    nextArticleElement.tagName.toLowerCase() !== sectionTag
+  ) {
     if (nextArticleElement.textContent) {
       if (!untitledSection.description) {
         untitledSection.description = "temp description";
@@ -181,9 +192,10 @@ export function parseDom(dom, id, url) {
       untitledSection.html += nextArticleElement.outerHTML
         .replace(/\n+/g, "")
         .replace(/>\s+</g, "><")
-        .replace(/\s+/g, " ")
+        .replace(/\s+/g, " ");
 
-      untitledSection.text += " " + nextArticleElement.textContent.replace(/\s+/g, " ").trim();
+      untitledSection.text +=
+        " " + nextArticleElement.textContent.replace(/\s+/g, " ").trim();
     }
     nextArticleElement = nextArticleElement.nextElementSibling;
   }
@@ -212,7 +224,10 @@ export function parseDom(dom, id, url) {
       sections.push({
         anchor: el.getAttribute("id") || slugify(el.textContent),
         description: sectionText.slice(0, 200).trim(),
-        html: html.replace(/\n+/g, "").replace(/>\s+</g, "><").replace(/\s+/g, " "),
+        html: html
+          .replace(/\n+/g, "")
+          .replace(/>\s+</g, "><")
+          .replace(/\s+/g, " "),
         references: getReferences(sectionText),
         text: sectionText,
         title: el.textContent.trim(),
@@ -225,6 +240,12 @@ export function parseDom(dom, id, url) {
   }
 
   return {
-    date: `${day}/${month}/${year}`, description, intro, pubId: id, sections, title, url,
+    date: `${day}/${month}/${year}`,
+    description,
+    intro,
+    pubId: id,
+    sections,
+    title,
+    url,
   };
 }
