@@ -163,9 +163,12 @@ export function parseDom(dom, id, url) {
   const [year, month, day] = dateRaw.getAttribute("content").split("-");
   let intro = $(article, ".main-article__chapo") || "";
   intro =
-    intro && intro.innerHTML.replace(/\n/g, "").replace(/\s+/g, " ").trim();
-  // clean script tags and everything inside it
-  intro = intro.replace(/<script[^>]*>([\s\S]*?)<\/script>/g, "");
+    intro &&
+    intro.innerHTML
+      .replace(/\n/g, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .replace(/<script[^>]*>([\s\S]*?)<\/script>/g, "");
   const description =
     $(dom.window.document, "meta[name=description]")?.getAttribute("content") ??
     "";
