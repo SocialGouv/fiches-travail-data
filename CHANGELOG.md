@@ -1,3 +1,10 @@
+## [4.533.1](https://github.com/SocialGouv/fiches-travail-data/compare/v4.533.0...v4.533.1) (2023-10-02)
+
+
+### Bug Fixes
+
+* **intro:** ajout d un chainage pour le `replace` ([4712628](https://github.com/SocialGouv/fiches-travail-data/commit/47126280ea6cb66ec9669ab21b8ccf5464e983c1))
+
 # [4.533.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.532.0...v4.533.0) (2023-09-29)
 
 
