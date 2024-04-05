@@ -1,24 +1,21 @@
 import got from "got";
 import { JSDOM } from "jsdom";
 
-import { generateHeaders } from "./generateHeaders";
+import { injectToken } from "./injectToken";
 import { parseDom } from "./parseDom";
 
 export async function scrapUrl(id, url) {
-  const headers = generateHeaders();
   try {
-    let response = await got(url, {
+    let response = await got(injectToken(url), {
       followRedirect: true,
-      headers,
       http2: true,
       retry: 3,
     });
     if (/HTTP 30\d/.test(response.body)) {
       const [, redirectUrl] = response.body.match(/href="(.*)"/);
       try {
-        response = await got(redirectUrl, {
+        response = await got(injectToken(redirectUrl), {
           followRedirect: true,
-          headers,
           http2: true,
           retry: 3,
         });
@@ -35,7 +32,7 @@ export async function scrapUrl(id, url) {
       err = new Error(`Parsing Error: ${error.message}`);
     } else if (error instanceof got.HTTPError) {
       err = new Error(
-        `HTTP Error: ${error.response.statusCode} - ${error.options.url.href} - ${error.message}`
+        `HTTP Error: ${error.response.statusCode} - ${url} - ${error.message}`
       );
     } else {
       err = new Error(error.message);
