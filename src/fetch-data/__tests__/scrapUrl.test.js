@@ -11,17 +11,17 @@ beforeEach(() => {
 });
 
 got.mockImplementation((url) => {
-  if (url === "http://url.ok") {
+  if (url.startsWith("http://url.ok")) {
     return Promise.resolve({
       body: `<html><body><h1>hello</h1></body></html>`,
     });
   }
-  if (url === "url.wrong-redirect") {
+  if (url.startsWith("url.wrong-redirect")) {
     return Promise.resolve({
       body: `HTTP 301 <a href="url.http.fail">url fail</a>`,
     });
   }
-  if (url === "url.http.fail") {
+  if (url.startsWith("url.http.fail")) {
     const error = new HTTPError();
     error.response = {
       statusCode: 500,
@@ -31,7 +31,7 @@ got.mockImplementation((url) => {
     error.name = "HTTPError";
     return Promise.reject(error);
   }
-  if (url === "url.parse.fail") {
+  if (url.startsWith("url.parse.fail")) {
     const error = new ParseError();
     error.message = "parse fail";
     error.name = "ParseError";

@@ -3,7 +3,7 @@ import got from "got";
 import pLimit from "p-limit";
 import path from "path";
 
-import { generateHeaders } from "./generateHeaders";
+import { injectToken } from "./injectToken";
 import { scrapUrl } from "./scrapUrl";
 
 const FEED_URL = "https://travail-emploi.gouv.fr/?page=oseo_json";
@@ -11,10 +11,7 @@ const FEED_URL = "https://travail-emploi.gouv.fr/?page=oseo_json";
 const limit = pLimit(10);
 
 export async function fetchFeed(url) {
-  const response = await got.post(url, {
-    headers: generateHeaders({
-      "Content-Type": "application/json",
-    }),
+  const response = await got.post(injectToken(url), {
     http2: true,
     retry: 3,
   });
@@ -26,6 +23,7 @@ export async function fetchFeed(url) {
   const { fiches: localFeed } = JSON.parse(localJson);
   return [...feed, ...localFeed];
 }
+
 export async function scrap(urls) {
   const inputs = urls.map(({ id, url }) => limit(() => scrapUrl(id, url)));
   const results = await Promise.allSettled(inputs);
