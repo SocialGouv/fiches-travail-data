@@ -1,3 +1,11 @@
+# [4.626.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.625.0...v4.626.0) (2024-04-05)
+
+
+### Features
+
+* change the way we pass the token ([#419](https://github.com/SocialGouv/fiches-travail-data/issues/419)) ([7dfb6c2](https://github.com/SocialGouv/fiches-travail-data/commit/7dfb6c27fb8eb714da2062ccb93b84573384c74c))
+* **data:** 20240405_1238 update ([54560a5](https://github.com/SocialGouv/fiches-travail-data/commit/54560a5f2f4ce407f284a8ecc45b23c189a7c9ee))
+
 # [4.625.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.624.0...v4.625.0) (2024-04-03)
 
 
