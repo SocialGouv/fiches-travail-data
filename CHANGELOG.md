@@ -1,3 +1,15 @@
+# [4.640.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.639.0...v4.640.0) (2024-04-24)
+
+
+### Bug Fixes
+
+* **actions:** change mattermost notification ([7b0b137](https://github.com/SocialGouv/fiches-travail-data/commit/7b0b13786de6b36f2f9a2344055776febe91fc0c))
+
+
+### Features
+
+* **data:** 20240424_2208 update ([bf28f75](https://github.com/SocialGouv/fiches-travail-data/commit/bf28f751f8e80f4a37257ab311e62cbad4f489ba))
+
 # [4.639.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.638.0...v4.639.0) (2024-04-23)
 
 
