@@ -2,7 +2,7 @@ name: Release
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron: "00 22 * * *"
+    - cron: "00 21 * * *"
   repository_dispatch:
     types: manual_release
   workflow_dispatch:
