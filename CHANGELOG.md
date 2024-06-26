@@ -1,3 +1,15 @@
+# [4.670.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.669.0...v4.670.0) (2024-06-26)
+
+
+### Bug Fixes
+
+* **cronjob:** change data ([afe2595](https://github.com/SocialGouv/fiches-travail-data/commit/afe2595bab4bc454cd1809a9e4f5336567a48724))
+
+
+### Features
+
+* **data:** 20240626_2121 update ([39c436a](https://github.com/SocialGouv/fiches-travail-data/commit/39c436a408da2e4d425fcdae2ed0a4ae9e0126d6))
+
 # [4.669.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.668.0...v4.669.0) (2024-06-24)
 
 
