@@ -1,3 +1,10 @@
+# [4.700.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.699.0...v4.700.0) (2024-09-24)
+
+
+### Features
+
+* disable scheduled released until new version ([#422](https://github.com/SocialGouv/fiches-travail-data/issues/422)) ([3a072b6](https://github.com/SocialGouv/fiches-travail-data/commit/3a072b612301caee576a8d8a16014001982948bc))
+
 # [4.699.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.698.0...v4.699.0) (2024-09-20)
 
 
