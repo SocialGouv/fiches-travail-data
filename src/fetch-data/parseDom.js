@@ -117,10 +117,11 @@ const flattenCsBlocs = (node) => {
 };
 
 const getSectionTag = (article) => {
-  const h3 = $$(article, ".main-article__texte > h3").length && "h3";
-  const h4 = $$(article, ".main-article__texte > h4").length && "h4";
-  const h5 = $$(article, ".main-article__texte > h5").length && "h5";
-  return h3 || h4 || h5 || "sectionTag";
+  const h2 = $$(article, ".main-content > h2").length && "h2";
+  const h3 = $$(article, ".main-content > h3").length && "h3";
+  const h4 = $$(article, ".main-content > h4").length && "h4";
+  const h5 = $$(article, ".main-content > h5").length && "h5";
+  return h2 || h3 || h4 || h5 || "sectionTag";
 };
 
 const getReferences = (text) => {
@@ -128,6 +129,52 @@ const getReferences = (text) => {
   const references = extractReferences(text);
   // then we try to resolve the actual articles ids using legi-data
   return resolveReferences(references);
+};
+
+const textClean = (text, noNbsp = false) => {
+  const regexStr = "\\n";
+  return text
+    .replace(
+      new RegExp(noNbsp ? `(${regexStr}|&nbsp;)` : `(${regexStr})`, "g"),
+      " "
+    )
+    .replace(/!/g, "! ")
+    .replace(/\?/g, "? ")
+    .replace(/\./g, ". ")
+    .replace(/[ ]{2,}/g, " ")
+    .trim();
+};
+
+const getSections = (article, children, sections = []) => {
+  const sectionTag = getSectionTag(article);
+  for (let i = 0; i < children.length; i++) {
+    const el = children[i];
+    const lastSection = sections[sections.length - 1];
+    if (el.tagName.toLowerCase() === sectionTag) {
+      if (lastSection) {
+        const text = textClean(lastSection.text, true);
+        lastSection.html = textClean(lastSection.html);
+        lastSection.description = text.slice(0, 200).trim();
+        lastSection.text = text;
+        lastSection.references = getReferences(text);
+      }
+      sections.push({
+        anchor:
+          el.getAttribute("id") || slugify(textClean(el.textContent, true)),
+        description: "",
+        html: "",
+        references: {},
+        text: "",
+        title: textClean(el.textContent, true),
+      });
+    } else if (el.tagName.toLowerCase() === "section") {
+      sections = getSections(article, el.children, sections);
+    } else if (lastSection) {
+      lastSection.html += el.outerHTML;
+      lastSection.text += el.textContent;
+    }
+  }
+  return sections;
 };
 
 export function parseDom(dom, id, url) {
@@ -155,29 +202,28 @@ export function parseDom(dom, id, url) {
       throw new ParseError("No <h1> or <h2> element");
     }
   }
-  const title = titleElement.textContent.trim();
+  const title = textClean(titleElement.textContent, true);
 
   const dateRaw =
-    $(dom.window.document, "meta[property*=modified_time]") ||
-    $(dom.window.document, "meta[property$=published_time]");
-  const [year, month, day] = dateRaw.getAttribute("content").split("-");
-  let intro = $(article, ".main-article__chapo") || "";
+    $(dom.window.document, "time:nth-child(1)") ||
+    $(dom.window.document, "time:first-child");
+  const date = dateRaw?.textContent;
+  let intro = $(article, ".fr-text--lead") || "";
   intro =
     intro &&
-    intro.innerHTML
-      .replace(/\n/g, "")
-      .replace(/\s+/g, " ")
-      .trim()
-      .replace(/<script[^>]*>([\s\S]*?)<\/script>/g, "");
+    textClean(intro.innerHTML, true).replace(
+      /<script[^>]*>([\s\S]*?)<\/script>/g,
+      ""
+    );
   const description =
     $(dom.window.document, "meta[name=description]")?.getAttribute("content") ??
     "";
 
-  const sections = [];
+  let sections = [];
   const sectionTag = getSectionTag(article);
   // First pass is only to get a potential untitled section at the top of the article
   // This section has neither anchor nor title
-  let nextArticleElement = $(article, ".main-article__texte > *");
+  let nextArticleElement = $(article, ".main-content > *");
   const untitledSection = {
     anchor: "",
     html: "",
@@ -203,47 +249,32 @@ export function parseDom(dom, id, url) {
     nextArticleElement = nextArticleElement.nextElementSibling;
   }
   if (untitledSection.description) {
-    untitledSection.text.trim();
-    untitledSection.description = untitledSection.text.slice(0, 200).trim();
-    untitledSection.references = getReferences(untitledSection.text);
+    untitledSection.text = textClean(untitledSection.text, true).trim();
+    untitledSection.description = textClean(untitledSection.text).slice(0, 200);
+    untitledSection.references = getReferences(
+      textClean(untitledSection.text, true)
+    );
     sections.push(untitledSection);
   }
   // Gets all the titled content
-  const articleChildren = $$(article, `.main-article__texte > ${sectionTag}`);
-  articleChildren.forEach(function (el) {
-    if (el.tagName.toLowerCase() === sectionTag) {
-      let nextEl = el.nextElementSibling;
-      let html = "";
+  const mainElement = $$(article, `.main-content`)[0];
+  const articleSectionChildren = mainElement ? [...mainElement.children] : [];
 
-      while (nextEl && nextEl.tagName.toLowerCase() !== sectionTag) {
-        html += nextEl.outerHTML;
-        nextEl = nextEl.nextElementSibling;
-      }
-
-      const section = dom.window.document.createElement("div");
-      section.innerHTML = html;
-      const sectionText = section.textContent.replace(/\s+/g, " ").trim();
-
-      sections.push({
-        anchor: el.getAttribute("id") || slugify(el.textContent),
-        description: sectionText.slice(0, 200).trim(),
-        html: html
-          .replace(/\n+/g, "")
-          .replace(/>\s+</g, "><")
-          .replace(/\s+/g, " "),
-        references: getReferences(sectionText),
-        text: sectionText,
-        title: el.textContent.trim(),
-      });
-    }
-  });
+  sections = sections.concat(
+    getSections(article, articleSectionChildren).filter(
+      ({ anchor }) =>
+        ["textes-de-reference", "qui-contacter", "articles-associes"].indexOf(
+          anchor
+        ) === -1
+    )
+  );
 
   if (sections.length === 0) {
     throw new ParseError(`No sections`);
   }
 
   return {
-    date: `${day}/${month}/${year}`,
+    date,
     description,
     intro,
     pubId: id,
