@@ -138,9 +138,7 @@ const textClean = (text, noNbsp = false) => {
       new RegExp(noNbsp ? `(${regexStr}|&nbsp;)` : `(${regexStr})`, "g"),
       " "
     )
-    .replace(/!/g, "! ")
-    .replace(/\?/g, "? ")
-    .replace(/\./g, ". ")
+    .replace(/([.!?]+)(?![^<]*>)/g, "$1 ")
     .replace(/[ ]{2,}/g, " ")
     .trim();
 };
@@ -167,7 +165,9 @@ const getSections = (article, children, sections = []) => {
         text: "",
         title: textClean(el.textContent, true),
       });
-    } else if (el.tagName.toLowerCase() === "section") {
+    } else if (
+      ["section", "article"].indexOf(el.tagName.toLowerCase()) !== -1
+    ) {
       sections = getSections(article, el.children, sections);
     } else if (lastSection) {
       lastSection.html += el.outerHTML;
@@ -208,13 +208,14 @@ export function parseDom(dom, id, url) {
     $(dom.window.document, "time:nth-child(1)") ||
     $(dom.window.document, "time:first-child");
   const date = dateRaw?.textContent;
+  const introImg = $(dom.window.document, "article img")?.outerHTML;
   let intro = $(article, ".fr-text--lead") || "";
   intro =
     intro &&
-    textClean(intro.innerHTML, true).replace(
-      /<script[^>]*>([\s\S]*?)<\/script>/g,
-      ""
-    );
+    textClean(
+      introImg ? introImg + intro.innerHTML : intro.innerHTML,
+      true
+    ).replace(/<script[^>]*>([\s\S]*?)<\/script>/g, "");
   const description =
     $(dom.window.document, "meta[name=description]")?.getAttribute("content") ??
     "";
