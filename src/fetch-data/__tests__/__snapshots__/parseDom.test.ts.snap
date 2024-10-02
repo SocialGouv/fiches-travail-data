@@ -391,23 +391,23 @@ exports[`parseDom should parse HTML section 1`] = `
 
 exports[`parseDom should parse HTML with intro section and 6 sections without id 1`] = `
 {
-  "date": "19/12/2016",
+  "date": "10/04/2024",
   "description": "Le congé de proche aidant permet aux salariés, sans condition d’ancienneté, de suspendre leur contrat de travail pour accompagner un proche en situation de handicap ou une personne âgée en perte d’autonomie. Ce congé est non rémunéré mais son bénéficiaire peut, dans certaines conditions, percevoir l’allocation journalière du proche aidant versée par les CAF.",
-  "intro": "<img src="https://travail-emploi.gouv.fr/sites/travail-emploi/files/styles/w_1200/public/2024-05/Aidants-familiaux.png.webp" width="800" height="284" alt="" loading="lazy" typeof="foaf:Image" class="fr-fluid-img"> <p> Le congé de proche aidant permet aux salariés, sans condition d’ancienneté, de suspendre leur contrat de travail pour <strong>accompagner un proche en situation de handicap ou une personne âgée en perte d’autonomie</strong>. Ce congé est <strong>non rémunéré</strong> mais son bénéficiaire peut, dans certaines conditions, percevoir l'<strong>allocation journalière du proche aidant</strong> versée par les CAF. </p> <p> Il peut, avec l'accord de l'employeur, être transformé en <strong>activité à temps partiel</strong> ou être <strong>fractionné</strong>. </p> <p> Sa durée maximale, le nombre de renouvellements possibles, les délais d'information de l'employeur par le salarié sur la prise du congé et son renouvellement, la durée du préavis en cas de retour avant la fin du congé ainsi que les délais de demande du salarié et de réponse de l'employeur sur le fractionnement du congé ou sa transformation en période d'activité à temps partiel peuvent être fixés par une <strong>convention</strong> ou un <strong>accord de branche</strong> ou, à défaut, une convention ou un <strong>accord collectif d'entreprise</strong>. </p> <p> En l'absence d’un tel accord sa durée maximale est de <strong>trois mois, renouvelable sans pouvoir excéder un an sur toute la carrière du salarié</strong>. </p>",
+  "intro": "<p> Le congé de proche aidant permet aux salariés, sans condition d’ancienneté, de suspendre leur contrat de travail pour <strong>accompagner un proche en situation de handicap ou une personne âgée en perte d’autonomie</strong>. Ce congé est <strong>non rémunéré</strong> mais son bénéficiaire peut, dans certaines conditions, percevoir l'<strong>allocation journalière du proche aidant</strong> versée par les CAF. </p> <p> Il peut, avec l'accord de l'employeur, être transformé en <strong>activité à temps partiel</strong> ou être <strong>fractionné</strong>. </p> <p> Sa durée maximale, le nombre de renouvellements possibles, les délais d'information de l'employeur par le salarié sur la prise du congé et son renouvellement, la durée du préavis en cas de retour avant la fin du congé ainsi que les délais de demande du salarié et de réponse de l'employeur sur le fractionnement du congé ou sa transformation en période d'activité à temps partiel peuvent être fixés par une <strong>convention</strong> ou un <strong>accord de branche</strong> ou, à défaut, une convention ou un <strong>accord collectif d'entreprise</strong>. </p> <p> En l'absence d’un tel accord sa durée maximale est de <strong>trois mois, renouvelable sans pouvoir excéder un an sur toute la carrière du salarié</strong>. </p>",
   "pubId": "article112763",
   "sections": [
     {
       "anchor": "",
       "description": "À savoir ! Pour la mise en œuvre du congé de proche aidant, il convient de distinguer les domaines d'ordre public pour lesquels le législateur fixe des règles auxquelles il n'est pas possible de dérog",
-      "html": "<div class="fr-highlight"> <p> <strong>À savoir ! </strong><br>Pour la mise en œuvre du congé de proche aidant, il convient de distinguer les domaines d'ordre public pour lesquels le législateur fixe des règles auxquelles il n'est pas possible de déroger et ceux pour lesquels les règles pourront être fixées par convention ou accord collectif. Des dispositions dites «&nbsp;supplétives&nbsp;» sont prévues et s'appliquent en cas d'absence d'une convention ou d'un accord collectif fixant ces règles. </p> </div><p> <strong>À savoir ! </strong><br>Pour la mise en œuvre du congé de proche aidant, il convient de distinguer les domaines d'ordre public pour lesquels le législateur fixe des règles auxquelles il n'est pas possible de déroger et ceux pour lesquels les règles pourront être fixées par convention ou accord collectif. Des dispositions dites «&nbsp;supplétives&nbsp;» sont prévues et s'appliquent en cas d'absence d'une convention ou d'un accord collectif fixant ces règles. </p>",
+      "html": "<div class="fr-highlight"> <p> <strong>À savoir ! </strong><br>Pour la mise en œuvre du congé de proche aidant, il convient de distinguer les domaines d'ordre public pour lesquels le législateur fixe des règles auxquelles il n'est pas possible de déroger et ceux pour lesquels les règles pourront être fixées par convention ou accord collectif. Des dispositions dites « supplétives » sont prévues et s'appliquent en cas d'absence d'une convention ou d'un accord collectif fixant ces règles. </p> </div>",
       "references": {},
-      "text": "À savoir ! Pour la mise en œuvre du congé de proche aidant, il convient de distinguer les domaines d'ordre public pour lesquels le législateur fixe des règles auxquelles il n'est pas possible de déroger et ceux pour lesquels les règles pourront être fixées par convention ou accord collectif. Des dispositions dites « supplétives » sont prévues et s'appliquent en cas d'absence d'une convention ou d'un accord collectif fixant ces règles. À savoir ! Pour la mise en œuvre du congé de proche aidant, il convient de distinguer les domaines d'ordre public pour lesquels le législateur fixe des règles auxquelles il n'est pas possible de déroger et ceux pour lesquels les règles pourront être fixées par convention ou accord collectif. Des dispositions dites « supplétives » sont prévues et s'appliquent en cas d'absence d'une convention ou d'un accord collectif fixant ces règles.",
+      "text": "À savoir ! Pour la mise en œuvre du congé de proche aidant, il convient de distinguer les domaines d'ordre public pour lesquels le législateur fixe des règles auxquelles il n'est pas possible de déroger et ceux pour lesquels les règles pourront être fixées par convention ou accord collectif. Des dispositions dites « supplétives » sont prévues et s'appliquent en cas d'absence d'une convention ou d'un accord collectif fixant ces règles.",
       "title": "",
     },
     {
       "anchor": "quelles-sont-les-conditions-a-remplir",
-      "description": "Pour prétendre à un congé de proche aidant, les conditions suivantes, liées au proche que le salarié souhaite accompagner, doivent être réunies. Ce proche doit être : soit une personne âgée en perte d",
-      "html": "<p> Pour prétendre à un congé de proche aidant, les conditions suivantes, liées au proche que le salarié souhaite accompagner, doivent être réunies. </p><p>Ce proche doit être&nbsp;:</p><ul> <li> soit une <strong>personne âgée en perte d'autonomie</strong>&nbsp;; </li> <li> soit une <strong>personne (adulte ou enfant) en situation de handicap</strong> (avec une incapacité permanente d'au moins 80&nbsp;%). </li> </ul><div class="fr-highlight"> <ul> <li> La condition que la perte d'autonomie de la personne aidée soit d'une «&nbsp;particulière gravité&nbsp;» a été supprimée par la loi du 21 décembre 2021 citée en référence. Cette disposition s'applique aux droits ouverts à compter du 1<sup>er</sup> juillet 2022. La perte d'autonomie de la personne aidée doit être justifiée par la production d'un des documents mentionnés à l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033543892" target="_blank" rel=" noopener external" title="article D. 3142-8 du code du travail - nouvelle fenêtre">article D. 3142-8 du code du travail</a>. </li> <li> Depuis le 11 mars 2023, date d'entrée en vigueur de la loi du 9 mars 2023 citée en référence, le congé de proche aidant est également ouvert aux <strong>salariés du particulier employeur</strong>, aux <strong>assistants maternels</strong> et aux <strong>assistants familiaux employés par des personnes de droit privé</strong>. </li> </ul> </div><ul> <li> La condition que la perte d'autonomie de la personne aidée soit d'une «&nbsp;particulière gravité&nbsp;» a été supprimée par la loi du 21 décembre 2021 citée en référence. Cette disposition s'applique aux droits ouverts à compter du 1<sup>er</sup> juillet 2022. La perte d'autonomie de la personne aidée doit être justifiée par la production d'un des documents mentionnés à l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033543892" target="_blank" rel=" noopener external" title="article D. 3142-8 du code du travail - nouvelle fenêtre">article D. 3142-8 du code du travail</a>. </li> <li> Depuis le 11 mars 2023, date d'entrée en vigueur de la loi du 9 mars 2023 citée en référence, le congé de proche aidant est également ouvert aux <strong>salariés du particulier employeur</strong>, aux <strong>assistants maternels</strong> et aux <strong>assistants familiaux employés par des personnes de droit privé</strong>. </li> </ul><p> Par ailleurs, ce proche doit être, pour le salarié, soit&nbsp;: </p><ul> <li> son conjoint&nbsp;; concubin ou partenaire lié par un pacte civil de solidarité (PACS)&nbsp;; </li> <li> son ascendant (par exemple&nbsp;: père) ou descendant (par exemple&nbsp;: fille)&nbsp;; </li> <li> l'enfant dont il assume la charge <a href="https://www.caf.fr/allocataires/droits-et-prestations/s-informer-sur-les-aides/les-enfants-a-charge" target="_blank" rel=" noopener external" title="au sens des prestations familiales - nouvelle fenêtre">au sens des prestations familiales</a>&nbsp;; </li> <li> son collatéral jusqu'au quatrième degré (frère, sœur, oncle, tante, neveux, nièces, grands-oncles et tantes&nbsp;; petits-neveux et nièces&nbsp;; cousins et cousines germains)&nbsp;; </li> <li> l'ascendant, le descendant ou le collatéral jusqu'au quatrième degré de son conjoint, concubin ou partenaire lié par un pacte civil de solidarité (PACS)&nbsp;; </li> <li> une personne, sans lien de parenté avec lui, avec laquelle il réside ou entretient des liens étroits et stables, et à qui il vient en aide de manière régulière et fréquente à titre non professionnel pour accomplir tout ou partie des actes ou des activités de la vie quotidienne. <br>Aucune condition d'ancienneté ne peut être exigée du salarié pour bénéficier de ce congé. </li> </ul><div class="fr-highlight"> <p> La personne aidée doit <strong>résider de manière stable et régulière en France</strong>. Peu importe qu'elle vive à son domicile, ou qu'elle soit hébergée dans un établissement ou une maison de retraite. &nbsp; </p> <p> Toutes les conditions mentionnées ci-dessus sont d'ordre public, de sorte qu'elles ne peuvent pas être modifiées par un accord collectif ou une convention collective. </p> </div><p> La personne aidée doit <strong>résider de manière stable et régulière en France</strong>. Peu importe qu'elle vive à son domicile, ou qu'elle soit hébergée dans un établissement ou une maison de retraite. &nbsp; </p><p> Toutes les conditions mentionnées ci-dessus sont d'ordre public, de sorte qu'elles ne peuvent pas être modifiées par un accord collectif ou une convention collective. </p>",
+      "description": "Pour prétendre à un congé de proche aidant, les conditions suivantes, liées au proche que le salarié souhaite accompagner, doivent être réunies.Ce proche doit être :soit une personne âgée en perte d'a",
+      "html": "<p> Pour prétendre à un congé de proche aidant, les conditions suivantes, liées au proche que le salarié souhaite accompagner, doivent être réunies. </p><p>Ce proche doit être :</p><ul> <li> soit une <strong>personne âgée en perte d'autonomie</strong> ; </li> <li> soit une <strong>personne (adulte ou enfant) en situation de handicap</strong> (avec une incapacité permanente d'au moins 80 %). </li> </ul><div class="fr-highlight"> <ul> <li> La condition que la perte d'autonomie de la personne aidée soit d'une « particulière gravité » a été supprimée par la loi du 21 décembre 2021 citée en référence. Cette disposition s'applique aux droits ouverts à compter du 1<sup>er</sup> juillet 2022. La perte d'autonomie de la personne aidée doit être justifiée par la production d'un des documents mentionnés à l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033543892" target="_blank" rel=" noopener external" title="article D. 3142-8 du code du travail - nouvelle fenêtre">article D. 3142-8 du code du travail</a>. </li> <li> Depuis le 11 mars 2023, date d'entrée en vigueur de la loi du 9 mars 2023 citée en référence, le congé de proche aidant est également ouvert aux <strong>salariés du particulier employeur</strong>, aux <strong>assistants maternels</strong> et aux <strong>assistants familiaux employés par des personnes de droit privé</strong>. </li> </ul> </div><p> Par ailleurs, ce proche doit être, pour le salarié, soit : </p><ul> <li> son conjoint ; concubin ou partenaire lié par un pacte civil de solidarité (PACS) ; </li> <li> son ascendant (par exemple : père) ou descendant (par exemple : fille) ; </li> <li> l'enfant dont il assume la charge <a href="https://www.caf.fr/allocataires/droits-et-prestations/s-informer-sur-les-aides/les-enfants-a-charge" target="_blank" rel=" noopener external" title="au sens des prestations familiales - nouvelle fenêtre">au sens des prestations familiales</a> ; </li> <li> son collatéral jusqu'au quatrième degré (frère, sœur, oncle, tante, neveux, nièces, grands-oncles et tantes ; petits-neveux et nièces ; cousins et cousines germains) ; </li> <li> l'ascendant, le descendant ou le collatéral jusqu'au quatrième degré de son conjoint, concubin ou partenaire lié par un pacte civil de solidarité (PACS) ; </li> <li> une personne, sans lien de parenté avec lui, avec laquelle il réside ou entretient des liens étroits et stables, et à qui il vient en aide de manière régulière et fréquente à titre non professionnel pour accomplir tout ou partie des actes ou des activités de la vie quotidienne. <br>Aucune condition d'ancienneté ne peut être exigée du salarié pour bénéficier de ce congé. </li> </ul><div class="fr-highlight"> <p> La personne aidée doit <strong>résider de manière stable et régulière en France</strong>. Peu importe qu'elle vive à son domicile, ou qu'elle soit hébergée dans un établissement ou une maison de retraite. </p> <p> Toutes les conditions mentionnées ci-dessus sont d'ordre public, de sorte qu'elles ne peuvent pas être modifiées par un accord collectif ou une convention collective. </p> </div>",
       "references": {
         "LEGITEXT000006072050": {
           "articles": [
@@ -421,13 +421,13 @@ exports[`parseDom should parse HTML with intro section and 6 sections without id
           "name": "code du travail",
         },
       },
-      "text": "Pour prétendre à un congé de proche aidant, les conditions suivantes, liées au proche que le salarié souhaite accompagner, doivent être réunies. Ce proche doit être : soit une personne âgée en perte d'autonomie ; soit une personne (adulte ou enfant) en situation de handicap (avec une incapacité permanente d'au moins 80 %). La condition que la perte d'autonomie de la personne aidée soit d'une « particulière gravité » a été supprimée par la loi du 21 décembre 2021 citée en référence. Cette disposition s'applique aux droits ouverts à compter du 1er juillet 2022. La perte d'autonomie de la personne aidée doit être justifiée par la production d'un des documents mentionnés à l'article D. 3142-8 du code du travail. Depuis le 11 mars 2023, date d'entrée en vigueur de la loi du 9 mars 2023 citée en référence, le congé de proche aidant est également ouvert aux salariés du particulier employeur, aux assistants maternels et aux assistants familiaux employés par des personnes de droit privé. La condition que la perte d'autonomie de la personne aidée soit d'une « particulière gravité » a été supprimée par la loi du 21 décembre 2021 citée en référence. Cette disposition s'applique aux droits ouverts à compter du 1er juillet 2022. La perte d'autonomie de la personne aidée doit être justifiée par la production d'un des documents mentionnés à l'article D. 3142-8 du code du travail. Depuis le 11 mars 2023, date d'entrée en vigueur de la loi du 9 mars 2023 citée en référence, le congé de proche aidant est également ouvert aux salariés du particulier employeur, aux assistants maternels et aux assistants familiaux employés par des personnes de droit privé. Par ailleurs, ce proche doit être, pour le salarié, soit : son conjoint ; concubin ou partenaire lié par un pacte civil de solidarité (PACS) ; son ascendant (par exemple : père) ou descendant (par exemple : fille) ; l'enfant dont il assume la charge au sens des prestations familiales ; son collatéral jusqu'au quatrième degré (frère, sœur, oncle, tante, neveux, nièces, grands-oncles et tantes ; petits-neveux et nièces ; cousins et cousines germains) ; l'ascendant, le descendant ou le collatéral jusqu'au quatrième degré de son conjoint, concubin ou partenaire lié par un pacte civil de solidarité (PACS) ; une personne, sans lien de parenté avec lui, avec laquelle il réside ou entretient des liens étroits et stables, et à qui il vient en aide de manière régulière et fréquente à titre non professionnel pour accomplir tout ou partie des actes ou des activités de la vie quotidienne. Aucune condition d'ancienneté ne peut être exigée du salarié pour bénéficier de ce congé. La personne aidée doit résider de manière stable et régulière en France. Peu importe qu'elle vive à son domicile, ou qu'elle soit hébergée dans un établissement ou une maison de retraite.   Toutes les conditions mentionnées ci-dessus sont d'ordre public, de sorte qu'elles ne peuvent pas être modifiées par un accord collectif ou une convention collective. La personne aidée doit résider de manière stable et régulière en France. Peu importe qu'elle vive à son domicile, ou qu'elle soit hébergée dans un établissement ou une maison de retraite.   Toutes les conditions mentionnées ci-dessus sont d'ordre public, de sorte qu'elles ne peuvent pas être modifiées par un accord collectif ou une convention collective.",
+      "text": "Pour prétendre à un congé de proche aidant, les conditions suivantes, liées au proche que le salarié souhaite accompagner, doivent être réunies.Ce proche doit être :soit une personne âgée en perte d'autonomie ; soit une personne (adulte ou enfant) en situation de handicap (avec une incapacité permanente d'au moins 80 %).La condition que la perte d'autonomie de la personne aidée soit d'une « particulière gravité » a été supprimée par la loi du 21 décembre 2021 citée en référence. Cette disposition s'applique aux droits ouverts à compter du 1er juillet 2022. La perte d'autonomie de la personne aidée doit être justifiée par la production d'un des documents mentionnés à l'article D. 3142-8 du code du travail. Depuis le 11 mars 2023, date d'entrée en vigueur de la loi du 9 mars 2023 citée en référence, le congé de proche aidant est également ouvert aux salariés du particulier employeur, aux assistants maternels et aux assistants familiaux employés par des personnes de droit privé.Par ailleurs, ce proche doit être, pour le salarié, soit :son conjoint ; concubin ou partenaire lié par un pacte civil de solidarité (PACS) ; son ascendant (par exemple : père) ou descendant (par exemple : fille) ; l'enfant dont il assume la charge au sens des prestations familiales ; son collatéral jusqu'au quatrième degré (frère, sœur, oncle, tante, neveux, nièces, grands-oncles et tantes ; petits-neveux et nièces ; cousins et cousines germains) ; l'ascendant, le descendant ou le collatéral jusqu'au quatrième degré de son conjoint, concubin ou partenaire lié par un pacte civil de solidarité (PACS) ; une personne, sans lien de parenté avec lui, avec laquelle il réside ou entretient des liens étroits et stables, et à qui il vient en aide de manière régulière et fréquente à titre non professionnel pour accomplir tout ou partie des actes ou des activités de la vie quotidienne. Aucune condition d'ancienneté ne peut être exigée du salarié pour bénéficier de ce congé.La personne aidée doit résider de manière stable et régulière en France. Peu importe qu'elle vive à son domicile, ou qu'elle soit hébergée dans un établissement ou une maison de retraite.   Toutes les conditions mentionnées ci-dessus sont d'ordre public, de sorte qu'elles ne peuvent pas être modifiées par un accord collectif ou une convention collective.",
       "title": "Quelles sont les conditions à remplir ?",
     },
     {
       "anchor": "comment-en-faire-la-demande-et-quelle-en-est-la-duree",
       "description": "Le congé débute ou est renouvelé à l'initiative du salarié qui informe l'employeur dans un délai fixé par convention ou accord collectif. À défaut de convention ou d'accord collectif, les dispositions",
-      "html": "<p> Le congé débute ou est renouvelé à l'<strong>initiative du salarié qui informe l'employeur dans un délai fixé par convention ou accord collectif</strong>. <br>À défaut de convention ou d'accord collectif, les dispositions supplétives suivantes sont applicables&nbsp;: </p><ul> <li> Le salarié informe son employeur par tout moyen conférant date certaine (courriel avec accusé de réception ou de lecture, lettre recommandée avec demande d'avis de réception, lettre remise en main propre contre récépissé…), au moins un mois avant le début du congé de proche aidant de sa volonté de suspendre son contrat de travail à ce titre, et, le cas échéant, de sa demande de fractionnement ou de transformation à temps partiel de celui-ci et de la date de son départ en congé. Il joint à sa demande les documents mentionnés à l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033543892" target="_blank" rel=" noopener external" title="article D. 3142-8 du code du travail - nouvelle fenêtre">article D. 3142-8 du code du travail</a>&nbsp;; </li> <li> En cas de renouvellement du congé de proche aidant ou de l'activité à temps partiel de façon successive, le salarié avertit l'employeur de cette prolongation au moins 15 jours avant le terme initialement prévu, par tout moyen conférant date certaine. En cas de renouvellement non successif, les conditions de prévenance mentionnées ci-dessus sont applicables. </li> </ul><div class="fr-highlight"> <h3>Un congé immédiat en cas d'urgence&nbsp;</h3> <p> <strong>En cas de dégradation soudaine de l'état de santé de la personne aidée ou de situation de crise</strong> nécessitant une action urgente du proche aidant (attestée par certificat médical établi par un médecin) ou encore de cessation brutale de l'hébergement en établissement dont bénéficiait la personne aidée (attestée par le responsable de cet établissement), le congé peut débuter ou être renouvelé sans délai. Cette disposition est d'ordre public. </p> </div><p> <strong>En cas de dégradation soudaine de l'état de santé de la personne aidée ou de situation de crise</strong> nécessitant une action urgente du proche aidant (attestée par certificat médical établi par un médecin) ou encore de cessation brutale de l'hébergement en établissement dont bénéficiait la personne aidée (attestée par le responsable de cet établissement), le congé peut débuter ou être renouvelé sans délai. Cette disposition est d'ordre public. </p><p> La durée du congé est choisie par le salarié sans pouvoir dépasser une durée maximale fixée par voie conventionnelle ou à défaut, la durée fixée, par les dispositions supplétives du code du travail à 3 mois renouvelable. </p><p> Dans tous les cas, le <strong>congé ne peut excéder, renouvellement compris, la durée d'un an pour l'ensemble de la carrière</strong>&nbsp;; il s'agit là d'une disposition d'ordre public. </p><div class="fr-highlight"> • Le congé de proche aidant entraine une <strong>suspension du contrat de travail</strong>. Toutefois, sa durée est prise en compte pour la détermination des avantages liés à l'ancienneté et le salarié conserve le bénéfice de tous les avantages qu'il avait acquis avant le début du congé&nbsp;;&nbsp;<br>• La durée du congé ne peut pas être imputée sur celle du congé payé annuel. Les deux dispositions mentionnées ci-dessus sont d'ordre public. </div><strong>suspension du contrat de travail</strong><br><p> Le salarié peut mettre fin à son congé de façon anticipée (ou y renoncer s'il n'a pas encore débuté) dans les cas suivants (disposition d'ordre public)&nbsp;: </p><ul> <li>décès de la personne aidée&nbsp;;</li> <li> admission dans un établissement de la personne aidée&nbsp;; </li> <li>diminution importante de ses ressources&nbsp;;</li> <li> recours à un service d'aide à domicile pour assister la personne aidée&nbsp;; </li> <li> congé de proche aidant pris par un autre membre de la famille. </li> </ul><p> Une convention ou un accord de branche ou, à défaut, une convention ou un accord collectif d'entreprise, peut préciser la durée du préavis à respecter avant un retour du salarié avant la fin du congé. A défaut d'une telle convention ou d'un tel accord applicable à son entreprise, le <strong>salarié doit adresser une demande motivée à son employeur</strong> (par tout moyen conférant date certaine), au moins un mois avant la date à laquelle il entend bénéficier de ce retour anticipé. En cas de décès de la personne aidée, ce délai est ramené à deux semaines. </p><div class="fr-highlight"> <h3> Temps partiel ou prise fractionnée du congé…&nbsp; </h3> <p> <strong>Avec l'accord de l'employeur</strong>, le congé de proche aidant&nbsp;:&nbsp; </p> <ul> <li> <strong>Peut être transformé en période d'activité à temps partiel</strong>&nbsp;; </li> <li> <strong>Peut être fractionné</strong>. Dans ce cas, la durée minimale de chaque période de congé est d'une demi-journée. Le salarié doit alors avertir son employeur au moins 48 heures avant la date à laquelle il souhaite prendre chaque période de congé. Ce délai est d'ordre public. Cette transformation ou ce fractionnement est accordé sans délai en cas de dégradation soudaine de l'état de santé de la personne aidée, de situation de crise nécessitant une action urgente du proche aidant ou de cessation brutale de l'hébergement en établissement dont bénéficiait la personne aidée. </li> </ul> </div><p> <strong>Avec l'accord de l'employeur</strong>, le congé de proche aidant&nbsp;:&nbsp; </p><ul> <li> <strong>Peut être transformé en période d'activité à temps partiel</strong>&nbsp;; </li> <li> <strong>Peut être fractionné</strong>. Dans ce cas, la durée minimale de chaque période de congé est d'une demi-journée. Le salarié doit alors avertir son employeur au moins 48 heures avant la date à laquelle il souhaite prendre chaque période de congé. Ce délai est d'ordre public. Cette transformation ou ce fractionnement est accordé sans délai en cas de dégradation soudaine de l'état de santé de la personne aidée, de situation de crise nécessitant une action urgente du proche aidant ou de cessation brutale de l'hébergement en établissement dont bénéficiait la personne aidée. </li> </ul>",
+      "html": "<p> Le congé débute ou est renouvelé à l'<strong>initiative du salarié qui informe l'employeur dans un délai fixé par convention ou accord collectif</strong>. <br>À défaut de convention ou d'accord collectif, les dispositions supplétives suivantes sont applicables : </p><ul> <li> Le salarié informe son employeur par tout moyen conférant date certaine (courriel avec accusé de réception ou de lecture, lettre recommandée avec demande d'avis de réception, lettre remise en main propre contre récépissé…), au moins un mois avant le début du congé de proche aidant de sa volonté de suspendre son contrat de travail à ce titre, et, le cas échéant, de sa demande de fractionnement ou de transformation à temps partiel de celui-ci et de la date de son départ en congé. Il joint à sa demande les documents mentionnés à l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033543892" target="_blank" rel=" noopener external" title="article D. 3142-8 du code du travail - nouvelle fenêtre">article D. 3142-8 du code du travail</a> ; </li> <li> En cas de renouvellement du congé de proche aidant ou de l'activité à temps partiel de façon successive, le salarié avertit l'employeur de cette prolongation au moins 15 jours avant le terme initialement prévu, par tout moyen conférant date certaine. En cas de renouvellement non successif, les conditions de prévenance mentionnées ci-dessus sont applicables. </li> </ul><div class="fr-highlight"> <h3>Un congé immédiat en cas d'urgence </h3> <p> <strong>En cas de dégradation soudaine de l'état de santé de la personne aidée ou de situation de crise</strong> nécessitant une action urgente du proche aidant (attestée par certificat médical établi par un médecin) ou encore de cessation brutale de l'hébergement en établissement dont bénéficiait la personne aidée (attestée par le responsable de cet établissement), le congé peut débuter ou être renouvelé sans délai. Cette disposition est d'ordre public. </p> </div><p> La durée du congé est choisie par le salarié sans pouvoir dépasser une durée maximale fixée par voie conventionnelle ou à défaut, la durée fixée, par les dispositions supplétives du code du travail à 3 mois renouvelable. </p><p> Dans tous les cas, le <strong>congé ne peut excéder, renouvellement compris, la durée d'un an pour l'ensemble de la carrière</strong> ; il s'agit là d'une disposition d'ordre public. </p><div class="fr-highlight"> • Le congé de proche aidant entraine une <strong>suspension du contrat de travail</strong>. Toutefois, sa durée est prise en compte pour la détermination des avantages liés à l'ancienneté et le salarié conserve le bénéfice de tous les avantages qu'il avait acquis avant le début du congé ; <br>• La durée du congé ne peut pas être imputée sur celle du congé payé annuel. Les deux dispositions mentionnées ci-dessus sont d'ordre public. </div><p> Le salarié peut mettre fin à son congé de façon anticipée (ou y renoncer s'il n'a pas encore débuté) dans les cas suivants (disposition d'ordre public) : </p><ul> <li>décès de la personne aidée ;</li> <li> admission dans un établissement de la personne aidée ; </li> <li>diminution importante de ses ressources ;</li> <li> recours à un service d'aide à domicile pour assister la personne aidée ; </li> <li> congé de proche aidant pris par un autre membre de la famille. </li> </ul><p> Une convention ou un accord de branche ou, à défaut, une convention ou un accord collectif d'entreprise, peut préciser la durée du préavis à respecter avant un retour du salarié avant la fin du congé. A défaut d'une telle convention ou d'un tel accord applicable à son entreprise, le <strong>salarié doit adresser une demande motivée à son employeur</strong> (par tout moyen conférant date certaine), au moins un mois avant la date à laquelle il entend bénéficier de ce retour anticipé. En cas de décès de la personne aidée, ce délai est ramené à deux semaines. </p><div class="fr-highlight"> <h3> Temps partiel ou prise fractionnée du congé… </h3> <p> <strong>Avec l'accord de l'employeur</strong>, le congé de proche aidant : </p> <ul> <li> <strong>Peut être transformé en période d'activité à temps partiel</strong> ; </li> <li> <strong>Peut être fractionné</strong>. Dans ce cas, la durée minimale de chaque période de congé est d'une demi-journée. Le salarié doit alors avertir son employeur au moins 48 heures avant la date à laquelle il souhaite prendre chaque période de congé. Ce délai est d'ordre public. Cette transformation ou ce fractionnement est accordé sans délai en cas de dégradation soudaine de l'état de santé de la personne aidée, de situation de crise nécessitant une action urgente du proche aidant ou de cessation brutale de l'hébergement en établissement dont bénéficiait la personne aidée. </li> </ul> </div>",
       "references": {
         "LEGITEXT000006072050": {
           "articles": [
@@ -441,15 +441,15 @@ exports[`parseDom should parse HTML with intro section and 6 sections without id
           "name": "code du travail",
         },
       },
-      "text": "Le congé débute ou est renouvelé à l'initiative du salarié qui informe l'employeur dans un délai fixé par convention ou accord collectif. À défaut de convention ou d'accord collectif, les dispositions supplétives suivantes sont applicables : Le salarié informe son employeur par tout moyen conférant date certaine (courriel avec accusé de réception ou de lecture, lettre recommandée avec demande d'avis de réception, lettre remise en main propre contre récépissé…), au moins un mois avant le début du congé de proche aidant de sa volonté de suspendre son contrat de travail à ce titre, et, le cas échéant, de sa demande de fractionnement ou de transformation à temps partiel de celui-ci et de la date de son départ en congé. Il joint à sa demande les documents mentionnés à l'article D. 3142-8 du code du travail ; En cas de renouvellement du congé de proche aidant ou de l'activité à temps partiel de façon successive, le salarié avertit l'employeur de cette prolongation au moins 15 jours avant le terme initialement prévu, par tout moyen conférant date certaine. En cas de renouvellement non successif, les conditions de prévenance mentionnées ci-dessus sont applicables. Un congé immédiat en cas d'urgence  En cas de dégradation soudaine de l'état de santé de la personne aidée ou de situation de crise nécessitant une action urgente du proche aidant (attestée par certificat médical établi par un médecin) ou encore de cessation brutale de l'hébergement en établissement dont bénéficiait la personne aidée (attestée par le responsable de cet établissement), le congé peut débuter ou être renouvelé sans délai. Cette disposition est d'ordre public. En cas de dégradation soudaine de l'état de santé de la personne aidée ou de situation de crise nécessitant une action urgente du proche aidant (attestée par certificat médical établi par un médecin) ou encore de cessation brutale de l'hébergement en établissement dont bénéficiait la personne aidée (attestée par le responsable de cet établissement), le congé peut débuter ou être renouvelé sans délai. Cette disposition est d'ordre public. La durée du congé est choisie par le salarié sans pouvoir dépasser une durée maximale fixée par voie conventionnelle ou à défaut, la durée fixée, par les dispositions supplétives du code du travail à 3 mois renouvelable. Dans tous les cas, le congé ne peut excéder, renouvellement compris, la durée d'un an pour l'ensemble de la carrière ; il s'agit là d'une disposition d'ordre public. • Le congé de proche aidant entraine une suspension du contrat de travail. Toutefois, sa durée est prise en compte pour la détermination des avantages liés à l'ancienneté et le salarié conserve le bénéfice de tous les avantages qu'il avait acquis avant le début du congé ; • La durée du congé ne peut pas être imputée sur celle du congé payé annuel. Les deux dispositions mentionnées ci-dessus sont d'ordre public. suspension du contrat de travail Le salarié peut mettre fin à son congé de façon anticipée (ou y renoncer s'il n'a pas encore débuté) dans les cas suivants (disposition d'ordre public) : décès de la personne aidée ; admission dans un établissement de la personne aidée ; diminution importante de ses ressources ; recours à un service d'aide à domicile pour assister la personne aidée ; congé de proche aidant pris par un autre membre de la famille. Une convention ou un accord de branche ou, à défaut, une convention ou un accord collectif d'entreprise, peut préciser la durée du préavis à respecter avant un retour du salarié avant la fin du congé. A défaut d'une telle convention ou d'un tel accord applicable à son entreprise, le salarié doit adresser une demande motivée à son employeur (par tout moyen conférant date certaine), au moins un mois avant la date à laquelle il entend bénéficier de ce retour anticipé. En cas de décès de la personne aidée, ce délai est ramené à deux semaines. Temps partiel ou prise fractionnée du congé…  Avec l'accord de l'employeur, le congé de proche aidant :  Peut être transformé en période d'activité à temps partiel ; Peut être fractionné. Dans ce cas, la durée minimale de chaque période de congé est d'une demi-journée. Le salarié doit alors avertir son employeur au moins 48 heures avant la date à laquelle il souhaite prendre chaque période de congé. Ce délai est d'ordre public. Cette transformation ou ce fractionnement est accordé sans délai en cas de dégradation soudaine de l'état de santé de la personne aidée, de situation de crise nécessitant une action urgente du proche aidant ou de cessation brutale de l'hébergement en établissement dont bénéficiait la personne aidée. Avec l'accord de l'employeur, le congé de proche aidant :  Peut être transformé en période d'activité à temps partiel ; Peut être fractionné. Dans ce cas, la durée minimale de chaque période de congé est d'une demi-journée. Le salarié doit alors avertir son employeur au moins 48 heures avant la date à laquelle il souhaite prendre chaque période de congé. Ce délai est d'ordre public. Cette transformation ou ce fractionnement est accordé sans délai en cas de dégradation soudaine de l'état de santé de la personne aidée, de situation de crise nécessitant une action urgente du proche aidant ou de cessation brutale de l'hébergement en établissement dont bénéficiait la personne aidée.",
+      "text": "Le congé débute ou est renouvelé à l'initiative du salarié qui informe l'employeur dans un délai fixé par convention ou accord collectif. À défaut de convention ou d'accord collectif, les dispositions supplétives suivantes sont applicables :Le salarié informe son employeur par tout moyen conférant date certaine (courriel avec accusé de réception ou de lecture, lettre recommandée avec demande d'avis de réception, lettre remise en main propre contre récépissé…), au moins un mois avant le début du congé de proche aidant de sa volonté de suspendre son contrat de travail à ce titre, et, le cas échéant, de sa demande de fractionnement ou de transformation à temps partiel de celui-ci et de la date de son départ en congé. Il joint à sa demande les documents mentionnés à l'article D. 3142-8 du code du travail ; En cas de renouvellement du congé de proche aidant ou de l'activité à temps partiel de façon successive, le salarié avertit l'employeur de cette prolongation au moins 15 jours avant le terme initialement prévu, par tout moyen conférant date certaine. En cas de renouvellement non successif, les conditions de prévenance mentionnées ci-dessus sont applicables.Un congé immédiat en cas d'urgence  En cas de dégradation soudaine de l'état de santé de la personne aidée ou de situation de crise nécessitant une action urgente du proche aidant (attestée par certificat médical établi par un médecin) ou encore de cessation brutale de l'hébergement en établissement dont bénéficiait la personne aidée (attestée par le responsable de cet établissement), le congé peut débuter ou être renouvelé sans délai. Cette disposition est d'ordre public.La durée du congé est choisie par le salarié sans pouvoir dépasser une durée maximale fixée par voie conventionnelle ou à défaut, la durée fixée, par les dispositions supplétives du code du travail à 3 mois renouvelable.Dans tous les cas, le congé ne peut excéder, renouvellement compris, la durée d'un an pour l'ensemble de la carrière ; il s'agit là d'une disposition d'ordre public.• Le congé de proche aidant entraine une suspension du contrat de travail. Toutefois, sa durée est prise en compte pour la détermination des avantages liés à l'ancienneté et le salarié conserve le bénéfice de tous les avantages qu'il avait acquis avant le début du congé ; • La durée du congé ne peut pas être imputée sur celle du congé payé annuel. Les deux dispositions mentionnées ci-dessus sont d'ordre public.Le salarié peut mettre fin à son congé de façon anticipée (ou y renoncer s'il n'a pas encore débuté) dans les cas suivants (disposition d'ordre public) :décès de la personne aidée ; admission dans un établissement de la personne aidée ; diminution importante de ses ressources ; recours à un service d'aide à domicile pour assister la personne aidée ; congé de proche aidant pris par un autre membre de la famille.Une convention ou un accord de branche ou, à défaut, une convention ou un accord collectif d'entreprise, peut préciser la durée du préavis à respecter avant un retour du salarié avant la fin du congé. A défaut d'une telle convention ou d'un tel accord applicable à son entreprise, le salarié doit adresser une demande motivée à son employeur (par tout moyen conférant date certaine), au moins un mois avant la date à laquelle il entend bénéficier de ce retour anticipé. En cas de décès de la personne aidée, ce délai est ramené à deux semaines.Temps partiel ou prise fractionnée du congé…  Avec l'accord de l'employeur, le congé de proche aidant :  Peut être transformé en période d'activité à temps partiel ; Peut être fractionné. Dans ce cas, la durée minimale de chaque période de congé est d'une demi-journée. Le salarié doit alors avertir son employeur au moins 48 heures avant la date à laquelle il souhaite prendre chaque période de congé. Ce délai est d'ordre public. Cette transformation ou ce fractionnement est accordé sans délai en cas de dégradation soudaine de l'état de santé de la personne aidée, de situation de crise nécessitant une action urgente du proche aidant ou de cessation brutale de l'hébergement en établissement dont bénéficiait la personne aidée.",
       "title": "Comment en faire la demande et quelle en est la durée ?",
     },
     {
       "anchor": "le-conge-est-il-remunere",
       "description": "L'employeur n'est pas tenu de rémunérer un salarié en congé de proche aidant. En revanche, pendant toute cette période, le salarié ne peut exercer aucune activité professionnelle (sauf l'activité cons",
-      "html": "<p> L'employeur n'est pas tenu de rémunérer un salarié en congé de proche aidant. En revanche, pendant toute cette période, le <strong>salarié ne peut exercer aucune activité professionnelle (sauf l'activité conservée si le congé prend la forme, en accord avec l'employeur, d'une période d'activité à temps partiel)</strong>. Le salarié en congé de proche aidant peut toutefois : </p><ul> <li> Soit, être employé ou dédommagé, sous certaines conditions, par la personne aidée en situation de handicap au titre de sa <a href="https://www.monparcourshandicap.gouv.fr/aides/la-prestation-de-compensation-du-handicap-pch" target="_blank" rel=" noopener external" title="prestation de compensation du handicap - nouvelle fenêtre">prestation de compensation du handicap</a>&nbsp;; </li> <li> Soit, s'il n'est pas son conjoint, concubin ou partenaire de Pacs, être employé par la personne âgée aidée bénéficiaire de l'APA (allocation personnalisée d'autonomie), cette prestation pouvant <a href="https://www.pour-les-personnes-agees.gouv.fr/aider-un-proche/etre-remunere-pour-laide-apportee-son-proche" target="_blank" rel=" noopener external" title="servir à le rémunérer - nouvelle fenêtre">servir à le rémunérer</a>. </li> </ul><div class="fr-highlight"> <h3>Allocation journalière du proche aidant&nbsp;</h3> <p> Une allocation journalière du proche aidant (AJPA) est versée aux salariés qui bénéficient du congé de proche aidant et qui remplissent les conditions prévues<a href="https://www.caf.fr/allocataires/aides-et-demarches/droits-et-prestations/handicap/l-allocation-journaliere-du-proche-aidant-ajpa" target="_blank" rel=" noopener external" title="par la réglementation - nouvelle fenêtre">par la réglementation</a>. Cette allocation peut également être versée aux agents publics bénéficiant d'un congé de proche aidant, aux travailleurs non-salariés, aux stagiaires de la formation professionnelle rémunérée, aux demandeurs d'emploi indemnisés (sans cumul possible avec l'allocation de chômage et sans possibilité de percevoir l'AJPA pour une demi-journée) et aux VRP. Le montant de l'AJPA est fixé fixé, depuis le 1<sup>er</sup> janvier 2024, à <strong>64,54</strong>&nbsp;<strong>€</strong> par journée et à <strong>31,27</strong>&nbsp;<strong>€</strong> pour une demi-journée. <strong>À noter que, pour la détermination du montant du RSA ou de la prime d'activité, il n'est pas tenu compte, dans les ressources du bénéficiaire, des sommes perçues au titre de l'AJPA. </strong> Le versement de l'AJPA est effectué par les caisses d'allocations familiales (ou les caisses de MSA pour les personnes qui relèvent du régime agricole). Lorsque le bénéficiaire d'un congé de proche aidant le transforme en période d'activité à temps partiel, le montant mensuel de l'AJPA versé est calculé sur la base du nombre de journées ou demi-journées non travaillées correspondantes au titre d'un mois civil. Le nombre d'allocations journalières versées au bénéficiaire au cours d'un mois civil ne peut être supérieur à 22. <strong>Le nombre maximal d'allocations journalières versées à un bénéficiaire pour l'ensemble de sa carrière est égal à 66. </strong> La demande d'AJPA est effectuée au moyen d'un formulaire homologué disponible sur <a href="https://wwwd.caf.fr/wps/portal/caffr/aidesetservices/lesservicesenligne/faireunedemandedeprestation#DAJPA" target="_blank" rel=" noopener external" title="le site des CAF - nouvelle fenêtre">le site des CAF</a>, qui rappelle les règles applicables (notamment les règles de non cumul avec d'autres prestations, indemnités ou allocations) et précise la liste des justificatifs à produire à l'appui de cette demande. Pour plus de précisions sur cette allocation, on se reportera au <a href="https://www.caf.fr/allocataires/aides-et-demarches/droits-et-prestations/handicap/l-allocation-journaliere-du-proche-aidant-ajpa" target="_blank" rel=" noopener external" title="site des Caisses d&amp;#039;allocations familiales&nbsp; - nouvelle fenêtre">site des Caisses d'allocations familiales&nbsp;</a> </p> </div><p> Une allocation journalière du proche aidant (AJPA) est versée aux salariés qui bénéficient du congé de proche aidant et qui remplissent les conditions prévues<a href="https://www.caf.fr/allocataires/aides-et-demarches/droits-et-prestations/handicap/l-allocation-journaliere-du-proche-aidant-ajpa" target="_blank" rel=" noopener external" title="par la réglementation - nouvelle fenêtre">par la réglementation</a>. Cette allocation peut également être versée aux agents publics bénéficiant d'un congé de proche aidant, aux travailleurs non-salariés, aux stagiaires de la formation professionnelle rémunérée, aux demandeurs d'emploi indemnisés (sans cumul possible avec l'allocation de chômage et sans possibilité de percevoir l'AJPA pour une demi-journée) et aux VRP. Le montant de l'AJPA est fixé fixé, depuis le 1<sup>er</sup> janvier 2024, à <strong>64,54</strong>&nbsp;<strong>€</strong> par journée et à <strong>31,27</strong>&nbsp;<strong>€</strong> pour une demi-journée. <strong>À noter que, pour la détermination du montant du RSA ou de la prime d'activité, il n'est pas tenu compte, dans les ressources du bénéficiaire, des sommes perçues au titre de l'AJPA. </strong> Le versement de l'AJPA est effectué par les caisses d'allocations familiales (ou les caisses de MSA pour les personnes qui relèvent du régime agricole). Lorsque le bénéficiaire d'un congé de proche aidant le transforme en période d'activité à temps partiel, le montant mensuel de l'AJPA versé est calculé sur la base du nombre de journées ou demi-journées non travaillées correspondantes au titre d'un mois civil. Le nombre d'allocations journalières versées au bénéficiaire au cours d'un mois civil ne peut être supérieur à 22. <strong>Le nombre maximal d'allocations journalières versées à un bénéficiaire pour l'ensemble de sa carrière est égal à 66. </strong> La demande d'AJPA est effectuée au moyen d'un formulaire homologué disponible sur <a href="https://wwwd.caf.fr/wps/portal/caffr/aidesetservices/lesservicesenligne/faireunedemandedeprestation#DAJPA" target="_blank" rel=" noopener external" title="le site des CAF - nouvelle fenêtre">le site des CAF</a>, qui rappelle les règles applicables (notamment les règles de non cumul avec d'autres prestations, indemnités ou allocations) et précise la liste des justificatifs à produire à l'appui de cette demande. Pour plus de précisions sur cette allocation, on se reportera au <a href="https://www.caf.fr/allocataires/aides-et-demarches/droits-et-prestations/handicap/l-allocation-journaliere-du-proche-aidant-ajpa" target="_blank" rel=" noopener external" title="site des Caisses d&amp;#039;allocations familiales&nbsp; - nouvelle fenêtre">site des Caisses d'allocations familiales&nbsp;</a> </p><div class="fr-callout fr-icon-information-line"> <h3> <span><strong>À noter</strong></span> </h3> <p> <span>À<strong> </strong>compter du 1<sup>er</sup> janvier 2025, en application du décret du 5 juillet 2024 cité en référence, le droit à l’allocation journalière du proche aidant pourra être renouvelé si le proche aidant apporte son aide à une personne différente de celle au titre de laquelle il aura précédemment bénéficié de cette allocation. Ce renouvellement sera ouvert dans la limite d’une durée de 66 jours. </span><br><span>À compter de cette même date, le nombre maximal d’AJPA versées à un bénéficiaire sur l’ensemble de sa carrière sera porté à 264. </span> </p> </div><p> <span>À<strong> </strong>compter du 1<sup>er</sup> janvier 2025, en application du décret du 5 juillet 2024 cité en référence, le droit à l’allocation journalière du proche aidant pourra être renouvelé si le proche aidant apporte son aide à une personne différente de celle au titre de laquelle il aura précédemment bénéficié de cette allocation. Ce renouvellement sera ouvert dans la limite d’une durée de 66 jours. </span><br><span>À compter de cette même date, le nombre maximal d’AJPA versées à un bénéficiaire sur l’ensemble de sa carrière sera porté à 264. </span> </p><p> Par ailleurs, bien que les deux dispositifs n'aient pas de liens entre eux, un salarié qui bénéficie d'un congé de proche aidant et qui dispose, dans son entreprise, d'un <a href="https://travail-emploi.gouv.fr/le-compte-epargne-temps-cet" data-entity-type="node" data-entity-uuid="9eda37df-efad-40b5-8442-a1bb40614ef7" data-entity-substitution="canonical" title="Le compte épargne-temps (CET)" target="_blank" rel="nofollow, noopener">compte épargne-temps</a> peut, si l'employeur donne son accord, utiliser les droits qu'il a accumulés sur ce compte pour disposer d'un revenu pendant tout ou partie de son congé. </p><div class="fr-highlight"> <h3> <span>Affiliation des aidants à l'assurance vieillesse</span> </h3> <p> <span>La personne bénéficiaire de l'allocation journalière du proche aidant (AJPA&nbsp;; voir ci-dessus) est affiliée à l'<strong>assurance vieillesse du régime général de sécurité sociale</strong>, les cotisations étant versées, pour son compte, par le régime des prestations familiales dont elle relève (en principe, la CAF). Est également affiliée obligatoirement à l'assurance vieillesse du régime général de sécurité sociale la personne bénéficiaire du congé de proche aidant pour les périodes pendant lesquelles elle ne bénéficie pas de cette allocation. Dans ce dernier cas, la personne concernée doit faire une demande auprès de la CAF dont elle dépend</span>&nbsp;<span>; le formulaire de demande doit être accompagné d'une attestation de son employeur indiquant les dates de début et de fin de prise du congé. Pour plus de précisions sur ce dispositif (dénommé «</span>&nbsp;<span>Assurance vieillesse des aidants</span>&nbsp;<span>» - AVA) , il convient de se reporter au </span><a href="https://www.caf.fr/allocataires/aides-et-demarches/droits-et-prestations/handicap/assurance-vieillesse-du-parent-au-foyer-avpf" target="_blank" title="site des CAF (nouvelle fenêtre) - nouvelle fenêtre" rel=" noopener external">site des CAF</a>. </p> </div><p> <span>La personne bénéficiaire de l'allocation journalière du proche aidant (AJPA&nbsp;; voir ci-dessus) est affiliée à l'<strong>assurance vieillesse du régime général de sécurité sociale</strong>, les cotisations étant versées, pour son compte, par le régime des prestations familiales dont elle relève (en principe, la CAF). Est également affiliée obligatoirement à l'assurance vieillesse du régime général de sécurité sociale la personne bénéficiaire du congé de proche aidant pour les périodes pendant lesquelles elle ne bénéficie pas de cette allocation. Dans ce dernier cas, la personne concernée doit faire une demande auprès de la CAF dont elle dépend</span>&nbsp;<span>; le formulaire de demande doit être accompagné d'une attestation de son employeur indiquant les dates de début et de fin de prise du congé. Pour plus de précisions sur ce dispositif (dénommé «</span>&nbsp;<span>Assurance vieillesse des aidants</span>&nbsp;<span>» - AVA) , il convient de se reporter au </span><a href="https://www.caf.fr/allocataires/aides-et-demarches/droits-et-prestations/handicap/assurance-vieillesse-du-parent-au-foyer-avpf" target="_blank" title="site des CAF (nouvelle fenêtre) - nouvelle fenêtre" rel=" noopener external">site des CAF</a>. </p>",
+      "html": "<p> L'employeur n'est pas tenu de rémunérer un salarié en congé de proche aidant. En revanche, pendant toute cette période, le <strong>salarié ne peut exercer aucune activité professionnelle (sauf l'activité conservée si le congé prend la forme, en accord avec l'employeur, d'une période d'activité à temps partiel)</strong>. Le salarié en congé de proche aidant peut toutefois : </p><ul> <li> Soit, être employé ou dédommagé, sous certaines conditions, par la personne aidée en situation de handicap au titre de sa <a href="https://www.monparcourshandicap.gouv.fr/aides/la-prestation-de-compensation-du-handicap-pch" target="_blank" rel=" noopener external" title="prestation de compensation du handicap - nouvelle fenêtre">prestation de compensation du handicap</a> ; </li> <li> Soit, s'il n'est pas son conjoint, concubin ou partenaire de Pacs, être employé par la personne âgée aidée bénéficiaire de l'APA (allocation personnalisée d'autonomie), cette prestation pouvant <a href="https://www.pour-les-personnes-agees.gouv.fr/aider-un-proche/etre-remunere-pour-laide-apportee-son-proche" target="_blank" rel=" noopener external" title="servir à le rémunérer - nouvelle fenêtre">servir à le rémunérer</a>. </li> </ul><div class="fr-highlight"> <h3>Allocation journalière du proche aidant </h3> <p> Une allocation journalière du proche aidant (AJPA) est versée aux salariés qui bénéficient du congé de proche aidant et qui remplissent les conditions prévues<a href="https://www.caf.fr/allocataires/aides-et-demarches/droits-et-prestations/handicap/l-allocation-journaliere-du-proche-aidant-ajpa" target="_blank" rel=" noopener external" title="par la réglementation - nouvelle fenêtre">par la réglementation</a>. Cette allocation peut également être versée aux agents publics bénéficiant d'un congé de proche aidant, aux travailleurs non-salariés, aux stagiaires de la formation professionnelle rémunérée, aux demandeurs d'emploi indemnisés (sans cumul possible avec l'allocation de chômage et sans possibilité de percevoir l'AJPA pour une demi-journée) et aux VRP. Le montant de l'AJPA est fixé fixé, depuis le 1<sup>er</sup> janvier 2024, à <strong>64,54</strong> <strong>€</strong> par journée et à <strong>31,27</strong> <strong>€</strong> pour une demi-journée. <strong>À noter que, pour la détermination du montant du RSA ou de la prime d'activité, il n'est pas tenu compte, dans les ressources du bénéficiaire, des sommes perçues au titre de l'AJPA. </strong> Le versement de l'AJPA est effectué par les caisses d'allocations familiales (ou les caisses de MSA pour les personnes qui relèvent du régime agricole). Lorsque le bénéficiaire d'un congé de proche aidant le transforme en période d'activité à temps partiel, le montant mensuel de l'AJPA versé est calculé sur la base du nombre de journées ou demi-journées non travaillées correspondantes au titre d'un mois civil. Le nombre d'allocations journalières versées au bénéficiaire au cours d'un mois civil ne peut être supérieur à 22. <strong>Le nombre maximal d'allocations journalières versées à un bénéficiaire pour l'ensemble de sa carrière est égal à 66. </strong> La demande d'AJPA est effectuée au moyen d'un formulaire homologué disponible sur <a href="https://wwwd.caf.fr/wps/portal/caffr/aidesetservices/lesservicesenligne/faireunedemandedeprestation#DAJPA" target="_blank" rel=" noopener external" title="le site des CAF - nouvelle fenêtre">le site des CAF</a>, qui rappelle les règles applicables (notamment les règles de non cumul avec d'autres prestations, indemnités ou allocations) et précise la liste des justificatifs à produire à l'appui de cette demande. Pour plus de précisions sur cette allocation, on se reportera au <a href="https://www.caf.fr/allocataires/aides-et-demarches/droits-et-prestations/handicap/l-allocation-journaliere-du-proche-aidant-ajpa" target="_blank" rel=" noopener external" title="site des Caisses d&amp;#039;allocations familiales - nouvelle fenêtre">site des Caisses d'allocations familiales </a> </p> </div><div class="fr-callout fr-icon-information-line"> <h3> <span><strong>À noter</strong></span> </h3> <p> <span>À<strong> </strong>compter du 1<sup>er</sup> janvier 2025, en application du décret du 5 juillet 2024 cité en référence, le droit à l’allocation journalière du proche aidant pourra être renouvelé si le proche aidant apporte son aide à une personne différente de celle au titre de laquelle il aura précédemment bénéficié de cette allocation. Ce renouvellement sera ouvert dans la limite d’une durée de 66 jours. </span><br><span>À compter de cette même date, le nombre maximal d’AJPA versées à un bénéficiaire sur l’ensemble de sa carrière sera porté à 264. </span> </p> </div><p> Par ailleurs, bien que les deux dispositifs n'aient pas de liens entre eux, un salarié qui bénéficie d'un congé de proche aidant et qui dispose, dans son entreprise, d'un <a href="https://travail-emploi.gouv.fr/le-compte-epargne-temps-cet" data-entity-type="node" data-entity-uuid="9eda37df-efad-40b5-8442-a1bb40614ef7" data-entity-substitution="canonical" title="Le compte épargne-temps (CET)" target="_blank" rel="nofollow, noopener">compte épargne-temps</a> peut, si l'employeur donne son accord, utiliser les droits qu'il a accumulés sur ce compte pour disposer d'un revenu pendant tout ou partie de son congé. </p><div class="fr-highlight"> <h3> <span>Affiliation des aidants à l'assurance vieillesse</span> </h3> <p> <span>La personne bénéficiaire de l'allocation journalière du proche aidant (AJPA ; voir ci-dessus) est affiliée à l'<strong>assurance vieillesse du régime général de sécurité sociale</strong>, les cotisations étant versées, pour son compte, par le régime des prestations familiales dont elle relève (en principe, la CAF). Est également affiliée obligatoirement à l'assurance vieillesse du régime général de sécurité sociale la personne bénéficiaire du congé de proche aidant pour les périodes pendant lesquelles elle ne bénéficie pas de cette allocation. Dans ce dernier cas, la personne concernée doit faire une demande auprès de la CAF dont elle dépend</span> <span>; le formulaire de demande doit être accompagné d'une attestation de son employeur indiquant les dates de début et de fin de prise du congé. Pour plus de précisions sur ce dispositif (dénommé «</span> <span>Assurance vieillesse des aidants</span> <span>» - AVA) , il convient de se reporter au </span><a href="https://www.caf.fr/allocataires/aides-et-demarches/droits-et-prestations/handicap/assurance-vieillesse-du-parent-au-foyer-avpf" target="_blank" title="site des CAF (nouvelle fenêtre) - nouvelle fenêtre" rel=" noopener external">site des CAF</a>. </p> </div>",
       "references": {},
-      "text": "L'employeur n'est pas tenu de rémunérer un salarié en congé de proche aidant. En revanche, pendant toute cette période, le salarié ne peut exercer aucune activité professionnelle (sauf l'activité conservée si le congé prend la forme, en accord avec l'employeur, d'une période d'activité à temps partiel). Le salarié en congé de proche aidant peut toutefois : Soit, être employé ou dédommagé, sous certaines conditions, par la personne aidée en situation de handicap au titre de sa prestation de compensation du handicap ; Soit, s'il n'est pas son conjoint, concubin ou partenaire de Pacs, être employé par la personne âgée aidée bénéficiaire de l'APA (allocation personnalisée d'autonomie), cette prestation pouvant servir à le rémunérer. Allocation journalière du proche aidant  Une allocation journalière du proche aidant (AJPA) est versée aux salariés qui bénéficient du congé de proche aidant et qui remplissent les conditions prévuespar la réglementation. Cette allocation peut également être versée aux agents publics bénéficiant d'un congé de proche aidant, aux travailleurs non-salariés, aux stagiaires de la formation professionnelle rémunérée, aux demandeurs d'emploi indemnisés (sans cumul possible avec l'allocation de chômage et sans possibilité de percevoir l'AJPA pour une demi-journée) et aux VRP. Le montant de l'AJPA est fixé fixé, depuis le 1er janvier 2024, à 64,54 € par journée et à 31,27 € pour une demi-journée. À noter que, pour la détermination du montant du RSA ou de la prime d'activité, il n'est pas tenu compte, dans les ressources du bénéficiaire, des sommes perçues au titre de l'AJPA. Le versement de l'AJPA est effectué par les caisses d'allocations familiales (ou les caisses de MSA pour les personnes qui relèvent du régime agricole). Lorsque le bénéficiaire d'un congé de proche aidant le transforme en période d'activité à temps partiel, le montant mensuel de l'AJPA versé est calculé sur la base du nombre de journées ou demi-journées non travaillées correspondantes au titre d'un mois civil. Le nombre d'allocations journalières versées au bénéficiaire au cours d'un mois civil ne peut être supérieur à 22. Le nombre maximal d'allocations journalières versées à un bénéficiaire pour l'ensemble de sa carrière est égal à 66. La demande d'AJPA est effectuée au moyen d'un formulaire homologué disponible sur le site des CAF, qui rappelle les règles applicables (notamment les règles de non cumul avec d'autres prestations, indemnités ou allocations) et précise la liste des justificatifs à produire à l'appui de cette demande. Pour plus de précisions sur cette allocation, on se reportera au site des Caisses d'allocations familiales  Une allocation journalière du proche aidant (AJPA) est versée aux salariés qui bénéficient du congé de proche aidant et qui remplissent les conditions prévuespar la réglementation. Cette allocation peut également être versée aux agents publics bénéficiant d'un congé de proche aidant, aux travailleurs non-salariés, aux stagiaires de la formation professionnelle rémunérée, aux demandeurs d'emploi indemnisés (sans cumul possible avec l'allocation de chômage et sans possibilité de percevoir l'AJPA pour une demi-journée) et aux VRP. Le montant de l'AJPA est fixé fixé, depuis le 1er janvier 2024, à 64,54 € par journée et à 31,27 € pour une demi-journée. À noter que, pour la détermination du montant du RSA ou de la prime d'activité, il n'est pas tenu compte, dans les ressources du bénéficiaire, des sommes perçues au titre de l'AJPA. Le versement de l'AJPA est effectué par les caisses d'allocations familiales (ou les caisses de MSA pour les personnes qui relèvent du régime agricole). Lorsque le bénéficiaire d'un congé de proche aidant le transforme en période d'activité à temps partiel, le montant mensuel de l'AJPA versé est calculé sur la base du nombre de journées ou demi-journées non travaillées correspondantes au titre d'un mois civil. Le nombre d'allocations journalières versées au bénéficiaire au cours d'un mois civil ne peut être supérieur à 22. Le nombre maximal d'allocations journalières versées à un bénéficiaire pour l'ensemble de sa carrière est égal à 66. La demande d'AJPA est effectuée au moyen d'un formulaire homologué disponible sur le site des CAF, qui rappelle les règles applicables (notamment les règles de non cumul avec d'autres prestations, indemnités ou allocations) et précise la liste des justificatifs à produire à l'appui de cette demande. Pour plus de précisions sur cette allocation, on se reportera au site des Caisses d'allocations familiales  À noter À compter du 1er janvier 2025, en application du décret du 5 juillet 2024 cité en référence, le droit à l’allocation journalière du proche aidant pourra être renouvelé si le proche aidant apporte son aide à une personne différente de celle au titre de laquelle il aura précédemment bénéficié de cette allocation. Ce renouvellement sera ouvert dans la limite d’une durée de 66 jours. À compter de cette même date, le nombre maximal d’AJPA versées à un bénéficiaire sur l’ensemble de sa carrière sera porté à 264. À compter du 1er janvier 2025, en application du décret du 5 juillet 2024 cité en référence, le droit à l’allocation journalière du proche aidant pourra être renouvelé si le proche aidant apporte son aide à une personne différente de celle au titre de laquelle il aura précédemment bénéficié de cette allocation. Ce renouvellement sera ouvert dans la limite d’une durée de 66 jours. À compter de cette même date, le nombre maximal d’AJPA versées à un bénéficiaire sur l’ensemble de sa carrière sera porté à 264. Par ailleurs, bien que les deux dispositifs n'aient pas de liens entre eux, un salarié qui bénéficie d'un congé de proche aidant et qui dispose, dans son entreprise, d'un compte épargne-temps peut, si l'employeur donne son accord, utiliser les droits qu'il a accumulés sur ce compte pour disposer d'un revenu pendant tout ou partie de son congé. Affiliation des aidants à l'assurance vieillesse La personne bénéficiaire de l'allocation journalière du proche aidant (AJPA ; voir ci-dessus) est affiliée à l'assurance vieillesse du régime général de sécurité sociale, les cotisations étant versées, pour son compte, par le régime des prestations familiales dont elle relève (en principe, la CAF). Est également affiliée obligatoirement à l'assurance vieillesse du régime général de sécurité sociale la personne bénéficiaire du congé de proche aidant pour les périodes pendant lesquelles elle ne bénéficie pas de cette allocation. Dans ce dernier cas, la personne concernée doit faire une demande auprès de la CAF dont elle dépend ; le formulaire de demande doit être accompagné d'une attestation de son employeur indiquant les dates de début et de fin de prise du congé. Pour plus de précisions sur ce dispositif (dénommé « Assurance vieillesse des aidants » - AVA) , il convient de se reporter au site des CAF. La personne bénéficiaire de l'allocation journalière du proche aidant (AJPA ; voir ci-dessus) est affiliée à l'assurance vieillesse du régime général de sécurité sociale, les cotisations étant versées, pour son compte, par le régime des prestations familiales dont elle relève (en principe, la CAF). Est également affiliée obligatoirement à l'assurance vieillesse du régime général de sécurité sociale la personne bénéficiaire du congé de proche aidant pour les périodes pendant lesquelles elle ne bénéficie pas de cette allocation. Dans ce dernier cas, la personne concernée doit faire une demande auprès de la CAF dont elle dépend ; le formulaire de demande doit être accompagné d'une attestation de son employeur indiquant les dates de début et de fin de prise du congé. Pour plus de précisions sur ce dispositif (dénommé « Assurance vieillesse des aidants » - AVA) , il convient de se reporter au site des CAF.",
+      "text": "L'employeur n'est pas tenu de rémunérer un salarié en congé de proche aidant. En revanche, pendant toute cette période, le salarié ne peut exercer aucune activité professionnelle (sauf l'activité conservée si le congé prend la forme, en accord avec l'employeur, d'une période d'activité à temps partiel). Le salarié en congé de proche aidant peut toutefois :Soit, être employé ou dédommagé, sous certaines conditions, par la personne aidée en situation de handicap au titre de sa prestation de compensation du handicap ; Soit, s'il n'est pas son conjoint, concubin ou partenaire de Pacs, être employé par la personne âgée aidée bénéficiaire de l'APA (allocation personnalisée d'autonomie), cette prestation pouvant servir à le rémunérer.Allocation journalière du proche aidant  Une allocation journalière du proche aidant (AJPA) est versée aux salariés qui bénéficient du congé de proche aidant et qui remplissent les conditions prévuespar la réglementation. Cette allocation peut également être versée aux agents publics bénéficiant d'un congé de proche aidant, aux travailleurs non-salariés, aux stagiaires de la formation professionnelle rémunérée, aux demandeurs d'emploi indemnisés (sans cumul possible avec l'allocation de chômage et sans possibilité de percevoir l'AJPA pour une demi-journée) et aux VRP. Le montant de l'AJPA est fixé fixé, depuis le 1er janvier 2024, à 64,54 € par journée et à 31,27 € pour une demi-journée. À noter que, pour la détermination du montant du RSA ou de la prime d'activité, il n'est pas tenu compte, dans les ressources du bénéficiaire, des sommes perçues au titre de l'AJPA. Le versement de l'AJPA est effectué par les caisses d'allocations familiales (ou les caisses de MSA pour les personnes qui relèvent du régime agricole). Lorsque le bénéficiaire d'un congé de proche aidant le transforme en période d'activité à temps partiel, le montant mensuel de l'AJPA versé est calculé sur la base du nombre de journées ou demi-journées non travaillées correspondantes au titre d'un mois civil. Le nombre d'allocations journalières versées au bénéficiaire au cours d'un mois civil ne peut être supérieur à 22. Le nombre maximal d'allocations journalières versées à un bénéficiaire pour l'ensemble de sa carrière est égal à 66. La demande d'AJPA est effectuée au moyen d'un formulaire homologué disponible sur le site des CAF, qui rappelle les règles applicables (notamment les règles de non cumul avec d'autres prestations, indemnités ou allocations) et précise la liste des justificatifs à produire à l'appui de cette demande. Pour plus de précisions sur cette allocation, on se reportera au site des Caisses d'allocations familialesÀ noter À compter du 1er janvier 2025, en application du décret du 5 juillet 2024 cité en référence, le droit à l’allocation journalière du proche aidant pourra être renouvelé si le proche aidant apporte son aide à une personne différente de celle au titre de laquelle il aura précédemment bénéficié de cette allocation. Ce renouvellement sera ouvert dans la limite d’une durée de 66 jours. À compter de cette même date, le nombre maximal d’AJPA versées à un bénéficiaire sur l’ensemble de sa carrière sera porté à 264.Par ailleurs, bien que les deux dispositifs n'aient pas de liens entre eux, un salarié qui bénéficie d'un congé de proche aidant et qui dispose, dans son entreprise, d'un compte épargne-temps peut, si l'employeur donne son accord, utiliser les droits qu'il a accumulés sur ce compte pour disposer d'un revenu pendant tout ou partie de son congé.Affiliation des aidants à l'assurance vieillesse La personne bénéficiaire de l'allocation journalière du proche aidant (AJPA ; voir ci-dessus) est affiliée à l'assurance vieillesse du régime général de sécurité sociale, les cotisations étant versées, pour son compte, par le régime des prestations familiales dont elle relève (en principe, la CAF). Est également affiliée obligatoirement à l'assurance vieillesse du régime général de sécurité sociale la personne bénéficiaire du congé de proche aidant pour les périodes pendant lesquelles elle ne bénéficie pas de cette allocation. Dans ce dernier cas, la personne concernée doit faire une demande auprès de la CAF dont elle dépend ; le formulaire de demande doit être accompagné d'une attestation de son employeur indiquant les dates de début et de fin de prise du congé. Pour plus de précisions sur ce dispositif (dénommé « Assurance vieillesse des aidants » - AVA) , il convient de se reporter au site des CAF.",
       "title": "Le congé est-il rémunéré ?",
     },
     {
@@ -457,21 +457,21 @@ exports[`parseDom should parse HTML with intro section and 6 sections without id
       "description": "L'employeur ne peut pas refuser le congé de proche aidant si toutes les conditions requises pour en bénéficier sont remplies et si la demande est formulée dans les règles fixées. En revanche, l'employ",
       "html": "<p> L'employeur ne peut pas refuser le congé de proche aidant si toutes les conditions requises pour en bénéficier sont remplies et si la demande est formulée dans les règles fixées. En revanche, l'employeur peut ne pas donner son accord à sa transformation en période d'activité à temps partiel ou son fractionnement. </p><p> En cas de différend, le refus de l'employeur peut être directement contesté par le salarié devant le conseil de prud'hommes, statuant selon la procédure accélérée au fond (anciennement « en la forme des référés »). <strong>Le conseil de prud'hommes statue alors en dernier ressort</strong>, c'est-à-dire que seul un pourvoi en cassation sera possible contre la décision rendue par les juges. </p>",
       "references": {},
-      "text": "L'employeur ne peut pas refuser le congé de proche aidant si toutes les conditions requises pour en bénéficier sont remplies et si la demande est formulée dans les règles fixées. En revanche, l'employeur peut ne pas donner son accord à sa transformation en période d'activité à temps partiel ou son fractionnement. En cas de différend, le refus de l'employeur peut être directement contesté par le salarié devant le conseil de prud'hommes, statuant selon la procédure accélérée au fond (anciennement « en la forme des référés »). Le conseil de prud'hommes statue alors en dernier ressort, c'est-à-dire que seul un pourvoi en cassation sera possible contre la décision rendue par les juges.",
+      "text": "L'employeur ne peut pas refuser le congé de proche aidant si toutes les conditions requises pour en bénéficier sont remplies et si la demande est formulée dans les règles fixées. En revanche, l'employeur peut ne pas donner son accord à sa transformation en période d'activité à temps partiel ou son fractionnement.En cas de différend, le refus de l'employeur peut être directement contesté par le salarié devant le conseil de prud'hommes, statuant selon la procédure accélérée au fond (anciennement « en la forme des référés »). Le conseil de prud'hommes statue alors en dernier ressort, c'est-à-dire que seul un pourvoi en cassation sera possible contre la décision rendue par les juges.",
       "title": "Le congé peut-il être refusé ?",
     },
     {
       "anchor": "que-se-passe-t-il-a-lissue-du-conge-ou-de-la-periode-a-temps-partiel",
-      "description": "À l'issue de son congé de proche aidant ou de la période d'activité à temps partiel, le salarié retrouve son emploi ou un emploi similaire assorti d'une rémunération au moins équivalente. Droit à un e",
-      "html": "<p> <span>À</span> l'issue de son congé de proche aidant ou de la période d'activité à temps partiel, le salarié retrouve son emploi ou un emploi similaire assorti d'une rémunération au moins équivalente. </p><div class="fr-highlight"> <h3>Droit à un entretien professionnel</h3> <p> Le salarié qui suspend son activité par un congé de proche aidant a droit à un entretien professionnel, avant et après son congé. Cet entretien, consacré aux perspectives d'évolution professionnelle du salarié, notamment en termes de qualifications et d'emploi, donne lieu à la rédaction d'un document dont une copie est remise au salarié. Il ne porte pas sur l'évaluation du travail du salarié ; il comporte également des <strong>informations relatives à la validation des acquis de l'expérience</strong>, à l'activation par le salarié de son <a href="https://travail-emploi.gouv.fr/le-compte-personnel-de-formation-cpf" data-entity-type="node" data-entity-uuid="8216c1dc-e30f-4ee5-9643-d45ceb6d053c" data-entity-substitution="canonical" title="Le compte personnel de formation (CPF)" target="_blank" rel="nofollow, noopener">compte personnel de formation</a>, aux abondements de ce compte que l'employeur est susceptible de financer et au conseil en évolution professionnelle. </p> </div><p> Le salarié qui suspend son activité par un congé de proche aidant a droit à un entretien professionnel, avant et après son congé. Cet entretien, consacré aux perspectives d'évolution professionnelle du salarié, notamment en termes de qualifications et d'emploi, donne lieu à la rédaction d'un document dont une copie est remise au salarié. Il ne porte pas sur l'évaluation du travail du salarié ; il comporte également des <strong>informations relatives à la validation des acquis de l'expérience</strong>, à l'activation par le salarié de son <a href="https://travail-emploi.gouv.fr/le-compte-personnel-de-formation-cpf" data-entity-type="node" data-entity-uuid="8216c1dc-e30f-4ee5-9643-d45ceb6d053c" data-entity-substitution="canonical" title="Le compte personnel de formation (CPF)" target="_blank" rel="nofollow, noopener">compte personnel de formation</a>, aux abondements de ce compte que l'employeur est susceptible de financer et au conseil en évolution professionnelle. </p>",
+      "description": "À l'issue de son congé de proche aidant ou de la période d'activité à temps partiel, le salarié retrouve son emploi ou un emploi similaire assorti d'une rémunération au moins équivalente.Droit à un en",
+      "html": "<p> <span>À</span> l'issue de son congé de proche aidant ou de la période d'activité à temps partiel, le salarié retrouve son emploi ou un emploi similaire assorti d'une rémunération au moins équivalente. </p><div class="fr-highlight"> <h3>Droit à un entretien professionnel</h3> <p> Le salarié qui suspend son activité par un congé de proche aidant a droit à un entretien professionnel, avant et après son congé. Cet entretien, consacré aux perspectives d'évolution professionnelle du salarié, notamment en termes de qualifications et d'emploi, donne lieu à la rédaction d'un document dont une copie est remise au salarié. Il ne porte pas sur l'évaluation du travail du salarié ; il comporte également des <strong>informations relatives à la validation des acquis de l'expérience</strong>, à l'activation par le salarié de son <a href="https://travail-emploi.gouv.fr/le-compte-personnel-de-formation-cpf" data-entity-type="node" data-entity-uuid="8216c1dc-e30f-4ee5-9643-d45ceb6d053c" data-entity-substitution="canonical" title="Le compte personnel de formation (CPF)" target="_blank" rel="nofollow, noopener">compte personnel de formation</a>, aux abondements de ce compte que l'employeur est susceptible de financer et au conseil en évolution professionnelle. </p> </div>",
       "references": {},
-      "text": "À l'issue de son congé de proche aidant ou de la période d'activité à temps partiel, le salarié retrouve son emploi ou un emploi similaire assorti d'une rémunération au moins équivalente. Droit à un entretien professionnel Le salarié qui suspend son activité par un congé de proche aidant a droit à un entretien professionnel, avant et après son congé. Cet entretien, consacré aux perspectives d'évolution professionnelle du salarié, notamment en termes de qualifications et d'emploi, donne lieu à la rédaction d'un document dont une copie est remise au salarié. Il ne porte pas sur l'évaluation du travail du salarié ; il comporte également des informations relatives à la validation des acquis de l'expérience, à l'activation par le salarié de son compte personnel de formation, aux abondements de ce compte que l'employeur est susceptible de financer et au conseil en évolution professionnelle. Le salarié qui suspend son activité par un congé de proche aidant a droit à un entretien professionnel, avant et après son congé. Cet entretien, consacré aux perspectives d'évolution professionnelle du salarié, notamment en termes de qualifications et d'emploi, donne lieu à la rédaction d'un document dont une copie est remise au salarié. Il ne porte pas sur l'évaluation du travail du salarié ; il comporte également des informations relatives à la validation des acquis de l'expérience, à l'activation par le salarié de son compte personnel de formation, aux abondements de ce compte que l'employeur est susceptible de financer et au conseil en évolution professionnelle.",
+      "text": "À l'issue de son congé de proche aidant ou de la période d'activité à temps partiel, le salarié retrouve son emploi ou un emploi similaire assorti d'une rémunération au moins équivalente.Droit à un entretien professionnel Le salarié qui suspend son activité par un congé de proche aidant a droit à un entretien professionnel, avant et après son congé. Cet entretien, consacré aux perspectives d'évolution professionnelle du salarié, notamment en termes de qualifications et d'emploi, donne lieu à la rédaction d'un document dont une copie est remise au salarié. Il ne porte pas sur l'évaluation du travail du salarié ; il comporte également des informations relatives à la validation des acquis de l'expérience, à l'activation par le salarié de son compte personnel de formation, aux abondements de ce compte que l'employeur est susceptible de financer et au conseil en évolution professionnelle.",
       "title": "Que se passe-t-il à l'issue du congé ou de la période à temps partiel ?",
     },
     {
       "anchor": "en-quoi-consiste-le-don-de-jours-de-repos",
       "description": "À l'instar de ce qui est déjà prévu au profit des salariés dont un enfant de moins de vingt ans est gravement malade ou handicapé, ou dont l'enfant de moins de 25 ou la personne de moins de 25 ans don",
-      "html": "<p> À l'instar de ce qui est déjà prévu au profit des salariés dont un enfant de moins de vingt ans est <a href="https://travail-emploi.gouv.fr/les-conges-et-absences-pour-enfant-malade" data-entity-type="node" data-entity-uuid="f2a972f1-efca-4044-a190-4127dd902c74" data-entity-substitution="canonical" title="Les congés et absences pour enfant malade" target="_blank" rel="nofollow, noopener">gravement malade ou handicapé</a>, ou dont l'enfant de moins de 25 ou la personne de moins de 25 ans dont il a la charge effective et permanente est <a href="https://travail-emploi.gouv.fr/les-conges-et-absences-pour-enfant-malade" data-entity-type="node" data-entity-uuid="f2a972f1-efca-4044-a190-4127dd902c74" data-entity-substitution="canonical" title="Les congés et absences pour enfant malade" target="_blank" rel="nofollow, noopener">décédé</a>, un salarié peut, sur sa demande et en accord avec son employeur, renoncer anonymement et sans contrepartie à tout ou partie de ses jours de repos non pris, qu'ils aient été ou non affectés sur un compte épargne-temps (CET), au bénéfice d'un autre salarié de l'entreprise qui vient en aide à une personne atteinte d'une perte d'autonomie ou présentant un handicap lorsque cette personne est, pour cet autre salarié, l'une de celles permettant de bénéficier du congé de proche aidant. </p><p>Les dispositions suivantes sont prévues :</p><ul> <li> Le congé annuel ne peut être cédé que pour sa durée excédant 24 jours ouvrables&nbsp;; </li> <li> Le salarié bénéficiant d'un ou de plusieurs jours cédés bénéficie du maintien de sa rémunération pendant sa période d'absence. Cette période d'absence est assimilée à une période de travail effectif pour la détermination des droits que le salarié tient de son ancienneté. Le salarié conserve le bénéfice de tous les avantages qu'il avait acquis avant le début de sa période d'absence. <br>Ces dispositions, prévues à l'article L. 3142-25-1 du Code du travail, sont d'ordre public. </li> </ul><div class="fr-highlight"> L'article 1<sup>er</sup> du décret du <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043232974" target="_blank" rel=" noopener external" title="28 mai 2015 - nouvelle fenêtre">28 mai 2015</a> fixe les conditions de mise en œuvre de ce dispositif dans la fonction publique. </div><sup>er</sup><a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043232974" target="_blank" rel=" noopener external" title="28 mai 2015 - nouvelle fenêtre">28 mai 2015</a>",
+      "html": "<p> À l'instar de ce qui est déjà prévu au profit des salariés dont un enfant de moins de vingt ans est <a href="https://travail-emploi.gouv.fr/les-conges-et-absences-pour-enfant-malade" data-entity-type="node" data-entity-uuid="f2a972f1-efca-4044-a190-4127dd902c74" data-entity-substitution="canonical" title="Les congés et absences pour enfant malade" target="_blank" rel="nofollow, noopener">gravement malade ou handicapé</a>, ou dont l'enfant de moins de 25 ou la personne de moins de 25 ans dont il a la charge effective et permanente est <a href="https://travail-emploi.gouv.fr/les-conges-et-absences-pour-enfant-malade" data-entity-type="node" data-entity-uuid="f2a972f1-efca-4044-a190-4127dd902c74" data-entity-substitution="canonical" title="Les congés et absences pour enfant malade" target="_blank" rel="nofollow, noopener">décédé</a>, un salarié peut, sur sa demande et en accord avec son employeur, renoncer anonymement et sans contrepartie à tout ou partie de ses jours de repos non pris, qu'ils aient été ou non affectés sur un compte épargne-temps (CET), au bénéfice d'un autre salarié de l'entreprise qui vient en aide à une personne atteinte d'une perte d'autonomie ou présentant un handicap lorsque cette personne est, pour cet autre salarié, l'une de celles permettant de bénéficier du congé de proche aidant. </p><p>Les dispositions suivantes sont prévues :</p><ul> <li> Le congé annuel ne peut être cédé que pour sa durée excédant 24 jours ouvrables ; </li> <li> Le salarié bénéficiant d'un ou de plusieurs jours cédés bénéficie du maintien de sa rémunération pendant sa période d'absence. Cette période d'absence est assimilée à une période de travail effectif pour la détermination des droits que le salarié tient de son ancienneté. Le salarié conserve le bénéfice de tous les avantages qu'il avait acquis avant le début de sa période d'absence. <br>Ces dispositions, prévues à l'article L. 3142-25-1 du Code du travail, sont d'ordre public. </li> </ul><div class="fr-highlight"> L'article 1<sup>er</sup> du décret du <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000043232974" target="_blank" rel=" noopener external" title="28 mai 2015 - nouvelle fenêtre">28 mai 2015</a> fixe les conditions de mise en œuvre de ce dispositif dans la fonction publique. </div><section class="fr-mb-4w fr-mt-6w fr-mb-6v ondine-container-color"> </section>",
       "references": {
         "LEGITEXT000006072050": {
           "articles": [
@@ -481,12 +481,407 @@ exports[`parseDom should parse HTML with intro section and 6 sections without id
               "id": "LEGIARTI000036596945",
               "text": "L. 3142-25-1",
             },
+            {
+              "cid": "LEGIARTI000006902684",
+              "fmt": "L3142-16",
+              "id": "LEGIARTI000041398423",
+              "text": "L. 3142-16",
+            },
+            {
+              "cid": "LEGIARTI000006902685",
+              "fmt": "L3142-17",
+              "id": "LEGIARTI000033022071",
+            },
+            {
+              "cid": "LEGIARTI000006902686",
+              "fmt": "L3142-18",
+              "id": "LEGIARTI000033022067",
+            },
+            {
+              "cid": "LEGIARTI000006902687",
+              "fmt": "L3142-19",
+              "id": "LEGIARTI000033022063",
+            },
+            {
+              "cid": "LEGIARTI000006902688",
+              "fmt": "L3142-20",
+              "id": "LEGIARTI000033022059",
+            },
+            {
+              "cid": "LEGIARTI000006902689",
+              "fmt": "L3142-21",
+              "id": "LEGIARTI000033022052",
+            },
+            {
+              "cid": "LEGIARTI000006902690",
+              "fmt": "L3142-22",
+              "id": "LEGIARTI000033022046",
+            },
+            {
+              "cid": "LEGIARTI000006902691",
+              "fmt": "L3142-23",
+              "id": "LEGIARTI000033022043",
+            },
+            {
+              "cid": "LEGIARTI000006902692",
+              "fmt": "L3142-24",
+              "id": "LEGIARTI000033022040",
+            },
+            {
+              "cid": "LEGIARTI000006902693",
+              "fmt": "L3142-25",
+              "id": "LEGIARTI000038791177",
+            },
+            {
+              "cid": "LEGIARTI000006902694",
+              "fmt": "L3142-26",
+              "id": "LEGIARTI000038498902",
+            },
+            {
+              "cid": "LEGIARTI000006902695",
+              "fmt": "L3142-27",
+              "id": "LEGIARTI000033022024",
+              "text": "L. 3142-27",
+            },
+            {
+              "cid": "LEGIARTI000018486822",
+              "fmt": "D3142-7",
+              "id": "LEGIARTI000033925216",
+              "text": "D. 3142-7",
+            },
+            {
+              "cid": "LEGIARTI000018486824",
+              "fmt": "D3142-8",
+              "id": "LEGIARTI000033543892",
+            },
+            {
+              "cid": "LEGIARTI000018486828",
+              "fmt": "D3142-9",
+              "id": "LEGIARTI000042389627",
+            },
+            {
+              "cid": "LEGIARTI000018486832",
+              "fmt": "D3142-11",
+              "id": "LEGIARTI000033530322",
+            },
+            {
+              "cid": "LEGIARTI000018486834",
+              "fmt": "D3142-12",
+              "id": "LEGIARTI000033530327",
+            },
+            {
+              "cid": "LEGIARTI000018486836",
+              "fmt": "D3142-13",
+              "id": "LEGIARTI000033530316",
+              "text": "D. 3142-13",
+            },
           ],
           "name": "code du travail",
         },
+        "LEGITEXT000006073189": {
+          "articles": [
+            {
+              "cid": "LEGIARTI000039787614",
+              "fmt": "L168-8",
+              "id": "LEGIARTI000042686473",
+              "text": "L. 168-8",
+            },
+            {
+              "cid": "LEGIARTI000039787616",
+              "fmt": "L168-9",
+              "id": "LEGIARTI000039787616",
+            },
+            {
+              "cid": "LEGIARTI000039787618",
+              "fmt": "L168-10",
+              "id": "LEGIARTI000039787618",
+            },
+            {
+              "cid": "LEGIARTI000039787620",
+              "fmt": "L168-11",
+              "id": "LEGIARTI000042684385",
+            },
+            {
+              "cid": "LEGIARTI000039787622",
+              "fmt": "L168-12",
+              "id": "LEGIARTI000039787622",
+            },
+            {
+              "cid": "LEGIARTI000039787624",
+              "fmt": "L168-13",
+              "id": "LEGIARTI000039787624",
+            },
+            {
+              "cid": "LEGIARTI000039787626",
+              "fmt": "L168-14",
+              "id": "LEGIARTI000039787626",
+            },
+            {
+              "cid": "LEGIARTI000039787628",
+              "fmt": "L168-15",
+              "id": "LEGIARTI000039787628",
+            },
+            {
+              "cid": "LEGIARTI000039787630",
+              "fmt": "L168-16",
+              "id": "LEGIARTI000039787630",
+              "text": "L. 168-16",
+            },
+            {
+              "cid": "LEGIARTI000042388687",
+              "fmt": "D168-11",
+              "id": "LEGIARTI000042388721",
+              "text": "D. 168-11",
+            },
+            {
+              "cid": "LEGIARTI000042388689",
+              "fmt": "D168-12",
+              "id": "LEGIARTI000042388731",
+            },
+            {
+              "cid": "LEGIARTI000042388691",
+              "fmt": "D168-13",
+              "id": "LEGIARTI000042388763",
+            },
+            {
+              "cid": "LEGIARTI000042388694",
+              "fmt": "D168-14",
+              "id": "LEGIARTI000042388765",
+            },
+            {
+              "cid": "LEGIARTI000042388696",
+              "fmt": "D168-15",
+              "id": "LEGIARTI000042388767",
+            },
+            {
+              "cid": "LEGIARTI000042388698",
+              "fmt": "D168-16",
+              "id": "LEGIARTI000042388772",
+            },
+            {
+              "cid": "LEGIARTI000042388700",
+              "fmt": "D168-17",
+              "id": "LEGIARTI000042388774",
+            },
+            {
+              "cid": "LEGIARTI000042388702",
+              "fmt": "D168-18",
+              "id": "LEGIARTI000042388777",
+              "text": "D. 168-18",
+            },
+          ],
+          "name": "code de la sécurité sociale",
+        },
       },
-      "text": "À l'instar de ce qui est déjà prévu au profit des salariés dont un enfant de moins de vingt ans est gravement malade ou handicapé, ou dont l'enfant de moins de 25 ou la personne de moins de 25 ans dont il a la charge effective et permanente est décédé, un salarié peut, sur sa demande et en accord avec son employeur, renoncer anonymement et sans contrepartie à tout ou partie de ses jours de repos non pris, qu'ils aient été ou non affectés sur un compte épargne-temps (CET), au bénéfice d'un autre salarié de l'entreprise qui vient en aide à une personne atteinte d'une perte d'autonomie ou présentant un handicap lorsque cette personne est, pour cet autre salarié, l'une de celles permettant de bénéficier du congé de proche aidant. Les dispositions suivantes sont prévues : Le congé annuel ne peut être cédé que pour sa durée excédant 24 jours ouvrables ; Le salarié bénéficiant d'un ou de plusieurs jours cédés bénéficie du maintien de sa rémunération pendant sa période d'absence. Cette période d'absence est assimilée à une période de travail effectif pour la détermination des droits que le salarié tient de son ancienneté. Le salarié conserve le bénéfice de tous les avantages qu'il avait acquis avant le début de sa période d'absence. Ces dispositions, prévues à l'article L. 3142-25-1 du Code du travail, sont d'ordre public. L'article 1er du décret du 28 mai 2015 fixe les conditions de mise en œuvre de ce dispositif dans la fonction publique. er28 mai 2015",
+      "text": "À l'instar de ce qui est déjà prévu au profit des salariés dont un enfant de moins de vingt ans est gravement malade ou handicapé, ou dont l'enfant de moins de 25 ou la personne de moins de 25 ans dont il a la charge effective et permanente est décédé, un salarié peut, sur sa demande et en accord avec son employeur, renoncer anonymement et sans contrepartie à tout ou partie de ses jours de repos non pris, qu'ils aient été ou non affectés sur un compte épargne-temps (CET), au bénéfice d'un autre salarié de l'entreprise qui vient en aide à une personne atteinte d'une perte d'autonomie ou présentant un handicap lorsque cette personne est, pour cet autre salarié, l'une de celles permettant de bénéficier du congé de proche aidant.Les dispositions suivantes sont prévues :Le congé annuel ne peut être cédé que pour sa durée excédant 24 jours ouvrables ; Le salarié bénéficiant d'un ou de plusieurs jours cédés bénéficie du maintien de sa rémunération pendant sa période d'absence. Cette période d'absence est assimilée à une période de travail effectif pour la détermination des droits que le salarié tient de son ancienneté. Le salarié conserve le bénéfice de tous les avantages qu'il avait acquis avant le début de sa période d'absence. Ces dispositions, prévues à l'article L. 3142-25-1 du Code du travail, sont d'ordre public.L'article 1er du décret du 28 mai 2015 fixe les conditions de mise en œuvre de ce dispositif dans la fonction publique.Textes de référence Articles L. 3142-16 à L. 3142-27 du Code du travail Articles D. 3142-7 à D. 3142-13 du Code du travail Articles L. 168-8 à L. 168-16 et D. 168-11 à D. 168-18 du Code de la sécurité sociale (allocation journalière du proche aidant) Loi n° 2023-171 du 9 mars 2023 (JO du 10)",
       "title": "En quoi consiste le « don » de jours de repos ?",
+    },
+    {
+      "anchor": "textes-de-reference",
+      "description": "Articles L. 3142-16 à L. 3142-27 du Code du travail Articles D. 3142-7 à D. 3142-13 du Code du travail Articles L. 168-8 à L. 168-16 et D. 168-11 à D. 168-18 du Code de la sécurité sociale (allocation",
+      "html": "<ul> <li> Articles L. 3142-16 à L. 3142-27 du Code du travail </li> <li> Articles D. 3142-7 à D. 3142-13 du Code du travail </li> <li> Articles L. 168-8 à L. 168-16 et D. 168-11 à D. 168-18 du Code de la sécurité sociale (allocation journalière du proche aidant) </li> <li>Loi n° 2023-171 du 9 mars 2023 (JO du 10)</li> </ul>",
+      "references": {
+        "LEGITEXT000006072050": {
+          "articles": [
+            {
+              "cid": "LEGIARTI000006902684",
+              "fmt": "L3142-16",
+              "id": "LEGIARTI000041398423",
+              "text": "L. 3142-16",
+            },
+            {
+              "cid": "LEGIARTI000006902685",
+              "fmt": "L3142-17",
+              "id": "LEGIARTI000033022071",
+            },
+            {
+              "cid": "LEGIARTI000006902686",
+              "fmt": "L3142-18",
+              "id": "LEGIARTI000033022067",
+            },
+            {
+              "cid": "LEGIARTI000006902687",
+              "fmt": "L3142-19",
+              "id": "LEGIARTI000033022063",
+            },
+            {
+              "cid": "LEGIARTI000006902688",
+              "fmt": "L3142-20",
+              "id": "LEGIARTI000033022059",
+            },
+            {
+              "cid": "LEGIARTI000006902689",
+              "fmt": "L3142-21",
+              "id": "LEGIARTI000033022052",
+            },
+            {
+              "cid": "LEGIARTI000006902690",
+              "fmt": "L3142-22",
+              "id": "LEGIARTI000033022046",
+            },
+            {
+              "cid": "LEGIARTI000006902691",
+              "fmt": "L3142-23",
+              "id": "LEGIARTI000033022043",
+            },
+            {
+              "cid": "LEGIARTI000006902692",
+              "fmt": "L3142-24",
+              "id": "LEGIARTI000033022040",
+            },
+            {
+              "cid": "LEGIARTI000006902693",
+              "fmt": "L3142-25",
+              "id": "LEGIARTI000038791177",
+            },
+            {
+              "cid": "LEGIARTI000036596940",
+              "fmt": "L3142-25-1",
+              "id": "LEGIARTI000036596945",
+            },
+            {
+              "cid": "LEGIARTI000006902694",
+              "fmt": "L3142-26",
+              "id": "LEGIARTI000038498902",
+            },
+            {
+              "cid": "LEGIARTI000006902695",
+              "fmt": "L3142-27",
+              "id": "LEGIARTI000033022024",
+              "text": "L. 3142-27",
+            },
+            {
+              "cid": "LEGIARTI000018486822",
+              "fmt": "D3142-7",
+              "id": "LEGIARTI000033925216",
+              "text": "D. 3142-7",
+            },
+            {
+              "cid": "LEGIARTI000018486824",
+              "fmt": "D3142-8",
+              "id": "LEGIARTI000033543892",
+            },
+            {
+              "cid": "LEGIARTI000018486828",
+              "fmt": "D3142-9",
+              "id": "LEGIARTI000042389627",
+            },
+            {
+              "cid": "LEGIARTI000018486832",
+              "fmt": "D3142-11",
+              "id": "LEGIARTI000033530322",
+            },
+            {
+              "cid": "LEGIARTI000018486834",
+              "fmt": "D3142-12",
+              "id": "LEGIARTI000033530327",
+            },
+            {
+              "cid": "LEGIARTI000018486836",
+              "fmt": "D3142-13",
+              "id": "LEGIARTI000033530316",
+              "text": "D. 3142-13",
+            },
+          ],
+          "name": "code du travail",
+        },
+        "LEGITEXT000006073189": {
+          "articles": [
+            {
+              "cid": "LEGIARTI000039787614",
+              "fmt": "L168-8",
+              "id": "LEGIARTI000042686473",
+              "text": "L. 168-8",
+            },
+            {
+              "cid": "LEGIARTI000039787616",
+              "fmt": "L168-9",
+              "id": "LEGIARTI000039787616",
+            },
+            {
+              "cid": "LEGIARTI000039787618",
+              "fmt": "L168-10",
+              "id": "LEGIARTI000039787618",
+            },
+            {
+              "cid": "LEGIARTI000039787620",
+              "fmt": "L168-11",
+              "id": "LEGIARTI000042684385",
+            },
+            {
+              "cid": "LEGIARTI000039787622",
+              "fmt": "L168-12",
+              "id": "LEGIARTI000039787622",
+            },
+            {
+              "cid": "LEGIARTI000039787624",
+              "fmt": "L168-13",
+              "id": "LEGIARTI000039787624",
+            },
+            {
+              "cid": "LEGIARTI000039787626",
+              "fmt": "L168-14",
+              "id": "LEGIARTI000039787626",
+            },
+            {
+              "cid": "LEGIARTI000039787628",
+              "fmt": "L168-15",
+              "id": "LEGIARTI000039787628",
+            },
+            {
+              "cid": "LEGIARTI000039787630",
+              "fmt": "L168-16",
+              "id": "LEGIARTI000039787630",
+              "text": "L. 168-16",
+            },
+            {
+              "cid": "LEGIARTI000042388687",
+              "fmt": "D168-11",
+              "id": "LEGIARTI000042388721",
+              "text": "D. 168-11",
+            },
+            {
+              "cid": "LEGIARTI000042388689",
+              "fmt": "D168-12",
+              "id": "LEGIARTI000042388731",
+            },
+            {
+              "cid": "LEGIARTI000042388691",
+              "fmt": "D168-13",
+              "id": "LEGIARTI000042388763",
+            },
+            {
+              "cid": "LEGIARTI000042388694",
+              "fmt": "D168-14",
+              "id": "LEGIARTI000042388765",
+            },
+            {
+              "cid": "LEGIARTI000042388696",
+              "fmt": "D168-15",
+              "id": "LEGIARTI000042388767",
+            },
+            {
+              "cid": "LEGIARTI000042388698",
+              "fmt": "D168-16",
+              "id": "LEGIARTI000042388772",
+            },
+            {
+              "cid": "LEGIARTI000042388700",
+              "fmt": "D168-17",
+              "id": "LEGIARTI000042388774",
+            },
+            {
+              "cid": "LEGIARTI000042388702",
+              "fmt": "D168-18",
+              "id": "LEGIARTI000042388777",
+              "text": "D. 168-18",
+            },
+          ],
+          "name": "code de la sécurité sociale",
+        },
+      },
+      "text": "Articles L. 3142-16 à L. 3142-27 du Code du travail Articles D. 3142-7 à D. 3142-13 du Code du travail Articles L. 168-8 à L. 168-16 et D. 168-11 à D. 168-18 du Code de la sécurité sociale (allocation journalière du proche aidant) Loi n° 2023-171 du 9 mars 2023 (JO du 10)",
+      "title": "Textes de référence",
     },
   ],
   "title": "Le congé de proche aidant",
@@ -498,218 +893,85 @@ exports[`parseDom should parse HTML with no section 1`] = `
 {
   "date": "09/04/2021",
   "description": "",
-  "intro": "<img src="https://travail-emploi.gouv.fr/sites/travail-emploi/files/styles/w_1200/public/files-spip/logo/arton378694.png.webp" width="720" height="378" alt="logo/arton378694.png" loading="lazy" typeof="foaf:Image" class="fr-fluid-img"> <p> Élisabeth Borne, ministre du Travail, de l’Emploi et de l’Insertion, a signé 10 nouvelles conventions cadres avec des opérateurs de compétences (OPCO) actant la mobilisation de près de 240 millions d’euros supplémentaires du <a href="https://travail-emploi.gouv.fr/emploi-et-insertion/accompagnement-des-mutations-economiques/appui-aux-mutations-economiques/fne-formation" target="_blank" rel="nofollow, noopener">FNE-Formation</a>, financés par le plan France Relance, en vue de renforcer les compétences. Avec la signature de la première convention cadre avec l’OPCO 2i en janvier 2021, l'État consacrera au total cette année près de 390 millions d'euros à la formation des salariés des entreprises impactées par la crise. </p>",
+  "intro": "<p> Élisabeth Borne, ministre du Travail, de l’Emploi et de l’Insertion, a signé 10 nouvelles conventions cadres avec des opérateurs de compétences (OPCO) actant la mobilisation de près de 240 millions d’euros supplémentaires du <a href="https://travail-emploi.gouv.fr/emploi-et-insertion/accompagnement-des-mutations-economiques/appui-aux-mutations-economiques/fne-formation" target="_blank" rel="nofollow, noopener">FNE-Formation</a>, financés par le plan France Relance, en vue de renforcer les compétences. Avec la signature de la première convention cadre avec l’OPCO 2i en janvier 2021, l'État consacrera au total cette année près de 390 millions d'euros à la formation des salariés des entreprises impactées par la crise. </p>",
   "pubId": "article377849",
   "sections": [
     {
       "anchor": "",
-      "description": "",
-      "html": "<p>
-                        Repensé pour faire face aux conséquences économiques
-                        liées à la crise sanitaire du Covid-19, le dispositif
-                        FNE-Formation vise à
-                        <strong>répondre aux besoins des entreprises en activité
-                          partielle, en activité partielle de longue durée et
-                          des entreprises en difficulté</strong>
-                        pour former leurs salarié(e)s et ainsi préparer la
-                        sortie de crise.
-                      </p><p>
-                        Dans le cadre des conventions signées entre l’État et
-                        chacun des 11 OPCO, l’abondement significatif apporté
-                        par l’État via le FNE-Formation doit permettre d<strong>’accompagner le développement des compétences des
-                          salarié(e)s ou leur reconversion interne</strong>. Ces conventions cadres concernent l’ensemble des
-                        secteurs et vont notamment permettre de
-                        <strong>soutenir des activités particulièrement impactées par
-                          la crise sanitaire pour favoriser leur rebond
-                        </strong>
-                        (hôtel-café-restaurant, transport aérien, commerce,
-                        services aux entreprises, etc.)
-                      </p><p>
-                        Dans leur rôle d’appui aux branches professionnelles,
-                        <strong>les OPCO auront la responsabilité de la mise en œuvre
-                          de ce dispositif exceptionnel</strong>, du ciblage des entreprises, de la qualification de
-                        leurs besoins, du montage des solutions et leur suivi.
-                      </p><p>
-                        De l’ordre de
-                        <strong>48 000 parcours de formation pourront ainsi être
-                          financés</strong>
-                        dans le périmètre de ces conventions, et selon la
-                        typologie suivante :
-                      </p><p>
-                        - Le <strong>Parcours reconversion</strong> permettant à
-                        un(e) salarié(e) de changer de métier ou de secteur
-                        d’activité au sein de la même entreprise ;
-                      </p><p>
-                        - Le<strong> Parcours certifiant </strong> permettant à
-                        un(e) salarié(e) d’acquérir un diplôme, un titre
-                        professionnel, un certificat de qualification
-                        professionnelle ou interindustrielle ;
-                      </p><p>
-                        - Le
-                        <strong>Parcours compétences spécifiques </strong>
-                        contexte Covid-19 ayant conduit à une nouvelle
-                        organisation, de nouveaux marchés, de nouveaux procédés…
-                        ;
-                      </p><p>
-                        - Le
-                        <strong>Parcours anticipation des mutations</strong> qui
-                        vise à permettre une bonne appropriation des outils et
-                        méthodes de travail par le/la salarié(e) : numérique,
-                        écologie et compétences métier spécifiques.
-                      </p><p>
-                        «
-                        <em>Après avoir signé une première convention cadre avec
-                          l’OPCO 2i pour accompagner la relance de l’industrie,
-                          je me réjouis de la finalisation de ces nouvelles
-                          conventions qui sont une grande avancée pour encore
-                          mieux accompagner l’ensemble des secteurs d’activités
-                          impactés par la crise. Dans certains cas, la crise a
-                          été un accélérateur des mutations déjà à l’œuvre,
-                          comme la digitalisation dans le commerce, ce qui
-                          suppose de renforcer l’effort de formation. Le
-                          FNE-Formation permettra d’anticiper l’évolution des
-                          compétences nécessaires pour s’adapter aux nouveaux
-                          modèles en sortie de crise. La formation des
-                          salarié(e)s sera clé pour la reprise économique
-                        </em>
-                        » déclare
-                        <strong>Élisabeth Borne, ministre du Travail, de l’Emploi et
-                          de l’Insertion</strong>.
-                      </p><hr><div class="text-align-left">
-                        <a href="https://travail-emploi.gouv.fr/sites/travail-emploi/files/files-spip/pdf/cp_mtei_-_fne-formation_-_signature_de_10_nouvelles_conventions_cadres_avec_les_operateurs_de_competences_opco_.pdf" type="application/pdf" class="file file--mime-application-pdf file--application-pdf fr-link--download fr-link" data-tracking-download-label="CP - FNE-Formation : signature de 10 nouvelles conventions cadres avec les opérateurs de compétences pour accélérer la formation des salarié(e)s et préparer la sortie de crise." download="" data-component-id="dsfr4drupal:link" target="_blank" rel="nofollow, noopener">
-                          CP - FNE-Formation : signature de 10 nouvelles
-                          conventions cadres avec les opérateurs de compétences
-                          pour accélérer la formation des salarié(e)s et
-                          préparer la sortie de crise.
-                          <span class="fr-link__detail">PDF - 500.45 Ko</span>
-                        </a>
-                      </div><a href="https://travail-emploi.gouv.fr/sites/travail-emploi/files/files-spip/pdf/cp_mtei_-_fne-formation_-_signature_de_10_nouvelles_conventions_cadres_avec_les_operateurs_de_competences_opco_.pdf" type="application/pdf" class="file file--mime-application-pdf file--application-pdf fr-link--download fr-link" data-tracking-download-label="CP - FNE-Formation : signature de 10 nouvelles conventions cadres avec les opérateurs de compétences pour accélérer la formation des salarié(e)s et préparer la sortie de crise." download="" data-component-id="dsfr4drupal:link" target="_blank" rel="nofollow, noopener">
-                          CP - FNE-Formation : signature de 10 nouvelles
-                          conventions cadres avec les opérateurs de compétences
-                          pour accélérer la formation des salarié(e)s et
-                          préparer la sortie de crise.
-                          <span class="fr-link__detail">PDF - 500.45 Ko</span>
-                        </a><div class="text-align-left">
-                        <a href="https://travail-emploi.gouv.fr/sites/travail-emploi/files/files-spip/docx/cp_mtei_-_fne-formation_-_signature_de_10_nouvelles_conventions_cadres_avec_les_operateurs_de_competences_opco_.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document fr-link--download fr-link" data-tracking-download-label="CP - FNE-Formation : signature de 10 nouvelles conventions cadres avec les opérateurs de compétences pour accélérer la formation des salarié(e)s et préparer la sortie de crise." download="" data-component-id="dsfr4drupal:link" target="_blank" rel="nofollow, noopener">
-                          CP - FNE-Formation : signature de 10 nouvelles
-                          conventions cadres avec les opérateurs de compétences
-                          pour accélérer la formation des salarié(e)s et
-                          préparer la sortie de crise.
-                          <span class="fr-link__detail">DOCX - 34.84 Ko</span>
-                        </a>
-                      </div><a href="https://travail-emploi.gouv.fr/sites/travail-emploi/files/files-spip/docx/cp_mtei_-_fne-formation_-_signature_de_10_nouvelles_conventions_cadres_avec_les_operateurs_de_competences_opco_.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document fr-link--download fr-link" data-tracking-download-label="CP - FNE-Formation : signature de 10 nouvelles conventions cadres avec les opérateurs de compétences pour accélérer la formation des salarié(e)s et préparer la sortie de crise." download="" data-component-id="dsfr4drupal:link" target="_blank" rel="nofollow, noopener">
-                          CP - FNE-Formation : signature de 10 nouvelles
-                          conventions cadres avec les opérateurs de compétences
-                          pour accélérer la formation des salarié(e)s et
-                          préparer la sortie de crise.
-                          <span class="fr-link__detail">DOCX - 34.84 Ko</span>
-                        </a>",
+      "description": "Repensé pour faire face aux conséquences économiques liées à la crise sanitaire du Covid-19, le dispositif FNE-Formation vise à répondre aux besoins des entreprises en activité partielle, en activité ",
+      "html": "<p> Repensé pour faire face aux conséquences économiques liées à la crise sanitaire du Covid-19, le dispositif FNE-Formation vise à <strong>répondre aux besoins des entreprises en activité partielle, en activité partielle de longue durée et des entreprises en difficulté</strong> pour former leurs salarié(e)s et ainsi préparer la sortie de crise. </p><p> Dans le cadre des conventions signées entre l’État et chacun des 11 OPCO, l’abondement significatif apporté par l’État via le FNE-Formation doit permettre d<strong>’accompagner le développement des compétences des salarié(e)s ou leur reconversion interne</strong>. Ces conventions cadres concernent l’ensemble des secteurs et vont notamment permettre de <strong>soutenir des activités particulièrement impactées par la crise sanitaire pour favoriser leur rebond </strong> (hôtel-café-restaurant, transport aérien, commerce, services aux entreprises, etc. ) </p><p> Dans leur rôle d’appui aux branches professionnelles, <strong>les OPCO auront la responsabilité de la mise en œuvre de ce dispositif exceptionnel</strong>, du ciblage des entreprises, de la qualification de leurs besoins, du montage des solutions et leur suivi. </p><p> De l’ordre de <strong>48 000 parcours de formation pourront ainsi être financés</strong> dans le périmètre de ces conventions, et selon la typologie suivante : </p><p> - Le <strong>Parcours reconversion</strong> permettant à un(e) salarié(e) de changer de métier ou de secteur d’activité au sein de la même entreprise ; </p><p> - Le<strong> Parcours certifiant </strong> permettant à un(e) salarié(e) d’acquérir un diplôme, un titre professionnel, un certificat de qualification professionnelle ou interindustrielle ; </p><p> - Le <strong>Parcours compétences spécifiques </strong> contexte Covid-19 ayant conduit à une nouvelle organisation, de nouveaux marchés, de nouveaux procédés… ; </p><p> - Le <strong>Parcours anticipation des mutations</strong> qui vise à permettre une bonne appropriation des outils et méthodes de travail par le/la salarié(e) : numérique, écologie et compétences métier spécifiques. </p><p> « <em>Après avoir signé une première convention cadre avec l’OPCO 2i pour accompagner la relance de l’industrie, je me réjouis de la finalisation de ces nouvelles conventions qui sont une grande avancée pour encore mieux accompagner l’ensemble des secteurs d’activités impactés par la crise. Dans certains cas, la crise a été un accélérateur des mutations déjà à l’œuvre, comme la digitalisation dans le commerce, ce qui suppose de renforcer l’effort de formation. Le FNE-Formation permettra d’anticiper l’évolution des compétences nécessaires pour s’adapter aux nouveaux modèles en sortie de crise. La formation des salarié(e)s sera clé pour la reprise économique </em> » déclare <strong>Élisabeth Borne, ministre du Travail, de l’Emploi et de l’Insertion</strong>. </p><hr><div class="text-align-left"> <a href="https://travail-emploi.gouv.fr/sites/travail-emploi/files/files-spip/pdf/cp_mtei_-_fne-formation_-_signature_de_10_nouvelles_conventions_cadres_avec_les_operateurs_de_competences_opco_.pdf" type="application/pdf" class="file file--mime-application-pdf file--application-pdf fr-link--download fr-link" data-tracking-download-label="CP - FNE-Formation : signature de 10 nouvelles conventions cadres avec les opérateurs de compétences pour accélérer la formation des salarié(e)s et préparer la sortie de crise." download="" data-component-id="dsfr4drupal:link" target="_blank" rel="nofollow, noopener"> CP - FNE-Formation : signature de 10 nouvelles conventions cadres avec les opérateurs de compétences pour accélérer la formation des salarié(e)s et préparer la sortie de crise. <span class="fr-link__detail">PDF - 500. 45 Ko</span> </a> </div><div class="text-align-left"> <a href="https://travail-emploi.gouv.fr/sites/travail-emploi/files/files-spip/docx/cp_mtei_-_fne-formation_-_signature_de_10_nouvelles_conventions_cadres_avec_les_operateurs_de_competences_opco_.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="file file--mime-application-vnd-openxmlformats-officedocument-wordprocessingml-document file--x-office-document fr-link--download fr-link" data-tracking-download-label="CP - FNE-Formation : signature de 10 nouvelles conventions cadres avec les opérateurs de compétences pour accélérer la formation des salarié(e)s et préparer la sortie de crise." download="" data-component-id="dsfr4drupal:link" target="_blank" rel="nofollow, noopener"> CP - FNE-Formation : signature de 10 nouvelles conventions cadres avec les opérateurs de compétences pour accélérer la formation des salarié(e)s et préparer la sortie de crise. <span class="fr-link__detail">DOCX - 34. 84 Ko</span> </a> </div>",
       "references": {},
-      "text": "
-                        Repensé pour faire face aux conséquences économiques
-                        liées à la crise sanitaire du Covid-19, le dispositif
-                        FNE-Formation vise à
-                        répondre aux besoins des entreprises en activité
-                          partielle, en activité partielle de longue durée et
-                          des entreprises en difficulté
-                        pour former leurs salarié(e)s et ainsi préparer la
-                        sortie de crise.
-                      
-                        Dans le cadre des conventions signées entre l’État et
-                        chacun des 11 OPCO, l’abondement significatif apporté
-                        par l’État via le FNE-Formation doit permettre d’accompagner le développement des compétences des
-                          salarié(e)s ou leur reconversion interne. Ces conventions cadres concernent l’ensemble des
-                        secteurs et vont notamment permettre de
-                        soutenir des activités particulièrement impactées par
-                          la crise sanitaire pour favoriser leur rebond
-                        
-                        (hôtel-café-restaurant, transport aérien, commerce,
-                        services aux entreprises, etc.)
-                      
-                        Dans leur rôle d’appui aux branches professionnelles,
-                        les OPCO auront la responsabilité de la mise en œuvre
-                          de ce dispositif exceptionnel, du ciblage des entreprises, de la qualification de
-                        leurs besoins, du montage des solutions et leur suivi.
-                      
-                        De l’ordre de
-                        48 000 parcours de formation pourront ainsi être
-                          financés
-                        dans le périmètre de ces conventions, et selon la
-                        typologie suivante :
-                      
-                        - Le Parcours reconversion permettant à
-                        un(e) salarié(e) de changer de métier ou de secteur
-                        d’activité au sein de la même entreprise ;
-                      
-                        - Le Parcours certifiant  permettant à
-                        un(e) salarié(e) d’acquérir un diplôme, un titre
-                        professionnel, un certificat de qualification
-                        professionnelle ou interindustrielle ;
-                      
-                        - Le
-                        Parcours compétences spécifiques 
-                        contexte Covid-19 ayant conduit à une nouvelle
-                        organisation, de nouveaux marchés, de nouveaux procédés…
-                        ;
-                      
-                        - Le
-                        Parcours anticipation des mutations qui
-                        vise à permettre une bonne appropriation des outils et
-                        méthodes de travail par le/la salarié(e) : numérique,
-                        écologie et compétences métier spécifiques.
-                      
-                        «
-                        Après avoir signé une première convention cadre avec
-                          l’OPCO 2i pour accompagner la relance de l’industrie,
-                          je me réjouis de la finalisation de ces nouvelles
-                          conventions qui sont une grande avancée pour encore
-                          mieux accompagner l’ensemble des secteurs d’activités
-                          impactés par la crise. Dans certains cas, la crise a
-                          été un accélérateur des mutations déjà à l’œuvre,
-                          comme la digitalisation dans le commerce, ce qui
-                          suppose de renforcer l’effort de formation. Le
-                          FNE-Formation permettra d’anticiper l’évolution des
-                          compétences nécessaires pour s’adapter aux nouveaux
-                          modèles en sortie de crise. La formation des
-                          salarié(e)s sera clé pour la reprise économique
-                        
-                        » déclare
-                        Élisabeth Borne, ministre du Travail, de l’Emploi et
-                          de l’Insertion.
-                      
-                        
-                          CP - FNE-Formation : signature de 10 nouvelles
-                          conventions cadres avec les opérateurs de compétences
-                          pour accélérer la formation des salarié(e)s et
-                          préparer la sortie de crise.
-                          PDF - 500.45 Ko
-                        
-                      
-                          CP - FNE-Formation : signature de 10 nouvelles
-                          conventions cadres avec les opérateurs de compétences
-                          pour accélérer la formation des salarié(e)s et
-                          préparer la sortie de crise.
-                          PDF - 500.45 Ko
-                        
-                        
-                          CP - FNE-Formation : signature de 10 nouvelles
-                          conventions cadres avec les opérateurs de compétences
-                          pour accélérer la formation des salarié(e)s et
-                          préparer la sortie de crise.
-                          DOCX - 34.84 Ko
-                        
-                      
-                          CP - FNE-Formation : signature de 10 nouvelles
-                          conventions cadres avec les opérateurs de compétences
-                          pour accélérer la formation des salarié(e)s et
-                          préparer la sortie de crise.
-                          DOCX - 34.84 Ko
-                        ",
+      "text": "Repensé pour faire face aux conséquences économiques liées à la crise sanitaire du Covid-19, le dispositif FNE-Formation vise à répondre aux besoins des entreprises en activité partielle, en activité partielle de longue durée et des entreprises en difficulté pour former leurs salarié(e)s et ainsi préparer la sortie de crise.Dans le cadre des conventions signées entre l’État et chacun des 11 OPCO, l’abondement significatif apporté par l’État via le FNE-Formation doit permettre d’accompagner le développement des compétences des salarié(e)s ou leur reconversion interne. Ces conventions cadres concernent l’ensemble des secteurs et vont notamment permettre de soutenir des activités particulièrement impactées par la crise sanitaire pour favoriser leur rebond (hôtel-café-restaurant, transport aérien, commerce, services aux entreprises, etc. )Dans leur rôle d’appui aux branches professionnelles, les OPCO auront la responsabilité de la mise en œuvre de ce dispositif exceptionnel, du ciblage des entreprises, de la qualification de leurs besoins, du montage des solutions et leur suivi.De l’ordre de 48 000 parcours de formation pourront ainsi être financés dans le périmètre de ces conventions, et selon la typologie suivante :- Le Parcours reconversion permettant à un(e) salarié(e) de changer de métier ou de secteur d’activité au sein de la même entreprise ;- Le Parcours certifiant permettant à un(e) salarié(e) d’acquérir un diplôme, un titre professionnel, un certificat de qualification professionnelle ou interindustrielle ;- Le Parcours compétences spécifiques contexte Covid-19 ayant conduit à une nouvelle organisation, de nouveaux marchés, de nouveaux procédés… ;- Le Parcours anticipation des mutations qui vise à permettre une bonne appropriation des outils et méthodes de travail par le/la salarié(e) : numérique, écologie et compétences métier spécifiques.« Après avoir signé une première convention cadre avec l’OPCO 2i pour accompagner la relance de l’industrie, je me réjouis de la finalisation de ces nouvelles conventions qui sont une grande avancée pour encore mieux accompagner l’ensemble des secteurs d’activités impactés par la crise. Dans certains cas, la crise a été un accélérateur des mutations déjà à l’œuvre, comme la digitalisation dans le commerce, ce qui suppose de renforcer l’effort de formation. Le FNE-Formation permettra d’anticiper l’évolution des compétences nécessaires pour s’adapter aux nouveaux modèles en sortie de crise. La formation des salarié(e)s sera clé pour la reprise économique » déclare Élisabeth Borne, ministre du Travail, de l’Emploi et de l’Insertion.CP - FNE-Formation : signature de 10 nouvelles conventions cadres avec les opérateurs de compétences pour accélérer la formation des salarié(e)s et préparer la sortie de crise. PDF - 500. 45 KoCP - FNE-Formation : signature de 10 nouvelles conventions cadres avec les opérateurs de compétences pour accélérer la formation des salarié(e)s et préparer la sortie de crise. DOCX - 34. 84 Ko",
       "title": "",
     },
   ],
   "title": "FNE-Formation : signature de 10 nouvelles conventions cadres avec les opérateurs de compétences pour accélérer la formation des salarié(e)s et préparer la sortie de crise.",
   "url": "url-no-section",
+}
+`;
+
+exports[`parseDom should remove intro picture 1`] = `
+{
+  "date": "05/01/2024",
+  "description": "L’activité partielle est un outil au service de la politique publique de prévention des licenciements économiques qui permet à l’employeur en difficulté de faire prendre en charge tout ou partie du coût de la rémunération de ses salariés. Elle est encadrée par les articles L. 5122-1 et suivants et R. 5122-1 et suivants du Code du travail. Ce dispositif a montré toute son efficacité pour soutenir l’emploi en période de baisse d’activité.",
+  "intro": "<p> L’activité partielle est un outil au service de la politique publique de prévention des licenciements économiques qui permet à l’employeur en difficulté de faire prendre en charge tout ou partie du coût de la rémunération de ses salariés. Elle est encadrée par les articles L. 5122-1 et suivants et R. 5122-1 et suivants du code du travail. Ce dispositif a montré toute son efficacité pour <strong>soutenir l’emploi en période de baisse d’activité</strong>. </p>",
+  "pubId": "article377828",
+  "sections": [
+    {
+      "anchor": "",
+      "description": "Attention : Alerte à l’arnaque en ligne : des appels téléphoniques et/ou e-mails frauduleux circulent actuellement et visent à escroquer les entreprises ayant des salariés en activité partielle.  En s",
+      "html": "<div class="fr-highlight"> <p> <strong>Attention </strong>: <strong>Alerte à l’arnaque en ligne</strong> : des appels téléphoniques et/ou e-mails frauduleux circulent actuellement et visent à escroquer les entreprises ayant des salariés en activité partielle. </p> <p> <a href="https://travail-emploi.gouv.fr/activite-partielle-tentatives-descroquerie-par-hameconnage-phishing" target="_blank" data-entity-type="node" data-entity-uuid="e90cfbbe-88e9-42c4-a5c2-44e12152c88a" data-entity-substitution="canonical" rel="nofollow, noopener" title="En savoir sur les tentatives d&amp;#039;escroquerie par hameçonnage - nouvelle fenêtre">En savoir sur les tentatives d'escroquerie par hameçonnage</a> </p> </div>",
+      "references": {},
+      "text": "Attention : Alerte à l’arnaque en ligne : des appels téléphoniques et/ou e-mails frauduleux circulent actuellement et visent à escroquer les entreprises ayant des salariés en activité partielle.  En savoir sur les tentatives d'escroquerie par hameçonnage",
+      "title": "",
+    },
+    {
+      "anchor": "quest-ce-que-lactivite-partielle-chomage-partiel",
+      "description": "L’activité partielle s’adresse à tous les salariés qui subissent une baisse de rémunération imputable :Soit à une réduction de l’horaire de travail pratiqué dans l’établissement ou partie de l’établis",
+      "html": "<p> L’activité partielle s’adresse à tous les salariés qui subissent une <strong>baisse de rémunération imputable</strong> : </p><ul> <li> Soit à une <strong>réduction de l’horaire de travail</strong> pratiqué dans l’établissement ou partie de l’établissement en deçà de la durée légale de travail ; </li> <li> Soit à une <strong>fermeture temporaire</strong> de tout ou partie de l'établissement. </li> </ul><p> <strong>Les demandes d’activité partielle sont formulées par les employeurs</strong> si la baisse d’activité est occasionnée par l’un des motifs visés à l<a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000027629135&amp;cidTexte=LEGITEXT000006072050&amp;dateTexte=20130701" target="_blank" rel=" noopener external" title="’article R. 5122-1 - nouvelle fenêtre">’article R. 5122-1</a> du code du travail parmi lesquels celui des circonstances de caractère exceptionnel, qui trouve à s’appliquer dans la présente crise. </p><p> Si c’est votre cas, vous pouvez prétendre au bénéfice du dispositif d’activité partielle. Cette solution vous permettra d’<strong>éviter des licenciements économiques</strong> et de <strong>préserver les compétences des salariés</strong> pour vous <strong>aider à rebondir</strong> lorsque votre activité reprendra. </p><p> Pendant la période d’activité partielle :<br> <br>• <strong>L’employeur reçoit</strong> de <a href="https://www.asp-public.fr/activite-partielle" target="_blank" rel=" noopener external" title="l’Agence de services et de paiement (ASP) - nouvelle fenêtre">l’Agence de services et de paiement (ASP)</a> <strong>une allocation </strong>équivalent à une part de la rémunération horaire du salarié placé en activité partielle ;<br>• <strong>Le salarié reçoit </strong>de son employeur <strong>une indemnité d’activité partielle</strong>, en lieu et place de son salaire pour la période durant laquelle il est placé en activité partielle. </p>",
+      "references": {
+        "LEGITEXT000006072050": {
+          "articles": [
+            {
+              "cid": "LEGIARTI000018494200",
+              "fmt": "R5122-1",
+              "id": "LEGIARTI000027629135",
+              "text": "R. 5122-1",
+            },
+          ],
+          "name": "code du travail",
+        },
+      },
+      "text": "L’activité partielle s’adresse à tous les salariés qui subissent une baisse de rémunération imputable :Soit à une réduction de l’horaire de travail pratiqué dans l’établissement ou partie de l’établissement en deçà de la durée légale de travail ; Soit à une fermeture temporaire de tout ou partie de l'établissement.Les demandes d’activité partielle sont formulées par les employeurs si la baisse d’activité est occasionnée par l’un des motifs visés à l’article R. 5122-1 du code du travail parmi lesquels celui des circonstances de caractère exceptionnel, qui trouve à s’appliquer dans la présente crise.Si c’est votre cas, vous pouvez prétendre au bénéfice du dispositif d’activité partielle. Cette solution vous permettra d’éviter des licenciements économiques et de préserver les compétences des salariés pour vous aider à rebondir lorsque votre activité reprendra.Pendant la période d’activité partielle : • L’employeur reçoit de l’Agence de services et de paiement (ASP) une allocation équivalent à une part de la rémunération horaire du salarié placé en activité partielle ;• Le salarié reçoit de son employeur une indemnité d’activité partielle, en lieu et place de son salaire pour la période durant laquelle il est placé en activité partielle.",
+      "title": "Qu’est-ce que l’activité partielle (chômage partiel) ?",
+    },
+    {
+      "anchor": "comment-declarer-mon-entreprise-en-activite-partielle",
+      "description": "Effectuez vos démarches directement en ligne sur le portailPour toute demande d’assistance téléphonique gratuite pour la prise en main de l'outil « Activité partielle » : Numéro vert : 0800 705 800 po",
+      "html": "<p> <a href="https://activitepartielle.emploi.gouv.fr" target="_blank" rel=" noopener external" title="Effectuez vos démarches directement en ligne sur le portail - nouvelle fenêtre">Effectuez vos démarches directement en ligne sur le portail</a> </p><div class="fr-highlight"> <p> Pour toute <strong>demande d’assistance téléphonique gratuite</strong> pour la prise en main de l'outil « Activité partielle » : </p> <p> <strong>Numéro vert : 0800 705 800</strong> pour la métropole et les Outre-mer. </p> <ul> <li> Métropole : de 08h30 à 18h00 du lundi au vendredi </li> <li>Outre-mer du lundi au vendredi : </li> </ul> <ol> <li> <strong>Antilles :</strong> 07h-12h00 (heure locale) ; </li> <li> <strong>Guyane :</strong> 07h-13h00 (heure locale) ; </li> <li> <strong>La Réunion :</strong> 10h30-20h00 (heure locale) ; </li> <li> <strong>Mayotte :</strong> 09h30-19h00 (heure locale). </li> </ol> <p> <a href="https://activitepartielle.emploi.gouv.fr/aparts/accueil" target="_blank" rel=" noopener external" title="Pour toute demande d’assistance au support technique par mél, utiliser le formulaire de contact - nouvelle fenêtre">Pour toute demande d’assistance au support technique par mél, utiliser le formulaire de contact</a> </p> </div><p> La demande renseigne, pour chaque salarié, les heures hebdomadaires réellement travaillées (ou assimilées, telles que les congés, les arrêts maladie pour motif de coronavirus, <em>etc</em>. ) et les heures hebdomadaires réellement chômées. </p><p> L’allocation est versée à l’entreprise par <a href="https://www.asp-public.fr/activite-partielle" target="_blank" rel=" noopener external" title="l’Agence de services et de paiement (ASP) - nouvelle fenêtre">l’Agence de services et de paiement (ASP)</a>, dans un délai moyen de 12 jours. </p><div class="text-align-center"> <img src="https://travail-emploi.gouv.fr/sites/travail-emploi/files/styles/w_1200/public/files-spip/png/ap_3.png.webp" width="450" height="187" alt="png/ap_3.png" loading="lazy" typeof="foaf:Image" class="fr-fluid-img"> </div><p> </p>",
+      "references": {},
+      "text": "Effectuez vos démarches directement en ligne sur le portailPour toute demande d’assistance téléphonique gratuite pour la prise en main de l'outil « Activité partielle » : Numéro vert : 0800 705 800 pour la métropole et les Outre-mer. Métropole : de 08h30 à 18h00 du lundi au vendredi Outre-mer du lundi au vendredi :   Antilles : 07h-12h00 (heure locale) ; Guyane : 07h-13h00 (heure locale) ; La Réunion : 10h30-20h00 (heure locale) ; Mayotte : 09h30-19h00 (heure locale). Pour toute demande d’assistance au support technique par mél, utiliser le formulaire de contactLa demande renseigne, pour chaque salarié, les heures hebdomadaires réellement travaillées (ou assimilées, telles que les congés, les arrêts maladie pour motif de coronavirus, etc. ) et les heures hebdomadaires réellement chômées.L’allocation est versée à l’entreprise par l’Agence de services et de paiement (ASP), dans un délai moyen de 12 jours.",
+      "title": "Comment déclarer mon entreprise en activité partielle ?",
+    },
+    {
+      "anchor": "en-quoi-consiste-le-dispositif-exceptionnel-dactivite-partielle",
+      "description": "L’allocation versée à l’employeur couvre :36 % du salaire antérieur brut du salarié dans la limite de 4,5 Smic avec un plancher de 8,30 € ;À noter : Le plancher de 8,30 € (taux applicable au 1er janvi",
+      "html": "<p>L’allocation versée à l’employeur couvre :</p><ul> <li> <strong>36</strong> <strong>% du salaire antérieur brut</strong> du salarié dans la limite de 4,5 Smic avec un plancher de <strong>8,30</strong> <strong>€</strong> ; </li> </ul><div class="fr-highlight"> <strong>À noter</strong> : Le plancher de 8,30 € (taux applicable au 1<sup>er</sup> janvier 2024) ne s’applique pas aux apprentis et aux salariés en contrat de professionnalisation dont la rémunération antérieure était inférieure au Smic. <strong>L’indemnité d’activité partielle sera égale à leur rémunération antérieure</strong> (l’indemnisation versée couvre à la fois la rémunération applicable au titre des dispositions du code du travail et la part conventionnelle). Ces planchers ne s’appliquent par ailleurs pas pour les salariés non soumis au Smic horaire. </div><ul> <li> L’indemnité versée au salarié est égale à <strong>60</strong> <strong>% de la rémunération antérieure brute</strong> de celui-ci. </li> <li> L’employeur peut décider de <strong>majorer le taux d’indemnisation</strong>. Les heures travaillées doivent être rémunérées normalement par l’employeur et n’ouvrent pas droit au versement de l’allocation d’activité partielle. </li> <li> Il n’y a <strong>pas de condition d’ancienneté</strong>, <strong>ni de conditions liées au type de contrat de contrat de travail</strong> (CDD, apprentis, CDI, <em>etc</em>. ), ni de conditions liées au temps de travail du salarié (temps partiel, temps plein) pour être éligible à l’activité partielle. </li> <li> Depuis le 1<sup>er</sup> octobre 2020, <a href="https://dreets.gouv.fr/" target="_blank" rel=" noopener external" title="les services de l’État (DDETS) - nouvelle fenêtre">les services de l’État (DDETS)</a> vous répondent sous 15 jours. <strong>L’absence de réponse sous 15 jours vaut décision d’accord. </strong> Depuis le 1<sup>er</sup> juillet 2021, l’autorisation d’activité partielle peut être accordée pour <strong>une durée maximum de 3 mois, renouvelable dans la limite de six mois sur une période de référence glissante de 12 mois consécutifs. </strong> Pour obtenir le versement de l’allocation d’activité partielle, l'employeur doit adresser en ligne une demande d’indemnisation dans un délai de 6 mois suivant la fin de la période couverte par l'autorisation d'activité partielle. </li> </ul><h3>Tableau de synthèse des taux</h3><div> <a href="https://travail-emploi.gouv.fr/sites/travail-emploi/files/files-spip/pdf/20122023_-_tableau_synthese_ap_maj_smic_janvier_2024_vf.pdf" type="application/pdf" class="file file--mime-application-pdf file--application-pdf fr-link--download fr-link" data-tracking-download-label="Tableau de synthèse des taux de prise en charge " download="" data-component-id="dsfr4drupal:link" target="_blank" rel="nofollow, noopener"> Tableau de synthèse des taux de prise en charge <span class="fr-link__detail">PDF - 143. 3 Ko</span> </a> </div><section class="ondine-linked-pages fr-mb-6v"> </section>",
+      "references": {},
+      "text": "L’allocation versée à l’employeur couvre :36 % du salaire antérieur brut du salarié dans la limite de 4,5 Smic avec un plancher de 8,30 € ;À noter : Le plancher de 8,30 € (taux applicable au 1er janvier 2024) ne s’applique pas aux apprentis et aux salariés en contrat de professionnalisation dont la rémunération antérieure était inférieure au Smic. L’indemnité d’activité partielle sera égale à leur rémunération antérieure (l’indemnisation versée couvre à la fois la rémunération applicable au titre des dispositions du code du travail et la part conventionnelle). Ces planchers ne s’appliquent par ailleurs pas pour les salariés non soumis au Smic horaire.L’indemnité versée au salarié est égale à 60 % de la rémunération antérieure brute de celui-ci. L’employeur peut décider de majorer le taux d’indemnisation. Les heures travaillées doivent être rémunérées normalement par l’employeur et n’ouvrent pas droit au versement de l’allocation d’activité partielle. Il n’y a pas de condition d’ancienneté, ni de conditions liées au type de contrat de contrat de travail (CDD, apprentis, CDI, etc. ), ni de conditions liées au temps de travail du salarié (temps partiel, temps plein) pour être éligible à l’activité partielle. Depuis le 1er octobre 2020, les services de l’État (DDETS) vous répondent sous 15 jours. L’absence de réponse sous 15 jours vaut décision d’accord. Depuis le 1er juillet 2021, l’autorisation d’activité partielle peut être accordée pour une durée maximum de 3 mois, renouvelable dans la limite de six mois sur une période de référence glissante de 12 mois consécutifs. Pour obtenir le versement de l’allocation d’activité partielle, l'employeur doit adresser en ligne une demande d’indemnisation dans un délai de 6 mois suivant la fin de la période couverte par l'autorisation d'activité partielle.Tableau de synthèse des tauxTableau de synthèse des taux de prise en charge PDF - 143. 3 KoArticles associés Questions-réponses | L'activité partielle - Le chômage partiel Depuis la crise sanitaire, le Gouvernement a décidé de transformer structurellement le dispositif d’activité partielle, pour… Foire aux questions Date de mise à jour le 5 janvier 2024",
+      "title": "En quoi consiste le dispositif exceptionnel d’activité partielle ?",
+    },
+    {
+      "anchor": "articles-associes",
+      "description": "Questions-réponses | L'activité partielle - Le chômage partiel Depuis la crise sanitaire, le Gouvernement a décidé de transformer structurellement le dispositif d’activité partielle, pour… Foire aux q",
+      "html": "<ul class="fr-raw-list fr-grid-row fr-grid-row--gutters"> <li class="fr-col-12 fr-col-lg-6"> <div about="/questions-reponses-lactivite-partielle-le-chomage-partiel" data-component-id="dsfr4drupal:card" class="fr-enlarge-link fr-card"> <div class="fr-card__body"> <div class="fr-card__content"> <h3 class="fr-card__title"> <a href="https://travail-emploi.gouv.fr/questions-reponses-lactivite-partielle-le-chomage-partiel" class="fr-card__link" target="_blank" rel="nofollow, noopener">Questions-réponses | L'activité partielle - Le chômage partiel</a> </h3> <p class="fr-card__desc"> Depuis la crise sanitaire, le Gouvernement a décidé de transformer structurellement le dispositif d’activité partielle, pour… </p> <div class="fr-card__start"> <p data-component-id="dsfr4drupal:tag" class="fr-tag--sm fr-tag"> Foire aux questions </p> <p class="fr-card__detail"> Date de mise à jour le <time datetime="2024-01-05T12:00:00Z">5 janvier 2024</time> </p> </div> </div> </div> <div class="fr-card__header"> <div class="fr-card__img"> <img loading="lazy" src="https://travail-emploi.gouv.fr/sites/travail-emploi/files/styles/thumbnail_ondine_16_9/public/2024-02/vignette-questions-reponses-activite-partielle.jpg.webp" width="800" height="500" alt="Questions-réponses sur l'activité partielle - le chômage partiel" typeof="foaf:Image" class="fr-fluid-img"> </div> </div> </div> </li> </ul>",
+      "references": {},
+      "text": "Questions-réponses | L'activité partielle - Le chômage partiel Depuis la crise sanitaire, le Gouvernement a décidé de transformer structurellement le dispositif d’activité partielle, pour… Foire aux questions Date de mise à jour le 5 janvier 2024",
+      "title": "Articles associés",
+    },
+  ],
+  "title": "L'activité partielle | Le chômage partiel",
+  "url": "simple-picture-html",
 }
 `;
 
