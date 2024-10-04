@@ -1,9 +1,7 @@
 import fs from "fs";
-import got from "got";
 import pLimit from "p-limit";
 import path from "path";
 
-import { injectToken } from "./injectToken";
 import { scrapUrl } from "./scrapUrl";
 
 const FEED_URL = "https://travail-emploi.gouv.fr/?page=oseo_json";

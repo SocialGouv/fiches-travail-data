@@ -116,14 +116,6 @@ const flattenCsBlocs = (node) => {
   node.parentNode.removeChild(node);
 };
 
-const getSectionTag = (article) => {
-  const h2 = $$(article, ".main-content > h2").length && "h2";
-  const h3 = $$(article, ".main-content > h3").length && "h3";
-  const h4 = $$(article, ".main-content > h4").length && "h4";
-  const h5 = $$(article, ".main-content > h5").length && "h5";
-  return h2 || h3 || h4 || h5 || "sectionTag";
-};
-
 const getReferences = (text) => {
   // first we extract the tokens referencing articles
   const references = extractReferences(text);
@@ -143,19 +135,36 @@ const textClean = (text, noNbsp = false) => {
     .trim();
 };
 
-const getSections = (article, children, sections = []) => {
-  const sectionTag = getSectionTag(article);
+const titleTags = ["h2", "h3", "h4", "h5"];
+
+const getSections = (
+  article,
+  children,
+  sections = [
+    {
+      anchor: "",
+      description: "",
+      html: "",
+      references: {},
+      text: "",
+      title: "",
+    },
+  ],
+  fromDiv = false
+) => {
   for (let i = 0; i < children.length; i++) {
     const el = children[i];
     const lastSection = sections[sections.length - 1];
-    if (el.tagName.toLowerCase() === sectionTag) {
-      if (lastSection) {
-        const text = textClean(lastSection.text, true);
-        lastSection.html = textClean(lastSection.html);
-        lastSection.description = text.slice(0, 200).trim();
-        lastSection.text = text;
-        lastSection.references = getReferences(text);
-      }
+    if (
+      !fromDiv &&
+      titleTags.indexOf(el.tagName.toLowerCase()) !== -1 &&
+      el.textContent.trim() !== ""
+    ) {
+      const text = textClean(lastSection.text, true);
+      lastSection.html = textClean(lastSection.html);
+      lastSection.description = text.slice(0, 200).trim();
+      lastSection.text = text;
+      lastSection.references = getReferences(text);
       sections.push({
         anchor:
           el.getAttribute("id") || slugify(textClean(el.textContent, true)),
@@ -166,10 +175,22 @@ const getSections = (article, children, sections = []) => {
         title: textClean(el.textContent, true),
       });
     } else if (
-      ["section", "article"].indexOf(el.tagName.toLowerCase()) !== -1
+      ["section", "article", "div"].indexOf(el.tagName.toLowerCase()) !== -1
     ) {
-      sections = getSections(article, el.children, sections);
-    } else if (lastSection) {
+      if (el.tagName === "DIV") {
+        lastSection.html += el.outerHTML;
+        lastSection.text += el.textContent;
+      }
+      sections = getSections(
+        article,
+        el.children,
+        sections,
+        el.tagName === "DIV"
+      );
+    } else if (
+      lastSection &&
+      titleTags.indexOf(el.tagName.toLowerCase()) === -1
+    ) {
       lastSection.html += el.outerHTML;
       lastSection.text += el.textContent;
     }
@@ -221,54 +242,24 @@ export function parseDom(dom, id, url) {
     "";
 
   let sections = [];
-  const sectionTag = getSectionTag(article);
-  // First pass is only to get a potential untitled section at the top of the article
-  // This section has neither anchor nor title
-  let nextArticleElement = $(article, ".main-content > *");
-  const untitledSection = {
-    anchor: "",
-    html: "",
-    text: "",
-    title: title,
-  };
-  while (
-    nextArticleElement &&
-    nextArticleElement.tagName.toLowerCase() !== sectionTag
-  ) {
-    if (nextArticleElement.textContent) {
-      if (!untitledSection.description) {
-        untitledSection.description = "temp description";
-      }
-      untitledSection.html += nextArticleElement.outerHTML
-        .replace(/\n+/g, "")
-        .replace(/>\s+</g, "><")
-        .replace(/\s+/g, " ");
 
-      untitledSection.text +=
-        " " + nextArticleElement.textContent.replace(/\s+/g, " ").trim();
-    }
-    nextArticleElement = nextArticleElement.nextElementSibling;
-  }
-  if (untitledSection.description) {
-    untitledSection.text = textClean(untitledSection.text, true).trim();
-    untitledSection.description = textClean(untitledSection.text).slice(0, 200);
-    untitledSection.references = getReferences(
-      textClean(untitledSection.text, true)
-    );
-    sections.push(untitledSection);
-  }
-  // Gets all the titled content
   const mainElement = $$(article, `.main-content`)[0];
-  const articleSectionChildren = mainElement ? [...mainElement.children] : [];
+  if (mainElement) {
+    const articleSectionChildren = mainElement ? [...mainElement.children] : [];
 
-  sections = sections.concat(
-    getSections(article, articleSectionChildren).filter(
-      ({ anchor }) =>
-        ["textes-de-reference", "qui-contacter", "articles-associes"].indexOf(
-          anchor
-        ) === -1
-    )
-  );
+    sections = sections.concat(
+      getSections(mainElement, articleSectionChildren).filter(
+        ({ anchor }) =>
+          [
+            "textes-de-reference",
+            "qui-contacter",
+            "articles-associes",
+            "lire-en-complement",
+            "documents",
+          ].indexOf(anchor) === -1
+      )
+    );
+  }
 
   if (sections.length === 0) {
     throw new ParseError(`No sections`);

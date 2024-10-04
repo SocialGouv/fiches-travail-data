@@ -26,6 +26,10 @@ const pictureHtmlSimple = fs
   .readFileSync(path.join(__dirname, "article-picture-simple.html"))
   .toString();
 
+const videoHtml = fs
+  .readFileSync(path.join(__dirname, "article-video.html"))
+  .toString();
+
 describe("parseDom", () => {
   test("should parse HTML section", () => {
     const dom = new JSDOM(sample);
@@ -38,14 +42,13 @@ describe("parseDom", () => {
     const parsed = parseDom(dom, "article377849", "url-no-section");
     expect(parsed).toMatchSnapshot();
     expect(parsed.sections.length).toBe(1);
-    expect(parsed.sections[0].anchor).toBe("");
   });
 
   test("should parse HTML with intro section and 6 sections without id", () => {
     const dom = new JSDOM(sampleSectionsNoId);
     const parsed = parseDom(dom, "article112763", "url-with-sections-no-id");
-    expect(parsed).toMatchSnapshot();
     expect(parsed.sections.length).toBe(7);
+    expect(parsed).toMatchSnapshot();
   });
 
   test("should throw if there is no main element", () => {
@@ -83,7 +86,8 @@ describe("parseDom", () => {
   test("should work with picture", () => {
     const dom = new JSDOM(pictureHtmlSimple);
     const parsed = parseDom(dom, "article377828", "simple-picture-html");
-    expect(parsed.sections.length).toBe(4);
+    // console.log("parsed", JSON.stringify(parsed));
+    expect(parsed.sections.length).toBe(5);
     expect(parsed.intro).toContain(
       '<img src="https://travail-emploi.gouv.fr/sites/travail-emploi/files/styles/w_1200/public/2024-08/logo-activite-partielle.jpg.webp" width="800" height="450" alt="Activité partielle" loading="lazy" typeof="foaf:Image" class="fr-fluid-img">'
     );
@@ -96,7 +100,7 @@ describe("parseDom", () => {
   test("should work with picture more complex", () => {
     const dom = new JSDOM(pictureHtml);
     const parsed = parseDom(dom, "article375435", "picture-html");
-    expect(parsed.sections.length).toBe(3);
+    expect(parsed.sections.length).toBe(4);
     expect(parsed.intro).toContain(
       "https://travail-emploi.gouv.fr/sites/travail-emploi/files/styles/w_1200/public/files-spip/jpg/creche_vip.jpg.webp"
     );
@@ -116,4 +120,11 @@ describe("parseDom", () => {
     );
     expect(parsed).toMatchSnapshot();
   });
+});
+
+test("should parse correctly article with video", () => {
+  const dom = new JSDOM(videoHtml);
+  const parsed = parseDom(dom, "article100976", "article-video.html");
+  expect(parsed.sections.length).toBe(7);
+  expect(parsed).toMatchSnapshot();
 });
