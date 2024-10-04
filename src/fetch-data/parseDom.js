@@ -116,18 +116,86 @@ const flattenCsBlocs = (node) => {
   node.parentNode.removeChild(node);
 };
 
-const getSectionTag = (article) => {
-  const h3 = $$(article, ".main-article__texte > h3").length && "h3";
-  const h4 = $$(article, ".main-article__texte > h4").length && "h4";
-  const h5 = $$(article, ".main-article__texte > h5").length && "h5";
-  return h3 || h4 || h5 || "sectionTag";
-};
-
 const getReferences = (text) => {
   // first we extract the tokens referencing articles
   const references = extractReferences(text);
   // then we try to resolve the actual articles ids using legi-data
   return resolveReferences(references);
+};
+
+const textClean = (text, noNbsp = false) => {
+  const regexStr = "\\n";
+  return text
+    .replace(
+      new RegExp(noNbsp ? `(${regexStr}|&nbsp;)` : `(${regexStr})`, "g"),
+      " "
+    )
+    .replace(/([.!?]+)(?![^<]*>)/g, "$1 ")
+    .replace(/[ ]{2,}/g, " ")
+    .trim();
+};
+
+const titleTags = ["h2", "h3", "h4", "h5"];
+
+const getSections = (
+  article,
+  children,
+  sections = [
+    {
+      anchor: "",
+      description: "",
+      html: "",
+      references: {},
+      text: "",
+      title: "",
+    },
+  ],
+  fromDiv = false
+) => {
+  for (let i = 0; i < children.length; i++) {
+    const el = children[i];
+    const lastSection = sections[sections.length - 1];
+    if (
+      !fromDiv &&
+      titleTags.indexOf(el.tagName.toLowerCase()) !== -1 &&
+      el.textContent.trim() !== ""
+    ) {
+      const text = textClean(lastSection.text, true);
+      lastSection.html = textClean(lastSection.html);
+      lastSection.description = text.slice(0, 200).trim();
+      lastSection.text = text;
+      lastSection.references = getReferences(text);
+      sections.push({
+        anchor:
+          el.getAttribute("id") || slugify(textClean(el.textContent, true)),
+        description: "",
+        html: "",
+        references: {},
+        text: "",
+        title: textClean(el.textContent, true),
+      });
+    } else if (
+      ["section", "article", "div"].indexOf(el.tagName.toLowerCase()) !== -1
+    ) {
+      if (el.tagName === "DIV") {
+        lastSection.html += el.outerHTML;
+        lastSection.text += el.textContent;
+      }
+      sections = getSections(
+        article,
+        el.children,
+        sections,
+        el.tagName === "DIV"
+      );
+    } else if (
+      lastSection &&
+      titleTags.indexOf(el.tagName.toLowerCase()) === -1
+    ) {
+      lastSection.html += el.outerHTML;
+      lastSection.text += el.textContent;
+    }
+  }
+  return sections;
 };
 
 export function parseDom(dom, id, url) {
@@ -155,95 +223,50 @@ export function parseDom(dom, id, url) {
       throw new ParseError("No <h1> or <h2> element");
     }
   }
-  const title = titleElement.textContent.trim();
+  const title = textClean(titleElement.textContent, true);
 
   const dateRaw =
-    $(dom.window.document, "meta[property*=modified_time]") ||
-    $(dom.window.document, "meta[property$=published_time]");
-  const [year, month, day] = dateRaw.getAttribute("content").split("-");
-  let intro = $(article, ".main-article__chapo") || "";
+    $(dom.window.document, "time:nth-child(1)") ||
+    $(dom.window.document, "time:first-child");
+  const date = dateRaw?.textContent;
+  const introImg = $(dom.window.document, "article img")?.outerHTML;
+  let intro = $(article, ".fr-text--lead") || "";
   intro =
     intro &&
-    intro.innerHTML
-      .replace(/\n/g, "")
-      .replace(/\s+/g, " ")
-      .trim()
-      .replace(/<script[^>]*>([\s\S]*?)<\/script>/g, "");
+    textClean(
+      introImg ? introImg + intro.innerHTML : intro.innerHTML,
+      true
+    ).replace(/<script[^>]*>([\s\S]*?)<\/script>/g, "");
   const description =
     $(dom.window.document, "meta[name=description]")?.getAttribute("content") ??
     "";
 
-  const sections = [];
-  const sectionTag = getSectionTag(article);
-  // First pass is only to get a potential untitled section at the top of the article
-  // This section has neither anchor nor title
-  let nextArticleElement = $(article, ".main-article__texte > *");
-  const untitledSection = {
-    anchor: "",
-    html: "",
-    text: "",
-    title: title,
-  };
-  while (
-    nextArticleElement &&
-    nextArticleElement.tagName.toLowerCase() !== sectionTag
-  ) {
-    if (nextArticleElement.textContent) {
-      if (!untitledSection.description) {
-        untitledSection.description = "temp description";
-      }
-      untitledSection.html += nextArticleElement.outerHTML
-        .replace(/\n+/g, "")
-        .replace(/>\s+</g, "><")
-        .replace(/\s+/g, " ");
+  let sections = [];
 
-      untitledSection.text +=
-        " " + nextArticleElement.textContent.replace(/\s+/g, " ").trim();
-    }
-    nextArticleElement = nextArticleElement.nextElementSibling;
+  const mainElement = $$(article, `.main-content`)[0];
+  if (mainElement) {
+    const articleSectionChildren = mainElement ? [...mainElement.children] : [];
+
+    sections = sections.concat(
+      getSections(mainElement, articleSectionChildren).filter(
+        ({ anchor }) =>
+          [
+            "textes-de-reference",
+            "qui-contacter",
+            "articles-associes",
+            "lire-en-complement",
+            "documents",
+          ].indexOf(anchor) === -1
+      )
+    );
   }
-  if (untitledSection.description) {
-    untitledSection.text.trim();
-    untitledSection.description = untitledSection.text.slice(0, 200).trim();
-    untitledSection.references = getReferences(untitledSection.text);
-    sections.push(untitledSection);
-  }
-  // Gets all the titled content
-  const articleChildren = $$(article, `.main-article__texte > ${sectionTag}`);
-  articleChildren.forEach(function (el) {
-    if (el.tagName.toLowerCase() === sectionTag) {
-      let nextEl = el.nextElementSibling;
-      let html = "";
-
-      while (nextEl && nextEl.tagName.toLowerCase() !== sectionTag) {
-        html += nextEl.outerHTML;
-        nextEl = nextEl.nextElementSibling;
-      }
-
-      const section = dom.window.document.createElement("div");
-      section.innerHTML = html;
-      const sectionText = section.textContent.replace(/\s+/g, " ").trim();
-
-      sections.push({
-        anchor: el.getAttribute("id") || slugify(el.textContent),
-        description: sectionText.slice(0, 200).trim(),
-        html: html
-          .replace(/\n+/g, "")
-          .replace(/>\s+</g, "><")
-          .replace(/\s+/g, " "),
-        references: getReferences(sectionText),
-        text: sectionText,
-        title: el.textContent.trim(),
-      });
-    }
-  });
 
   if (sections.length === 0) {
     throw new ParseError(`No sections`);
   }
 
   return {
-    date: `${day}/${month}/${year}`,
+    date,
     description,
     intro,
     pubId: id,
