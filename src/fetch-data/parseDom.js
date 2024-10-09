@@ -4,6 +4,7 @@ import { ParseError } from "got";
 import { encode } from "../email";
 import { extractReferences } from "./referenceExtractor";
 import { resolveReferences } from "./referenceResolver";
+import { JSDOM } from "jsdom";
 
 const $$ = (node, selector) => Array.from(node.querySelectorAll(selector));
 const $ = (node, selector) => node.querySelector(selector);
@@ -123,7 +124,7 @@ const getReferences = (text) => {
   return resolveReferences(references);
 };
 
-const textClean = (text, noNbsp = false) => {
+export const textClean = (text, noNbsp = false) => {
   const regexStr = "\\n";
   return text
     .replace(
@@ -135,73 +136,163 @@ const textClean = (text, noNbsp = false) => {
     .trim();
 };
 
-const titleTags = ["h2", "h3", "h4", "h5"];
+function parseHTMLSections(dom) {
+  const document = dom.window.document;
 
-const getSections = (
-  article,
-  children,
-  sections = [
-    {
-      anchor: "",
-      description: "",
-      html: "",
-      references: {},
-      text: "",
-      title: "",
-    },
-  ],
-  fromDiv = false
-) => {
-  for (let i = 0; i < children.length; i++) {
-    const el = children[i];
-    const lastSection = sections[sections.length - 1];
-    if (
-      !fromDiv &&
-      titleTags.indexOf(el.tagName.toLowerCase()) !== -1 &&
-      el.textContent.trim() !== ""
-    ) {
-      const text = textClean(lastSection.text, true);
-      lastSection.html = textClean(lastSection.html);
-      lastSection.description = text.slice(0, 200).trim();
-      lastSection.text = text;
-      lastSection.references = getReferences(text);
-      sections.push({
-        anchor:
-          el.getAttribute("id") || slugify(textClean(el.textContent, true)),
-        description: "",
-        html: "",
-        references: {},
-        text: "",
-        title: textClean(el.textContent, true),
-      });
-    } else if (
-      ["section", "article", "div"].indexOf(el.tagName.toLowerCase()) !== -1
-    ) {
-      if (el.tagName === "DIV") {
-        lastSection.html += el.outerHTML;
-        lastSection.text += el.textContent;
-      }
-      sections = getSections(
-        article,
-        el.children,
-        sections,
-        el.tagName === "DIV"
-      );
-    } else if (
-      lastSection &&
-      titleTags.indexOf(el.tagName.toLowerCase()) === -1
-    ) {
-      lastSection.html += el.outerHTML;
-      lastSection.text += el.textContent;
-    }
+  const mainContent = $(document, ".main-content");
+  if (!mainContent) {
+    throw new Error('No <div class="main-content"> found in the HTML content.');
   }
-  return sections;
+
+  const sections = [];
+
+  const h2Tags = $$(mainContent, "h2");
+
+  h2Tags.forEach((h2Tag) => {
+    const section = {
+      title: textClean(h2Tag.textContent, true) || "",
+      html: "",
+      text: "",
+    };
+
+    let nextSibling = h2Tag.nextElementSibling;
+    if (!nextSibling) {
+      nextSibling = h2Tag.parentElement
+        ? h2Tag.parentElement.nextElementSibling
+        : undefined;
+      if (!nextSibling && h2Tag.parentElement) {
+        nextSibling = h2Tag.parentElement.parentElement
+          ? h2Tag.parentElement.parentElement.nextElementSibling
+          : undefined;
+      }
+    }
+    const sectionHtmlContent = [];
+    const sectionTextContent = [];
+
+    while (nextSibling && nextSibling.nodeName !== "H2") {
+      sectionHtmlContent.push(textClean(nextSibling.outerHTML || "", true));
+      sectionTextContent.push(textClean(nextSibling.textContent || "", true));
+      nextSibling = nextSibling.nextElementSibling;
+    }
+
+    section.html = sectionHtmlContent.join("").trim();
+    section.text = sectionTextContent.join("").trim();
+    sections.push(section);
+  });
+
+  if (sections.find((section) => section.html === "")) {
+    return [
+      {
+        title: "Contenu",
+        html: mainContent.innerHTML,
+        text: mainContent.textContent,
+      },
+    ];
+  }
+  return sections.map((section) => ({
+    ...section,
+    // Sometimes, we have all the html in a section
+    // We check a second times and delete HTML from the h2 found
+    // (H2 should not be in a section)
+    html: removeExtraH2(section.html),
+  }));
+}
+
+const removeExtraH2 = (html) => {
+  const dom = new JSDOM(`<div>${html}</div>`);
+  const document = dom.window.document;
+  const mainDiv = $(document, "div");
+
+  const firstH2 = $(mainDiv, "h2");
+
+  if (firstH2) {
+    let parent = firstH2.parentElement;
+    let h2 = firstH2;
+    while (parent.nextElementSibling) {
+      parent.nextElementSibling.remove();
+    }
+    while (firstH2.nextElementSibling) {
+      firstH2.nextElementSibling.remove();
+    }
+    h2.remove();
+  }
+
+  return textClean(mainDiv.innerHTML, true);
+};
+
+const parseHighlight = (dom) => {
+  const document = dom.window.document;
+
+  const mainContent = $(document, ".main-content");
+  if (!mainContent) {
+    throw new Error('No <div class="main-content"> found in the HTML content.');
+  }
+
+  const highlightHtmlContent = [];
+  const highlightTextContent = [];
+
+  let nextSibling = mainContent.firstElementChild;
+  while (nextSibling && nextSibling.nodeName !== "H2") {
+    highlightHtmlContent.push(textClean(nextSibling.outerHTML || "", true));
+    highlightTextContent.push(textClean(nextSibling.textContent || "", true));
+    nextSibling = nextSibling.nextSibling;
+  }
+
+  if (highlightHtmlContent.length > 0) {
+    return {
+      title: "",
+      html: textClean(highlightHtmlContent.join("").trim(), true),
+      text: highlightTextContent.join("").trim(),
+    };
+  }
+  return undefined;
+};
+
+const getDate = (article) => {
+  const firstParagraph = $(article, "p");
+
+  let publicationAt = null;
+  let updatedAt = null;
+
+  if (!firstParagraph) {
+    throw new Error("Can't find the updated date, first paragraph missing");
+  }
+
+  const spans = $$(firstParagraph, "span");
+  spans.forEach((span) => {
+    const textContent = span.textContent;
+    if (textContent.includes("Publié le")) {
+      publicationAt = textContent.match(/\d{1,2}\/\d{1,2}\/\d{4}/);
+    }
+    if (textContent.includes("Mis à jour le")) {
+      updatedAt = textContent.match(/\d{1,2}\/\d{1,2}\/\d{4}/);
+    }
+  });
+
+  if (updatedAt) {
+    return updatedAt[0];
+  }
+  if (publicationAt) {
+    return publicationAt[0];
+  }
+  throw new Error("Can't find the updated date in the first paragraph");
+};
+
+const populateSections = (sections) => {
+  return sections.map((section) => ({
+    anchor: slugify(section.title),
+    description: section.text.slice(0, 200),
+    html: section.html,
+    references: getReferences(section.text),
+    text: section.text,
+    title: section.title,
+  }));
 };
 
 export function parseDom(dom, id, url) {
-  const article = $(dom.window.document, "main");
+  const article = $(dom.window.document, "article");
   if (!article) {
-    throw new ParseError("no <main>");
+    throw new ParseError("no <article>");
   }
   if (!id) {
     throw new ParseError(`No id`);
@@ -212,8 +303,6 @@ export function parseDom(dom, id, url) {
   $$(article, ".cs_blocs").forEach(flattenCsBlocs);
   $$(article, "img").forEach(formatImage);
 
-  $$(article, "style").forEach(removeNode);
-  $$(article, "button").forEach(removeNode);
   $$(article, ".oembed-source").forEach(removeNode);
 
   let titleElement = $(article, "h1");
@@ -225,40 +314,23 @@ export function parseDom(dom, id, url) {
   }
   const title = textClean(titleElement.textContent, true);
 
-  const dateRaw =
-    $(dom.window.document, "time:nth-child(1)") ||
-    $(dom.window.document, "time:first-child");
-  const date = dateRaw?.textContent;
-  const introImg = $(dom.window.document, "article img")?.outerHTML;
+  const date = getDate(article);
   let intro = $(article, ".fr-text--lead") || "";
   intro =
     intro &&
-    textClean(
-      introImg ? introImg + intro.innerHTML : intro.innerHTML,
-      true
-    ).replace(/<script[^>]*>([\s\S]*?)<\/script>/g, "");
+    textClean(intro.innerHTML, true).replace(
+      /<script[^>]*>([\s\S]*?)<\/script>/g,
+      ""
+    );
   const description =
     $(dom.window.document, "meta[name=description]")?.getAttribute("content") ??
     "";
 
-  let sections = [];
+  let sections = parseHTMLSections(dom);
 
-  const mainElement = $$(article, `.main-content`)[0];
-  if (mainElement) {
-    const articleSectionChildren = mainElement ? [...mainElement.children] : [];
-
-    sections = sections.concat(
-      getSections(mainElement, articleSectionChildren).filter(
-        ({ anchor }) =>
-          [
-            "textes-de-reference",
-            "qui-contacter",
-            "articles-associes",
-            "lire-en-complement",
-            "documents",
-          ].indexOf(anchor) === -1
-      )
-    );
+  const highlight = parseHighlight(dom);
+  if (highlight) {
+    sections.unshift(highlight);
   }
 
   if (sections.length === 0) {
@@ -270,7 +342,7 @@ export function parseDom(dom, id, url) {
     description,
     intro,
     pubId: id,
-    sections,
+    sections: populateSections(sections),
     title,
     url,
   };
