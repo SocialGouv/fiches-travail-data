@@ -8,7 +8,7 @@ const FEED_URL = "https://travail-emploi.gouv.fr/?page=oseo_json";
 
 const limit = pLimit(10);
 
-export async function fetchFeed(url) {
+export async function fetchFeed() {
   const localJsonData = fs.readFileSync(
     path.join(__dirname, "../../local.data.json"),
     "utf8"

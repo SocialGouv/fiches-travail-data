@@ -30,6 +30,18 @@ const videoHtml = fs
   .readFileSync(path.join(__dirname, "article-video.html"))
   .toString();
 
+const sampleWithUpdatedDate = fs
+  .readFileSync(path.join(__dirname, "article-with-updated-date.html"))
+  .toString();
+
+const sampleWithoutUpdatedDate = fs
+  .readFileSync(path.join(__dirname, "article-without-updated-date.html"))
+  .toString();
+
+const sampleHarcelementTravail = fs
+  .readFileSync(path.join(__dirname, "harcelement-travail.html"))
+  .toString();
+
 describe("parseDom", () => {
   test("should parse HTML section", () => {
     const dom = new JSDOM(sample);
@@ -119,6 +131,32 @@ describe("parseDom", () => {
       `<img src="https://travail-emploi.gouv.fr/sites/travail-emploi/files/styles/w_1200/public/2024-05/Vignette-Guide-Op%C3%A9rations-de-modification-des-machines-.png.webp" width="800" height="500" alt="Guide technique relatif aux opérations de modification des machines ou des ensembles de machine en service" loading="lazy" typeof="foaf:Image" class="fr-fluid-img">`
     );
     expect(parsed).toMatchSnapshot();
+  });
+
+  describe("Check the updated date", () => {
+    test("should return the updated date if available", () => {
+      const dom = new JSDOM(sampleWithUpdatedDate);
+      const parsed = parseDom(dom, "article375531", "url-sample");
+      expect(parsed.date).toBe("17/09/2024");
+    })
+
+    test("should return the publication date if updated date not available", () => {
+      const dom = new JSDOM(sampleWithoutUpdatedDate);
+      const parsed = parseDom(dom, "article375531", "url-sample");
+      expect(parsed.date).toBe("12/03/2013");
+    })
+  })
+
+  describe("Full test", () => {
+    test("Le harcèlement au travail", () => {
+      const dom = new JSDOM(sampleHarcelementTravail);
+      const parsed = parseDom(dom, "article375531", "url-sample");
+      expect(parsed.sections[0].title).toBe("Le harcèlement moral (web série droit du travail)")
+      expect(parsed.sections[0].html).toMatchSnapshot()
+      expect(parsed.sections[1].title).toBe("Quelle est l'étendue de la protection des victimes et des témoins du harcèlement moral ?")
+      expect(parsed.sections[1].html).toMatchSnapshot()
+    })
+
   });
 });
 
