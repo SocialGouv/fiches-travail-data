@@ -136,6 +136,16 @@ export const textClean = (text, noNbsp = false) => {
     .trim();
 };
 
+const duplicateContent = (sections, highlight) => {
+  if (highlight) {
+    return (
+      sections.find((section) => highlight.text.includes(section.text)) !==
+      undefined
+    );
+  }
+  return false;
+};
+
 function parseHTMLSections(dom) {
   const document = dom.window.document;
 
@@ -180,7 +190,14 @@ function parseHTMLSections(dom) {
     sections.push(section);
   });
 
-  if (sections.find((section) => section.html === "")) {
+  const cleanSections = sections.map((section) => ({
+    ...section,
+    // Sometimes, we have all the html in a section
+    // We check a second times and delete HTML from the h2 found
+    // (H2 should not be in a section)
+    html: removeExtraH2(section.html),
+  }));
+  if (cleanSections.find((section) => section.html === "")) {
     return [
       {
         title: "Contenu",
@@ -189,13 +206,9 @@ function parseHTMLSections(dom) {
       },
     ];
   }
-  return sections.map((section) => ({
-    ...section,
-    // Sometimes, we have all the html in a section
-    // We check a second times and delete HTML from the h2 found
-    // (H2 should not be in a section)
-    html: removeExtraH2(section.html),
-  }));
+  if (cleanSections) {
+    return cleanSections;
+  }
 }
 
 const removeExtraH2 = (html) => {
@@ -329,6 +342,9 @@ export function parseDom(dom, id, url) {
   let sections = parseHTMLSections(dom);
 
   const highlight = parseHighlight(dom);
+  if (duplicateContent(sections, highlight)) {
+    sections = [];
+  }
   if (highlight) {
     sections.unshift(highlight);
   }

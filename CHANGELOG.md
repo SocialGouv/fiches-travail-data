@@ -1,3 +1,31 @@
+# [4.700.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.699.0...v4.700.0) (2024-09-24)
+
+
+### Features
+
+* disable scheduled released until new version ([#422](https://github.com/SocialGouv/fiches-travail-data/issues/422)) ([3a072b6](https://github.com/SocialGouv/fiches-travail-data/commit/3a072b612301caee576a8d8a16014001982948bc))
+
+# [4.699.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.698.0...v4.699.0) (2024-09-20)
+
+
+### Features
+
+* **data:** 20240920_2121 update ([0f16a9f](https://github.com/SocialGouv/fiches-travail-data/commit/0f16a9f015660ff8daa32e12b1a49673ede2f500))
+
+# [4.698.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.697.0...v4.698.0) (2024-09-19)
+
+
+### Features
+
+* **data:** 20240919_2120 update ([ccc4e65](https://github.com/SocialGouv/fiches-travail-data/commit/ccc4e65adf3ceb9d16155990b01fc0b278f2bb28))
+
+# [4.697.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.696.0...v4.697.0) (2024-09-17)
+
+
+### Features
+
+* **data:** 20240917_2121 update ([58020e9](https://github.com/SocialGouv/fiches-travail-data/commit/58020e93ae4f8e0b41180775d621ff43d4bedac6))
+
 # [4.696.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.695.0...v4.696.0) (2024-09-15)
 
 
