@@ -42,6 +42,10 @@ const sampleComplexHtml = fs
   .readFileSync(path.join(__dirname, "article-complex-html.html"))
   .toString();
 
+const sampleLaDemission = fs
+  .readFileSync(path.join(__dirname, "la-demission.html"))
+  .toString();
+
 describe("parseDom", () => {
   test("should parse HTML section", () => {
     const dom = new JSDOM(sample);
@@ -233,5 +237,16 @@ describe("parseDom", () => {
     expect(parsed.sections).toHaveLength(1);
     expect(parsed.sections[0].title).toBe("");
     expect(parsed.sections[0].html).toMatchSnapshot();
+  });
+
+  test("Page avec accordéons", () => {
+    const dom = new JSDOM(sampleLaDemission);
+    const parsed = parseDom(dom, "article375531", "url-sample");
+    expect(parsed.title).toBe("La démission");
+    expect(parsed.sections).toHaveLength(11);
+    expect(parsed.sections[0].title).toBe("");
+    expect(parsed.sections[0].html).toBe(
+      `<div class="fr-highlight"><h3>À savoir ! </h3><p>Le code du travail prévoit désormais une <strong>procédure particulière en cas d’abandon volontaire de son poste de travail par le salarié,</strong> au terme de laquelle ce dernier pourra être considéré comme ayant démissionné. </p></div><div></div>`
+    );
   });
 });

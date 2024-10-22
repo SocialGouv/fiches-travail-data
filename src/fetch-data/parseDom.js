@@ -138,12 +138,14 @@ export const textClean = (text, noNbsp = false) => {
 
 const duplicateContent = (sections, highlight) => {
   if (highlight) {
-    return (
-      sections.find((section) => highlight.text.includes(section.text)) !==
-      undefined
-    );
+    return sections.filter((section) =>
+      highlight.text
+        .replace(/\s+/g, "")
+        .toLowerCase()
+        .includes(section.text.replace(/\s+/g, "").toLowerCase())
+    ).length;
   }
-  return false;
+  return 0;
 };
 
 function parseHTMLSections(dom) {
@@ -341,9 +343,15 @@ export function parseDom(dom, id, url) {
 
   let sections = parseHTMLSections(dom);
 
-  const highlight = parseHighlight(dom);
-  if (duplicateContent(sections, highlight)) {
+  let highlight = parseHighlight(dom);
+  const duplicatedCount = duplicateContent(sections, highlight);
+  if (duplicatedCount >= sections.length) {
     sections = [];
+  } else if (duplicatedCount > 0) {
+    highlight = {
+      ...highlight,
+      html: removeExtraH2(highlight.html),
+    };
   }
   if (highlight) {
     sections.unshift(highlight);
