@@ -1,3 +1,11 @@
+# [4.701.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.700.0...v4.701.0) (2024-10-31)
+
+
+### Features
+
+* **data:** 20241031_0953 update ([85724f0](https://github.com/SocialGouv/fiches-travail-data/commit/85724f0a3aaeac6678be0e5aa918da3350c73d34))
+* migration vers le nouveau format MT ([#423](https://github.com/SocialGouv/fiches-travail-data/issues/423)) ([044f1a8](https://github.com/SocialGouv/fiches-travail-data/commit/044f1a805550dac9d00209e3634fbd1dbcddfdd6))
+
 # [4.700.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.699.0...v4.700.0) (2024-09-24)
 
 
