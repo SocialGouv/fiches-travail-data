@@ -1,8 +1,7 @@
 name: Release
 on:
-  # schedule:
-    # * is a special character in YAML so you have to quote this string
-    # - cron: "00 21 * * *"
+  schedule:
+    - cron: "00 21 * * *"
   repository_dispatch:
     types: manual_release
   workflow_dispatch:
@@ -43,14 +42,14 @@ jobs:
       - name: Build
         run: yarn build
 
-      #- name: Start
-      #  env:
-      #    TOKEN_MT: ${{ secrets.TOKEN_MT }}
-      #    DATAFILLER_URL: ${{ secrets.DATAFILLER_URL }}
-      #  run: yarn start
+      - name: Start
+        env:
+          TOKEN_MT: ${{ secrets.TOKEN_MT }}
+          DATAFILLER_URL: ${{ secrets.DATAFILLER_URL }}
+        run: yarn start
 
-      #- name: Check Refs
-      #  run: yarn checkRefs
+      - name: Check Refs
+        run: yarn checkRefs
 
       - name: Get metadata
         id: metadata
