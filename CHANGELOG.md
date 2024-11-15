@@ -1,3 +1,15 @@
+# [4.714.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.713.0...v4.714.0) (2024-11-15)
+
+
+### Bug Fixes
+
+* remove content ([#424](https://github.com/SocialGouv/fiches-travail-data/issues/424)) ([a381378](https://github.com/SocialGouv/fiches-travail-data/commit/a3813786a8672b843bc71d71568b40a28cfa55a6))
+
+
+### Features
+
+* **data:** 20241115_1034 update ([a2100e5](https://github.com/SocialGouv/fiches-travail-data/commit/a2100e56efb46f62471381f8764273f1232d1063))
+
 # [4.713.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.712.0...v4.713.0) (2024-11-11)
 
 
