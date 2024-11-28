@@ -1,3 +1,11 @@
+# [4.728.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.727.0...v4.728.0) (2024-11-28)
+
+
+### Features
+
+* **data:** 20241128_2113 update ([fdd4a4a](https://github.com/SocialGouv/fiches-travail-data/commit/fdd4a4a84737520c956d30dbae4120fc2b97d25f))
+* use SOCIALGROOVYBOT_BOTO_PAT ([#425](https://github.com/SocialGouv/fiches-travail-data/issues/425)) ([95579de](https://github.com/SocialGouv/fiches-travail-data/commit/95579de20aab59e7b2f5c85d1f77671500625280))
+
 # [4.727.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.726.0...v4.727.0) (2024-11-27)
 
 
