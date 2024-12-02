@@ -1,3 +1,15 @@
+# [4.732.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.731.0...v4.732.0) (2024-12-02)
+
+
+### Bug Fixes
+
+* add the title on sections without anchor ([#427](https://github.com/SocialGouv/fiches-travail-data/issues/427)) ([cb3cd69](https://github.com/SocialGouv/fiches-travail-data/commit/cb3cd69e01eddd759a79b93e3ccb114df72df153))
+
+
+### Features
+
+* **data:** 20241202_2114 update ([fdf90e1](https://github.com/SocialGouv/fiches-travail-data/commit/fdf90e11cc4d83d70daf64a17e041b81b008c7d4))
+
 # [4.731.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.730.0...v4.731.0) (2024-12-01)
 
 
