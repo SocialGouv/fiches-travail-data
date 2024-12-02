@@ -293,14 +293,14 @@ const getDate = (article) => {
   throw new Error("Can't find the updated date in the first paragraph");
 };
 
-const populateSections = (sections) => {
+const populateSections = (sections, title) => {
   return sections.map((section) => ({
     anchor: slugify(section.title),
     description: section.text.slice(0, 200),
     html: section.html,
     references: getReferences(section.text),
     text: section.text,
-    title: section.title,
+    title: section.title === "" ? title : section.title,
   }));
 };
 
@@ -366,7 +366,7 @@ export function parseDom(dom, id, url) {
     description,
     intro,
     pubId: id,
-    sections: populateSections(sections),
+    sections: populateSections(sections, title),
     title,
     url,
   };

@@ -50,7 +50,8 @@ describe("parseDom", () => {
   test("should parse HTML section", () => {
     const dom = new JSDOM(sample);
     const parsed = parseDom(dom, "article375531", "url-sample");
-    expect(parsed.sections[0].title).toBe("");
+    expect(parsed.sections[0].title).toBe("La rupture conventionnelle du contrat de travail à durée indéterminée");
+    expect(parsed.sections[0].anchor).toBe("");
     expect(parsed.sections[0].html).toMatchSnapshot();
     expect(parsed.sections[1].title).toBe(
       "La rupture conventionnelle en vidéo (Web série droit du travail)"
@@ -207,7 +208,8 @@ describe("parseDom", () => {
     const parsed = parseDom(dom, "article375531", "url-sample");
     expect(parsed.title).toBe("Le contrat de travail temporaire");
     expect(parsed.intro).toMatchSnapshot();
-    expect(parsed.sections[0].title).toBe("");
+    expect(parsed.sections[0].title).toBe("Le contrat de travail temporaire");
+    expect(parsed.sections[0].anchor).toBe("");
     expect(parsed.sections[0].html).toMatchSnapshot();
     expect(parsed.sections[1].title).toBe(
       "Les entreprises de travail temporaire en vidéo (Web série droit du travail)"
@@ -235,7 +237,8 @@ describe("parseDom", () => {
     const parsed = parseDom(dom, "article375531", "url-sample");
     expect(parsed.title).toBe("Les plans santé au travail (PST)");
     expect(parsed.sections).toHaveLength(1);
-    expect(parsed.sections[0].title).toBe("");
+    expect(parsed.sections[0].title).toBe("Les plans santé au travail (PST)");
+    expect(parsed.sections[0].anchor).toBe("");
     expect(parsed.sections[0].html).toMatchSnapshot();
   });
 
@@ -244,7 +247,8 @@ describe("parseDom", () => {
     const parsed = parseDom(dom, "article375531", "url-sample");
     expect(parsed.title).toBe("La démission");
     expect(parsed.sections).toHaveLength(11);
-    expect(parsed.sections[0].title).toBe("");
+    expect(parsed.sections[0].title).toBe("La démission");
+    expect(parsed.sections[0].anchor).toBe("");
     expect(parsed.sections[0].html).toBe(
       `<div class="fr-highlight"><h3>À savoir ! </h3><p>Le code du travail prévoit désormais une <strong>procédure particulière en cas d’abandon volontaire de son poste de travail par le salarié,</strong> au terme de laquelle ce dernier pourra être considéré comme ayant démissionné. </p></div><div></div>`
     );
