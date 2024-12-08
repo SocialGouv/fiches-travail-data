@@ -1,3 +1,10 @@
+# [4.738.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.737.0...v4.738.0) (2024-12-08)
+
+
+### Features
+
+* **data:** 20241208_2113 update ([9f2e7f6](https://github.com/SocialGouv/fiches-travail-data/commit/9f2e7f61a594a82a5958f41636cba94071bbbca0))
+
 # [4.737.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.736.0...v4.737.0) (2024-12-07)
 
 
