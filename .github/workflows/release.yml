@@ -6,11 +6,21 @@ on:
     types: manual_release
   workflow_dispatch:
 
+permissions:
+  id-token: write  # Required for OIDC token generation
+
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
+      - name: Get GitHub App Token
+        id: token
+        uses: SocialGouv/token-bureau@main
+        with:
+          token-bureau-url: https://token-bureau.fabrique.social.gouv.fr
+          audience: socialgouv
+
       - name: Set up Node.js 16.x
         uses: actions/setup-node@v3
         with:
@@ -76,7 +86,7 @@ jobs:
         if: ${{ steps.metadata.outputs.data_status }}
         env:
           HUSKY_SKIP_HOOKS: "true"
-          GITHUB_TOKEN: ${{ secrets.SOCIALGROOVYBOT_BOTO_PAT }}
+          GITHUB_TOKEN: ${{ steps.token.outputs.token }}
         with:
           author_name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
           author_email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
@@ -100,7 +110,7 @@ jobs:
           GIT_AUTHOR_NAME: ${{ secrets.SOCIALGROOVYBOT_NAME }}
           GIT_COMMITTER_EMAIL: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
           GIT_COMMITTER_NAME: ${{ secrets.SOCIALGROOVYBOT_NAME }}
-          GITHUB_TOKEN: ${{ secrets.SOCIALGROOVYBOT_BOTO_PAT }}
+          GITHUB_TOKEN: ${{ steps.token.outputs.token }}
           NPM_TOKEN: ${{ secrets.SOCIALGROOVYBOT_NPM_TOKEN }}
 
       - uses: mattermost/action-mattermost-notify@master
