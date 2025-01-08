@@ -1,3 +1,16 @@
+# [4.768.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.767.0...v4.768.0) (2025-01-08)
+
+
+### Bug Fixes
+
+* **ci-cd:** use token-bureau ([#432](https://github.com/SocialGouv/fiches-travail-data/issues/432)) ([ae6f8e9](https://github.com/SocialGouv/fiches-travail-data/commit/ae6f8e9392f6d40b43b9c399222b73835cb48d8c))
+* **ci:** permissions ([7c9c993](https://github.com/SocialGouv/fiches-travail-data/commit/7c9c9938e7fc870be2f41719c75d99d4fcee7a79))
+
+
+### Features
+
+* **data:** 20250108_0911 update ([59759f5](https://github.com/SocialGouv/fiches-travail-data/commit/59759f5314469ec855e36c56bd7bc9a726c4c143))
+
 # [4.767.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.766.0...v4.767.0) (2025-01-06)
 
 
