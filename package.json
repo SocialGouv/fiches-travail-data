@@ -1,6 +1,6 @@
 {
   "name": "@socialgouv/fiches-travail-data",
-  "version": "4.862.0",
+  "version": "4.863.0",
   "main": "build/index.js",
   "module": "build/index.js",
   "files": [
