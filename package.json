@@ -41,7 +41,7 @@
     "@types/jsdom": "^21.1.7",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
-    "babel-jest": "^27.4.4",
+    "babel-jest": "^29.0.0",
     "eslint": "^8.28.0",
     "eslint-plugin-jest": "^27.1.6",
     "husky": "^8.0.0",
