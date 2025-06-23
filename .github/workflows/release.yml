@@ -143,7 +143,6 @@ jobs:
 
             Le processus de mise à jour a continué normalement.
             [Les logs complets sont disponibles ici](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
-          COLOR: "#FFCC00"
 
       - uses: mattermost/action-mattermost-notify@master
         if: failure()
@@ -152,4 +151,3 @@ jobs:
           TEXT: |
             ❌ La mise à jour du dépôt fiches-travail-data a échoué.
             [Les logs sont disponibles ici](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
-          COLOR: "#FF0000"
