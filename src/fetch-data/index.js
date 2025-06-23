@@ -30,10 +30,25 @@ export async function scrap(urls) {
 
   const failedPromise = results.filter(({ status }) => status === "rejected");
 
-  if (failedPromise.length > 0) {
+  // Separate 403 errors from other errors
+  const forbiddenErrors = failedPromise.filter(
+    ({ reason }) => reason.isForbidden
+  );
+  const otherErrors = failedPromise.filter(({ reason }) => !reason.isForbidden);
+
+  // Log 403 errors as warnings
+  if (forbiddenErrors.length > 0) {
+    console.warn(
+      "WARNING: The following pages returned 403 Forbidden and were skipped:",
+      forbiddenErrors.map(({ reason }) => reason.url)
+    );
+  }
+
+  // Only fail if there are non-403 errors
+  if (otherErrors.length > 0) {
     console.error(
       "scrap fail",
-      failedPromise.map(({ reason }) => reason)
+      otherErrors.map(({ reason }) => reason)
     );
     throw new Error("Error - fetching pages fail. Some pages are missing");
   }

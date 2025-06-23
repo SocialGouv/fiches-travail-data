@@ -34,6 +34,10 @@ export async function scrapUrl(id, url) {
       err = new Error(
         `HTTP Error: ${error.response.statusCode} - ${url} - ${error.message}`
       );
+      // Add a property to identify 403 errors specifically
+      if (error.response.statusCode === 403) {
+        err.isForbidden = true;
+      }
     } else {
       err = new Error(error.message);
     }

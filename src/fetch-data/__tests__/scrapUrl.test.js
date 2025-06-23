@@ -31,6 +31,16 @@ got.mockImplementation((url) => {
     error.name = "HTTPError";
     return Promise.reject(error);
   }
+  if (url.startsWith("url.forbidden")) {
+    const error = new HTTPError();
+    error.response = {
+      statusCode: 403,
+    };
+    error.options = { url: { href: "url.forbidden" } };
+    error.message = "Forbidden";
+    error.name = "HTTPError";
+    return Promise.reject(error);
+  }
   if (url.startsWith("url.parse.fail")) {
     const error = new ParseError();
     error.message = "parse fail";
@@ -88,5 +98,16 @@ describe("scrapUrl", () => {
     await expect(scrapUrl("id", "url.parse.fail")).rejects.toThrow(
       /Parsing Error/
     );
+  });
+
+  test("scrapUrl should set isForbidden property for 403 errors", async () => {
+    process.env.TOKEN_MT = "TOKEN";
+    try {
+      await scrapUrl("id", "url.forbidden");
+      expect(true).toBe(false); // This will fail the test if no error is thrown
+    } catch (error) {
+      expect(error.message).toMatch(/HTTP Error: 403/);
+      expect(error.isForbidden).toBe(true);
+    }
   });
 });
