@@ -1,3 +1,11 @@
+# [4.917.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.916.0...v4.917.0) (2025-06-23)
+
+
+### Features
+
+* **data:** 20250623_2115 update ([f69bb68](https://github.com/SocialGouv/fiches-travail-data/commit/f69bb6871b93b2a8292df8ad85614ce5f30dd184))
+* set a warning message on forbidden pages instead of blocking ([#436](https://github.com/SocialGouv/fiches-travail-data/issues/436)) ([c4bcde0](https://github.com/SocialGouv/fiches-travail-data/commit/c4bcde087a4f7371395dd5b677de3404331f6ba2))
+
 # [4.916.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.915.0...v4.916.0) (2025-06-12)
 
 
