@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  id-token: write  # Required for OIDC token generation
+  id-token: write # Required for OIDC token generation
   contents: write
 
 jobs:
@@ -61,6 +61,21 @@ jobs:
 
       - name: Check Refs
         run: yarn checkRefs
+
+      - name: Check for 403 errors
+        id: check_403
+        run: |
+          if [ -f "./forbidden-urls.json" ]; then
+            echo "has_403=true" >> $GITHUB_OUTPUT
+            FORBIDDEN_CONTENT=$(cat ./forbidden-urls.json)
+            # Escape newlines and other special characters for GitHub Actions
+            FORBIDDEN_CONTENT="${FORBIDDEN_CONTENT//'%'/'%25'}"
+            FORBIDDEN_CONTENT="${FORBIDDEN_CONTENT//$'\n'/'%0A'}"
+            FORBIDDEN_CONTENT="${FORBIDDEN_CONTENT//$'\r'/'%0D'}"
+            echo "forbidden_urls=$FORBIDDEN_CONTENT" >> $GITHUB_OUTPUT
+          else
+            echo "has_403=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Get metadata
         id: metadata
@@ -116,9 +131,23 @@ jobs:
           NPM_TOKEN: ${{ secrets.SOCIALGROOVYBOT_NPM_TOKEN }}
 
       - uses: mattermost/action-mattermost-notify@master
+        if: steps.check_403.outputs.has_403 == 'true'
+        with:
+          MATTERMOST_WEBHOOK_URL: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
+          TEXT: |
+            ⚠️ **Avertissement** : Certaines pages ont retourné une erreur 403 (Forbidden) lors du scraping et ont été ignorées.
+
+            ```json
+            ${{ steps.check_403.outputs.forbidden_urls }}
+            ```
+
+            Le processus de mise à jour a continué normalement.
+            [Les logs complets sont disponibles ici](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+
+      - uses: mattermost/action-mattermost-notify@master
         if: failure()
         with:
           MATTERMOST_WEBHOOK_URL: ${{ secrets.MATTERMOST_WEBHOOK_URL }}
           TEXT: |
-            La mise à jour du dépôt fiches-travail-data a échoué.
+            ❌ La mise à jour du dépôt fiches-travail-data a échoué.
             [Les logs sont disponibles ici](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})

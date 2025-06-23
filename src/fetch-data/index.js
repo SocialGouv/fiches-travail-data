@@ -22,10 +22,40 @@ export async function scrap(urls) {
 
   const failedPromise = results.filter(({ status }) => status === "rejected");
 
-  if (failedPromise.length > 0) {
+  // Separate 403 errors from other errors
+  const forbiddenErrors = failedPromise.filter(
+    ({ reason }) => reason.isForbidden
+  );
+  const otherErrors = failedPromise.filter(({ reason }) => !reason.isForbidden);
+
+  // Log 403 errors as warnings and save them to a file for GitHub Actions
+  if (forbiddenErrors.length > 0) {
+    const forbiddenUrls = forbiddenErrors.map(({ reason }) => reason.url);
+    console.warn(
+      "WARNING: The following pages returned 403 Forbidden and were skipped:",
+      forbiddenUrls
+    );
+
+    // Write forbidden URLs to a file for GitHub Actions to use
+    fs.writeFileSync(
+      path.join(__dirname, "../../forbidden-urls.json"),
+      JSON.stringify(
+        {
+          urls: forbiddenUrls,
+          timestamp: new Date().toISOString(),
+          count: forbiddenUrls.length,
+        },
+        null,
+        2
+      )
+    );
+  }
+
+  // Only fail if there are non-403 errors
+  if (otherErrors.length > 0) {
     console.error(
       "scrap fail",
-      failedPromise.map(({ reason }) => reason)
+      otherErrors.map(({ reason }) => reason)
     );
     throw new Error("Error - fetching pages fail. Some pages are missing");
   }
