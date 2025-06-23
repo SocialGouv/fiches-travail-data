@@ -36,11 +36,26 @@ export async function scrap(urls) {
   );
   const otherErrors = failedPromise.filter(({ reason }) => !reason.isForbidden);
 
-  // Log 403 errors as warnings
+  // Log 403 errors as warnings and save them to a file for GitHub Actions
   if (forbiddenErrors.length > 0) {
+    const forbiddenUrls = forbiddenErrors.map(({ reason }) => reason.url);
     console.warn(
       "WARNING: The following pages returned 403 Forbidden and were skipped:",
-      forbiddenErrors.map(({ reason }) => reason.url)
+      forbiddenUrls
+    );
+
+    // Write forbidden URLs to a file for GitHub Actions to use
+    fs.writeFileSync(
+      path.join(__dirname, "../../forbidden-urls.json"),
+      JSON.stringify(
+        {
+          urls: forbiddenUrls,
+          timestamp: new Date().toISOString(),
+          count: forbiddenUrls.length,
+        },
+        null,
+        2
+      )
     );
   }
 
