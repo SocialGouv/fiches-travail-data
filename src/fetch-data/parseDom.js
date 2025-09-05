@@ -108,6 +108,14 @@ const formatAnchor = (node) => {
     node.setAttribute("target", "_blank");
     node.setAttribute("rel", "nofollow, noopener");
   }
+
+  // Set title attribute to link text content
+  const linkText = node.textContent.trim();
+  if (linkText) {
+    const hasTargetBlank = node.getAttribute("target") === "_blank";
+    const title = hasTargetBlank ? `${linkText} - nouvelle fenêtre` : linkText;
+    node.setAttribute("title", title);
+  }
 };
 const removeNode = (node) => {
   node.remove();
