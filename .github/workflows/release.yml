@@ -121,8 +121,8 @@ jobs:
           GIT_COMMITTER_EMAIL: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
           GIT_COMMITTER_NAME: ${{ secrets.SOCIALGROOVYBOT_NAME }}
           GITHUB_TOKEN: ${{ steps.token.outputs.token }}
-          NPM_CONFIG_PROVENANCE: "true"
-
+      - name: Publish to npm with OIDC
+        run: npm publish
       - uses: mattermost/action-mattermost-notify@master
         if: steps.check_403.outputs.has_403 == 'true'
         with:
