@@ -15,13 +15,6 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Get GitHub App Token
-        id: token
-        uses: SocialGouv/token-bureau@main
-        with:
-          token-bureau-url: https://token-bureau.fabrique.social.gouv.fr
-          audience: socialgouv
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
