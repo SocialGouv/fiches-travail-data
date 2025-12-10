@@ -1,3 +1,11 @@
+## [4.1081.3](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1081.2...v4.1081.3) (2025-12-10)
+
+
+### Bug Fixes
+
+* use OIDC NPM publish ([b51e2f5](https://github.com/SocialGouv/fiches-travail-data/commit/b51e2f5111b47b4ab62c54e1dd8e166a308676b1))
+* use OIDC NPM publish ([1629982](https://github.com/SocialGouv/fiches-travail-data/commit/16299823d12745bbe6c1238f3f7835873643c040))
+
 ## [4.1081.2](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1081.1...v4.1081.2) (2025-12-10)
 
 
