@@ -1,3 +1,10 @@
+## [4.1081.2](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1081.1...v4.1081.2) (2025-12-10)
+
+
+### Bug Fixes
+
+* dummy commit ([f6986ca](https://github.com/SocialGouv/fiches-travail-data/commit/f6986ca8101812d1e90f3aa44d214d1bab8693c2))
+
 ## [4.1081.1](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1081.0...v4.1081.1) (2025-12-10)
 
 
