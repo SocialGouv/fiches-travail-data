@@ -16,9 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 20.x
+          node-version: 24.x
           registry-url: https://registry.npmjs.org
 
       - name: Update npm (required for npm trusted publishing)
@@ -31,6 +31,7 @@ jobs:
           echo "yarn_cache=$(yarn cache dir)" >> "$GITHUB_OUTPUT"
           echo "Node $(node --version)"
           echo "Yarn $(yarn --version)"
+          echo "Npm $(npm --version)"
 
       - uses: actions/checkout@v4
 
@@ -49,60 +50,17 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Start
-        env:
-          TOKEN_MT: ${{ secrets.TOKEN_MT }}
-          DATAFILLER_URL: ${{ secrets.DATAFILLER_URL }}
-        run: yarn start
-
-      - name: Check Refs
-        run: yarn checkRefs
-
-      - name: Check for 403 errors
-        id: check_403
+      - name: Log npm environment
         run: |
-          if [ -f "./forbidden-urls.json" ]; then
-            echo "has_403=true" >> "$GITHUB_OUTPUT"
-            FORBIDDEN_CONTENT=$(cat ./forbidden-urls.json)
-            FORBIDDEN_CONTENT="${FORBIDDEN_CONTENT//'%'/'%25'}"
-            FORBIDDEN_CONTENT="${FORBIDDEN_CONTENT//$'\n'/'%0A'}"
-            FORBIDDEN_CONTENT="${FORBIDDEN_CONTENT//$'\r'/'%0D'}"
-            echo "forbidden_urls=$FORBIDDEN_CONTENT" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_403=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Get metadata
-        id: metadata
-        shell: bash
-        run: |
-          echo "data_status=$(git status -s ./data)" >> "$GITHUB_OUTPUT"
-          echo "now=$(date +"%Y%m%d_%H%M")" >> "$GITHUB_OUTPUT"
-
-      - name: Print metadata
-        run: |
-          echo "Data status ${{ steps.metadata.outputs.now }}"
-          echo "${{ steps.metadata.outputs.data_status }}"
-
-      - name: Check JSON
-        run: |
-          for filename in ./data/*\.json; do
-            node "$filename" > /dev/null || {
-              echo "Error: Invalid JSON in $filename"
-              exit 1
-            }
-          done
-
-      - uses: EndBug/add-and-commit@v7
-        if: ${{ steps.metadata.outputs.data_status }}
-        env:
-          HUSKY_SKIP_HOOKS: "true"
-          GITHUB_TOKEN: ${{ steps.token.outputs.token }}
-        with:
-          author_name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
-          author_email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
-          message: "feat(data): ${{ steps.metadata.outputs.now }} update"
-          add: "data"
+          echo "Node version:"
+          node --version
+          echo "NPM version:"
+          npm --version
+          echo "NPM registry:"
+          npm config get registry
+          echo "NPM user (si connecté) :"
+          npm whoami || echo "Non connecté à npm (whoami a échoué)"
+          echo $NPM_TOKEN
 
       - name: Publish NPM package
-        run: npm publish
+        run: npm publish --loglevel verbose
