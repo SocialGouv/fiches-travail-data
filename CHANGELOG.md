@@ -1,3 +1,15 @@
+# [4.1131.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1130.0...v4.1131.0) (2026-01-30)
+
+
+### Bug Fixes
+
+* **fiches-mt:** suppression des fiches obsolètes ([#440](https://github.com/SocialGouv/fiches-travail-data/issues/440)) ([907fcf7](https://github.com/SocialGouv/fiches-travail-data/commit/907fcf7cf6c4ec522f09be53650e6addb89494e8))
+
+
+### Features
+
+* **data:** 20260130_2123 update ([9499c5c](https://github.com/SocialGouv/fiches-travail-data/commit/9499c5c4448fa4736a097df7136cfeaada6536bb))
+
 # [4.1130.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1129.0...v4.1130.0) (2026-01-29)
 
 
