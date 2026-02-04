@@ -1,3 +1,11 @@
+# [4.1135.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1134.0...v4.1135.0) (2026-02-04)
+
+
+### Features
+
+* ajout de la fiche sur la période de reconversion ([ab75e7b](https://github.com/SocialGouv/fiches-travail-data/commit/ab75e7b4f2e98570403c9c585cee01fef2a48e5e))
+* **data:** 20260204_2129 update ([c500068](https://github.com/SocialGouv/fiches-travail-data/commit/c5000681698a49b25d79da183d5fdd992c47eddb))
+
 # [4.1134.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1133.0...v4.1134.0) (2026-02-03)
 
 
