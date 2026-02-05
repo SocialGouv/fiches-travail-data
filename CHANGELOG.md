@@ -1,3 +1,11 @@
+# [4.1136.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1135.0...v4.1136.0) (2026-02-05)
+
+
+### Features
+
+* add a new entry to local.data.json ([954a606](https://github.com/SocialGouv/fiches-travail-data/commit/954a606c9bfe4f30d4a3ab9062a6c2a117c9a53f))
+* **data:** 20260205_2124 update ([9d95cda](https://github.com/SocialGouv/fiches-travail-data/commit/9d95cdac8668b669470ebbcd1274f71f0f3aaa7a))
+
 # [4.1135.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1134.0...v4.1135.0) (2026-02-04)
 
 
