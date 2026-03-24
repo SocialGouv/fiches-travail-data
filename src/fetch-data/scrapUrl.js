@@ -1,23 +1,29 @@
 import got from "got";
 import { JSDOM } from "jsdom";
 
-import { injectToken } from "./injectToken";
+import { getUserAgent } from "./getUserAgent";
 import { parseDom } from "./parseDom";
 
 export async function scrapUrl(id, url) {
   try {
-    let response = await got(injectToken(url), {
+    let response = await got(url, {
       followRedirect: true,
       http2: true,
       retry: 3,
+      headers: {
+        "User-Agent": getUserAgent(),
+      },
     });
     if (/HTTP 30\d/.test(response.body)) {
       const [, redirectUrl] = response.body.match(/href="(.*)"/);
       try {
-        response = await got(injectToken(redirectUrl), {
+        response = await got(redirectUrl, {
           followRedirect: true,
           http2: true,
           retry: 3,
+          headers: {
+            "User-Agent": getUserAgent(),
+          },
         });
       } catch (error) {
         throw new Error(`Wrong redirectUrl: ${url} => ${redirectUrl}`);

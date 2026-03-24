@@ -70,38 +70,38 @@ describe("scrapUrl", () => {
     } catch (e) {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(e.message).toBe(
-        "Token (cgtoken) is required to fetch the data. This token is provided by the travail-emploi.gouv.fr team."
+        "User agent is required to fetch the data. This user agent is provided by the travail-emploi.gouv.fr team."
       );
     }
   });
 
   test("scrapUrl should return formated data", async () => {
-    process.env.TOKEN_MT = "TOKEN";
+    process.env.USER_AGENT = "user agent";
     const result = await scrapUrl("id", "http://url.ok");
     expect(result).toEqual({ title: "Yo" });
   });
 
   test("scrapUrl should throw if redirected url failed", async () => {
-    process.env.TOKEN_MT = "TOKEN";
+    process.env.USER_AGENT = "user agent";
     await expect(scrapUrl("id", "url.wrong-redirect")).rejects.toThrow(
       /Wrong redirectUrl/
     );
   });
 
   test("scrapUrl should throw if url failed", async () => {
-    process.env.TOKEN_MT = "TOKEN";
+    process.env.USER_AGENT = "user agent";
     await expect(scrapUrl("id", "url.http.fail")).rejects.toThrow(/HTTP Error/);
   });
 
   test("scrap should throw if parse fail", async () => {
-    process.env.TOKEN_MT = "TOKEN";
+    process.env.USER_AGENT = "user agent";
     await expect(scrapUrl("id", "url.parse.fail")).rejects.toThrow(
       /Parsing Error/
     );
   });
 
   test("scrapUrl should set isForbidden property for 403 errors", async () => {
-    process.env.TOKEN_MT = "TOKEN";
+    process.env.USER_AGENT = "user agent";
     try {
       await scrapUrl("id", "url.forbidden");
       expect(true).toBe(false); // This will fail the test if no error is thrown
