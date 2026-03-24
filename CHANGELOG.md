@@ -1,3 +1,16 @@
+# [4.1169.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1168.0...v4.1169.0) (2026-03-24)
+
+
+### Bug Fixes
+
+* erreur dans le job, manque la USER_AGENT variable ([#443](https://github.com/SocialGouv/fiches-travail-data/issues/443)) ([ea878dd](https://github.com/SocialGouv/fiches-travail-data/commit/ea878dd1ed8dade5842c74888d3b6c4b9da1a52c))
+* utilisation d'un user-agent pour récupérer les fiches du ministère ([#442](https://github.com/SocialGouv/fiches-travail-data/issues/442)) ([e381633](https://github.com/SocialGouv/fiches-travail-data/commit/e381633f76d56c9c45a03b9ec2fba2e558659949))
+
+
+### Features
+
+* **data:** 20260324_1351 update ([8fc5cd7](https://github.com/SocialGouv/fiches-travail-data/commit/8fc5cd7aa9a8f0272188286dc9f1c847a99c7134))
+
 # [4.1168.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1167.0...v4.1168.0) (2026-03-08)
 
 
