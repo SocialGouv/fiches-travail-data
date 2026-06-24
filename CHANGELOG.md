@@ -1,3 +1,11 @@
+# [4.1242.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1241.0...v4.1242.0) (2026-06-24)
+
+
+### Features
+
+* ajout de la fiche burn out ([6afc8bb](https://github.com/SocialGouv/fiches-travail-data/commit/6afc8bbde86640b5a1888ac073a1a2d6c3375041))
+* **data:** 20260624_2212 update ([9af72b7](https://github.com/SocialGouv/fiches-travail-data/commit/9af72b760160f139f04f7ad02da633d3e023fb33))
+
 # [4.1241.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1240.0...v4.1241.0) (2026-06-23)
 
 
