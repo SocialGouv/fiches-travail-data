@@ -29,7 +29,9 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Update npm (required for npm trusted publishing)
-        run: npm install -g npm@latest
+        # npm@12.0.0 casse le publish provenance (module 'sigstore' manquant, npm/cli#9722).
+        # On épingle la branche 11.x qui supporte le trusted publishing OIDC (>= 11.5.1).
+        run: npm install -g npm@11
 
       - name: Get yarn cache directory path
         id: init
