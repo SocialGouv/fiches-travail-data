@@ -1,3 +1,15 @@
+# [4.1257.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1256.0...v4.1257.0) (2026-07-10)
+
+
+### Bug Fixes
+
+* bloquer la version de npm en v11 ([#444](https://github.com/SocialGouv/fiches-travail-data/issues/444)) ([44db456](https://github.com/SocialGouv/fiches-travail-data/commit/44db4567a4b01da6b418d5a61753d029d48ff522))
+
+
+### Features
+
+* **data:** 20260710_2157 update ([07d1db2](https://github.com/SocialGouv/fiches-travail-data/commit/07d1db2b761056c05ac68b81a83db519d2e46018))
+
 # [4.1256.0](https://github.com/SocialGouv/fiches-travail-data/compare/v4.1255.0...v4.1256.0) (2026-07-09)
 
 
